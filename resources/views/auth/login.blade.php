@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Azimut Mass Mailing</title>
+  <title>EASY BUSINESS SUITE :: AZIMUT BUSINESS SOLUTIONS</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
@@ -19,21 +19,24 @@
     <div class="container-login100">
       <div class="wrap-login100">
         <div class="login100-pic js-tilt" data-tilt>
-          <img src="{{ asset('frontend/assets/images/azimut.png') }}" alt="">
+          <img src="{{ asset('frontend/assets/images/easybusinesssuitelogo.png') }}" alt="">
+          <hr>
+          <img id="SonatrachLogo" src="{{ asset('frontend/assets/images/sonatrach_logo.gif') }}" alt="">
         </div>
-        <form class="login100-form validate-form">
+        <form class="login100-form validate-form" method="POST" action="{{ route('auth.login.view') }}">
+          @csrf
           <span class="login100-form-title">
             Connexion
           </span>
-          <div class="wrap-input100 validate-input" data-validate = "Un email valide est obligatoire: ex@abc.xyz">
-            <input class="input100" type="text" name="email" placeholder="Email">
+          <div class="wrap-input100 validate-input" data-validate = "Le compte d'utilisateur est obligatoire">
+            <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
-              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <i class="fa fa-user" aria-hidden="true"></i>
             </span>
           </div>
           <div class="wrap-input100 validate-input" data-validate = "Le mot de passe est obligatoire">
-            <input class="input100" type="password" name="pass" placeholder="Mot de passe">
+            <input class="input100" type="password" name="password" placeholder="Mot de passe">
             <span class="focus-input100"></span>
             <span class="symbol-input100">
               <i class="fa fa-lock" aria-hidden="true"></i>
