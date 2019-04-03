@@ -19,3 +19,16 @@ php artisan composer:install
 ``` bash
 npm install
 ```
+
+## Creating JS assets
+
+To create a new js file to be compiled with npm, please:
+- Create a folder under **ressources/js** to have better files organisation
+- set name of file as: **file_name.compile.js**
+- run again:
+``` bash
+npm run watch
+```
+to compile new created files,
+result files will be found under:
+**public/js/**
