@@ -25,5 +25,6 @@
     </div>
   </div>
   @include('layout.assets._js')
+  @yield('extraJs')
 </body>
 </html>
