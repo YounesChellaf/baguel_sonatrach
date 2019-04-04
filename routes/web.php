@@ -10,4 +10,5 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function(){
 // ,'middleware' => 'auth'
 Route::group(['prefix' => 'admin' ], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
+  Route::resource('direction','DirectionController');
 });
