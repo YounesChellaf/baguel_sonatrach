@@ -10,4 +10,11 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function(){
 // ,'middleware' => 'auth'
 Route::group(['prefix' => 'admin' ], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
+
+  Route::prefix('users')->group(function(){
+    Route::get('/', 'UsersController@index')->name('admin.users.index');
+  });
+
+
+
 });

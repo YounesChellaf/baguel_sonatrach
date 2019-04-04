@@ -501,7 +501,7 @@
             </a>
           </li>
           <li class="">
-            <a href="javascript:void(0)" class="waves-effect waves-dark">
+            <a href="{{ route('admin.users.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Compte utilisateurs</span>
             </a>
           </li>

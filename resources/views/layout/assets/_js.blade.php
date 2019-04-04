@@ -18,3 +18,4 @@
 <script src="{{ asset('frontend/assets/js/vertical/vertical-layout.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/pages/dashboard/crm-dashboard.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/js/script.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
