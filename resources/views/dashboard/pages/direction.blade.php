@@ -72,8 +72,8 @@
                                     <input type="text" class="form-control" id="recipient-name" name="address">
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active">
+                                    <label for="recipient-name" class="control-label">Active :</label>
+                                    <input type="checkbox" class="js-single" checked />
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>

@@ -56,3 +56,7 @@
 </script>
 <!-- DataTable JS -->
 <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+<!-- Switch JS -->
+<script type="text/javascript" src="{{asset('frontend/assets/pages/swithces.js')}}"></script>
+<script type="text/javascript" src="{{asset('frontend/assets/pages/switchery.min.js')}}"></script>
+<!-- End Switch JS -->
