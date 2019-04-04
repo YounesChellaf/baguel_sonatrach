@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Direction;
 use Illuminate\Http\Request;
 
 class DirectionController extends Controller
@@ -34,7 +35,17 @@ class DirectionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name = $request->input('name');
+        $address = $request->input('address');
+        $active = $request->input('active');
+
+        Direction::create([
+            'name' =>$name,
+            'address' =>$address,
+            'active' =>$active,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +79,19 @@ class DirectionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $name= $request->input('name');
+        $address= $request->input('address');
+        $active= $request->input('active');
+
+        $direction = Direction::find($id);
+
+        $direction->name = $name;
+        $direction->address = $address;
+        $direction->active =$active;
+
+        $direction->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -79,6 +102,7 @@ class DirectionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Direction::destroy($id);
+        return redirect()->back();
     }
 }
