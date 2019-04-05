@@ -25,6 +25,7 @@
     </div>
   </div>
   @include('layout.assets._js')
+  @include('layout.assets.datatable._js')
   @yield('extraJs')
 </body>
 </html>

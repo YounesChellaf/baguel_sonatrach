@@ -1,5 +1,12 @@
-@extends('dashboard.index')
-@section('main-content')
+@extends('layout.main_layout')
+@include('layout.assets.datatable._css')
+@section('content')
+    <div class="page-header card">
+        <div class="row align-items-end">
+            @include('departement.partials.pageTitle')
+            @include('departement.partials.beadcrumbs')
+        </div>
+    </div>
     <div class="pcoded-inner-content">
         <div class="main-body">
             <div class="page-wrapper">
@@ -49,7 +56,6 @@
     </div>
     <div id="styleSelector">
     </div>
-
     <div class="col-md-4">
         <div id="modal-add-departement" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
@@ -157,3 +163,5 @@
         </div>
     @endforeach
 @endsection
+
+@include('layout.assets.datatable._js')
