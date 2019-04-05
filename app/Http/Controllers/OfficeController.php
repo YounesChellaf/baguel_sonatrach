@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Departement;
 use Illuminate\Http\Request;
 
-class DepartementController extends Controller
+class OfficeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        return view('departement.index');
+        //
     }
 
     /**
@@ -35,17 +34,7 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        $active = $request->input('active');
-        $direction_id = $request->input('select');
-
-        Departement::create([
-            'name' =>$name,
-            'direction_id' =>$direction_id,
-            'active' =>$active,
-        ]);
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -79,19 +68,7 @@ class DepartementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name= $request->input('name');
-        $active= $request->input('active');
-        $direction_id = $request->input('select');
-
-        $departement = Departement::find($id);
-
-        $departement->name = $name;
-        $departement->direction_id = $direction_id;
-        $departement->active =$active;
-
-        $departement->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -102,7 +79,6 @@ class DepartementController extends Controller
      */
     public function destroy($id)
     {
-        Departement::destroy($id);
-        return redirect()->back();
+        //
     }
 }

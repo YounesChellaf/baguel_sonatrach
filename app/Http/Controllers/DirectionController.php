@@ -14,7 +14,7 @@ class DirectionController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pages.direction');
+        return view('direction.index');
     }
 
     /**
