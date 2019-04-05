@@ -12,6 +12,7 @@ Route::group(['prefix' => 'admin' ], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
 
   Route::resource('direction','DirectionController');
+  Route::resource('departement','DepartementController');
 
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');

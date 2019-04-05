@@ -16,7 +16,7 @@ class CreateDirectionsTable extends Migration
         Schema::create('directions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->tinyInteger('active')->nullable()->default(true);
+            $table->boolean('active')->nullable()->default(true);
             $table->text('address');
             $table->timestamps();
         });
