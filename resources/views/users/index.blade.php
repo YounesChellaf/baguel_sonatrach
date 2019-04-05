@@ -20,7 +20,7 @@
         <div class="card">
           <div class="card-header">
             <h5>Comptes utilisateurs</h5>
-            <span></span>
+            <a href="{{ route('admin.users.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau compte</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
@@ -36,14 +36,16 @@
                   </tr>
                 </thead>
                 <tbody>
+                  @foreach(User::all() as $index => $user)
                   <tr>
-                    <td>Tiger Nixon</td>
+                    <td>{{ $user->name }}</td>
                     <td>System Architect</td>
                     <td>Edinburgh</td>
                     <td>61</td>
                     <td>2011/04/25</td>
                     <td>$320,800</td>
                   </tr>
+                  @endforeach
                 </tbody>
               </table>
             </div>
