@@ -31,34 +31,34 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom</label>
                 <div class="col-sm-10">
-                  <input type="text" id="firstName" name="firstName" class="form-control">
+                  <input type="text" id="firstName" value="{{ old('firstName') }}" name="firstName" class="form-control">
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Prénom</label>
                 <div class="col-sm-10">
-                  <input type="text" id="lastName" class="form-control" name="lastName" placeholder="">
+                  <input type="text" id="lastName" class="form-control" value="{{ old('lastName') }}" name="lastName" placeholder="">
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                  <input type="email" class="form-control" name="email" placeholder="">
+                  <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="">
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" id="username" name="username" placeholder="" readonly>
+                  <input type="text" class="form-control" id="username" value="{{ old('username') }}" name="username" placeholder="" readonly>
                 </div>
               </div>
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Mot de passe</label>
                 <div class="col-md-6">
-                  <input type="text" class="form-control" name="password" id="password" placeholder="">
+                  <input type="text" class="form-control" name="password" required id="password" placeholder="">
                 </div>
                 <div class="col-sm-4">
-                  <button type="button" class="btn btn-danger generateSecuredPassword" name="button">Génerer</button>
+                  <button type="button" class="btn btn-danger generateSecuredPassword" required name="button">Génerer</button>
                 </div>
               </div>
               <div class="form-group row">
@@ -67,13 +67,11 @@
                   <input type="text" class="form-control" name="password_c" placeholder="">
                 </div>
               </div>
-
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
