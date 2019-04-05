@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/widget.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/pages.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/ebs.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/icofont.css') }}">
 
 <!-- DataTable CSS -->

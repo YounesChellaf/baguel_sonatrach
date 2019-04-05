@@ -15,12 +15,12 @@ class UsersController extends Controller
     return view('users.index');
   }
 
-  public function createView(){
-    return view('users.create');
-  }
-
   public function getSecuredPassword(){
     echo json_encode(GenerateRandomPassword());
+  }
+
+  public function createView(){
+    return view('users.create');
   }
 
   public function createPost(NewUserRequest $request){
@@ -28,6 +28,34 @@ class UsersController extends Controller
       $validated = $request->validated();
       $user = User::new($request);
       return redirect(route('admin.users.index'));
+    }
+  }
+
+  public function editView(Request $request, $user_id = null){
+    if(!$user_id){
+      abort(404);
+    }
+    $user = User::find($user_id);
+    if(!$user){
+      abort(404);
+    }
+    return view('users.edit', [
+      'user' => $user,
+    ]);
+  }
+
+  public function editPost(Request $request){
+
+  }
+
+  public function deleteUser(Request $request){
+    if($request->post()){
+      $user = User::find($request->userId);
+      if(!$user){
+        abort(404);
+      }
+      $user->delete();
+      echo json_encode('deleted');
     }
   }
 }

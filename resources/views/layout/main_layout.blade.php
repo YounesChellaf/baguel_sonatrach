@@ -24,6 +24,9 @@
       </div>
     </div>
   </div>
+  <div id="loading">
+    <img src="{{ url('frontend/assets/images/loading.gif') }}"/>
+  </div>
   @include('layout.assets._js')
   @yield('extraJs')
 </body>

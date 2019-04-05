@@ -17,6 +17,9 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
+  public function name(){
+    return $this->firstName.' '.$this->lastName;
+  }
 
   public static function getSecuredPassword(){
 
@@ -29,11 +32,12 @@ class User extends Authenticatable
   public static function new(Request $request){
     if($request->post()){
       $user = User::create([
+        'firstName' => $request->firstName,
+        'lastName' => $request->lastName,
+        'email' => $request->email,
         'username' => strtolower($request->username),
         'password' => Hash::make($request->password),
-        'name' => $request->username,
       ]);
-
       return $user;
     }
   }
