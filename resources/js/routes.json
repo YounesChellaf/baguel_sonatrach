@@ -1,0 +1,10 @@
+{
+    "": "api\/user",
+    "auth.login.view": "auth\/login",
+    "auth.login.handle": "auth\/login",
+    "admin.index": "admin",
+    "admin.users.index": "admin\/users",
+    "admin.users.create": "admin\/users\/create",
+    "admin.users.create.post": "admin\/users\/create",
+    "admin.users.create.getSecuredPassword": "admin\/users\/getSecuredPassword"
+}
