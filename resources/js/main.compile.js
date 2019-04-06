@@ -1,4 +1,7 @@
 import {route} from './helpers.js';
+import swal from 'sweetalert';
+import {showBodyLoader} from './helpers.js';
+import {hideBodyLoader} from './helpers.js';
 $(document).ready(function(){
   function initUsersDataTable(){
     let usersTable = $("#usersTable");
@@ -44,6 +47,59 @@ $(document).ready(function(){
 
   $(".generateSecuredPassword").on('click', function(){
     generateSecuredPassword();
+  });
+
+  $(".removeUser").on('click', function(e){
+    e.preventDefault();
+    let userId = $(this).data('user-id');
+    let userNameDeleted = $(this).data('user-name');
+    swal({
+      title: "Êtes-vous sûr?",
+      text: "Êtes-vous sûr que vous voulez supprimer "+userNameDeleted+"?, veuillez notez qu'une fois supprimé, toutes les opérations qu'il a éffectuer seront aussi supprimé",
+      icon: "error",
+      buttons: true,
+      buttons: ["Non", "Oui, Supprimer"],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        swal({
+          title: "Confirmer l'action",
+          text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
+          icon: "error",
+          buttons: true,
+          content: {
+            element: "input",
+            attributes: {
+              placeholder: "",
+              type: "password",
+              required: true,
+            },
+          },
+          buttons: ["Annuler", "Confirmer"],
+          dangerMode: true,
+        }).then((value) => {
+          if(!value){
+            return false;
+          }else{
+            showBodyLoader();
+            $.ajax({
+              url: route('admin.users.delete'),
+              method: 'POST',
+              data: {
+                _token: $("meta[name=csrf-token]").attr('content'),
+                userId: userId,
+              },
+              success: function(responce){
+                alert($.parseJSON(responce));
+              }
+            });
+          }
+        });
+      } else {
+        return false
+      }
+    });
   });
   ///////////////////////////////////////////////////
 

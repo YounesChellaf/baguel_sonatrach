@@ -24,7 +24,6 @@ class NewUserRequest extends FormRequest
   public function rules()
   {
     return [
-      'email' => 'required|email|unique:users',
       'firstName' => 'required|alpha|min:3',
       'lastName' => 'required|alpha|min:3',
       'username' => 'required|unique:users',
@@ -35,9 +34,6 @@ class NewUserRequest extends FormRequest
   public function messages()
   {
     return [
-      'email.required' => "L'email est obligatoire",
-      'email.email' => "Veuillez introduire un email valide",
-      'email.unique' => "L'email que vous avez entré existe déjà",
       'firstName.required' => "Le nom est obligatoire",
       'firstName.alpha' => "Veuillez introduire un nom valide",
       'firstName.min' => "Le nom doit être plus de 3 charactères",

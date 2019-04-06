@@ -18,6 +18,7 @@
 <script src="{{ asset('frontend/assets/js/vertical/vertical-layout.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/pages/dashboard/crm-dashboard.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/js/script.min.js') }}"></script>
+<<<<<<< HEAD
 <!-- DataTable JS -->
 <script src="{{asset('frontend/assets/datatable/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('frontend/assets/datatable/js/dataTables.buttons.min.js')}}"></script>
@@ -53,6 +54,8 @@
 
     gtag('config', 'UA-23581568-13');
 </script>
+=======
+>>>>>>> 7980cf02edb86b37dbec06c5e87493cbbc7c9ebb
 <!-- DataTable JS -->
 <script>
 let config = {

@@ -22,6 +22,12 @@ Route::group(['prefix' => 'admin' ], function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');
     Route::get('/create', 'UsersController@createView')->name('admin.users.create');
     Route::post('/create', 'UsersController@createPost')->name('admin.users.create.post');
+
+    Route::get('/edit/{id?}', 'UsersController@editView')->name('admin.users.edit');
+    Route::post('/edit/{id?}', 'UsersController@editPost')->name('admin.users.edit.post');
+
+    Route::post('/delete', 'UsersController@deleteUser')->name('admin.users.delete');
+
     //helpers
     Route::get('/getSecuredPassword', 'UsersController@getSecuredPassword')->name('admin.users.create.getSecuredPassword');
   });

@@ -38,12 +38,22 @@
                 <tbody>
                   @foreach(User::all() as $index => $user)
                   <tr>
-                    <td>{{ $user->name }}</td>
+                    <td>{{ $user->name() }}</td>
                     <td>System Architect</td>
                     <td>Edinburgh</td>
                     <td>61</td>
                     <td>2011/04/25</td>
-                    <td>$320,800</td>
+                    <td>
+                      <div class="dropdown-info dropdown open">
+                        <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                          <a class="dropdown-item" href="#!">Consulter</a>
+                          <a class="dropdown-item" href="{{ route('admin.users.edit', $user->id) }}">Modifier</a>
+                          <a class="dropdown-item removeUser" data-user-id="{{ $user->id }}" data-user-name="{{ $user->name() }}" href="#!">Supprimer</a>
+                          <a class="dropdown-item" href="#!">Bloquer</a>
+                        </div>
+                      </div>
+                    </td>
                   </tr>
                   @endforeach
                 </tbody>
