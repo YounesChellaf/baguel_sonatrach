@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Office;
 use Illuminate\Http\Request;
 
 class OfficeController extends Controller
@@ -13,7 +14,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        //
+        return view('office.index');
     }
 
     /**
@@ -34,7 +35,19 @@ class OfficeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $number = $request->input('number');
+        $floor = $request->input('floor');
+        $bloc_id = $request->input('bloc_id');
+        $active = $request->input('active');
+
+        Office::create([
+            'number' =>$number,
+            'floor' =>$floor,
+            'bloc_id' =>$bloc_id,
+            'active' =>$active,
+        ]);
+
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +81,21 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $number = $request->input('number');
+        $floor = $request->input('floor');
+        $bloc_id = $request->input('bloc_id');
+        $active = $request->input('active');
+
+        $office = Office::find($id);
+
+        $office->number = $number;
+        $office->floor = $floor;
+        $office->bloc_id = $bloc_id;
+        $office->active = $active;
+
+        $office->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -79,6 +106,7 @@ class OfficeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Office::destroy($id);
+        return redirect()->back();
     }
 }

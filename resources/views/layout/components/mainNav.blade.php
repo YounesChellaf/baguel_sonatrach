@@ -32,6 +32,16 @@
                 <span class="pcoded-mtext">Dépatements</span>
               </a>
             </li>
+            <li class="">
+              <a href="/admin/bloc" class="waves-effect waves-dark">
+                <span class="pcoded-mtext">Bloc</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="/admin/office" class="waves-effect waves-dark">
+                <span class="pcoded-mtext">Bureaux</span>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="pcoded-hasmenu">
