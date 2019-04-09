@@ -11,4 +11,7 @@ class Bloc extends Model
     function office(){
         return $this->hasMany('App\Office');
     }
+    function room(){
+        return $this->hasMany('App\Room');
+    }
 }

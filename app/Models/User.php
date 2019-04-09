@@ -17,6 +17,10 @@ class User extends Authenticatable
     'email_verified_at' => 'datetime',
   ];
 
+  function room(){
+      return $this->hasMany('App\Room');
+  }
+
   public function name(){
     return $this->firstName.' '.$this->lastName;
   }
