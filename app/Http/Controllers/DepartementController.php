@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Departement;
+use App\Models\Department;
 use Illuminate\Http\Request;
 
 class DepartementController extends Controller
@@ -39,7 +39,7 @@ class DepartementController extends Controller
         $active = $request->input('active');
         $direction_id = $request->input('select');
 
-        Departement::create([
+        Department::create([
             'name' =>$name,
             'direction_id' =>$direction_id,
             'active' =>$active,

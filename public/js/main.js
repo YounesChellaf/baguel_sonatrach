@@ -665,7 +665,7 @@ $(document).ready(function () {
 
 
   initUsersDataTable(); /////////////////////////////////////////
-  /////////// Handle new user form actions //////////
+  /////////// Handle user CRUD actions //////////
 
   function computeUserName() {
     $("#username").val('');
@@ -725,7 +725,8 @@ $(document).ready(function () {
             attributes: {
               placeholder: "",
               type: "password",
-              required: true
+              required: true,
+              name: "userPassword"
             }
           }
         }, _defineProperty(_swal2, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal2, "dangerMode", true), _swal2)).then(function (value) {
@@ -738,10 +739,28 @@ $(document).ready(function () {
               method: 'POST',
               data: {
                 _token: $("meta[name=csrf-token]").attr('content'),
-                userId: userId
+                userId: userId,
+                userPassword: value
               },
-              success: function success(responce) {
-                alert($.parseJSON(responce));
+              success: function success(result) {
+                var response = $.parseJSON(result);
+                Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+                switch (response.status) {
+                  case 404:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "warning");
+                    break;
+
+                  case 500:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "error");
+                    break;
+
+                  case 200:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Félicitations", response.msg, "success");
+                    break;
+
+                  default:
+                }
               }
             });
           }
@@ -751,6 +770,229 @@ $(document).ready(function () {
       }
     });
   }); ///////////////////////////////////////////////////
+  /////////// Handle supplier CRUD actions //////////
+
+  $("#supplierName").on('keyup', function () {
+    $("#supplierDisplayName").val($("#supplierName").val());
+  });
+  $(".removeSupplier").on('click', function (e) {
+    var _swal3;
+
+    e.preventDefault();
+    var supplierId = $(this).data('supplier-id');
+    var supplierNameDeleted = $(this).data('supplier-name');
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal3 = {
+      title: "Êtes-vous sûr?",
+      text: "Êtes-vous sûr que vous voulez supprimer le fournisseur: " + supplierNameDeleted + " ?",
+      icon: "error",
+      buttons: true
+    }, _defineProperty(_swal3, "buttons", ["Non", "Oui, Supprimer"]), _defineProperty(_swal3, "dangerMode", true), _swal3)).then(function (willDelete) {
+      if (willDelete) {
+        var _swal4;
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal4 = {
+          title: "Confirmer l'action",
+          text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
+          icon: "error",
+          buttons: true,
+          content: {
+            element: "input",
+            attributes: {
+              placeholder: "",
+              type: "password",
+              required: true,
+              name: "userPassword"
+            }
+          }
+        }, _defineProperty(_swal4, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal4, "dangerMode", true), _swal4)).then(function (value) {
+          if (!value) {
+            return false;
+          } else {
+            Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["showBodyLoader"])();
+            $.ajax({
+              url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.suppliers.delete'),
+              method: 'POST',
+              data: {
+                _token: $("meta[name=csrf-token]").attr('content'),
+                supplierId: supplierId,
+                userPassword: value
+              },
+              success: function success(result) {
+                var response = $.parseJSON(result);
+                Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+                switch (response.status) {
+                  case 404:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "warning");
+                    break;
+
+                  case 500:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "error");
+                    break;
+
+                  case 200:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Félicitations", response.msg, "success");
+                    setTimeout(function () {
+                      window.location.reload(1);
+                    }, 2000);
+                    break;
+
+                  default:
+                }
+              }
+            });
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  }); /////////// Handle Exit permissions operations //////////
+
+  $(".approveExitPermission").on('click', function (e) {
+    var _swal5;
+
+    e.preventDefault();
+    var exitPermissionRef = $(this).data('ref');
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal5 = {
+      title: "Êtes-vous sûr?",
+      text: "Êtes-vous sûr que vous voulez confirmer le bon de sortie " + exitPermissionRef + "?",
+      icon: "info",
+      buttons: true
+    }, _defineProperty(_swal5, "buttons", ["Non", "Oui, Approuver"]), _defineProperty(_swal5, "dangerMode", false), _swal5)).then(function (willApprove) {
+      if (willApprove) {
+        var _swal6;
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal6 = {
+          title: "Confirmer l'action",
+          text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
+          icon: "warning",
+          buttons: true,
+          content: {
+            element: "input",
+            attributes: {
+              placeholder: "",
+              type: "password",
+              required: true,
+              name: "userPassword"
+            }
+          }
+        }, _defineProperty(_swal6, "buttons", ["Annuler", "Approuver"]), _defineProperty(_swal6, "dangerMode", true), _swal6)).then(function (value) {
+          if (!value) {
+            return false;
+          } else {
+            Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["showBodyLoader"])();
+            $.ajax({
+              url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.ExitPermission.approve'),
+              method: 'POST',
+              data: {
+                _token: $("meta[name=csrf-token]").attr('content'),
+                permissionRef: exitPermissionRef,
+                userPassword: value
+              },
+              success: function success(result) {
+                var response = $.parseJSON(result);
+                Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+                switch (response.status) {
+                  case 404:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "warning");
+                    break;
+
+                  case 500:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "error");
+                    break;
+
+                  case 200:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Félicitations", response.msg, "success");
+                    setTimeout(function () {
+                      window.location.reload(1);
+                    }, 2000);
+                    break;
+
+                  default:
+                }
+              }
+            });
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  });
+  $(".rejectExitPermission").on('click', function (e) {
+    var _swal7;
+
+    e.preventDefault();
+    var exitPermissionRef = $(this).data('ref');
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal7 = {
+      title: "Êtes-vous sûr?",
+      text: "Êtes-vous sûr que vous voulez rejeté le bon de sortie " + exitPermissionRef + "?",
+      icon: "error",
+      buttons: true
+    }, _defineProperty(_swal7, "buttons", ["Non", "Oui, Rejeter"]), _defineProperty(_swal7, "dangerMode", false), _swal7)).then(function (willApprove) {
+      if (willApprove) {
+        var _swal8;
+
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal8 = {
+          title: "Confirmer l'action",
+          text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
+          icon: "warning",
+          buttons: true,
+          content: {
+            element: "input",
+            attributes: {
+              placeholder: "",
+              type: "password",
+              required: true,
+              name: "userPassword"
+            }
+          }
+        }, _defineProperty(_swal8, "buttons", ["Annuler", "Rejeter"]), _defineProperty(_swal8, "dangerMode", true), _swal8)).then(function (value) {
+          if (!value) {
+            return false;
+          } else {
+            Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["showBodyLoader"])();
+            $.ajax({
+              url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.ExitPermission.reject'),
+              method: 'POST',
+              data: {
+                _token: $("meta[name=csrf-token]").attr('content'),
+                permissionRef: exitPermissionRef,
+                userPassword: value
+              },
+              success: function success(result) {
+                var response = $.parseJSON(result);
+                Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+                switch (response.status) {
+                  case 404:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "warning");
+                    break;
+
+                  case 500:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Oops", response.msg, "error");
+                    break;
+
+                  case 200:
+                    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Félicitations", response.msg, "success");
+                    setTimeout(function () {
+                      window.location.reload(1);
+                    }, 2000);
+                    break;
+
+                  default:
+                }
+              }
+            });
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  });
 });
 
 /***/ }),
@@ -759,10 +1001,10 @@ $(document).ready(function () {
 /*!**********************************!*\
   !*** ./resources/js/routes.json ***!
   \**********************************/
-/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.delete, admin.users.create.getSecuredPassword, default */
+/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.delete, admin.users.create.getSecuredPassword, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermission.reject, default */
 /***/ (function(module) {
 
-module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.delete":"admin/users/delete/{id?}","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword"};
+module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}"};
 
 /***/ }),
 

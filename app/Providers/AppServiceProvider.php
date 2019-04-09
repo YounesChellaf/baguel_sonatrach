@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Supplier;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
-
 class AppServiceProvider extends ServiceProvider
 {
   /**

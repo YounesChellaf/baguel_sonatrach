@@ -159,7 +159,7 @@
             </a>
           </li>
           <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
+            <a href="{{ route('admin.ExitPermissions.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Bon de sortie</span>
             </a>
           </li>
@@ -197,8 +197,8 @@
         </a>
         <ul class="pcoded-submenu">
           <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Basic Table</span>
+            <a href="{{ route('admin.suppliers.index') }}" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Liste des Fournisseurs</span>
             </a>
           </li>
           <li class=" ">
@@ -526,11 +526,6 @@
         </a>
         <ul class="pcoded-submenu">
           <li class="">
-            <a href="javascript:void(0)" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Départements</span>
-            </a>
-          </li>
-          <li class="">
             <a href="{{ route('admin.users.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Compte utilisateurs</span>
             </a>
@@ -547,11 +542,11 @@
     <div class="pcoded-navigation-label">Technique</div>
     <ul class="pcoded-item pcoded-left-item">
       <li class="">
-        <a href="#" class="waves-effect waves-dark">
+        <a href="{{ route('admin.SystemConfig.index') }}" class="waves-effect waves-dark">
           <span class="pcoded-micon">
             <i class="feather icon-bookmark"></i>
           </span>
-          <span class="pcoded-mtext">Paramètres Système</span>
+          <span class="pcoded-mtext">Paramètres du Système</span>
         </a>
       </li>
     </ul>

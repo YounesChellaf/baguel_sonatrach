@@ -32,7 +32,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Direction::all() as $direction)
+                                            @foreach(Direction::all() as $direction)
                                                 <tr>
                                                     <td>{{$direction->name}}</td>
                                                     <td>{{$direction->address}}</td>
@@ -90,7 +90,7 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Direction::all() as $direction)
+    @foreach(Direction::all() as $direction)
         <div class="col-md-4">
             <div id="modal-update-{{$direction->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">

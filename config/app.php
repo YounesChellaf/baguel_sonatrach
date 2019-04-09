@@ -226,6 +226,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'User' => App\Models\User::class,
+        'Department' => App\Models\Department::class,
+        'Direction' => App\Models\Direction::class,
+        'Supplier' => App\Models\Supplier::class,
+        'ExitPermission' => App\Models\ExitPermission::class,
+        'SystemConfig' => App\Models\SystemConfig::class,
 
     ],
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Direction;
+use App\Models\Direction;
 use Illuminate\Http\Request;
 
 class DirectionController extends Controller

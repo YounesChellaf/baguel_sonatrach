@@ -47,6 +47,27 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Département</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="department">
+                    <option value="">Sélectionner le département</option>
+                    @foreach(Department::all() as $index => $department)
+                      <option value="{{ $department->id }}">{{ $department->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="account_type">
+                    <option value="">Sélectionner le type d'employee</option>
+                    <option value="employee">Employée</option>
+                    <option value="supplier_staff">Staff de fournisseur</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="username" value="{{ old('username') }}" name="username" placeholder="" readonly>

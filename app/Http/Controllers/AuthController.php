@@ -16,7 +16,15 @@ class AuthController extends Controller
   public function loginHandle(Request $request){
     $credentials = $request->only('username', 'password');
     if (Auth::attempt($credentials)) {
-      return redirect()->intended('batata');
+      return redirect()->intended();
+    }
+  }
+
+  public function handleLogout(){
+    if(Auth::user()){
+      Auth::user()->setLastConnexionDate();
+      Auth::logout();
+      return redirect(route('auth.login.view'));
     }
   }
 }
