@@ -33,7 +33,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Departement::all() as $departement)
+                                            @foreach(Department::all() as $departement)
                                                 <tr>
                                                     <td>{{$departement->name}}</td>
                                                     <td>{{$departement->active}}</td>
@@ -79,7 +79,7 @@
                                 <div class="col-sm-12">
                                     <select name="select" class="form-control">
                                         <option value="opt1">Choisir la direction</option>
-                                        @foreach(\App\Direction::all() as $direction)
+                                        @foreach(Direction::all() as $direction)
                                             <option value="{{$direction->id}}">{{$direction->name}}</option>
                                         @endforeach
                                     </select>
@@ -96,7 +96,7 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Departement::all() as $departement)
+    @foreach(Department::all() as $departement)
         <div class="col-md-4">
             <div id="modal-update-{{$departement->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
@@ -121,7 +121,7 @@
                                     <div class="col-sm-12">
                                         <select name="select" class="form-control">
                                             <option value="{{$departement->direction->id}}">{{$departement->direction->name}}</option>
-                                            @foreach(\App\Direction::all() as $direction)
+                                            @foreach(Direction::all() as $direction)
                                                 <option value="{{$direction->id}}">{{$direction->name}}</option>
                                             @endforeach
                                         </select>

@@ -26,7 +26,7 @@
               </ul>
             </div>
             @endif
-            <form method="post" action="{{ route('admin.users.edit.post') }}" class="NewUserForm">
+            <form method="post" action="{{ route('admin.users.edit.post') }}" class="EditUserForm">
               @csrf
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom</label>
@@ -47,11 +47,33 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Département</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="department">
+                    <option value="">Sélectionner le département</option>
+                    @foreach(Department::all() as $index => $department)
+                      <option value="{{ $department->id }}" {{ $department->id == $user->department_id ? 'selected' : '' }}>{{ $department->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="account_type">
+                    <option value="">Sélectionner le type d'employee</option>
+                    <option value="employee" {{ $user->account_type == 'employee' ? 'selected' : '' }}>Employée</option>
+                    <option value="supplier_staff" {{ $user->account_type == 'supplier_staff' ? 'selected' : '' }}>Staff de fournisseur</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="username" value="{{ $user->username ? $user->username : old('username') }}" name="username" placeholder="" readonly>
                 </div>
               </div>
+              <input type="hidden" name="userId" value="{{ $user->id }}">
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
           </div>
