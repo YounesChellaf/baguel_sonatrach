@@ -35,7 +35,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Bloc::all() as $bloc)
+                                            @foreach(Bloc::all() as $bloc)
                                                 <tr>
                                                     <td>{{$bloc->name}}</td>
                                                     <td>{{$bloc->number}}</td>
@@ -106,7 +106,7 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Bloc::all() as $bloc)
+    @foreach(Bloc::all() as $bloc)
         <div class="col-md-4">
             <div id="modal-update-{{$bloc->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">

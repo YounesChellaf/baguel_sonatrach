@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Bloc;
+use App\Models\Bloc;
 use Illuminate\Http\Request;
 
 class BlocController extends Controller

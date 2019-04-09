@@ -26,22 +26,20 @@
                                             <thead>
                                             <tr>
                                                 <th>Numero de reference</th>
-                                                <th>Floor</th>
                                                 <th>Status</th>
-                                                <th>Bloc</th>
+                                                <th>Chambre</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Office::all() as $office)
+                                            @foreach(Equipement::all() as $equipement)
                                                 <tr>
-                                                    <td>{{$office->number}}</td>
-                                                    <td>{{$office->floor}}</td>
-                                                    <td>{{$office->active}}</td>
-                                                    <td>{{$office->bloc->name}}</td>
-                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$office->id}}">modifier</button></td>
-                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$office->id}}">Supprimer</button></td>
+                                                    <td>{{$equipement->reference}}</td>
+                                                    <td>{{$equipement->status}}</td>
+                                                    <td>{{$equipement->room->number}}</td>
+                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$equipement->id}}">modifier</button></td>
+                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$equipement->id}}">Supprimer</button></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -59,34 +57,30 @@
     <div id="styleSelector">
     </div>
     <div class="col-md-4">
-        <div id="modal-add-office" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div id="modal-add-equipement" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Ajouter un bureau</h4>
+                        <h4 class="modal-title">Ajouter un equipement</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/office">
+                        <form method="post" action="/admin/equipement">
                             @csrf
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Numero de bureau</label>
-                                <input type="text" class="form-control" id="recipient-name" name="number">
+                                <label for="recipient-name" class="control-label">Reference d'équipement</label>
+                                <input type="text" class="form-control" id="recipient-name" name="reference">
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">floor</label>
-                                <input type="text" class="form-control" id="recipient-name" name="floor">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" name="active" checked />
+                                <label for="recipient-name" class="control-label">Status</label>
+                                <input type="text" class="form-control" id="recipient-name" name="status">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <select name="bloc_id" class="form-control">
-                                        <option value="">Choisir un bloc</option>
-                                        @foreach(\App\Bloc::all() as $bloc)
-                                        <option value="{{$bloc->id}}">{{$bloc->name}}</option>
+                                    <select name="room_id" class="form-control">
+                                        <option value="">Choisir une chambre á affecter</option>
+                                        @foreach(Room::all() as $room)
+                                        <option value="{{$room->id}}">{{$room->number}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -103,40 +97,36 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Office::all() as $office)
+    @foreach(Equipement::all() as $equipement)
         <div class="col-md-4">
-            <div id="modal-update-{{$office->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div id="modal-update-{{$equipement->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Modifier le bureau</h4>
+                            <h4 class="modal-title">Modifier l'equipement</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/office/{{$office->id}}">
+                            <form method="post" action="/admin/equipement/{{$equipement->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Numero du bureau</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="number" value="{{$office->number}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Floor</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="floor" value="{{$office->floor}}">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <select name="bloc_id" class="form-control">
-                                            <option value="{{$office->bloc->id}}">{{$office->bloc->name}}</option>
-                                            @foreach(\App\Bloc::all() as $bloc)
-                                                <option value="{{$bloc->id}}">{{$bloc->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <label for="recipient-name" class="control-label">Reference d'équipement</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="reference" value="{{$equipement->reference}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active" value="{{$office->active}}">
+                                    <input type="text" class="form-control" id="recipient-name" name="status" value="{{$equipement->status}}">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <select name="room_id" class="form-control">
+                                            <option value="{{$equipement->room->id}}">{{$equipement->room->number}}</option>
+                                            @foreach(Room::all() as $room)
+                                                <option value="{{$room->id}}">{{$room->number}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -149,7 +139,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modal-delete-{{$office->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-delete-{{$equipement->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -159,10 +149,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Voulez vous supprimer ce bureau !
+                        Voulez vous supprimer cet equipement !
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="/admin/office/{{$office->id}}">
+                        <form method="POST" action="/admin/equipement/{{$equipement->id}}">
                             @csrf
                             <input type="hidden">
                             @method('delete')

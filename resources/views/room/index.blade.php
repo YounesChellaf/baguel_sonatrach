@@ -32,7 +32,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Room::all() as $room)
+                                            @foreach(Room::all() as $room)
                                                 <tr>
                                                     <td>{{$room->number}}</td>
                                                     <td>{{$room->bloc->name}}</td>
@@ -73,7 +73,7 @@
                                 <div class="col-sm-12">
                                     <select name="bloc_id" class="form-control">
                                         <option value="">Choisir un bloc</option>
-                                        @foreach(\App\Bloc::all() as $bloc)
+                                        @foreach(Bloc::all() as $bloc)
                                         <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                                         @endforeach
                                     </select>
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Room::all() as $room)
+    @foreach(Room::all() as $room)
         <div class="col-md-4">
             <div id="modal-update-{{$room->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
@@ -112,7 +112,7 @@
                                     <div class="col-sm-12">
                                         <select name="bloc_id" class="form-control">
                                             <option value="{{$room->bloc->id}}">{{$room->bloc->name}}</option>
-                                            @foreach(\App\Bloc::all() as $bloc)
+                                            @foreach(Bloc::all() as $bloc)
                                                 <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                                             @endforeach
                                         </select>

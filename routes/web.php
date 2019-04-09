@@ -12,7 +12,7 @@ Route::get('/auth/logout', 'AuthController@handleLogout')->name('auth.logout');
 
 
 // ,'middleware' => 'auth'
-Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
+Route::group(['prefix' => 'admin'], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
 
   Route::resource('direction','DirectionController');

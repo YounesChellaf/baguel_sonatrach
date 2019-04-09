@@ -231,6 +231,10 @@ return [
         'Supplier' => App\Models\Supplier::class,
         'ExitPermission' => App\Models\ExitPermission::class,
         'SystemConfig' => App\Models\SystemConfig::class,
+        'Equipement' => App\Models\Equipement::class,
+        'Room' => App\Models\Room::class,
+        'Bloc' => App\Models\Bloc::class,
+        'Office' => App\Models\Office::class,
 
     ],
 

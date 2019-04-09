@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipement;
 use Illuminate\Http\Request;
 
 class EquipementController extends Controller
@@ -34,7 +35,12 @@ class EquipementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Equipement::create([
+            'reference' => $request->input('reference'),
+            'status' => $request->input('status'),
+            'room_id' => $request->input('room_id'),
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +74,13 @@ class EquipementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $equipement = Equipement::find($id);
+        $equipement->reference = $request->input('reference');
+        $equipement->status = $request->input('status');
+        $equipement->room_id = $request->input('room_id');
+        $equipement->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -79,6 +91,7 @@ class EquipementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Equipement::destroy($id);
+        return redirect()->back();
     }
 }

@@ -15,6 +15,9 @@ class CreateEquipementsTable extends Migration
     {
         Schema::create('equipements', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('reference');
+            $table->string('status');
+            $table->integer('room_id');
             $table->timestamps();
         });
     }

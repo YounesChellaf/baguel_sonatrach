@@ -31,9 +31,9 @@ class CreateExitPermissionsTable extends Migration
             $table->integer('approved_by')->unsigned()->index();
             $table->integer('last_update_by')->unsigned()->index();
             $table->timestamps();
-            $table->foreign('created_by')->references('id')->on('users');
+            /*$table->foreign('created_by')->references('id')->on('users');
             $table->foreign('approved_by')->references('id')->on('users');
-            $table->foreign('last_update_by')->references('id')->on('users');
+            $table->foreign('last_update_by')->references('id')->on('users');*/
         });
     }
 

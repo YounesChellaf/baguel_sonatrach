@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->timestamp('last_connexion_at')->nullable();
             $table->integer('is_logged_in')->default(false);
-            $table->foreign('department_id')->references('id')->on('departements')->onDelete('cascade');
+
         });
     }
 
