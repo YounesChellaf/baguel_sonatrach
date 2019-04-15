@@ -17,6 +17,7 @@ class CreateRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('number');
             $table->integer('bloc_id');
+            $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();
         });
     }

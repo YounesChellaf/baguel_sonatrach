@@ -109,11 +109,9 @@ class ExitPermission extends Model
 
   public function ApprovedBy(){
     return $this->belongsTo('App\Models\User', 'approved_by', 'id');
-
   }
 
   public function LastUpdateBy(){
     return $this->belongsTo('App\Models\User', 'last_update_by', 'id');
-
   }
 }

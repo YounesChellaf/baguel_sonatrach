@@ -237,7 +237,6 @@ return [
         'Room' => App\Models\Room::class,
         'Bloc' => App\Models\Bloc::class,
         'Office' => App\Models\Office::class,
-
     ],
 
 ];

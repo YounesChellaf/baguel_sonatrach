@@ -18,7 +18,7 @@ class CreateOfficesTable extends Migration
             $table->string('number');
             $table->integer('floor');
             $table->integer('bloc_id');
-            $table->tinyInteger('active');
+            $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();
         });
     }

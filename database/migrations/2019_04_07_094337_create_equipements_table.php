@@ -18,6 +18,7 @@ class CreateEquipementsTable extends Migration
             $table->string('reference');
             $table->string('status');
             $table->integer('room_id');
+            $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();
         });
     }
