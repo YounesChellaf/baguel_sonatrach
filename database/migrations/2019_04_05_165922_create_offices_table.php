@@ -16,9 +16,8 @@ class CreateOfficesTable extends Migration
         Schema::create('offices', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('number');
-            $table->integer('floor');
             $table->integer('bloc_id');
-            $table->tinyInteger('active')->nullable()->default(true);
+            $table->tinyInteger('active')->default(true);
             $table->timestamps();
         });
     }

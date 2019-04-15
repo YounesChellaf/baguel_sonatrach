@@ -37,12 +37,11 @@ class DirectionController extends Controller
     {
         $name = $request->input('name');
         $address = $request->input('address');
-        $active = $request->input('active');
 
         Direction::create([
             'name' =>$name,
             'address' =>$address,
-            'active' =>$active,
+
         ]);
 
         return redirect()->back();

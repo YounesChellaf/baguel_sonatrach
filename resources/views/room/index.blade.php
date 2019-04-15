@@ -27,6 +27,7 @@
                                             <tr>
                                                 <th>Numero</th>
                                                 <th>Bloc</th>
+                                                <th>Status</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
                                             </tr>
@@ -36,6 +37,7 @@
                                                 <tr>
                                                     <td>{{$room->number}}</td>
                                                     <td>{{$room->bloc->name}}</td>
+                                                    <td>{{$room->active}}</td>
                                                     <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
                                                     <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>
                                                 </tr>
@@ -63,7 +65,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/room">
+                        <form method="post" class="room-add" action="/admin/room">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Numero de chmabre</label>
@@ -101,7 +103,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/room/{{$room->id}}">
+                            <form method="post" class="room-add" action="/admin/room/{{$room->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">

@@ -67,4 +67,42 @@ $(document).ready(function(){
             type : "le type est obligatoire ",
         },
     });
+    $(".office-add").validate({
+        rules: {
+            number: {
+                required: true,
+            },
+            bloc_id :{
+                required : true
+            },
+        },
+        messages: {
+            number : {
+                required:"Veuillez introduire le numéro de bureau",
+            },
+            bloc_id  : {
+              required :  "Veuillez choisir un bloc",
+            },
+
+        },
+    });
+    $(".room-add").validate({
+        rules: {
+            number: {
+                required: true,
+            },
+            bloc_id :{
+                required : true
+            },
+        },
+        messages: {
+            number : {
+                required:"Veuillez introduire le numéro de chambre",
+            },
+            bloc_id  : {
+              required :  "Veuillez choisir un bloc",
+            },
+
+        },
+    });
 });

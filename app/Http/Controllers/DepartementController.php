@@ -36,13 +36,11 @@ class DepartementController extends Controller
     public function store(Request $request)
     {
         $name = $request->input('name');
-        $active = $request->input('active');
         $direction_id = $request->input('select');
 
         Department::create([
             'name' =>$name,
             'direction_id' =>$direction_id,
-            'active' =>$active,
         ]);
 
         return redirect()->back();
