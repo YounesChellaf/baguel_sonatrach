@@ -10,9 +10,12 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/pages.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/ebs.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/css/icofont.css') }}">
-
-
-<!--  Switch CSS -->
+<link rel="stylesheet" href="{{ asset('frontend/assets/css/component.css') }}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/switchery.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/bootstrap-tagsinput.css')}}" />
-<!-- End switch CSS -->
+<link rel="stylesheet" type="text/css" href="{{asset('frontend/mdb/css/mdb.css')}}" />
+<style>
+  .switchDataSource{
+    cursor: pointer;
+  }
+</style>

@@ -4,6 +4,7 @@
     "auth.login.view": "auth\/login",
     "auth.login.handle": "auth\/login",
     "auth.logout": "auth\/logout",
+    "admin.system.switchDataSource": "system\/switchDataSource",
     "admin.index": "admin",
     "direction.index": "admin\/direction",
     "direction.create": "admin\/direction\/create",
@@ -26,6 +27,13 @@
     "bloc.edit": "admin\/bloc\/{bloc}\/edit",
     "bloc.update": "admin\/bloc\/{bloc}",
     "bloc.destroy": "admin\/bloc\/{bloc}",
+    "office.index": "admin\/office",
+    "office.create": "admin\/office\/create",
+    "office.store": "admin\/office",
+    "office.show": "admin\/office\/{office}",
+    "office.edit": "admin\/office\/{office}\/edit",
+    "office.update": "admin\/office\/{office}",
+    "office.destroy": "admin\/office\/{office}",
     "admin.users.index": "admin\/users",
     "admin.users.create": "admin\/users\/create",
     "admin.users.create.post": "admin\/users\/create",
@@ -42,5 +50,10 @@
     "admin.ExitPermissions.index": "admin\/exit_permissions",
     "admin.ExitPermissions.index.create": "admin\/exit_permissions\/create",
     "admin.ExitPermissions.index.create.post": "admin\/exit_permissions\/create",
-    "admin.ExitPermission.reject": "admin\/exit_permissions\/approve\/{ref?}"
+    "admin.ExitPermission.reject": "admin\/exit_permissions\/approve\/{ref?}",
+    "admin.SystemConfig.index": "admin\/system_config",
+    "admin.SystemConfig.subPage": "admin\/system_config\/{page?}",
+    "admin.lifebase.updateMultiLifeBaseParam": "admin\/system_config\/updateMultiLifeBaseParam",
+    "admin.SystemConfig.save": "admin\/system_config\/save",
+    "admin.lifebase.save": "admin\/lifebases\/save"
 }

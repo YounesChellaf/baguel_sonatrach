@@ -57,4 +57,10 @@ class SystemConfig extends Model{
       }
     }
   }
+
+  public static function handleMultiLBParam($request){
+    if($request->post()){
+      SystemConfig::store($request);
+    }
+  }
 }

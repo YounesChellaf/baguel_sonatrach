@@ -24,12 +24,12 @@
           <ul class="pcoded-submenu">
             <li class="">
               <a href="/admin/direction" class="waves-effect waves-dark">
-                <span class="pcoded-mtext">Directions</span>
+                <span class="pcoded-mtext">Divisions</span>
               </a>
             </li>
             <li class="">
               <a href="/admin/departement" class="waves-effect waves-dark">
-                <span class="pcoded-mtext">Dépatements</span>
+                <span class="pcoded-mtext">Services</span>
               </a>
             </li>
             <li class="">
@@ -88,56 +88,6 @@
               </a>
             </li>
           </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Modal</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Notifications</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Rating</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Range Slider</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Slider</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Syntax Highlighter</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Tour</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Tree View</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Nestable</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Toolbar</span>
-            </a>
-          </li>
         </ul>
       </li>
       <li class="pcoded-hasmenu">
@@ -156,6 +106,11 @@
           <li class=" ">
             <a href="#!" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Maintenance</span>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Réservation</span>
             </a>
           </li>
           <li class=" ">
@@ -203,213 +158,15 @@
           </li>
           <li class=" ">
             <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Sizing Table</span>
+              <span class="pcoded-mtext">Notation des Fournisseurs</span>
             </a>
           </li>
           <li class=" ">
             <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Border Table</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Styling Table</span>
+              <span class="pcoded-mtext">Critères de notation</span>
             </a>
           </li>
         </ul>
-      </li>
-      <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)" class="waves-effect waves-dark">
-          <span class="pcoded-micon">
-            <i class="feather icon-inbox"></i>
-          </span>
-          <span class="pcoded-mtext">Data Table</span>
-        </a>
-        <ul class="pcoded-submenu">
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Basic Initialization</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Advance Initialization</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Styling</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">API</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Ajax</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Server Side</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Plug-In</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Data Sources</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="pcoded-hasmenu">
-        <a href="javascript:void(0)" class="waves-effect waves-dark">
-          <span class="pcoded-micon">
-            <i class="feather icon-server"></i>
-          </span>
-          <span class="pcoded-mtext">DT Extensions</span>
-        </a>
-        <ul class="pcoded-submenu">
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">AutoFill</span>
-            </a>
-          </li>
-          <li class="pcoded-hasmenu">
-            <a href="javascript:void(0)" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Button</span>
-            </a>
-            <ul class="pcoded-submenu">
-              <li class=" ">
-                <a href="#!" class="waves-effect waves-dark">
-                  <span class="pcoded-mtext">Basic Button</span>
-                </a>
-              </li>
-              <li class=" ">
-                <a href="#!" class="waves-effect waves-dark">
-                  <span class="pcoded-mtext">Data Export</span>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Col Reorder</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Fixed Columns</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Fixed Header</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Key Table</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Responsive</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Row Reorder</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Scroller</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Select Table</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class=" ">
-        <a href="#!" class="waves-effect waves-dark">
-          <span class="pcoded-micon">
-            <i class="feather icon-hash"></i>
-          </span>
-          <span class="pcoded-mtext">FooTable</span>
-        </a>
-      </li>
-      <li class="pcoded-hasmenu ">
-        <a href="javascript:void(0)" class="waves-effect waves-dark">
-          <span class="pcoded-micon">
-            <i class="feather icon-airplay"></i>
-          </span>
-          <span class="pcoded-mtext">Handson Table</span>
-        </a>
-        <ul class="pcoded-submenu">
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Appearance</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Data Operation</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Rows Columns</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Columns Only</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Cell Features</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Cell Types</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Integrations</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Rows Only</span>
-            </a>
-          </li>
-          <li class="">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Utilities</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="">
-        <a href="#!" class="waves-effect waves-dark">
-          <span class="pcoded-micon">
-            <i class="feather icon-edit"></i>
-          </span>
-          <span class="pcoded-mtext">Editable Table</span>
-        </a>
       </li>
     </ul>
     <div class="pcoded-navigation-label">Rapports</div>

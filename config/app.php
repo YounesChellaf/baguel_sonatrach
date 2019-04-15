@@ -231,6 +231,8 @@ return [
         'Supplier' => App\Models\Supplier::class,
         'ExitPermission' => App\Models\ExitPermission::class,
         'SystemConfig' => App\Models\SystemConfig::class,
+        'LifeBase' => App\Models\LifeBase::class,
+        'Administration' => App\Models\Administration::class,
 
     ],
 

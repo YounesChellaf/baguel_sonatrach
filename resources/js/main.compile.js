@@ -10,6 +10,70 @@ $(document).ready(function(){
     }
   }
 
+  function _computeCompanySwitchModal(){
+
+  }
+
+  $(".switchSystem").on('click', function(){
+    $("#fullHeightModalRight").modal('show');
+  });
+
+  $(".switchDataSource").on('click', function(e){
+    e.preventDefault();
+    var dataSource = $(this).data('type');
+    let confirmMessage = '';
+    let sourceName = '';
+    let sourceId = null;
+    switch (dataSource) {
+      case 'lifebase':
+      sourceName = $(this).data('lifebase');
+      sourceId = $(this).data('lbid');
+      confirmMessage = "Vous allez changer la source de données vers la base de vie: "+sourceName;
+      break;
+
+      case 'administration':
+      sourceName = $(this).data('admin');
+      sourceId = $(this).data('adminid');
+      confirmMessage = "Vous allez changer la source de données vers l'administration: "+sourceName;
+      break;
+      default:
+      alert('Unknown source');
+    }
+
+    swal({
+      title: "Êtes vous sur ?",
+      text: confirmMessage,
+      icon: "info",
+      buttons: true,
+      dangerMode: false,
+      buttons: ['Non', 'Oui, changer'],
+    })
+    .then((willSwitch) => {
+      if (willSwitch) {
+        $.ajax({
+          url: route('admin.system.switchDataSource'),
+          method: 'GET',
+          data: {
+            dataSource: dataSource,
+            sourceId: sourceId,
+          },
+          success: function(result){
+            result = $.parseJSON(result);
+            switch (result) {
+              case 'switched':
+                swal('DONE');
+              break;
+              default:
+
+            }
+          },
+        })
+      } else {
+        return false;
+      }
+    });
+  });
+
   /////////// Init User database //////////
   initUsersDataTable();
   /////////////////////////////////////////
@@ -97,14 +161,14 @@ $(document).ready(function(){
                 hideBodyLoader();
                 switch (response.status) {
                   case 404:
-                    swal ("Oops" ,response.msg,"warning" );
+                  swal ("Oops" ,response.msg,"warning" );
                   break;
 
                   case 500:
-                    swal ("Oops" ,response.msg,"error" );
+                  swal ("Oops" ,response.msg,"error" );
                   break;
                   case 200:
-                    swal ("Félicitations" ,response.msg,"success" );
+                  swal ("Félicitations" ,response.msg,"success" );
                   break;
                   default:
 
@@ -174,17 +238,17 @@ $(document).ready(function(){
                 hideBodyLoader();
                 switch (response.status) {
                   case 404:
-                    swal ("Oops" ,response.msg,"warning" );
+                  swal ("Oops" ,response.msg,"warning" );
                   break;
 
                   case 500:
-                    swal ("Oops" ,response.msg,"error" );
+                  swal ("Oops" ,response.msg,"error" );
                   break;
                   case 200:
-                    swal ("Félicitations" ,response.msg,"success" );
-                    setTimeout(function(){
-                      window.location.reload(1);
-                    }, 2000);
+                  swal ("Félicitations" ,response.msg,"success" );
+                  setTimeout(function(){
+                    window.location.reload(1);
+                  }, 2000);
                   break;
                   default:
 
@@ -248,17 +312,17 @@ $(document).ready(function(){
                 hideBodyLoader();
                 switch (response.status) {
                   case 404:
-                    swal ("Oops" ,response.msg,"warning" );
+                  swal ("Oops" ,response.msg,"warning" );
                   break;
 
                   case 500:
-                    swal ("Oops" ,response.msg,"error" );
+                  swal ("Oops" ,response.msg,"error" );
                   break;
                   case 200:
-                    swal ("Félicitations" ,response.msg,"success" );
-                    setTimeout(function(){
-                      window.location.reload(1);
-                    }, 2000);
+                  swal ("Félicitations" ,response.msg,"success" );
+                  setTimeout(function(){
+                    window.location.reload(1);
+                  }, 2000);
                   break;
                   default:
 
@@ -320,17 +384,17 @@ $(document).ready(function(){
                 hideBodyLoader();
                 switch (response.status) {
                   case 404:
-                    swal ("Oops" ,response.msg,"warning" );
+                  swal ("Oops" ,response.msg,"warning" );
                   break;
 
                   case 500:
-                    swal ("Oops" ,response.msg,"error" );
+                  swal ("Oops" ,response.msg,"error" );
                   break;
                   case 200:
-                    swal ("Félicitations" ,response.msg,"success" );
-                    setTimeout(function(){
-                      window.location.reload(1);
-                    }, 2000);
+                  swal ("Félicitations" ,response.msg,"success" );
+                  setTimeout(function(){
+                    window.location.reload(1);
+                  }, 2000);
                   break;
                   default:
 
@@ -343,6 +407,29 @@ $(document).ready(function(){
         return false
       }
     });
+  });
+
+  /////////// System settings section //////////
+  $(".multiLifeBaseSystem").change(function(){
+    var value = $(this).is(":checked");
+    //update the value in database
+    $.ajax({
+      url: route('admin.lifebase.updateMultiLifeBaseParam'),
+      method: 'POST',
+      data: {
+        _token: $("meta[name=csrf-token]").attr('content'),
+        multi_life_base_system: value,
+      },
+      success: function(result){
+        var response = $.parseJSON(result);
+        hideBodyLoader();
+      }
+    });
+    if(value){
+      $(".lifebasesList").show('fade');
+    }else{
+      $(".lifebasesList").hide('fade');
+    }
   });
 
 });

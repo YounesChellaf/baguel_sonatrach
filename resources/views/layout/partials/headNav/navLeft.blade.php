@@ -5,7 +5,7 @@
         <span class="input-group-prepend search-close">
           <i class="feather icon-x input-group-text"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Enter Keyword">
+        <input type="text" class="form-control" placeholder="Entrez un mot-clef">
         <span class="input-group-append search-btn">
           <i class="feather icon-search input-group-text"></i>
         </span>
@@ -13,7 +13,7 @@
     </div>
   </li>
   <li>
-    <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+    <a href="#!" class="waves-effect waves-light switchSystem md-trigger" data-modal = "CompanySwitchModal">
       <i class="full-screen feather icon-maximize"></i>
     </a>
   </li>

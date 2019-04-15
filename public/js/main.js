@@ -661,8 +661,69 @@ $(document).ready(function () {
     if (usersTable.length > 0) {
       $("#usersTable").DataTable();
     }
-  } /////////// Init User database //////////
+  }
 
+  function _computeCompanySwitchModal() {}
+
+  $(".switchSystem").on('click', function () {
+    $("#fullHeightModalRight").modal('show');
+  });
+  $(".switchDataSource").on('click', function (e) {
+    e.preventDefault();
+    var dataSource = $(this).data('type');
+    var confirmMessage = '';
+    var sourceName = '';
+    var sourceId = null;
+
+    switch (dataSource) {
+      case 'lifebase':
+        sourceName = $(this).data('lifebase');
+        sourceId = $(this).data('lbid');
+        confirmMessage = "Vous allez changer la source de données vers la base de vie: " + sourceName;
+        break;
+
+      case 'administration':
+        sourceName = $(this).data('admin');
+        sourceId = $(this).data('adminid');
+        confirmMessage = "Vous allez changer la source de données vers l'administration: " + sourceName;
+        break;
+
+      default:
+        alert('Unknown source');
+    }
+
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()(_defineProperty({
+      title: "Êtes vous sur ?",
+      text: confirmMessage,
+      icon: "info",
+      buttons: true,
+      dangerMode: false
+    }, "buttons", ['Non', 'Oui, changer'])).then(function (willSwitch) {
+      if (willSwitch) {
+        $.ajax({
+          url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.system.switchDataSource'),
+          method: 'GET',
+          data: {
+            dataSource: dataSource,
+            sourceId: sourceId
+          },
+          success: function success(result) {
+            result = $.parseJSON(result);
+
+            switch (result) {
+              case 'switched':
+                sweetalert__WEBPACK_IMPORTED_MODULE_1___default()('DONE');
+                break;
+
+              default:
+            }
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  }); /////////// Init User database //////////
 
   initUsersDataTable(); /////////////////////////////////////////
   /////////// Handle user CRUD actions //////////
@@ -701,21 +762,21 @@ $(document).ready(function () {
     generateSecuredPassword();
   });
   $(".removeUser").on('click', function (e) {
-    var _swal;
+    var _swal2;
 
     e.preventDefault();
     var userId = $(this).data('user-id');
     var userNameDeleted = $(this).data('user-name');
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal = {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal2 = {
       title: "Êtes-vous sûr?",
       text: "Êtes-vous sûr que vous voulez supprimer " + userNameDeleted + "?, veuillez notez qu'une fois supprimé, toutes les opérations qu'il a éffectuer seront aussi supprimé",
       icon: "error",
       buttons: true
-    }, _defineProperty(_swal, "buttons", ["Non", "Oui, Supprimer"]), _defineProperty(_swal, "dangerMode", true), _swal)).then(function (willDelete) {
+    }, _defineProperty(_swal2, "buttons", ["Non", "Oui, Supprimer"]), _defineProperty(_swal2, "dangerMode", true), _swal2)).then(function (willDelete) {
       if (willDelete) {
-        var _swal2;
+        var _swal3;
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal2 = {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal3 = {
           title: "Confirmer l'action",
           text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
           icon: "error",
@@ -729,7 +790,7 @@ $(document).ready(function () {
               name: "userPassword"
             }
           }
-        }, _defineProperty(_swal2, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal2, "dangerMode", true), _swal2)).then(function (value) {
+        }, _defineProperty(_swal3, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal3, "dangerMode", true), _swal3)).then(function (value) {
           if (!value) {
             return false;
           } else {
@@ -776,21 +837,21 @@ $(document).ready(function () {
     $("#supplierDisplayName").val($("#supplierName").val());
   });
   $(".removeSupplier").on('click', function (e) {
-    var _swal3;
+    var _swal4;
 
     e.preventDefault();
     var supplierId = $(this).data('supplier-id');
     var supplierNameDeleted = $(this).data('supplier-name');
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal3 = {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal4 = {
       title: "Êtes-vous sûr?",
       text: "Êtes-vous sûr que vous voulez supprimer le fournisseur: " + supplierNameDeleted + " ?",
       icon: "error",
       buttons: true
-    }, _defineProperty(_swal3, "buttons", ["Non", "Oui, Supprimer"]), _defineProperty(_swal3, "dangerMode", true), _swal3)).then(function (willDelete) {
+    }, _defineProperty(_swal4, "buttons", ["Non", "Oui, Supprimer"]), _defineProperty(_swal4, "dangerMode", true), _swal4)).then(function (willDelete) {
       if (willDelete) {
-        var _swal4;
+        var _swal5;
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal4 = {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal5 = {
           title: "Confirmer l'action",
           text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
           icon: "error",
@@ -804,7 +865,7 @@ $(document).ready(function () {
               name: "userPassword"
             }
           }
-        }, _defineProperty(_swal4, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal4, "dangerMode", true), _swal4)).then(function (value) {
+        }, _defineProperty(_swal5, "buttons", ["Annuler", "Confirmer"]), _defineProperty(_swal5, "dangerMode", true), _swal5)).then(function (value) {
           if (!value) {
             return false;
           } else {
@@ -850,20 +911,20 @@ $(document).ready(function () {
   }); /////////// Handle Exit permissions operations //////////
 
   $(".approveExitPermission").on('click', function (e) {
-    var _swal5;
+    var _swal6;
 
     e.preventDefault();
     var exitPermissionRef = $(this).data('ref');
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal5 = {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal6 = {
       title: "Êtes-vous sûr?",
       text: "Êtes-vous sûr que vous voulez confirmer le bon de sortie " + exitPermissionRef + "?",
       icon: "info",
       buttons: true
-    }, _defineProperty(_swal5, "buttons", ["Non", "Oui, Approuver"]), _defineProperty(_swal5, "dangerMode", false), _swal5)).then(function (willApprove) {
+    }, _defineProperty(_swal6, "buttons", ["Non", "Oui, Approuver"]), _defineProperty(_swal6, "dangerMode", false), _swal6)).then(function (willApprove) {
       if (willApprove) {
-        var _swal6;
+        var _swal7;
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal6 = {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal7 = {
           title: "Confirmer l'action",
           text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
           icon: "warning",
@@ -877,7 +938,7 @@ $(document).ready(function () {
               name: "userPassword"
             }
           }
-        }, _defineProperty(_swal6, "buttons", ["Annuler", "Approuver"]), _defineProperty(_swal6, "dangerMode", true), _swal6)).then(function (value) {
+        }, _defineProperty(_swal7, "buttons", ["Annuler", "Approuver"]), _defineProperty(_swal7, "dangerMode", true), _swal7)).then(function (value) {
           if (!value) {
             return false;
           } else {
@@ -922,20 +983,20 @@ $(document).ready(function () {
     });
   });
   $(".rejectExitPermission").on('click', function (e) {
-    var _swal7;
+    var _swal8;
 
     e.preventDefault();
     var exitPermissionRef = $(this).data('ref');
-    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal7 = {
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal8 = {
       title: "Êtes-vous sûr?",
       text: "Êtes-vous sûr que vous voulez rejeté le bon de sortie " + exitPermissionRef + "?",
       icon: "error",
       buttons: true
-    }, _defineProperty(_swal7, "buttons", ["Non", "Oui, Rejeter"]), _defineProperty(_swal7, "dangerMode", false), _swal7)).then(function (willApprove) {
+    }, _defineProperty(_swal8, "buttons", ["Non", "Oui, Rejeter"]), _defineProperty(_swal8, "dangerMode", false), _swal8)).then(function (willApprove) {
       if (willApprove) {
-        var _swal8;
+        var _swal9;
 
-        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal8 = {
+        sweetalert__WEBPACK_IMPORTED_MODULE_1___default()((_swal9 = {
           title: "Confirmer l'action",
           text: "Pour des raisons de sécurité, nous vous invitons a introduire votre mot de passe",
           icon: "warning",
@@ -949,7 +1010,7 @@ $(document).ready(function () {
               name: "userPassword"
             }
           }
-        }, _defineProperty(_swal8, "buttons", ["Annuler", "Rejeter"]), _defineProperty(_swal8, "dangerMode", true), _swal8)).then(function (value) {
+        }, _defineProperty(_swal9, "buttons", ["Annuler", "Rejeter"]), _defineProperty(_swal9, "dangerMode", true), _swal9)).then(function (value) {
           if (!value) {
             return false;
           } else {
@@ -992,6 +1053,29 @@ $(document).ready(function () {
         return false;
       }
     });
+  }); /////////// System settings section //////////
+
+  $(".multiLifeBaseSystem").change(function () {
+    var value = $(this).is(":checked"); //update the value in database
+
+    $.ajax({
+      url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.lifebase.updateMultiLifeBaseParam'),
+      method: 'POST',
+      data: {
+        _token: $("meta[name=csrf-token]").attr('content'),
+        multi_life_base_system: value
+      },
+      success: function success(result) {
+        var response = $.parseJSON(result);
+        Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+      }
+    });
+
+    if (value) {
+      $(".lifebasesList").show('fade');
+    } else {
+      $(".lifebasesList").hide('fade');
+    }
   });
 });
 
@@ -1001,10 +1085,10 @@ $(document).ready(function () {
 /*!**********************************!*\
   !*** ./resources/js/routes.json ***!
   \**********************************/
-/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.delete, admin.users.create.getSecuredPassword, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermission.reject, default */
+/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.system.switchDataSource, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, office.index, office.create, office.store, office.show, office.edit, office.update, office.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.delete, admin.users.create.getSecuredPassword, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermission.reject, admin.SystemConfig.index, admin.SystemConfig.subPage, admin.lifebase.updateMultiLifeBaseParam, admin.SystemConfig.save, admin.lifebase.save, default */
 /***/ (function(module) {
 
-module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}"};
+module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.system.switchDataSource":"system/switchDataSource","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","office.index":"admin/office","office.create":"admin/office/create","office.store":"admin/office","office.show":"admin/office/{office}","office.edit":"admin/office/{office}/edit","office.update":"admin/office/{office}","office.destroy":"admin/office/{office}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}","admin.SystemConfig.index":"admin/system_config","admin.SystemConfig.subPage":"admin/system_config/{page?}","admin.lifebase.updateMultiLifeBaseParam":"admin/system_config/updateMultiLifeBaseParam","admin.SystemConfig.save":"admin/system_config/save","admin.lifebase.save":"admin/lifebases/save"};
 
 /***/ }),
 

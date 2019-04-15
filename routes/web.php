@@ -9,10 +9,13 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function(){
 
 Route::get('/auth/logout', 'AuthController@handleLogout')->name('auth.logout');
 
-
+Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
+  Route::get('/switchDataSource', 'SystemController@switchDataSource')->name('admin.system.switchDataSource');
+});
 
 // ,'middleware' => 'auth'
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
+
   Route::get('/', 'MainController@index')->name('admin.index');
 
   Route::resource('direction','DirectionController');
@@ -50,7 +53,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
 
   Route::prefix('system_config')->group(function(){
     Route::get('/', 'SystemConfigController@index')->name('admin.SystemConfig.index');
+    Route::get('/{page?}', 'SystemConfigController@page')->name('admin.SystemConfig.subPage');
+    Route::post('/updateMultiLifeBaseParam', 'SystemConfigController@updateMultiLifeBaseParam')->name('admin.lifebase.updateMultiLifeBaseParam');
     Route::post('/save', 'SystemConfigController@save')->name('admin.SystemConfig.save');
+  });
+
+  Route::prefix('lifebases')->group(function(){
+    Route::post('/save', 'LifeBaseController@save')->name('admin.lifebase.save');
   });
 
 });

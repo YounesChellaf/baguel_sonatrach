@@ -18,6 +18,7 @@ class CreateDepartementsTable extends Migration
             $table->string('name');
             $table->tinyInteger('active')->nullable();
             $table->integer('direction_id');
+            $table->string('analytic_account', 255)->nullable();
             $table->timestamps();
         });
     }

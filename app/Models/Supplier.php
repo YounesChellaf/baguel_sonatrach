@@ -48,5 +48,9 @@ class Supplier extends Model{
     return $this->belongsTo('App\Models\User', 'last_update_by', 'id');
   }
 
+  public function parent(){
+    return $this->belongsTo('App\Models\Supplier', 'parent_id', 'id');
+  }
+
 
 }

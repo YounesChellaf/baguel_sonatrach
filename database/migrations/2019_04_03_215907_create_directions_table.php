@@ -17,6 +17,7 @@ class CreateDirectionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->boolean('active')->nullable()->default(true);
+            $table->string('analytic_account', 255)->nullable();
             $table->text('address');
             $table->timestamps();
         });
