@@ -3,8 +3,8 @@
 @section('content')
     <div class="page-header card">
         <div class="row align-items-end">
-            @include('office.partials.pageTitle')
-            @include('office.partials.beadcrumbs')
+            @include('visiteur.partials.pageTitle')
+            @include('visiteur.partials.beadcrumbs')
         </div>
     </div>
     <div class="pcoded-inner-content">
@@ -18,28 +18,30 @@
                             <div class="card">
                                 <div class="card-header table-card-header">
                                     <h5>HTML5 Export Buttons</h5>
-                                    <button class="btn btn-round btn-outline-success" data-toggle="modal" data-target="#modal-add-office">Ajouter un bureau</button>
+                                    <button class="btn btn-round btn-outline-success" data-toggle="modal" data-target="#visitor-add-room">Ajouter un visiteur</button>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                             <thead>
                                             <tr>
-                                                <th>Numero</th>
-                                                <th>Status</th>
-                                                <th>Bloc</th>
+                                                <th>Nom</th>
+                                                <th>Prénom</th>
+                                                <th>Numero carte identite</th>
+                                                <th>fonction</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(Office::all() as $office)
+                                            @foreach(Visitor::all() as $visitor)
                                                 <tr>
-                                                    <td>{{$office->number}}</td>
-                                                    <td>{{$office->active}}</td>
-                                                    <td>{{$office->bloc->name}}</td>
-                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$office->id}}">modifier</button></td>
-                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$office->id}}">Supprimer</button></td>
+                                                    <td>{{$visitor->last_name}}</td>
+                                                    <td>{{$visitor->first_name}}</td>
+                                                    <td>{{$visitor->identity_card_number}}</td>
+                                                    <td>{{$visitor->function}}</td>
+                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$visitor->id}}">modifier</button></td>
+                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$visitor->id}}">Supprimer</button></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -57,31 +59,32 @@
     <div id="styleSelector">
     </div>
     <div class="col-md-4">
-        <div id="modal-add-office" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div id="visitor-add-room" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Ajouter un bureau</h4>
+                        <h4 class="modal-title">Ajouter un visiteur</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" class="office-add" action="/admin/office">
+                        <form method="post" class="visitor-add" action="/admin/visiteur">
                             @csrf
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Numero de bureau</label>
-                                <input type="text" class="form-control" id="recipient-name" name="number">
+                                <label for="recipient-name" class="control-label">Nom</label>
+                                <input type="text" class="form-control" id="recipient-name" name="last_name">
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <select name="bloc_id" class="form-control">
-                                        <option value="">Choisir un bloc</option>
-                                        @foreach(Bloc::all() as $bloc)
-                                        <option value="{{$bloc->id}}">{{$bloc->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Prenom</label>
+                                <input type="text" class="form-control" id="recipient-prenom" name="first_name">
                             </div>
-
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Numéro carte identité</label>
+                                <input type="text" class="form-control" id="recipient-carte" name="identity_card_number">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="control-label">Fonction</label>
+                                <input type="text" class="form-control" id="recipient-carte" name="function">
+                            </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
                                 <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
@@ -93,36 +96,34 @@
             </div>
         </div>
     </div>
-    @foreach(Office::all() as $office)
+    @foreach(Visitor::all() as $visitor)
         <div class="col-md-4">
-            <div id="modal-update-{{$office->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div id="modal-update-{{$visitor->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Modifier le bureau</h4>
+                            <h4 class="modal-title">Modifier les information du visiteur</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" class="office-add" action="/admin/office/{{$office->id}}">
+                            <form method="post" class="visito-add" action="/admin/visiteur/{{$visitor->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Numero du bureau</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="number" value="{{$office->number}}">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <select name="bloc_id" class="form-control">
-                                            <option value="{{$office->bloc->id}}">{{$office->bloc->name}}</option>
-                                            @foreach(Bloc::all() as $bloc)
-                                                <option value="{{$bloc->id}}">{{$bloc->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <label for="recipient-name" class="control-label">Nom</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="last_name" value="{{$visitor->last_name}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active" value="{{$office->active}}">
+                                    <label for="recipient-name" class="control-label">Prenom</label>
+                                    <input type="text" class="form-control" id="recipient-prenom" name="first_name" value="{{$visitor->first_name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Numéro carte identité</label>
+                                    <input type="text" class="form-control" id="recipient-carte" name="identity_card_number" value="{{$visitor->identity_card_number}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="recipient-name" class="control-label">Fonction</label>
+                                    <input type="text" class="form-control" id="recipient-carte" name="function" value="{{$visitor->function}}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -135,7 +136,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modal-delete-{{$office->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-delete-{{$visitor->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -145,10 +146,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Voulez vous supprimer ce bureau !
+                        Voulez vous supprimer ce visiteur !
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="/admin/office/{{$office->id}}">
+                        <form method="POST" action="/admin/visiteur/{{$visitor->id}}">
                             @csrf
                             <input type="hidden">
                             @method('delete')
