@@ -34,7 +34,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(\App\Office::all() as $office)
+                                            @foreach(Office::all() as $office)
                                                 <tr>
                                                     <td>{{$office->number}}</td>
                                                     <td>{{$office->floor}}</td>
@@ -85,7 +85,7 @@
                                 <div class="col-sm-12">
                                     <select name="bloc_id" class="form-control">
                                         <option value="">Choisir un bloc</option>
-                                        @foreach(\App\Bloc::all() as $bloc)
+                                        @foreach(Bloc::all() as $bloc)
                                         <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                                         @endforeach
                                     </select>
@@ -103,7 +103,7 @@
             </div>
         </div>
     </div>
-    @foreach(\App\Office::all() as $office)
+    @foreach(Office::all() as $office)
         <div class="col-md-4">
             <div id="modal-update-{{$office->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
@@ -128,7 +128,7 @@
                                     <div class="col-sm-12">
                                         <select name="bloc_id" class="form-control">
                                             <option value="{{$office->bloc->id}}">{{$office->bloc->name}}</option>
-                                            @foreach(\App\Bloc::all() as $bloc)
+                                            @foreach(Bloc::all() as $bloc)
                                                 <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                                             @endforeach
                                         </select>

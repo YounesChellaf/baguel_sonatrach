@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bloc;
+use App\Models\Equipement;
 use Illuminate\Http\Request;
 
-class BlocController extends Controller
+class EquipementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BlocController extends Controller
      */
     public function index()
     {
-        return view('bloc.index');
+        return view('equipement.index');
     }
 
     /**
@@ -35,18 +35,11 @@ class BlocController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        $number = $request->input('number');
-        $type = $request->input('type');
-        $floor_number = $request->input('floor_number');
-
-        Bloc::create([
-            'name' =>$name,
-            'number' =>$number,
-            'type' =>$type,
-            'floors_number' =>$floor_number,
+        Equipement::create([
+            'reference' => $request->input('reference'),
+            'status' => $request->input('status'),
+            'room_id' => $request->input('room_id'),
         ]);
-
         return redirect()->back();
     }
 
@@ -81,21 +74,11 @@ class BlocController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->input('name');
-        $number = $request->input('number');
-        $type = $request->input('type');
-        $floor_number = $request->input('floor_number');
-        $active = $request->input('active');
-
-        $bloc = Bloc::find($id);
-
-        $bloc->name = $name;
-        $bloc->number = $number;
-        $bloc->type = $type;
-        $bloc->floors_number = $floor_number;
-        $bloc->active = $active;
-
-        $bloc->save();
+        $equipement = Equipement::find($id);
+        $equipement->reference = $request->input('reference');
+        $equipement->status = $request->input('status');
+        $equipement->room_id = $request->input('room_id');
+        $equipement->save();
 
         return redirect()->back();
     }
@@ -108,7 +91,7 @@ class BlocController extends Controller
      */
     public function destroy($id)
     {
-        Bloc::destroy($id);
+        Equipement::destroy($id);
         return redirect()->back();
     }
 }

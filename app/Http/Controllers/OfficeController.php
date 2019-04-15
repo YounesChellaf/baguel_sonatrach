@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Office;
+use App\Models\Office;
 use Illuminate\Http\Request;
 
 class OfficeController extends Controller

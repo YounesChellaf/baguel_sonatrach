@@ -14,14 +14,20 @@ Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
 });
 
 // ,'middleware' => 'auth'
+<<<<<<< HEAD
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
 
+=======
+Route::group(['prefix' => 'admin'], function(){
+>>>>>>> dc1b077fdd67efdd6bebb0e0756cddb01e2fbfbb
   Route::get('/', 'MainController@index')->name('admin.index');
 
   Route::resource('direction','DirectionController');
   Route::resource('departement','DepartementController');
   Route::resource('bloc','BlocController');
   Route::resource('office','OfficeController');
+  Route::resource('room','RoomController');
+  Route::resource('equipement','EquipementController');
 
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');

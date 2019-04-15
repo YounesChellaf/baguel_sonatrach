@@ -9,6 +9,6 @@ class Office extends Model
     protected $fillable =['number','floor','bloc_id','active'];
 
     function bloc(){
-        return $this->belongsTo('App\Bloc');
+        return $this->belongsTo('App\Models\Bloc');
     }
 }

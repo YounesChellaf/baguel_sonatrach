@@ -9,6 +9,9 @@ class Bloc extends Model
     protected $fillable =['name','number','type','floors_number','active'];
 
     function office(){
-        return $this->hasMany('App\Office');
+        return $this->hasMany('App\Models\Office');
+    }
+    function room(){
+        return $this->hasMany('App\Models\Room');
     }
 }

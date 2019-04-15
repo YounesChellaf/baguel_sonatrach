@@ -3,8 +3,8 @@
 @section('content')
     <div class="page-header card">
         <div class="row align-items-end">
-            @include('bloc.partials.pageTitle')
-            @include('bloc.partials.beadcrumbs')
+            @include('equipement.partials.pageTitle')
+            @include('equipement.partials.beadcrumbs')
         </div>
     </div>
     <div class="pcoded-inner-content">
@@ -18,32 +18,28 @@
                             <div class="card">
                                 <div class="card-header table-card-header">
                                     <h5>HTML5 Export Buttons</h5>
-                                    <button class="btn btn-round btn-outline-success" data-toggle="modal" data-target="#modal-add-bloc">Ajouter un bloc</button>
+                                    <button class="btn btn-round btn-outline-success" data-toggle="modal" data-target="#modal-add-equipement">Ajouter un equipement</button>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
                                         <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                             <thead>
                                             <tr>
-                                                <th>Designation</th>
-                                                <th>number</th>
-                                                <th>type</th>
-                                                <th>Floor_number</th>
+                                                <th>Numero de reference</th>
                                                 <th>Status</th>
+                                                <th>Chambre</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(Bloc::all() as $bloc)
+                                            @foreach(Equipement::all() as $equipement)
                                                 <tr>
-                                                    <td>{{$bloc->name}}</td>
-                                                    <td>{{$bloc->number}}</td>
-                                                    <td>{{$bloc->type}}</td>
-                                                    <td>{{$bloc->floors_number}}</td>
-                                                    <td>{{$bloc->active}}</td>
-                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$bloc->id}}">modifier</button></td>
-                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$bloc->id}}">Supprimer</button></td>
+                                                    <td>{{$equipement->reference}}</td>
+                                                    <td>{{$equipement->status}}</td>
+                                                    <td>{{$equipement->room->number}}</td>
+                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$equipement->id}}">modifier</button></td>
+                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$equipement->id}}">Supprimer</button></td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -61,40 +57,35 @@
     <div id="styleSelector">
     </div>
     <div class="col-md-4">
-        <div id="modal-add-bloc" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div id="modal-add-equipement" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Ajouter un bloc</h4>
+                        <h4 class="modal-title">Ajouter un equipement</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/bloc">
+                        <form method="post" action="/admin/equipement">
                             @csrf
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">designation du bloc</label>
-                                <input type="text" class="form-control" id="recipient-name" name="name">
+                                <label for="recipient-name" class="control-label">Reference d'équipement</label>
+                                <input type="text" class="form-control" id="recipient-name" name="reference">
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">number</label>
-                                <input type="text" class="form-control" id="recipient-name" name="number">
+                                <label for="recipient-name" class="control-label">Status</label>
+                                <input type="text" class="form-control" id="recipient-name" name="status">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
-                                    <select name="type" class="form-control">
-                                        <option value="travail">Travail</option>
-                                        <option value="hebergement">hebergement</option>
+                                    <select name="room_id" class="form-control">
+                                        <option value="">Choisir une chambre á affecter</option>
+                                        @foreach(Room::all() as $room)
+                                        <option value="{{$room->id}}">{{$room->number}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">floor number</label>
-                                <input type="text" class="form-control" id="recipient-name" name="floor_number">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" name="active" checked />
-                            </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
                                 <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
@@ -106,43 +97,36 @@
             </div>
         </div>
     </div>
-    @foreach(Bloc::all() as $bloc)
+    @foreach(Equipement::all() as $equipement)
         <div class="col-md-4">
-            <div id="modal-update-{{$bloc->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div id="modal-update-{{$equipement->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Modifier le bloc</h4>
+                            <h4 class="modal-title">Modifier l'equipement</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/bloc/{{$bloc->id}}">
+                            <form method="post" action="/admin/equipement/{{$equipement->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">designation du bloc</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="name" value="{{$bloc->name}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">number</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="number" value="{{$bloc->number}}">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <select name="type" class="form-control">
-                                            <option value="{{$bloc->type}}">{{$bloc->type}}</option>
-                                                <option value="travail">travail</option>
-                                                <option value="hebergement">hebergement</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">number floor</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="floor_number" value="{{$bloc->floors_number}}">
+                                    <label for="recipient-name" class="control-label">Reference d'équipement</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="reference" value="{{$equipement->reference}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active" value="{{$bloc->active}}">
+                                    <input type="text" class="form-control" id="recipient-name" name="status" value="{{$equipement->status}}">
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <select name="room_id" class="form-control">
+                                            <option value="{{$equipement->room->id}}">{{$equipement->room->number}}</option>
+                                            @foreach(Room::all() as $room)
+                                                <option value="{{$room->id}}">{{$room->number}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -155,7 +139,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="modal-delete-{{$bloc->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-delete-{{$equipement->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -165,10 +149,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Voulez vous supprimer ce bloc !
+                        Voulez vous supprimer cet equipement !
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="/admin/bloc/{{$bloc->id}}">
+                        <form method="POST" action="/admin/equipement/{{$equipement->id}}">
                             @csrf
                             <input type="hidden">
                             @method('delete')

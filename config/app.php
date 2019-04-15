@@ -231,8 +231,12 @@ return [
         'Supplier' => App\Models\Supplier::class,
         'ExitPermission' => App\Models\ExitPermission::class,
         'SystemConfig' => App\Models\SystemConfig::class,
+        'Equipement' => App\Models\Equipement::class,
         'LifeBase' => App\Models\LifeBase::class,
         'Administration' => App\Models\Administration::class,
+        'Room' => App\Models\Room::class,
+        'Bloc' => App\Models\Bloc::class,
+        'Office' => App\Models\Office::class,
 
     ],
 

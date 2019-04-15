@@ -10,6 +10,6 @@ class Direction extends Model
 
 
     function  departement(){
-        return $this->hasMany('App\Departement');
+        return $this->hasMany('App\Models\Department');
     }
 }
