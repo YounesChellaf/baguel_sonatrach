@@ -18,7 +18,6 @@ class CreateBlocsTable extends Migration
             $table->string('name');
             $table->string('number');
             $table->enum('type',['travail','hebergement']);
-            $table->integer('floors_number');
             $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();
         });

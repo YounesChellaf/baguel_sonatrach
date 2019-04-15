@@ -65,7 +65,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/direction">
+                        <form class="direction-add" method="post" action="/admin/direction">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">designation de la direction</label>
@@ -73,11 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Address</label>
-                                <input type="text" class="form-control" id="recipient-name" name="address">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" checked />
+                                <input type="text" class="form-control" id="recipient-address" name="address">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -100,7 +96,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/direction/{{$direction->id}}">
+                            <form method="post" class="direction-add" action="/admin/direction/{{$direction->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -109,11 +105,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Address</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="address" value="{{$direction->address}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active" value="{{$direction->active}}">
+                                    <input type="text" class="form-control" id="recipient-address" name="address" value="{{$direction->address}}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>

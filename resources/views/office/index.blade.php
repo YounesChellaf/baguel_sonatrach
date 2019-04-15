@@ -67,19 +67,11 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/office">
+                        <form method="post" class="room-add" action="/admin/office">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Numero de bureau</label>
                                 <input type="text" class="form-control" id="recipient-name" name="number">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">floor</label>
-                                <input type="text" class="form-control" id="recipient-name" name="floor">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" name="active" checked />
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">

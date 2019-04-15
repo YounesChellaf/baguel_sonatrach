@@ -38,13 +38,11 @@ class BlocController extends Controller
         $name = $request->input('name');
         $number = $request->input('number');
         $type = $request->input('type');
-        $floor_number = $request->input('floor_number');
 
         Bloc::create([
             'name' =>$name,
             'number' =>$number,
             'type' =>$type,
-            'floors_number' =>$floor_number,
         ]);
 
         return redirect()->back();
@@ -84,7 +82,6 @@ class BlocController extends Controller
         $name = $request->input('name');
         $number = $request->input('number');
         $type = $request->input('type');
-        $floor_number = $request->input('floor_number');
         $active = $request->input('active');
 
         $bloc = Bloc::find($id);
@@ -92,7 +89,6 @@ class BlocController extends Controller
         $bloc->name = $name;
         $bloc->number = $number;
         $bloc->type = $type;
-        $bloc->floors_number = $floor_number;
         $bloc->active = $active;
 
         $bloc->save();
