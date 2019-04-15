@@ -13,22 +13,14 @@ Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
   Route::get('/switchDataSource', 'SystemController@switchDataSource')->name('admin.system.switchDataSource');
 });
 
-// ,'middleware' => 'auth'
-<<<<<<< HEAD
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
-
-=======
-Route::group(['prefix' => 'admin'], function(){
->>>>>>> dc1b077fdd67efdd6bebb0e0756cddb01e2fbfbb
   Route::get('/', 'MainController@index')->name('admin.index');
-
   Route::resource('direction','DirectionController');
   Route::resource('departement','DepartementController');
   Route::resource('bloc','BlocController');
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
-
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');
     Route::get('/create', 'UsersController@createView')->name('admin.users.create');
@@ -36,7 +28,6 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/edit/{id?}', 'UsersController@editView')->name('admin.users.edit');
     Route::post('/edit/{id?}', 'UsersController@editPost')->name('admin.users.edit.post');
     Route::post('/delete', 'UsersController@deleteUser')->name('admin.users.delete');
-    //helpers
     Route::get('/getSecuredPassword', 'UsersController@getSecuredPassword')->name('admin.users.create.getSecuredPassword');
   });
 
