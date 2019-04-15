@@ -59,4 +59,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::post('/save', 'LifeBaseController@save')->name('admin.lifebase.save');
   });
 
+  Route::prefix('administrations')->group(function(){
+    Route::post('/save', 'AdministrationController@save')->name('admin.administration.save');
+  });
+
 });

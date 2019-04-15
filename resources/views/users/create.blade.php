@@ -68,6 +68,38 @@
                 </div>
               </div>
               <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Struture</label>
+                <div class="col-sm-10">
+                  <select class="form-control userAccountStructure" name="account_structure">
+                    <option value="">Sélectionner</option>
+                    <option value="lifebase">Base de vie</option>
+                    <option value="administration">Administration</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row lifeBaseOptions">
+                <label class="col-sm-2 col-form-label">Base de vie</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="lifebase_id">
+                    <option value="">Sélectionner</option>
+                    @foreach(LifeBase::all() as $index => $lifebase)
+                      <option value="{{ $lifebase->id }}">{{ $lifebase->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row administrationOptions">
+                <label class="col-sm-2 col-form-label">Administration</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="administration_id">
+                    <option value="">Sélectionner</option>
+                    @foreach(Administration::all() as $index => $admin)
+                      <option value="{{ $admin->id }}">{{ $admin->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="username" value="{{ old('username') }}" name="username" placeholder="" readonly>

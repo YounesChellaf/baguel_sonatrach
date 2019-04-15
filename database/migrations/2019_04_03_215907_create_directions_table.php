@@ -19,6 +19,8 @@ class CreateDirectionsTable extends Migration
             $table->boolean('active')->nullable()->default(true);
             $table->string('analytic_account', 255)->nullable();
             $table->text('address');
+            $table->integer('administration_id')->unsigned()->index();
+            $table->foreign('administration_id')->references('id')->on('administrations');
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@
       </div>
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">
-          Format de référence<i class="md-trigger fas fa-info-circle" data-modal="modal-1"></i>
+          Format de référence<i class="fas fa-info-circle exitPermissionRefHelperModalAction" data-modal="modal-1"></i>
         </label>
         <div class="col-sm-10">
           <input type="text" class="form-control" value="{{ SystemConfig::config('ep_ref_format') }}" name="ep_ref_format">

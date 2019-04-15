@@ -34,7 +34,7 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="#" class="md-trigger" data-modal="NewLifeBaseModal" style="float: right;">Ajouter</a>
+            <a href="#" class="newLifeBaseAction" style="float: right;">Ajouter</a>
           </div>
         </div>
       </div>

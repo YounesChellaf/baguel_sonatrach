@@ -17,6 +17,8 @@ class CreateRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('number');
             $table->integer('bloc_id');
+            $table->integer('lifebase_id')->unsigned()->index();
+            $table->foreign('lifebase_id')->references('id')->on('life_bases');
             $table->timestamps();
         });
     }

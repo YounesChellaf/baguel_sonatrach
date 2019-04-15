@@ -34,7 +34,7 @@
                 @endforeach
               </tbody>
             </table>
-            <a href="#" class="md-trigger" data-modal="NewAdministrationModal" style="float: right;">Ajouter</a>
+            <a href="#" class="NewAdministratioAction" style="float: right;">Ajouter</a>
           </div>
         </div>
       </div>

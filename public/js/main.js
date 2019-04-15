@@ -741,6 +741,26 @@ $(document).ready(function () {
     $("#username").val(username);
   }
 
+  $(".administrationOptions").hide();
+  $(".lifeBaseOptions").hide();
+  $(".userAccountStructure").on('change', function () {
+    var selectedOption = $(this).val();
+
+    switch (selectedOption) {
+      case 'lifebase':
+        $(".administrationOptions").hide();
+        $(".lifeBaseOptions").show();
+        break;
+
+      case 'administration':
+        $(".administrationOptions").show();
+        $(".lifeBaseOptions").hide();
+        break;
+
+      default:
+    }
+  });
+
   function generateSecuredPassword() {
     $.ajax({
       url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.users.create.getSecuredPassword'),
@@ -1055,6 +1075,9 @@ $(document).ready(function () {
     });
   }); /////////// System settings section //////////
 
+  $(".exitPermissionRefHelperModalAction").on('click', function () {
+    $("#exitPermissionRefHelperModal").modal('show');
+  });
   $(".multiLifeBaseSystem").change(function () {
     var value = $(this).is(":checked"); //update the value in database
 
@@ -1076,6 +1099,12 @@ $(document).ready(function () {
     } else {
       $(".lifebasesList").hide('fade');
     }
+  });
+  $(".newLifeBaseAction").on('click', function () {
+    $("#NewLifeBaseModal").modal('show');
+  });
+  $(".NewAdministratioAction").on('click', function () {
+    $("#NewAdministrationModal").modal('show');
   });
 });
 

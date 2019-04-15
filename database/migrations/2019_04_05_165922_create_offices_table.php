@@ -19,6 +19,10 @@ class CreateOfficesTable extends Migration
             $table->integer('floor');
             $table->integer('bloc_id');
             $table->tinyInteger('active');
+            $table->integer('administration_id')->unsigned()->index();
+            $table->foreign('administration_id')->references('id')->on('administrations');
+            $table->integer('lifebase_id')->unsigned()->index();
+            $table->foreign('lifebase_id')->references('id')->on('life_bases');
             $table->timestamps();
         });
     }

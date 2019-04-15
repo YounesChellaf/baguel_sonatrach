@@ -26,6 +26,16 @@ class User extends Authenticatable
     return $this->firstName.' '.$this->lastName;
   }
 
+  public function structure(){
+    if($this->LifeBase){
+      return 'Base de vie: '.$this->LifeBase->name;
+    }elseif($this->Administration){
+      return 'Administration: '.$this->Administration->name;
+    }else{
+      return '#';
+    }
+  }
+
   public function lastConnexionDate(){
     return $this->last_connexion_at;
   }
@@ -66,6 +76,8 @@ class User extends Authenticatable
         'password' => Hash::make($request->password),
         'department_id' => $request->department,
         'account_type' => $request->account_type,
+        'lifebase_id' => $request->lifebase_id,
+        'administration_id' => $request->administration_id,
       ]);
       return $user;
     }
@@ -89,6 +101,14 @@ class User extends Authenticatable
 
   public function Department(){
     return $this->belongsTo('App\Models\Department');
+  }
+
+  public function LifeBase(){
+    return $this->belongsTo('App\Models\LifeBase', 'lifebase_id', 'id');
+  }
+
+  public function Administration(){
+    return $this->belongsTo('App\Models\Administration', 'administration_id', 'id');
   }
 
 }

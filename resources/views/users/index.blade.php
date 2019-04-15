@@ -30,7 +30,7 @@
                     <th>Nom complet</th>
                     <th>Département</th>
                     <th>Type de compte</th>
-                    <th>Poste</th>
+                    <th>Structure</th>
                     <th>Date de dernière connexion</th>
                     <th>Actions</th>
                   </tr>
@@ -41,7 +41,7 @@
                     <td>{{ $user->name() }}</td>
                     <td>{{ $user->Department->name }}</td>
                     <td>{{ $user->accountType() }}</td>
-                    <td>61</td>
+                    <td>{{ $user->structure() }}</td>
                     <td>{{ $user->lastConnexionDate() }}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
