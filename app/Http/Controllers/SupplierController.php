@@ -6,6 +6,8 @@ use Auth;
 use Hash;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
+use App\Imports\SuppliersImport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\NewSupplierRequest;
 class SupplierController extends Controller
 {
@@ -65,6 +67,59 @@ class SupplierController extends Controller
         $response['msg'] = "Le mot de passe que vous avez présenter est incorrecte!";
       }
       echo json_encode($response);
+    }
+  }
+
+  public function subSuppliersView($supplier_id = null){
+    if(!$supplier_id){
+      abort(404);
+    }
+    $supplier = Supplier::find($supplier_id);
+    if(!$supplier){
+      abort(404);
+    }
+    $subSuppliers = $supplier->subSuppliers;
+    return view('suppliers.index', [
+      'suppliers' => $subSuppliers,
+      'parentSupplier' => $supplier,
+    ]);
+  }
+
+  public function subSupplierCreate($supplier_id = null){
+    if(!$supplier_id){
+      abort(404);
+    }
+    $supplier = Supplier::find($supplier_id);
+    if(!$supplier){
+      abort(404);
+    }
+
+    return view('suppliers.create', [
+      'parentSupplier' => $supplier,
+    ]);
+  }
+
+  public function subSupplierCreatePost(NewSupplierRequest $request, $parent_id = null){
+    if($request->post()){
+      if(!$parent_id){
+        abort(404);
+      }
+      $validate = $request->validated();
+      $supplier = Supplier::new($request, $parent_id);
+      return redirect(route('admin.suppliers.subSuppliers', $parent_id));
+    }
+  }
+
+  public function import(Request $request){
+    if($request->post()){
+      if($request->file('SuppliersFileInput')){
+        Excel::import(new SuppliersImport, $request->file('SuppliersFileInput'));
+        return back();
+      }else{
+        abort(404);
+      }
+    }else{
+      abort(404);
     }
   }
 }

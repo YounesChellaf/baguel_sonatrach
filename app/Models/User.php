@@ -4,14 +4,20 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\DatabaseNotification;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Traits\CausesActivity;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 class User extends Authenticatable
 {
   use Notifiable;
+  use LogsActivity;
+  use CausesActivity;
+
+  protected static $logAttributes = ['firstName', 'lastName', 'email', 'username', 'account_type'];
 
   protected $guarded = [];
   protected $casts = [
@@ -48,7 +54,7 @@ class User extends Authenticatable
   public function accountType(){
     switch ($this->account_type) {
       case 'employee':
-        return 'Employé Baguel';
+        return 'Employé Sonatrach';
       break;
 
       case 'supplier_staff':
@@ -100,7 +106,7 @@ class User extends Authenticatable
 
 
   public function Department(){
-    return $this->belongsTo('App\Models\Department');
+    return $this->belongsTo('App\Models\Service');
   }
 
   public function LifeBase(){
@@ -109,6 +115,10 @@ class User extends Authenticatable
 
   public function Administration(){
     return $this->belongsTo('App\Models\Administration', 'administration_id', 'id');
+  }
+
+  public function notifications(){
+      return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');
   }
 
 }

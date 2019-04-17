@@ -7,8 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Supplier extends Model{
   protected $guarded = [];
 
-  public static function new($request){
+  public static function getSuppliers(){
+    return Supplier::where('parent_id', false)->get();
+  }
+
+  public static function new($request, $parent_id = null){
     if($request->post()){
+      if($parent_id){
+        $parentSupplier = Supplier::find($parent_id);
+        if(!$parentSupplier){
+          abort(404);
+        }
+      }
       $supplier = Supplier::create([
         'name' => $request->supplierName,
         'comments' => $request->comments,
@@ -18,6 +28,7 @@ class Supplier extends Model{
         'mobile' => $request->mobile,
         'street' => $request->address,
         'created_by' => Auth::user()->id,
+        'parent_id' => $parent_id,
       ]);
     }
   }
@@ -46,6 +57,10 @@ class Supplier extends Model{
 
   public function LastUpdateBy(){
     return $this->belongsTo('App\Models\User', 'last_update_by', 'id');
+  }
+
+  public function subSuppliers(){
+    return $this->hasMany('App\Models\Supplier', 'parent_id', 'id');
   }
 
   public function parent(){

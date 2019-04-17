@@ -168,6 +168,21 @@
           </li>
         </ul>
       </li>
+      <li class="pcoded-hasmenu">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="feather icon-credit-card"></i>
+          </span>
+          <span class="pcoded-mtext">Employées</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class=" ">
+            <a href="{{ route('admin.employees.index') }}" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Liste des Employées</span>
+            </a>
+          </li>
+        </ul>
+      </li>
     </ul>
     <div class="pcoded-navigation-label">Rapports</div>
     <ul class="pcoded-item pcoded-left-item">

@@ -1,4 +1,16 @@
 <?php
+use App\Models\User;
+use App\Models\Employee;
+use App\Notifications\NewEmployeeCreated;
+Route::get('/notify', function(){
+
+
+  $user = User::find(1);
+  $emp = Employee::find(26);
+  $user->notify(new NewEmployeeCreated($emp));
+
+});
+
 
 Route::get('/', function(){return redirect(route('admin.index'));})->name('webroot.index');
 
@@ -21,14 +33,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
+
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');
     Route::get('/create', 'UsersController@createView')->name('admin.users.create');
     Route::post('/create', 'UsersController@createPost')->name('admin.users.create.post');
     Route::get('/edit/{id?}', 'UsersController@editView')->name('admin.users.edit');
     Route::post('/edit/{id?}', 'UsersController@editPost')->name('admin.users.edit.post');
+    Route::get('/{id?}', 'UsersController@singleUser')->name('admin.users.single');
     Route::post('/delete', 'UsersController@deleteUser')->name('admin.users.delete');
     Route::get('/getSecuredPassword', 'UsersController@getSecuredPassword')->name('admin.users.create.getSecuredPassword');
+    Route::get('/getSingleActivityChanges', 'UsersController@getSingleActivityChanges')->name('admin.users.getSingleActivityChanges');
   });
 
   Route::prefix('suppliers')->group(function(){
@@ -38,12 +53,19 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('/edit/{id?}', 'SupplierController@editView')->name('admin.suppliers.edit');
     Route::post('/edit', 'SupplierController@editPost')->name('admin.suppliers.edit.post');
     Route::post('/detele', 'SupplierController@deleteSupplier')->name('admin.suppliers.delete');
+    Route::get('/{id?}/subSuppliers', 'SupplierController@subSuppliersView')->name('admin.suppliers.subSuppliers');
+    Route::get('/{id?}/subSuppliers/create', 'SupplierController@subSupplierCreate')->name('admin.suppliers.subSuppliers.create');
+    Route::post('/{id?}/subSuppliers/create', 'SupplierController@subSupplierCreatePost')->name('admin.suppliers.subSuppliers.create.post');
+
+    Route::post('/import', 'SupplierController@import')->name('admin.suppliers.import');
+
   });
 
   Route::prefix('exit_permissions')->group(function(){
     Route::get('/', 'ExitPermissionController@index')->name('admin.ExitPermissions.index');
     Route::get('/create', 'ExitPermissionController@createView')->name('admin.ExitPermissions.index.create');
     Route::post('/create', 'ExitPermissionController@createPost')->name('admin.ExitPermissions.index.create.post');
+    Route::get('/single/{id?}', 'ExitPermissionController@singleExitPermission')->name('admin.ExitPermissions.single');
     Route::post('/approve/{ref?}', 'ExitPermissionController@approve')->name('admin.ExitPermission.approve');
     Route::post('/approve/{ref?}', 'ExitPermissionController@reject')->name('admin.ExitPermission.reject');
   });
@@ -61,6 +83,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
 
   Route::prefix('administrations')->group(function(){
     Route::post('/save', 'AdministrationController@save')->name('admin.administration.save');
+  });
+
+  Route::prefix('employees')->group(function(){
+    Route::get('/', 'EmployeeController@index')->name('admin.employees.index');
+    Route::get('/create', 'EmployeeController@createView')->name('admin.employees.create');
+    Route::post('/create', 'EmployeeController@createPost')->name('admin.employees.create.post');
+    Route::post('/delete', 'EmployeeController@deleteEmployee')->name('admin.employees.delete');
+    Route::post('/import', 'EmployeeController@import')->name('admin.employees.import');
+  });
+
+  Route::prefix('notification')->group(function(){
+    Route::get('/{id?}', 'NotificationController@handleNotificationClick')->name('admin.notifications.handleClick');
   });
 
 });

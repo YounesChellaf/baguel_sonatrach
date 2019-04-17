@@ -9,8 +9,8 @@
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
-    @include('users.partials.pageTitle')
-    @include('users.partials.beadcrumbs')
+    @include('employees.partials.pageTitle')
+    @include('employees.partials.beadcrumbs')
   </div>
 </div>
 <div class="pcoded-inner-content">
@@ -19,40 +19,38 @@
       <div class="page-body">
         <div class="card">
           <div class="card-header">
-            <h5>Comptes utilisateurs</h5>
-            <a href="#" class="importUsersAction">Importer</a>
-            <a href="{{ route('admin.users.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau Compte</button></a>
-
+            <h5>Employées</h5>
+            <a href="#" class="ImportEmployeesAction">Importer</a>
+            <a href="{{ route('admin.employees.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau Employée</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
               <table id="usersTable" class="table table-striped table-bordered nowrap">
                 <thead>
                   <tr>
-                    <th>Nom complet</th>
-                    <th>Département</th>
-                    <th>Type de compte</th>
-                    <th>Structure</th>
-                    <th>Date de dernière connexion</th>
+                    <th>Nom</th>
+                    <th>Matricule</th>
+                    <th>Téléphone</th>
+                    <th>Mobile</th>
+                    <th>Type</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach(User::all() as $index => $user)
+                  @foreach(Employee::all() as $index => $employee)
                   <tr>
-                    <td>{{ $user->name() }}</td>
-                    <td>{{ $user->Department->name }}</td>
-                    <td>{{ $user->accountType() }}</td>
-                    <td>{{ $user->structure() }}</td>
-                    <td>{{ $user->lastConnexionDate() }}</td>
+                    <td>{{ $employee->name() }}</td>
+                    <td>{{ $employee->employee_number }}</a></td>
+                    <td>{{ $employee->phone }}</td>
+                    <td>{{ $employee->mobile }}</td>
+                    <td>{{ $employee->type() }}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="{{ route('admin.users.single', $user->id) }}">Consulter</a>
-                          <a class="dropdown-item" href="{{ route('admin.users.edit', $user->id) }}">Modifier</a>
-                          <a class="dropdown-item removeUser" data-user-id="{{ $user->id }}" data-user-name="{{ $user->name() }}" href="#!">Supprimer</a>
-                          <a class="dropdown-item" href="#!">Bloquer</a>
+                          <a class="dropdown-item" href="#!">Consulter</a>
+                          <a class="dropdown-item" href="#">Modifier</a>
+                          <a class="dropdown-item deleteEmployee" data-employee-id = "{{ $employee->id }}" data-employee-name = "{{ $employee->name() }}" href="#!">Supprimer</a>
                         </div>
                       </div>
                     </td>
@@ -66,6 +64,37 @@
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="modal fade right" id="ImportEmployeesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Importation des employées</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>
+        Cette option va vous permettre d'importer une liste des employées depuis un fichier Excel / CSV
+      </p>
+      <form action="{{ route('admin.employees.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Fichier: </label>
+          <div class="col-sm-10">
+            <input type="file" name="EmployeesFileInput" required class="form-control">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info">Importer</button>
+      </form>
+    </ul>
+  </div>
+</div>
+</div>
 </div>
 @endsection
 

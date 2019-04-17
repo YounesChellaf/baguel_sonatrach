@@ -12,7 +12,7 @@
       <div class="page-body">
         <div class="card">
           <div class="card-header">
-            <h5>Nouveau Fournisseur</h5>
+            <h5>Nouveau Fournisseur {{ isset($parentSupplier) ? 'Pour : '.$parentSupplier->name : '' }}</h5>
           </div>
           <div class="card-block">
             @if ($errors->any())
@@ -26,7 +26,7 @@
               </ul>
             </div>
             @endif
-            <form method="post" action="{{ route('admin.suppliers.create.post') }}" class="NewSupplierForm">
+            <form method="post" action="{{ isset($parentSupplier) ? route('admin.suppliers.subSuppliers.create.post', $parentSupplier->id) : route('admin.suppliers.create.post') }}" class="NewSupplierForm">
               @csrf
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nom</label>

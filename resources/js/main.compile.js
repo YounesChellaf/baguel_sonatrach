@@ -200,6 +200,24 @@ $(document).ready(function(){
       }
     });
   });
+
+  $(".getActivityLogChanges").on('click', function(e){
+    e.preventDefault();
+    showBodyLoader();
+    var actionId = $(this).data('log-id');
+    $.ajax({
+      url: route('admin.users.getSingleActivityChanges'),
+      method: 'GET',
+      data: {
+        actionId: actionId,
+      },
+      success: function(response){
+        alert('shit');
+      }
+    });
+
+    //perform ajax to get all changs
+  });
   ///////////////////////////////////////////////////
 
   /////////// Handle supplier CRUD actions //////////
@@ -281,6 +299,61 @@ $(document).ready(function(){
     });
   });
 
+  $(".ImportSuppliersAction").on('click', function(){
+    $("#ImportSuppliersModel").modal('show');
+  });
+  //////////// Employees Section //////////////////////////
+  $(".ImportEmployeesAction").on('click', function(){
+    $("#ImportEmployeesModal").modal('show');
+  });
+
+  $(".deleteEmployee").on('click', function(e){
+    e.preventDefault();
+    var employeeName = $(this).data('employee-name');
+    var employeeId = $(this).data('employee-id');
+    swal({
+      title: "Êtes-vous sûr?",
+      text: "Êtes-vous sûr que vous voulez supprimer l'employée "+ employeeName +" ?",
+      icon: "error",
+      buttons: true,
+      buttons: ["Non", "Oui, Supprimer"],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        showBodyLoader();
+        $.ajax({
+          url: route('admin.employees.delete'),
+          method: 'POST',
+          data: {
+            _token: $("meta[name=csrf-token]").attr('content'),
+            employeeId: employeeId,
+          },
+          success: function(result){
+            var response = $.parseJSON(result);
+            hideBodyLoader();
+            switch (response.status) {
+              case 404:
+              swal ("Oops" ,response.msg,"warning" );
+              break;
+              case 500:
+              swal ("Oops" ,response.msg,"error" );
+              break;
+              case 200:
+              swal ("Félicitations" ,response.msg,"success" );
+              setTimeout(function(){
+                window.location.reload(1);
+              }, 2000);
+              break;
+              default:
+            }
+          }
+        });
+      } else {
+        return false
+      }
+    });
+  });
 
   /////////// Handle Exit permissions operations //////////
   $(".approveExitPermission").on('click', function(e){

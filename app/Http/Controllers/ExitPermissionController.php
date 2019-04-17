@@ -7,6 +7,7 @@ use Hash;
 use Illuminate\Http\Request;
 use App\Models\ExitPermission;
 use App\Http\Requests\NewExitPermissionRequest;
+use App\Notifications\newExitPermissionRequested;
 class ExitPermissionController extends Controller{
 
 
@@ -25,6 +26,8 @@ class ExitPermissionController extends Controller{
       if($request->post()){
         $validated = $request->validated();
         $exitPermission = ExitPermission::new($request);
+        //notify user
+        Auth::user()->notify(new newExitPermissionRequested(Auth::user(), $exitPermission));
         return redirect(route('admin.ExitPermissions.index'));
       }
     }
@@ -73,5 +76,9 @@ class ExitPermissionController extends Controller{
         }
         echo json_encode($response);
       }
+    }
+
+    public function singleExitPermission($exitPermissionId = null){
+      dd($exitPermissionId);
     }
 }

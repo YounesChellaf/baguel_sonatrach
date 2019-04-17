@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -226,8 +227,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'User' => App\Models\User::class,
-        'Department' => App\Models\Department::class,
-        'Direction' => App\Models\Direction::class,
+        'Division' => App\Models\Division::class,
+        'Service' => App\Models\Service::class,
         'Supplier' => App\Models\Supplier::class,
         'ExitPermission' => App\Models\ExitPermission::class,
         'SystemConfig' => App\Models\SystemConfig::class,
@@ -237,6 +238,8 @@ return [
         'Room' => App\Models\Room::class,
         'Bloc' => App\Models\Bloc::class,
         'Office' => App\Models\Office::class,
+        'Employee' => App\Models\Employee::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

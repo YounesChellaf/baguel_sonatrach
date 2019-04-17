@@ -13,4 +13,21 @@ if(!function_exists('GenerateRandomPassword')){
   }
 }
 
+
+if(!function_exists('logDescription')){
+  function logDescription($key){
+    switch ($key) {
+      case 'created':
+      return "Création";
+      break;
+      case 'updated':
+      return "Modification";
+      break;
+      default:
+      return "#";
+      break;
+    }
+  }
+}
+
 ?>

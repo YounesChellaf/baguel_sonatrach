@@ -11,6 +11,7 @@ use ReverseRegex\Random\SimpleRandom;
 use ReverseRegex\Parser;
 use ReverseRegex\Generator\Scope;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Activitylog\Models\Activity;
 class UsersController extends Controller
 {
   public function index(){
@@ -79,6 +80,28 @@ class UsersController extends Controller
         $response['msg'] = "Le mot de passe que vous avez présenter est incorrecte!";
       }
       echo json_encode($response);
+    }
+  }
+
+  public function singleUser(Request $request, $userId = null){
+    if(!$userId){
+      abort(404);
+    }
+
+    $user = User::find($userId);
+    if(!$user){
+      abort(404);
+    }
+    $actions = Activity::all();
+    return view('users.display', [
+      'user' => $user,
+      'actions' => $actions,
+    ]);
+  }
+
+  public function getSingleActivityChanges(Request $request){
+    if($request->get('actionId')){
+      $activity = Activity::find($request->get('actionId'));
     }
   }
 }

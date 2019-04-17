@@ -51,7 +51,7 @@
                 <div class="col-sm-10">
                   <select class="form-control" name="department">
                     <option value="">Sélectionner le département</option>
-                    @foreach(Department::all() as $index => $department)
+                    @foreach(Service::all() as $index => $department)
                       <option value="{{ $department->id }}">{{ $department->name }}</option>
                     @endforeach
                   </select>

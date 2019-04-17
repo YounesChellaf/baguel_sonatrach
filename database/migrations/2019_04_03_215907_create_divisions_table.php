@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartementsTable extends Migration
+class CreateDivisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateDepartementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->tinyInteger('active')->nullable();
-            $table->integer('direction_id');
+            $table->boolean('active')->nullable()->default(true);
             $table->string('analytic_account', 255)->nullable();
+            $table->text('address');
             $table->integer('administration_id')->unsigned()->index();
             $table->foreign('administration_id')->references('id')->on('administrations');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CreateDepartementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('divisions');
     }
 }
