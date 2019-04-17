@@ -22,4 +22,18 @@ class VisitController extends Controller
             return redirect()->back();
         }
     }
+
+    public function aprouve($id){
+        $visit = Visit::find($id);
+        $visit->status = 'approved';
+        $visit->save();
+        return redirect()->back();
+
+    }
+    public  function  reject($id){
+        $visit = Visit::find($id);
+        $visit->status = 'rejected';
+        $visit->save();
+        return redirect()->back();
+    }
 }

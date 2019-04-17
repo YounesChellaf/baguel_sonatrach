@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateVisitHasVisitorsTable extends Migration
+class CreateVisitVisitor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateVisitHasVisitorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('visit_has_visitors', function (Blueprint $table) {
+        Schema::create('visit_visitor', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('visit_id');
             $table->integer('visitor_id');
@@ -29,6 +29,6 @@ class CreateVisitHasVisitorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visit_has_visitors');
+        Schema::dropIfExists('visit_visitor');
     }
 }

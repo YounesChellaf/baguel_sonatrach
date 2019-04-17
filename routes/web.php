@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
       Route::get('','VisitController@index');
       Route::get('create','VisitController@createView');
       Route::post('create','VisitController@store');
+      Route::get('validate/{id}','VisitController@aprouve');
+      Route::get('reject/{id}','VisitController@reject');
   });
   Route::prefix('exit_permissions')->group(function(){
     Route::get('/', 'ExitPermissionController@index')->name('admin.ExitPermissions.index');

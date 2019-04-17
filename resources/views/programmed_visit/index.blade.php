@@ -23,38 +23,35 @@
             <a href="/admin/visit/create"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau Fournisseur</button></a>
           </div>
           <div class="card-block">
-            <div class="col-sm-10 dt-responsive table-responsive">
+            <div class="dt-responsive table-responsive">
               <table id="usersTable" class="table table-striped table-bordered nowrap">
                 <thead>
                   <tr>
+                    <th>Réference</th>
                     <th>nom de societe</th>
                     <th>date entrée</th>
-                    <th>date sortie</th>
-                    <th>Employee á destination</th>
                     <th>Nombre de visiteurs</th>
                     <th>Crée par</th>
                     <th>Etat</th>
-                    <th>Etat</th>
+                    <th>Action</th>
                     <th></th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach(Visit::all() as $visit)
                   <tr>
+                    <td><span data-toggle="modal" data-target="#modal-visit-{{$visit->id}}">{{ $visit->company_name }}</span></td>
                     <td>{{ $visit->company_name }}</td>
                     <td>{{ $visit->in_date }}</td>
-                    <td>{{ $visit->out_date }}</td>
-                    <td>{{ $visit->concerned_id}}</td>
-                    <td> </td>
+                    <td> {{$visit->visitor->count()}}</td>
                     <td>{{ $visit->CreatedBy->firstName }} {{$visit->CreatedBy->lastName}}</td>
                     <td>{{$visit->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="">Consulter</a>
-                          <a class="dropdown-item" href="">Modifier</a>
-                          <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="">Supprimer</a>
+                          <a class="dropdown-item" href="/admin/visit/validate/{{$visit->id}}">Valider</a>
+                          <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="/admin/visit/reject/{{$visit->id}}">Rejeter</a>
                         </div>
                       </div>
                     </td>
@@ -69,6 +66,50 @@
     </div>
   </div>
 </div>
+@foreach(Visit::all() as $visit)
+<div class="modal fade" id="modal-visit-{{$visit->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details du visit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="container">
+        <div class=" row">
+        <h6>Réference du visite :</h6>
+        <p>{{$visit->company_name}}</p>
+        </div>
+        <div class=" row">
+          <h6>Nom de la societé :</h6>
+          <p>{{$visit->company_name}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date d'entrée :</h6>
+          <p>{{$visit->in_date}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date sortie :</h6>
+          <p>{{$visit->out_date}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date sortie :</h6>
+          <p>{{$visit->out_date}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date sortie :</h6>
+          <p>{{$visit->out_date}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date sortie :</h6>
+          <p>{{$visit->out_date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endforeach
 @endsection
 
 @section('extraJs')
