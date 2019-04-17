@@ -19,12 +19,14 @@ class CreateVisitsTable extends Migration
             $table->date('out_date');
             $table->integer('visitor_id');
             $table->integer('created_by');
-            $table->integer('last_update_by');
+            $table->integer('last_update_by')->nullable();
             $table->integer('concerned_id');
-            $table->string('company_name');
+            $table->string('company_name')->nullable();
+            $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->longText('reason');
-            $table->integer('person_count');
-            $table->integer('request_id');
+            //$table->integer('person_count');
+            $table->text('remark');
+            //$table->integer('request_id');
             $table->timestamps();
         });
     }

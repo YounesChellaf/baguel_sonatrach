@@ -15,59 +15,62 @@
                             <h5>Nouvelle visite</h5>
                         </div>
                         <div class="card-block">
-                            @if ($errors->any())
-                                <div class="alert alert-danger">
-                                    <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouveau fournisseur.
-                                    <br>
-                                    <ul class="t7wissa-errors-list">
-                                        @foreach ($errors->all() as $error)
-                                            <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            @endif
-                            <form method="post" action="" class="NewSupplierForm">
+                            <form method="Post" action="/admin/visit/create" >
                                 @csrf
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nom</label>
+                                    <label class="col-sm-2 col-form-label">Nom sociéte</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="supplierName" value="{{ old('supplierName') }}" name="supplierName" class="form-control">
+                                        <input type="text" id="supplierName" name="company_name" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Nom à affiché</label>
+                                    <label class="col-sm-2 col-form-label">Date d'entrée</label>
                                     <div class="col-sm-10">
-                                        <input type="text" id="supplierDisplayName" class="form-control" value="{{ old('supplierDisplayName') }}" name="supplierDisplayName" placeholder="">
+                                        <input type="date" id="supplierDisplayName" class="form-control" name="in_date" placeholder="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Email</label>
+                                    <label class="col-sm-2 col-form-label">Date de sortie</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="">
+                                        <input type="date" class="form-control" name="out_date" placeholder="">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Téléphone</label>
+                                    <label class="col-sm-2 col-form-label">Employée concernée</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="phone" value="{{ old('phone') }}" placeholder="">
+                                        <select name="concerned_id" class="form-control">
+                                            <option value=""></option>
+                                            <option value="1">employee 1</option>
+                                            <option value="2">employee 2</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                    <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label">Visiteur</label>
+                                    <div class="col-sm-10">
+                                        <select name="visitor_id" class="form-control">
+                                            <option value=""></option>
+                                            @foreach(Visitor::all() as $visitor)
+                                                <option value="{{$visitor->id}}">{{$visitor->last_name}} {{$visitor->first_name}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Mobile</label>
+                                    <label class="col-sm-2 col-form-label">Reason de visite</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="mobile" value="{{ old('mobile') }}" placeholder="">
+                                        <select name="reason" class="form-control">
+                                            <option value=""></option>
+                                            <option value="reason 1">reason 1</option>
+                                            <option value="reason 2">reason 2</option>
+                                            <option value="reason 3">reason 3</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Adresse</label>
+                                    <label class="col-sm-2 col-form-label">Remarques</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Commentaires</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" name="comments" placeholder="">{{ old('comments') }}</textarea>
+                                        <textarea class="form-control" name="remark"></textarea>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Enregistrer</button>

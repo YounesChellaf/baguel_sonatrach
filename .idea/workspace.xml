@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c441016-60c4-454b-ba07-277ec6451eb9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/visiteur/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/visiteur/partials/beadcrumbs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/visiteur/partials/pageTitle.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Visit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Visit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Visitor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programed_visit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programed_visit/partials/beadcrumbs.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/partials/beadcrumbs.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programed_visit/partials/pageTitle.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/partials/pageTitle.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,52 +21,66 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/app.php">
+      <file leaf-file-name="Visit.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="240" column="37" lean-forward="true" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pageTitle.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/visiteur/partials/pageTitle.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="31" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/visiteur/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Visitor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Visitor.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="320">
+              <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
-                <element signature="e#24#52#0#PHP" expanded="true" />
+                <element signature="e#31#53#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Visit.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
+      <file leaf-file-name="SystemConfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/SystemConfig.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+            <state relative-caret-position="255">
+              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AddVisit.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="17" column="75" selection-start-line="17" selection-start-column="75" selection-end-line="17" selection-end-column="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -78,47 +88,50 @@
       <file leaf-file-name="VisitController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisitorController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitorController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
+            <state relative-caret-position="46">
+              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="22" />
               <folding>
-                <element signature="e#40#62#0#PHP" expanded="true" />
+                <element signature="e#40#75#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019_04_15_210822_create_visitors_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/frontend/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+            <state relative-caret-position="230">
+              <caret column="217955" selection-start-column="217955" selection-end-column="217955" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainNav.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php">
+      <file leaf-file-name="2014_10_12_000000_create_users_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
+            <state relative-caret-position="382">
+              <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="beadcrumbs.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/visiteur/partials/beadcrumbs.blade.php">
+      <file leaf-file-name="Supplier.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Supplier.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="78" selection-start-line="6" selection-start-column="78" selection-end-line="6" selection-end-column="78" />
+            <state relative-caret-position="325">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+              <folding>
+                <element signature="e#30#39#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ExitPermission.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/ExitPermission.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="515">
+              <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -146,9 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/User.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_07_153230_create_exit_permissions_table.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/partials/headNav/notifications.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/EquipementController.php" />
@@ -178,7 +188,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/DirectionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DepartementController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php" />
         <option value="$PROJECT_DIR$/resources/views/programed_visit/partials/beadcrumbs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/programed_visit/partials/pageTitle.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
@@ -186,17 +195,21 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_04_15_212811_create_visit_has_visitors_table.php" />
         <option value="$PROJECT_DIR$/resources/views/programed_visit/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/programed_visit/AddVisit.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" />
-        <option value="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/partials/beadcrumbs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/partials/pageTitle.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/Visit.php" />
         <option value="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VisitorController.php" />
         <option value="$PROJECT_DIR$/app/Models/Visitor.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Requests/VisitRequest.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/User.php" />
+        <option value="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Visit.php" />
+        <option value="$PROJECT_DIR$/app/Models/Supplier.php" />
+        <option value="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" />
       </list>
     </option>
   </component>
@@ -341,14 +354,21 @@
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="visiteur" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="office" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="visiteur" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="programmed_visit" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="programmed_visit" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="partials" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -358,7 +378,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;visi&#9;null&#9;null&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;Dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;VIs&#9;null&#9;null&#10;Suppl&#9;null&#9;null&#10;web.&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;dep&#9;null&#9;null&#10;dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;Offi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;Blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/BlocController.php&#10;.en&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;Roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Room.php&#10;Equi&#9;null&#9;null&#10;off&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Bloc.php&#10;_js&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/datatable/_js.blade.php&#10;of&#9;null&#9;null&#10;bloc&#9;null&#9;null&#10;user&#9;null&#9;null&#10;dir&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;crea&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_03_215907_create_directions_table.php&#10;_css&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/_css.blade.php&#10;direc&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;_c&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/_css.blade.php&#10;Direc&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="su&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Supplier.php&#10;visit&#9;null&#9;null&#10;visitContr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;exit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/ExitPermission.php&#10;users&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2014_10_12_000000_create_users_table.php&#10;sup&#9;null&#9;null&#10;Su&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/NewSupplierRequest.php&#10;visitr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/VisitRequest.php&#10;visito&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_15_210822_create_visitors_table.php&#10;ne&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/NewSupplierRequest.php&#10;main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;Dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;VIs&#9;null&#9;null&#10;Suppl&#9;null&#9;null&#10;web.&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;dep&#9;null&#9;null&#10;dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;Offi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;Blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/BlocController.php&#10;.en&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;Roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Room.php&#10;Equi&#9;null&#9;null&#10;off&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Bloc.php&#10;_js&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/datatable/_js.blade.php&#10;of&#9;null&#9;null&#10;bloc&#9;null&#9;null&#10;user&#9;null&#9;null&#10;dir&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;crea&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_03_215907_create_directions_table.php&#10;_css&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/_css.blade.php&#10;direc&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;_c&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/_css.blade.php&#10;Direc&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -366,314 +386,18 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/programmed_visit" />
+      <recent name="$PROJECT_DIR$/resources/views/visiteur" />
+      <recent name="$PROJECT_DIR$/resources/views/programed_visit" />
+      <recent name="$PROJECT_DIR$/resources/views/room" />
+      <recent name="$PROJECT_DIR$/resources/views/equipement" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Models" />
       <recent name="$PROJECT_DIR$/public/frontend/assets/datatable/js" />
       <recent name="$PROJECT_DIR$/resources/views/dashboard" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/views/visiteur" />
-      <recent name="$PROJECT_DIR$/resources/views/programed_visit" />
-      <recent name="$PROJECT_DIR$/resources/views/room" />
-      <recent name="$PROJECT_DIR$/resources/views/equipement" />
-      <recent name="$PROJECT_DIR$/resources/views/office" />
-    </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/SystemConfigController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/SystemController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Models/Supplier.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Models/SystemConfig.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/composer.lock</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/config/app.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2019_04_03_215907_create_directions_table.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2019_04_03_215943_create_departements_table.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2019_04_07_105303_create_suppliers_table.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/js/main.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/js/main.compile.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/js/routes.json</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/index.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/departement/index.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/departement/partials/pageTitle.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/direction/index.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/direction/partials/pageTitle.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/assets/_css.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/assets/_js.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/main_layout.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/partials/headNav/navLeft.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/layout/partials/headNav/notifications.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/routes/web.php</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/AdministrationController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Http/Controllers/LifeBaseController.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Models/Administration.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/Models/LifeBase.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/factories/AdministrationFactory.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/factories/LifeBaseFactory.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2019_04_14_084609_create_life_bases_table.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/database/migrations/2019_04_14_130058_create_administrations_table.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/assets/images/boss.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/License.pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/README.txt</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/Useful_Resources.pdf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/datatables-select.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/datatables-select.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/datatables.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/datatables.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/directives.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/addons/directives.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/bootstrap.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/bootstrap.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/mdb.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/mdb.lite.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/mdb.lite.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/mdb.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/modules/animations-extended.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/modules/animations-extended.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/style.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/css/style.min.css</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Bold.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Bold.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Bold.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Bold.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Light.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Light.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Light.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Light.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Medium.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Medium.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Medium.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Medium.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Regular.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Regular.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Regular.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Regular.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Thin.eot</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Thin.ttf</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Thin.woff</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/font/roboto/Roboto-Thin.woff2</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/lightbox/default-skin.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/lightbox/default-skin.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/lightbox/preloader.gif</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/01.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/02.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/03.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/04.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/05.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/06.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/07.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/08.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/overlays/09.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/svg/arrow_left.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/img/svg/arrow_right.svg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/index.html</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/addons/datatables-select.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/addons/datatables-select.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/addons/datatables.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/addons/datatables.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/addons/rating.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/bootstrap.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/bootstrap.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/jquery-3.3.1.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/mdb.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/mdb.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/chart.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/default-file-input.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/enhanced-modals.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/forms-free.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/jquery.easing.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/scrolling-navbar.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/velocity.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/velocity.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/waves.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/modules/wow.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/js/popper.min.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/_custom-skin.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/_custom-styles.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/_custom-variables.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/addons/_datatables-select.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/addons/_datatables.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/addons/_directives.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_colors.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_global.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_helpers.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_masks.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_mixins.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_typography.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_variables.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/_waves.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/bootstrap/_functions.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/bootstrap/_rfs.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/core/bootstrap/_variables.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_animations-basic.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_badges.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_buttons.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_cards.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_carousels.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_depreciated.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_dropdowns.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_footers.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_forms.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_input-group.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_list-group.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_loader.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_modals.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_msc.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_navbars.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_pagination.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_steppers.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_switch.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_tables.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/_treeview.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/modules/animations-extended/_module.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/free/modules/animations-extended/animations-extended.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/mdb.lite.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/public/frontend/mdb/scss/mdb.scss</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/ar/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/de/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/en/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/es/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/et/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/fa/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/fr/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/gr/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/id/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/it/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/nl/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/pl/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/pt-br/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/pt/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/ro/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/ru/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/tr/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/zh-CN/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/lang/zh-TW/installer_messages.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/index_beta.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/modals.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/tabs.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/tabsContent.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/tabsContent/administrations.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/tabsContent/exitPermission.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/SystemConfig/partials/tabsContent/lifebase.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/environment-classic.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/environment-wizard.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/environment.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/finished.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/layouts/master-update.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/layouts/master.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/permissions.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/requirements.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/update/finished.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/update/overview.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/update/welcome.blade.php</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/views/vendor/installer/welcome.blade.php</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -708,12 +432,13 @@
       <workItem from="1555097069775" duration="4804000" />
       <workItem from="1555247232277" duration="1813000" />
       <workItem from="1555311991450" duration="599000" />
-      <workItem from="1555328930120" duration="14955000" />
+      <workItem from="1555328930120" duration="15149000" />
+      <workItem from="1555493277901" duration="7738000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62441000" />
+    <option name="totallyTimeSpent" value="70373000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -725,8 +450,8 @@
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.17799753" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21888413" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.17799753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22174536" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -745,21 +470,21 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32880098" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Favorites" order="3" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -778,65 +503,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/validation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/frontend/assets/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="8" column="26" lean-forward="true" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/assets/_css.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="76" lean-forward="true" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/assets/_js.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/traits/isActionable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewExitPermissionRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewSupplierRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="32" column="3" lean-forward="true" selection-start-line="32" selection-start-column="3" selection-end-line="32" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewUserRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
@@ -862,9 +528,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="93" column="22" lean-forward="true" selection-start-line="93" selection-start-column="22" selection-end-line="93" selection-end-column="22" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -889,23 +552,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/office/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="123" column="66" lean-forward="true" selection-start-line="123" selection-start-column="66" selection-end-line="123" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/validation.compile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="102" column="48" lean-forward="true" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-          <folding>
-            <element signature="e#196#758#0" />
-            <element signature="e#923#1614#0" />
-            <element signature="e#1598#2304#0" />
-            <element signature="e#1981#2430#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -941,9 +591,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="179">
           <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
-          <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -982,20 +629,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_212725_visit_has_visitors.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_212725_visit_has_visitors.php" />
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_212811_create_visit_has_visitors_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -1014,21 +648,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="760">
           <caret line="38" column="46" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-          <folding>
-            <element signature="e#40#65#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/partials/headNav/navbar-logo.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/main_layout.blade.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1058,27 +679,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="131" column="54" selection-start-line="131" selection-start-column="54" selection-end-line="131" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-344">
-          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/visiteur/partials/beadcrumbs.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -1095,63 +695,174 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="240" column="37" lean-forward="true" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="21" column="33" lean-forward="true" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+        <state relative-caret-position="5520">
+          <caret line="240" column="37" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
+        <state relative-caret-position="3059">
           <caret line="133" column="16" selection-start-line="133" selection-start-column="16" selection-end-line="133" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitorController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="80" column="23" lean-forward="true" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
-          <folding>
-            <element signature="e#40#62#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="1817">
+          <caret line="80" column="23" selection-start-line="80" selection-start-column="23" selection-end-line="80" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Visitor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding>
-            <element signature="e#24#52#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="690">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/visiteur/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+        <state relative-caret-position="400">
+          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+          <folding>
+            <element signature="e#8976#8983#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/office/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="121" column="38" lean-forward="true" selection-start-line="112" selection-start-column="32" selection-end-line="121" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupplierController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="447">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/VisitRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="395">
+          <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_153230_create_exit_permissions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="15" column="72" lean-forward="true" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="24" column="72" lean-forward="true" selection-start-line="24" selection-start-column="72" selection-end-line="24" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/NewSupplierRequest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/frontend/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret column="217955" selection-start-column="217955" selection-end-column="217955" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/ExitPermission.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="515">
+          <caret line="64" column="5" lean-forward="true" selection-start-line="64" selection-start-column="5" selection-end-line="64" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/SystemConfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="20" column="28" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="111">
+          <caret line="17" column="75" selection-start-line="17" selection-start-column="75" selection-end-line="17" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="22" />
+          <folding>
+            <element signature="e#40#75#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#31#53#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Supplier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+          <folding>
+            <element signature="e#30#39#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="25" column="34" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
         </state>
       </provider>
     </entry>
