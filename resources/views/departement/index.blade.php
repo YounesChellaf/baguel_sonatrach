@@ -65,20 +65,16 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/departement">
+                        <form method="post" class="service-add" action="/admin/departement">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">designation du departement</label>
                                 <input type="text" class="form-control" id="recipient-name" name="name">
                             </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" checked />
-                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
                                     <select name="select" class="form-control">
-                                        <option value="opt1">Choisir la direction</option>
+                                        <option value="">Choisir la direction</option>
                                         @foreach(Direction::all() as $direction)
                                             <option value="{{$direction->id}}">{{$direction->name}}</option>
                                         @endforeach

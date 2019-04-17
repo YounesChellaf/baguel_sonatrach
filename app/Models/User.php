@@ -25,7 +25,10 @@ class User extends Authenticatable
   ];
 
   function room(){
-      return $this->hasMany('App\Room');
+      return $this->hasMany('App\Models\Room');
+  }
+  function visit(){
+      return $this->hasMany('App\Models\Visit');
   }
 
   public function name(){

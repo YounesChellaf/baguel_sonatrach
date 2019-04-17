@@ -22,9 +22,9 @@ class CreateBlocsTable extends Migration
             $table->tinyInteger('active')->nullable();
             $table->integer('administration_id')->unsigned()->index();
             $table->foreign('administration_id')->references('id')->on('administrations');
-
             $table->integer('lifebase_id')->unsigned()->index();
             $table->foreign('lifebase_id')->references('id')->on('life_bases');
+            $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();
         });
     }

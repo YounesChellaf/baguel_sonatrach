@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 
-class DepartementController extends Controller
+class VisitorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class DepartementController extends Controller
      */
     public function index()
     {
-        return view('departement.index');
+
+        return view('visiteur.index');
     }
 
     /**
@@ -35,14 +36,7 @@ class DepartementController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->input('name');
-        $direction_id = $request->input('select');
-
-        Department::create([
-            'name' =>$name,
-            'direction_id' =>$direction_id,
-        ]);
-
+        $visitor = Visitor::new($request);
         return redirect()->back();
     }
 
@@ -77,19 +71,8 @@ class DepartementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name= $request->input('name');
-        $active= $request->input('active');
-        $direction_id = $request->input('select');
-
-        $departement = Departement::find($id);
-
-        $departement->name = $name;
-        $departement->direction_id = $direction_id;
-        $departement->active =$active;
-
-        $departement->save();
-
-        return redirect()->back();
+       $visitor = Visitor::upto($request,$id);
+       return redirect()->back();
     }
 
     /**
@@ -100,7 +83,7 @@ class DepartementController extends Controller
      */
     public function destroy($id)
     {
-        Departement::destroy($id);
+        Visitor::destroy($id);
         return redirect()->back();
     }
 }

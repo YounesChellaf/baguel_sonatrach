@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Room extends Model
 {
     //
-    protected $fillable=['number','bloc_id','user_id'];
+    protected $guarded = [];
+
     function bloc(){
         return $this->belongsTo('App\Models\Bloc');
     }

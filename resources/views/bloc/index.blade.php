@@ -28,7 +28,6 @@
                                                 <th>Designation</th>
                                                 <th>number</th>
                                                 <th>type</th>
-                                                <th>Floor_number</th>
                                                 <th>Status</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
@@ -40,7 +39,6 @@
                                                     <td>{{$bloc->name}}</td>
                                                     <td>{{$bloc->number}}</td>
                                                     <td>{{$bloc->type}}</td>
-                                                    <td>{{$bloc->floors_number}}</td>
                                                     <td>{{$bloc->active}}</td>
                                                     <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$bloc->id}}">modifier</button></td>
                                                     <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$bloc->id}}">Supprimer</button></td>
@@ -69,7 +67,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/bloc">
+                        <form method="post" class="bloc-add" action="/admin/bloc">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">designation du bloc</label>
@@ -77,7 +75,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">number</label>
-                                <input type="text" class="form-control" id="recipient-name" name="number">
+                                <input type="text" class="form-control" id="recipient-number" name="number">
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
@@ -86,14 +84,6 @@
                                         <option value="hebergement">hebergement</option>
                                     </select>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">floor number</label>
-                                <input type="text" class="form-control" id="recipient-name" name="floor_number">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" name="active" checked />
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -116,7 +106,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/bloc/{{$bloc->id}}">
+                            <form method="post" class="bloc-add" action="/admin/bloc/{{$bloc->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -125,7 +115,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">number</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="number" value="{{$bloc->number}}">
+                                    <input type="text" class="form-control" id="recipient-number" name="number" value="{{$bloc->number}}">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">
@@ -135,14 +125,6 @@
                                                 <option value="hebergement">hebergement</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">number floor</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="floor_number" value="{{$bloc->floors_number}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="active" value="{{$bloc->active}}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>

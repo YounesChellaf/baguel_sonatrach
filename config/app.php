@@ -238,9 +238,10 @@ return [
         'Room' => App\Models\Room::class,
         'Bloc' => App\Models\Bloc::class,
         'Office' => App\Models\Office::class,
+        'Visit' => App\Models\Visit::class,
+        'Visitor' => App\Models\Visitor::class,
         'Employee' => App\Models\Employee::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-
     ],
 
 ];

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoomsTable extends Migration
+class CreateVisitVisitor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateRoomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rooms', function (Blueprint $table) {
+        Schema::create('visit_visitor', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('number');
-            $table->integer('bloc_id');
-            $table->integer('lifebase_id')->unsigned()->index();
-            $table->foreign('lifebase_id')->references('id')->on('life_bases');
-            $table->tinyInteger('active')->nullable()->default(true);
+            $table->integer('visit_id');
+            $table->integer('visitor_id');
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateRoomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rooms');
+        Schema::dropIfExists('visit_visitor');
     }
 }

@@ -26,7 +26,6 @@
                                             <thead>
                                             <tr>
                                                 <th>Numero</th>
-                                                <th>Floor</th>
                                                 <th>Status</th>
                                                 <th>Bloc</th>
                                                 <th>Modifier</th>
@@ -37,7 +36,6 @@
                                             @foreach(Office::all() as $office)
                                                 <tr>
                                                     <td>{{$office->number}}</td>
-                                                    <td>{{$office->floor}}</td>
                                                     <td>{{$office->active}}</td>
                                                     <td>{{$office->bloc->name}}</td>
                                                     <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$office->id}}">modifier</button></td>
@@ -67,19 +65,11 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/office">
+                        <form method="post" class="office-add" action="/admin/office">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Numero de bureau</label>
                                 <input type="text" class="form-control" id="recipient-name" name="number">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">floor</label>
-                                <input type="text" class="form-control" id="recipient-name" name="floor">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label">Active :</label>
-                                <input type="checkbox" class="js-single" name="active" checked />
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-12">
@@ -113,16 +103,12 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/office/{{$office->id}}">
+                            <form method="post" class="office-add" action="/admin/office/{{$office->id}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
                                     <label for="recipient-name" class="control-label">Numero du bureau</label>
                                     <input type="text" class="form-control" id="recipient-name" name="number" value="{{$office->number}}">
-                                </div>
-                                <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Floor</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="floor" value="{{$office->floor}}">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-12">

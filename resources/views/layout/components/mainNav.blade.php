@@ -129,7 +129,12 @@
         </a>
         <ul class="pcoded-submenu">
           <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
+            <a href="/admin/visiteur" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Visiteur</span>
+            </a>
+          </li>
+          <li class=" ">
+            <a href="/admin/visit" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Visites programmés</span>
             </a>
           </li>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Equipement extends Model
 {
-    protected $fillable = ['reference','status','room_id'];
+    protected $guarded = [];
 
     function room(){
         return $this->belongsTo('App\Models\Room');

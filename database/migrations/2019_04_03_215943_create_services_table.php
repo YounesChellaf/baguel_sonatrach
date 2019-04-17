@@ -18,6 +18,8 @@ class CreateServicesTable extends Migration
             $table->string('name');
             $table->tinyInteger('active')->nullable();
             $table->integer('division_id');
+            $table->tinyInteger('active')->nullable()->default(true);
+            $table->integer('direction_id');
             $table->string('analytic_account', 255)->nullable();
             $table->integer('administration_id')->unsigned()->index();
             $table->foreign('administration_id')->references('id')->on('administrations');

@@ -33,7 +33,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
+<<<<<<< HEAD
 
+=======
+    Route::resource('visiteur','VisitorController');
+>>>>>>> 78314bd49bf6ae175f7f9af72e968a87b68bbae8
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');
     Route::get('/create', 'UsersController@createView')->name('admin.users.create');
@@ -61,6 +65,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
 
   });
 
+  Route::prefix('visit/')->group(function (){
+      Route::get('','VisitController@index');
+      Route::get('create','VisitController@createView');
+      Route::post('create','VisitController@store');
+      Route::get('validate/{id}','VisitController@aprouve');
+      Route::get('reject/{id}','VisitController@reject');
+  });
   Route::prefix('exit_permissions')->group(function(){
     Route::get('/', 'ExitPermissionController@index')->name('admin.ExitPermissions.index');
     Route::get('/create', 'ExitPermissionController@createView')->name('admin.ExitPermissions.index.create');

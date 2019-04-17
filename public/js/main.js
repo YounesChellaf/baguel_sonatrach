@@ -1200,7 +1200,7 @@ module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/logi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\baguel_project\resources\js\main.compile.js */"./resources/js/main.compile.js");
+module.exports = __webpack_require__(/*! /Users/issam/dev/baguel_project/resources/js/main.compile.js */"./resources/js/main.compile.js");
 
 
 /***/ })
