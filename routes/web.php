@@ -15,8 +15,8 @@ Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
-  Route::resource('direction','DirectionController');
-  Route::resource('departement','DepartementController');
+  Route::resource('divisions','DirectionController');
+  Route::resource('services','DepartementController');
   Route::resource('bloc','BlocController');
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   });
 
   Route::prefix('visit/')->group(function (){
-    Route::get('','VisitController@index');
+    Route::get('','VisitController@index')->name('admin.visits.index');
     Route::get('create','VisitController@createView');
     Route::post('create','VisitController@store');
     Route::get('validate/{id}','VisitController@aprouve');

@@ -23,22 +23,22 @@
           </a>
           <ul class="pcoded-submenu">
             <li class="">
-              <a href="/admin/direction" class="waves-effect waves-dark">
+              <a href="{{ route('divisions.index') }}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Divisions</span>
               </a>
             </li>
             <li class="">
-              <a href="/admin/departement" class="waves-effect waves-dark">
+              <a href="{{ route('services.index') }}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Services</span>
               </a>
             </li>
             <li class="">
-              <a href="/admin/bloc" class="waves-effect waves-dark">
+              <a href="{{ route('bloc.index') }}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Bloc</span>
               </a>
             </li>
             <li class="">
-              <a href="/admin/office" class="waves-effect waves-dark">
+              <a href="{{ route('office.index') }}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Bureaux</span>
               </a>
             </li>
@@ -134,12 +134,12 @@
         </a>
         <ul class="pcoded-submenu">
           <li class=" ">
-            <a href="/admin/visiteur" class="waves-effect waves-dark">
+            <a href="{{ route('visiteur.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Visiteur</span>
             </a>
           </li>
           <li class=" ">
-            <a href="/admin/visit" class="waves-effect waves-dark">
+            <a href="{{ route('admin.visits.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Visites programmés</span>
             </a>
           </li>
