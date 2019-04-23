@@ -33,7 +33,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(Department::all() as $departement)
+                                            @foreach(Service::all() as $departement)
                                                 <tr>
                                                     <td>{{$departement->name}}</td>
                                                     <td>{{$departement->active}}</td>

@@ -32,7 +32,7 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            @foreach(Direction::all() as $direction)
+                                            @foreach(Division::all() as $direction)
                                                 <tr>
                                                     <td>{{$direction->name}}</td>
                                                     <td>{{$direction->address}}</td>
