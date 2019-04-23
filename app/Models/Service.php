@@ -9,6 +9,6 @@ class Service extends Model
     protected $guarded = [];
 
     function  direction(){
-        return $this->belongsTo('App\Models\Division');
+        return $this->belongsTo('App\Models\Division', 'division_id', 'id');
     }
 }

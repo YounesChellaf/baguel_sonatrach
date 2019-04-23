@@ -15,6 +15,7 @@ Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::get('/', 'MainController@index')->name('admin.index');
+  
   Route::resource('divisions','DirectionController');
   Route::resource('services','DepartementController');
   Route::resource('bloc','BlocController');

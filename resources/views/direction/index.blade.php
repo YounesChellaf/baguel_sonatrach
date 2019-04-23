@@ -65,7 +65,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form class="direction-add" method="post" action="/admin/direction">
+                        <form class="direction-add" method="post" action="{{ route('divisions.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">designation de la direction</label>
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    @foreach(Direction::all() as $direction)
+    @foreach(Division::all() as $direction)
         <div class="col-md-4">
             <div id="modal-update-{{$direction->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
@@ -96,7 +96,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" class="direction-add" action="/admin/direction/{{$direction->id}}">
+                            <form method="post" class="direction-add" action="{{ route('divisions.update', $direction->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -131,7 +131,7 @@
                         Voulez vous supprimer cette directions !
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="/admin/direction/{{$direction->id}}">
+                        <form method="POST" action=" {{ route('divisions.destroy', $direction->id) }}">
                             @csrf
                             <input type="hidden">
                             @method('delete')

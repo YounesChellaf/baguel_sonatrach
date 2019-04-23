@@ -65,7 +65,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" class="service-add" action="/admin/departement">
+                        <form method="post" class="service-add" action="{{ route('services.store') }}">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">designation du departement</label>
@@ -75,7 +75,7 @@
                                 <div class="col-sm-12">
                                     <select name="select" class="form-control">
                                         <option value="">Choisir la direction</option>
-                                        @foreach(Direction::all() as $direction)
+                                        @foreach(Division::all() as $direction)
                                             <option value="{{$direction->id}}">{{$direction->name}}</option>
                                         @endforeach
                                     </select>
@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    @foreach(Department::all() as $departement)
+    @foreach(Service::all() as $departement)
         <div class="col-md-4">
             <div id="modal-update-{{$departement->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog">
@@ -102,7 +102,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/departement/{{$departement->id}}">
+                            <form method="post" action="{{ route('services.update', $departement->id) }}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -117,7 +117,7 @@
                                     <div class="col-sm-12">
                                         <select name="select" class="form-control">
                                             <option value="{{$departement->direction->id}}">{{$departement->direction->name}}</option>
-                                            @foreach(Direction::all() as $direction)
+                                            @foreach(Division::all() as $direction)
                                                 <option value="{{$direction->id}}">{{$direction->name}}</option>
                                             @endforeach
                                         </select>
@@ -147,7 +147,7 @@
                         Voulez vous supprimer ce departement !
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="/admin/departement/{{$departement->id}}">
+                        <form method="POST" action="{{ route('services.destroy', $departement->id) }}">
                             @csrf
                             <input type="hidden">
                             @method('delete')
