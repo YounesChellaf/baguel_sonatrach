@@ -15,7 +15,7 @@ class CreateNotationsTable extends Migration
     {
         Schema::create('notations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ref', 255)->nullable()->unique();
+            $table->string('ref', 255)->nullable();
             $table->date('control_date');
             $table->enum('type', ['storage', 'kitchen', 'reception', 'restaurant', 'suppliers', 'rooms', 'office', 'laundry']);
             $table->text('data');
