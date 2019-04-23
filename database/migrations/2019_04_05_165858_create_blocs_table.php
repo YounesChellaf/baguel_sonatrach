@@ -19,7 +19,6 @@ class CreateBlocsTable extends Migration
             $table->string('number');
             $table->enum('type',['travail','hebergement']);
             $table->integer('floors_number');
-            $table->tinyInteger('active')->nullable();
             $table->integer('administration_id')->unsigned()->index();
             $table->foreign('administration_id')->references('id')->on('administrations');
             $table->integer('lifebase_id')->unsigned()->index();

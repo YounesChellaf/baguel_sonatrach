@@ -17,7 +17,6 @@ class CreateOfficesTable extends Migration
             $table->bigIncrements('id');
             $table->string('number');
             $table->integer('bloc_id');
-            $table->tinyInteger('active');
             $table->integer('administration_id')->unsigned()->index();
             $table->foreign('administration_id')->references('id')->on('administrations');
             $table->integer('lifebase_id')->unsigned()->index();
