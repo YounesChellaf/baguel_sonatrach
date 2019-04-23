@@ -212,7 +212,23 @@ $(document).ready(function(){
         actionId: actionId,
       },
       success: function(response){
-        alert('shit');
+        var response = $.parseJSON(response);
+        $("#activityOpType").html('');
+        $("#activityOpDetails").html('');
+        $("#activityOpDate").html('');
+        $("#activityOpDocument").html('');
+        $("#activityOpLink").attr('href', '');
+        var msg = response.msg;
+        var type = response.type;
+        var date = response.date;
+        var concernedDocument = response.concernedDocument;
+        $("#activityOpType").html(type);
+        $("#activityOpDetails").html(msg);
+        $("#activityOpDate").html(date);
+        $("#activityOpDocument").html(concernedDocument);
+        $("#activityOpLink").attr('href', response.route);
+        hideBodyLoader();
+        $("#userActivityEntryDetails").modal('show');
       }
     });
 
@@ -500,6 +516,31 @@ $(document).ready(function(){
     });
   });
 
+  /////////// products secton ////////////
+  $(".importproductsAction").on('click', function(){
+    $("#ImportProductsModal").modal('show');
+  });
+
+  $(".newProductAction").on('click', function(){
+    $("#NewProductsModal").modal('show');
+  });
+
+  $(".newProjectAction").on('click', function(){
+    $("#NewProjectModal").modal('show');
+  });
+
+
+
+  /////////////////////////////////////////
+
+  /////////// Notations section //////////
+  $(".singleNotationCategory").on('click', function(){
+    var url = $(this).data('url');
+    window.location.href = url;
+  });
+
+  //////////////////////////////////////////////
+
   /////////// System settings section //////////
   $(".exitPermissionRefHelperModalAction").on('click', function(){
     $("#exitPermissionRefHelperModal").modal('show');
@@ -526,12 +567,55 @@ $(document).ready(function(){
     }
   });
 
-  $(".newLifeBaseAction").on('click', function(){
+  $(".newLifeBaseAction").on('click', function(e){
+    e.preventDefault();
     $("#NewLifeBaseModal").modal('show');
   });
 
-  $(".NewAdministratioAction").on('click', function(){
+  $(".NewAdministratioAction").on('click', function(e){
+    e.preventDefault();
     $("#NewAdministrationModal").modal('show');
   });
+
+  $(".newSupplierNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewSupplierCriteriaModal").modal('show');
+  });
+
+  $(".newDeliveryNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewDeliveryCriteriaModal").modal('show');
+  });
+
+  $(".newKitchenNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewKitchenCriteriaModal").modal('show');
+  });
+
+  $(".newRestaurantNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewRestaurantCriteriaModal").modal('show');
+  });
+
+  $(".newStorageNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewStorageCriteriaModal").modal('show');
+  });
+
+  $(".newRoomsNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewRoomCriteriaModal").modal('show');
+  });
+
+  $(".newLaundryNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewlaundryCriteriaModal").modal('show');
+  });
+
+  $(".newOfficeNotationCriteriaAction").on('click', function(e){
+    e.preventDefault();
+    $("#NewOfficeCriteriaModal").modal('show');
+  });
+
 
 });

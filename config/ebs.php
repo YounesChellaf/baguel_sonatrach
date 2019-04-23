@@ -2,10 +2,9 @@
 
 return [
 
-    'exit_permission' => [
-        'prefix' => 'BS',
-        'format' => '{PREFIX}/{YEAR}/{SN}',
-    ],
+    'dates' => [
+      'isoFormat' => "Do MMMM YYYY",
+    ]
 
 
 ];

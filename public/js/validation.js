@@ -209,7 +209,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/issam/dev/baguel_project/resources/js/validation.compile.js */"./resources/js/validation.compile.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\baguel_project\resources\js\validation.compile.js */"./resources/js/validation.compile.js");
 
 
 /***/ })

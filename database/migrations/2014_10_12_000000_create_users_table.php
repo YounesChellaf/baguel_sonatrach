@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
       $table->timestamp('last_connexion_at')->nullable();
       $table->integer('is_logged_in')->default(false);
       $table->foreign('lifebase_id')->references('id')->on('life_bases');
+      $table->boolean('locked')->default(false);
       $table->foreign('administration_id')->references('id')->on('administrations');
 
     });

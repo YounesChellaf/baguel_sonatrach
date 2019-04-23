@@ -107,6 +107,11 @@ class User extends Authenticatable
     }
   }
 
+  public function lockAccount(){
+    $this->locked = true;
+    $this->save();
+  }
+
 
   public function Department(){
     return $this->belongsTo('App\Models\Service');
