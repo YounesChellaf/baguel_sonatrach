@@ -12,12 +12,16 @@ class Visit extends Model
 {
     protected $guarded = [];
     function visitor(){
-        return $this->belongsToMany('App\Models\Visitor');
+        return $this->belongsToMany('App\Models\Visitor','visit_visitor');
+    }
+    function employee(){
+        return $this->belongsToMany('App\Models\Employee','employee_visit');
     }
     function CreatedBy(){
         return $this->belongsTo('App\Models\User','created_by','id');
     }
     public static function new($request){
+
         $visit = Visit::create([
             'company_name' => $request->company_name,
             'in_date' => $request->in_date,
@@ -28,6 +32,8 @@ class Visit extends Model
             'remark' => $request->remark,
             'created_by' => Auth::user()->id,
         ]);
+        $visit->employee()->attach($request->concerned_id);
+        $visit->visitor()->attach($request->visitor_id);
         return $visit;
     }
     public function status(){

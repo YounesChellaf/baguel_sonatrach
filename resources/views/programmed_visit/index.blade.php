@@ -76,7 +76,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="container">
+      <div class="container" style="margin: 5%">
         <div class=" row">
         <h6>Réference du visite :</h6>
         <p>{{$visit->company_name}}</p>
@@ -86,8 +86,8 @@
           <p>{{$visit->company_name}}</p>
         </div>
         <div class=" row">
-          <h6>Date d'entrée :</h6>
-          <p>{{$visit->in_date}}</p>
+          <h6>Employée concernée:</h6>
+          <p>{{$visit->employee->first()->last_name}} {{$visit->employee->first()->first_name}}</p>
         </div>
         <div class=" row">
           <h6>Date sortie :</h6>

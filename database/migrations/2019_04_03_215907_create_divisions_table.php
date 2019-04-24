@@ -20,7 +20,7 @@ class CreateDivisionsTable extends Migration
             $table->string('analytic_account', 255)->nullable();
             $table->text('address');
             $table->integer('administration_id')->unsigned()->index();
-            $table->foreign('administration_id')->references('id')->on('administrations');
+           // $table->foreign('administration_id')->references('id')->on('administrations');
             $table->timestamps();
         });
     }

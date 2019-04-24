@@ -11,7 +11,7 @@ class Visitor extends Model
     protected $guarded = [];
 
     function visit(){
-        return $this->belongsToMany('App\Models\Visit');
+        return $this->belongsToMany('App\Models\Visit','visit_visitor');
     }
 
     public static function new(Request $request){

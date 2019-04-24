@@ -8,6 +8,10 @@ class Employee extends Model
 {
   protected $guarded = [];
 
+  function visit(){
+      return $this->belongsToMany('App\Models\Visit','employee_visit');
+  }
+
   public function name(){
     return $this->first_name . ' ' . $this->last_name;
   }

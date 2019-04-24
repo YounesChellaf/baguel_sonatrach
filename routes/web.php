@@ -33,11 +33,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
-<<<<<<< HEAD
 
-=======
+
+
     Route::resource('visiteur','VisitorController');
->>>>>>> 78314bd49bf6ae175f7f9af72e968a87b68bbae8
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');
     Route::get('/create', 'UsersController@createView')->name('admin.users.create');

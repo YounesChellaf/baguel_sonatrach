@@ -15,9 +15,9 @@ class VisitController extends Controller
       return view('programmed_visit.AddVisit');
     }
 
-    public  function store(Request $request){
+    public  function store(VisitRequest $request){
         if ($request->post()){
-            //$validated = $request->validated();
+            $validated = $request->validated();
             $visit = Visit::new($request);
             return redirect()->back();
         }

@@ -39,9 +39,10 @@
                                     <label class="col-sm-2 col-form-label">Employée concernée</label>
                                     <div class="col-sm-10">
                                         <select name="concerned_id" class="form-control">
+                                            @foreach(Employee::all() as $employee)
                                             <option value=""></option>
-                                            <option value="1">employee 1</option>
-                                            <option value="2">employee 2</option>
+                                            <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

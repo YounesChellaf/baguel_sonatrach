@@ -30,9 +30,9 @@ class CreateEmployeesTable extends Migration
             $table->integer('user_id')->unsigned()->index()->nullable();
             $table->integer('service_id')->unsigned()->index()->nullable();
             $table->integer('office_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+            /*$table->foreign('user_id')->references('id')->on('users');
             $table->foreign('service_id')->references('id')->on('services');
-            $table->foreign('office_id')->references('id')->on('offices');
+            $table->foreign('office_id')->references('id')->on('offices');*/
             $table->timestamps();
         });
     }

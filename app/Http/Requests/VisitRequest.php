@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Carbon\Carbon;
 
 class VisitRequest extends FormRequest
 {
@@ -26,7 +27,7 @@ class VisitRequest extends FormRequest
         return [
             'in_date' => 'required',
             'out_date' => 'required',
-            'concerned' => 'required',
+            'concerned_id' => 'required',
             'visitor_id' => 'required',
             'reason' => 'required',
         ];
