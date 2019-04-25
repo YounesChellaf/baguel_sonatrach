@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Struture</label>
+                <label class="col-sm-2 col-form-label">Structure</label>
                 <div class="col-sm-10">
                   <select class="form-control userAccountStructure" name="account_structure">
                     <option value="">Sélectionner</option>
@@ -103,21 +103,6 @@
                 <label class="col-sm-2 col-form-label">Nom d'utilisateur</label>
                 <div class="col-sm-10">
                   <input type="text" class="form-control" id="username" value="{{ old('username') }}" name="username" placeholder="" readonly>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Mot de passe</label>
-                <div class="col-md-6">
-                  <input type="text" class="form-control" name="password" required id="password" placeholder="">
-                </div>
-                <div class="col-sm-4">
-                  <button type="button" class="btn btn-danger generateSecuredPassword" required name="button">Génerer</button>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Confirmation de Mot de passe</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" name="password_c" placeholder="">
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">Enregistrer</button>

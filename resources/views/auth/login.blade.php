@@ -28,6 +28,9 @@
           <span class="login100-form-title">
             Connexion
           </span>
+          @if(Session::get('wrong_credentials'))
+          <span class="error" style="color: red; margin-left: 15%;">Authentification échouée</span>
+          @endif
           <div class="wrap-input100 validate-input" data-validate = "Le compte d'utilisateur est obligatoire">
             <input class="input100" type="text" name="username" placeholder="Nom d'utilisateur">
             <span class="focus-input100"></span>

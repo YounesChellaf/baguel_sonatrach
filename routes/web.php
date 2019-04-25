@@ -8,7 +8,8 @@ Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function(){
 });
 
 Route::get('/auth/logout', 'AuthController@handleLogout')->name('auth.logout');
-
+Route::get('/auth/setPassword', 'AuthController@setPassword')->name('auth.setPassword');
+Route::post('/auth/setPassword', 'AuthController@setPasswordPost')->name('auth.setPassword.post');
 Route::group(['prefix' => 'system', 'middleware' => 'auth' ], function(){
   Route::get('/switchDataSource', 'SystemController@switchDataSource')->name('admin.system.switchDataSource');
 });
