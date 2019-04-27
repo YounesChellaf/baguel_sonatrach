@@ -56,7 +56,7 @@
 </div>
 <div id="styleSelector">
 </div>
-<div class="col-md-4">
+<div class="col-md-4 col-sm-12">
   <div id="modal-add-room" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -79,6 +79,34 @@
                   <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                   @endforeach
                 </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Liste des equipements</label>
+              <div class="col-md-12">
+                <table class="table table-bordered table-hover" id="tab_logic">
+                  <tbody>
+                  <tr id='addr0'>
+                    <td>1</td>
+                    <td><input type="text" name='réference'  placeholder='Réference' class="form-control"/></td>
+                    <td><input type="number" name='number'  placeholder='Nombre' class="form-control"/></td>
+                    <td>
+                      <select name="status" class="form-control">
+                        <option value="">Choisir un bloc</option>
+                          <option value="">sdfsfsd</option>
+                      </select>
+                    </td>
+                    <td><input type="text" name='function' placeholder='Fonction' class="form-control"/></td>
+                  </tr>
+                  <tr id='addr1'></tr>
+                  </tbody>
+                </table>
+                <div class="row clearfix">
+                  <div class="col-md-12">
+                    <a id="add_row" class="btn btn-primary pull-left">Ajouter equipement</a>
+                    <a id='delete_row' class="btn btn-danger pull-right">Supprimer ligne</a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -156,4 +184,24 @@
 </div>
 @endforeach
 @include('layout.assets.datatable._js')
+@endsection
+@section('extraJs')
+  <script>
+      $(document).ready(function(){
+          var i=1;
+          $("#add_row").click(function(){b=i-1;
+              $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+              $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+              i++;
+              $("input[name=nb]:hidden").val(i);
+          });
+          $("#delete_row").click(function(){
+              if(i>1){
+                  $("#addr"+(i-1)).html('');
+                  i--;
+                  $("input[name=nb]:hidden").val(i);
+              }
+          });
+      });
+  </script>
 @endsection

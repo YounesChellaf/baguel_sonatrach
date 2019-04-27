@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\EquipementInstance;
 use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
@@ -10,12 +11,12 @@ class Room extends Model
     protected $guarded = [];
 
     function bloc(){
-        return $this->belongsTo('App\Models\Bloc');
+        return $this->belongsTo(Bloc::class);
     }
     function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class);
     }
-    function equipement(){
-        return $this->hasMany('App\Models\Equipement');
+    function instance(){
+        return $this->hasMany(EquipementInstance::class);
     }
 }

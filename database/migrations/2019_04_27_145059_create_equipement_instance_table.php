@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipementsTable extends Migration
+class CreateEquipementInstanceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateEquipementsTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipements', function (Blueprint $table) {
+        Schema::create('equipement_instance', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('type');
-            $table->string('marque');
-            $table->tinyInteger('active')->nullable()->default(true);
+            $table->string('reference');
+            $table->integer('number');
+            $table->enum('status',['new','used']);
+            $table->integer('equipement_id');
+            $table->integer('room_id');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateEquipementsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipements');
+        Schema::dropIfExists('equipement_instance');
     }
 }

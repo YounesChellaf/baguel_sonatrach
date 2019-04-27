@@ -101,6 +101,29 @@
           <h6>Date sortie :</h6>
           <p>{{$visit->out_date}}</p>
         </div>
+        <div class="row">
+          <h6>Les visiteurs :</h6>
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Piece identité</th>
+                <th scope="col">Fonction</th>
+              </tr>
+              </thead>
+              <tbody>
+              @foreach($visit->visitor as $visitor)
+              <tr>
+                <td>{{$visitor->last_name}}</td>
+                <td>{{$visitor->first_name}}</td>
+                <td>{{$visitor->identity_card_number}}</td>
+                <td>{{$visitor->function}}</td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
+        </div>
         <div class=" row">
           <h6>L'état :</h6>
           <p>{{$visit->status()}}</p>

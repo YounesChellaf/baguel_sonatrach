@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c441016-60c4-454b-ba07-277ec6451eb9" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/baguel_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/baguel_project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/VisitRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/VisitRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Visit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Visit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EquipementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EquipementController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Equipement.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Equipement.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Room.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_07_094337_create_equipements_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_07_094337_create_equipements_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_18_091357_create_notation_criterias_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_18_091357_create_notation_criterias_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_04_18_100230_create_notations_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_04_18_100230_create_notations_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/equipement/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/equipement/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/room/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,77 +44,65 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/app.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1064">
+              <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EquipementInstance.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/EquipementInstance.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding>
+                <element signature="e#23#49#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Room.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Room.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+              <folding>
+                <element signature="e#30#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Equipement.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Equipement.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <folding>
+                <element signature="e#30#57#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2019_04_27_145059_create_equipement_instance_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_27_145059_create_equipement_instance_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-              <folding>
-                <element signature="e#3764#3784#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/frontend/assets/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Visit.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-              <folding>
-                <element signature="e#31#54#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisitRequest.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Requests/VisitRequest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-              <folding>
-                <element signature="e#37#80#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Visitor.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Visitor.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VisitController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2019_04_15_210822_create_visitors_table.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="48" />
-              <folding>
-                <element signature="e#7#45#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="353">
+              <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -115,29 +110,35 @@
       <file leaf-file-name="AddVisit.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="71" column="60" lean-forward="true" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
-              <folding>
-                <element signature="e#4628#4652#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="-214">
+              <caret line="70" column="46" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="70" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/room/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
+            <state relative-caret-position="157">
+              <caret line="58" column="27" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/employees/index.blade.php">
+      <file leaf-file-name="2019_04_05_165858_create_blocs_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165858_create_blocs_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="100" selection-start-line="100" selection-end-line="100" selection-end-column="19" />
+            <state relative-caret-position="386">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2019_04_05_165922_create_offices_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165922_create_offices_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="266">
+              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -156,6 +157,7 @@
       <find>single</find>
       <find>color sw</find>
       <find>select bo</find>
+      <find>divisions.index</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -165,17 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Equipement.php" />
-        <option value="$PROJECT_DIR$/app/Models/Office.php" />
-        <option value="$PROJECT_DIR$/app/Models/Room.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/assets/_js.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/direction/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/departement/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/BlocController.php" />
-        <option value="$PROJECT_DIR$/resources/views/bloc/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/office/index.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/validation.compile.js" />
-        <option value="$PROJECT_DIR$/resources/views/room/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DirectionController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DepartementController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" />
@@ -185,7 +176,6 @@
         <option value="$PROJECT_DIR$/resources/views/programed_visit/AddVisit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/partials/beadcrumbs.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/partials/pageTitle.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VisitorController.php" />
         <option value="$PROJECT_DIR$/resources/views/visiteur/index.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_15_181953_create_visits_table.php" />
@@ -193,7 +183,6 @@
         <option value="$PROJECT_DIR$/app/Models/Supplier.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_15_212811_create_visit_has_visitors_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_17_130809_create_visit_visitor.php" />
-        <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/ProviderRepository.php" />
@@ -207,15 +196,28 @@
         <option value="$PROJECT_DIR$/app/Models/Visitor.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_24_184111_create_employee_visit_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Employee.php" />
-        <option value="$PROJECT_DIR$/resources/views/layout/partials/notifications/notification.blade.php" />
         <option value="$PROJECT_DIR$/essai.txt" />
         <option value="$PROJECT_DIR$/public/frontend/assets/css/style.css" />
-        <option value="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Visit.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/VisitRequest.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/VisitController.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/partials/notifications/notification.blade.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_07_094337_create_equipements_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_18_091357_create_notation_criterias_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_18_100230_create_notations_table.php" />
+        <option value="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/equipement/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/EquipementController.php" />
+        <option value="$PROJECT_DIR$/app/EquipementInstance.php" />
+        <option value="$PROJECT_DIR$/app/Models/Equipement.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2019_04_27_145059_create_equipement_instance_table.php" />
+        <option value="$PROJECT_DIR$/app/Models/EquipementInstance.php" />
+        <option value="$PROJECT_DIR$/app/Models/Room.php" />
+        <option value="$PROJECT_DIR$/resources/views/room/index.blade.php" />
       </list>
     </option>
   </component>
@@ -330,6 +332,7 @@
       <path value="$PROJECT_DIR$/vendor/spatie/string" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-activitylog" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -357,6 +360,12 @@
             <path>
               <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -367,12 +376,6 @@
             <path>
               <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="database" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="migrations" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -386,14 +389,14 @@
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="employees" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="equipement" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="baguel_project" type="b2602c69:ProjectViewProjectNode" />
               <item name="baguel_project" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="programmed_visit" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="room" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -402,7 +405,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="Vi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;VisitR&#9;null&#9;null&#10;visitor&#9;null&#9;null&#10;Vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;visit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;visito&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_15_210822_create_visitors_table.php&#10;add&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/AddVisit.blade.php&#10;index&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/index.blade.php&#10;visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;style&#9;FILE&#9;file:///Users/issam/dev/baguel_project/public/frontend/assets/css/style.css&#10;user&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2014_10_12_000000_create_users_table.php&#10;دهس&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_15_181953_create_visits_table.php&#10;Noti&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/partials/notifications/notification.blade.php&#10;emplo&#9;null&#9;null&#10;inde&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/index.blade.php&#10;Su&#9;null&#9;null&#10;sup&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;providerRe&#9;null&#9;null&#10;excel&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/excel.php&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;config&#9;null&#9;null&#10;env&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;Servi&#9;null&#9;null&#10;visitCont&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;su&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Supplier.php&#10;visitContr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;exit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/ExitPermission.php&#10;users&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2014_10_12_000000_create_users_table.php&#10;visitr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/VisitRequest.php&#10;ne&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/NewSupplierRequest.php&#10;main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;Dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;VIs&#9;null&#9;null&#10;Suppl&#9;null&#9;null&#10;web.&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;dep&#9;null&#9;null&#10;dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;Offi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;Blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/BlocController.php&#10;.en&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;Roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Room.php&#10;Equi&#9;null&#9;null&#10;off&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php&#10;blo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Bloc.php&#10;_js&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/assets/datatable/_js.blade.php&#10;of&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="add&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/AddVisit.blade.php&#10;index&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/index.blade.php&#10;Roo&#9;null&#9;null&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;equ&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Equipement.php&#10;E&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/EquipementInstance.php&#10;equi&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;Equip&#9;null&#9;null&#10;equipement&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_07_094337_create_equipements_table.php&#10;mainN&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;visito&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_15_210822_create_visitors_table.php&#10;inde&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/index.blade.php&#10;noti&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/partials/notifications/notification.blade.php&#10;Vi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;VisitR&#9;null&#9;null&#10;visitor&#9;null&#9;null&#10;Vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;visit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;style&#9;FILE&#9;file:///Users/issam/dev/baguel_project/public/frontend/assets/css/style.css&#10;user&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2014_10_12_000000_create_users_table.php&#10;دهس&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_15_181953_create_visits_table.php&#10;Noti&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/partials/notifications/notification.blade.php&#10;emplo&#9;null&#9;null&#10;Su&#9;null&#9;null&#10;sup&#9;null&#9;null&#10;.env&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;providerRe&#9;null&#9;null&#10;excel&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/excel.php&#10;config&#9;null&#9;null&#10;env&#9;FILE&#9;file:///Users/issam/dev/baguel_project/.env&#10;Servi&#9;null&#9;null&#10;visitCont&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;su&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Supplier.php&#10;visitContr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;exit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/ExitPermission.php&#10;users&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2014_10_12_000000_create_users_table.php&#10;visitr&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/VisitRequest.php&#10;ne&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Requests/NewSupplierRequest.php&#10;main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;Dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;VIs&#9;null&#9;null&#10;Suppl&#9;null&#9;null&#10;web.&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;dep&#9;null&#9;null&#10;dire&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/DirectionController.php&#10;Offi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/OfficeController.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -410,17 +413,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/Models" />
+      <recent name="$PROJECT_DIR$/public/frontend/assets/datatable/js" />
+      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/programmed_visit" />
       <recent name="$PROJECT_DIR$/resources/views/visiteur" />
       <recent name="$PROJECT_DIR$/resources/views/programed_visit" />
       <recent name="$PROJECT_DIR$/resources/views/room" />
       <recent name="$PROJECT_DIR$/resources/views/equipement" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Models" />
-      <recent name="$PROJECT_DIR$/public/frontend/assets/datatable/js" />
-      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -459,12 +462,12 @@
       <workItem from="1555328930120" duration="15149000" />
       <workItem from="1555493277901" duration="16324000" />
       <workItem from="1555949937054" duration="1331000" />
-      <workItem from="1555971231958" duration="14556000" />
+      <workItem from="1555971231958" duration="18756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94846000" />
+    <option name="totallyTimeSpent" value="99046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -477,7 +480,7 @@
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.8848355" visible="true" weight="0.2249691" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2274678" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2274678" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -521,7 +524,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/BahaaeddineAzimut/baguel_project&#10;&#10;# Conflicts:&#10;#&#9;database/migrations/2014_10_12_000000_create_users_table.php&#10;#&#9;resources/views/programmed_visit/AddVisit.blade.php&#10;#&#9;routes/web.php" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/BahaaeddineAzimut/baguel_project&#10;&#10;# Conflicts:&#10;#&#9;database/migrations/2014_10_12_000000_create_users_table.php&#10;#&#9;resources/views/programmed_visit/AddVisit.blade.php&#10;#&#9;routes/web.php" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -529,77 +533,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/visiteur/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_153230_create_exit_permissions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="15" column="72" lean-forward="true" selection-start-line="15" selection-start-column="72" selection-end-line="15" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/SystemConfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_212811_create_visit_has_visitors_table.php" />
-    <entry file="file://$PROJECT_DIR$/resources/views/office/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="164" selection-start-line="164" selection-end-line="164" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/main.compile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/vlucas/phpdotenv/src/Environment/Adapter/EnvConstAdapter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="16" column="20" lean-forward="true" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret column="219621" selection-start-column="219621" selection-end-column="219621" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5382">
-          <caret line="234" column="27" selection-start-line="234" selection-start-column="27" selection-end-line="234" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/excel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -626,34 +559,6 @@
         <state relative-caret-position="-58" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_03_215907_create_divisions_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_03_215943_create_services_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165858_create_blocs_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165922_create_offices_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094232_create_rooms_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -670,13 +575,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_17_115438_create_activity_log_table.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094337_create_equipements_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/traits/isActionable.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -753,16 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layout/partials/notifications/notification.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/essai.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_16_081218_create_employees_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -798,54 +686,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="50" column="44" selection-start-line="50" selection-start-column="44" selection-end-line="50" selection-end-column="44" />
-          <folding>
-            <element signature="e#3764#3784#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="48" />
-          <folding>
-            <element signature="e#7#45#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="69" column="25" selection-start-line="69" selection-start-column="25" selection-end-line="69" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Visitor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="395">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="71" column="60" lean-forward="true" selection-start-line="71" selection-start-column="60" selection-end-line="71" selection-end-column="60" />
-          <folding>
-            <element signature="e#4628#4652#0#HTML" expanded="true" />
-          </folding>
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/VisitRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="587">
-          <caret line="39" column="39" lean-forward="true" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
+          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
           <folding>
             <element signature="e#37#80#0#PHP" expanded="true" />
           </folding>
@@ -855,17 +706,179 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/VisitController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="464">
+          <caret line="44" column="22" selection-start-line="44" selection-start-column="22" selection-end-line="44" selection-end-column="22" />
           <folding>
             <element signature="e#31#54#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/essai.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/partials/notifications/notification.blade.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_15_210822_create_visitors_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="19" column="48" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="48" />
+          <folding>
+            <element signature="e#7#45#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_18_100230_create_notations_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094337_create_equipements_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="12" column="7" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="24" column="56" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1073">
+          <caret line="70" column="53" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/equipement/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipementController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="80" column="5" selection-start-line="80" selection-start-column="5" selection-end-line="80" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_18_091357_create_notation_criterias_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="27" column="5" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_03_215907_create_divisions_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_03_215943_create_services_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165922_create_offices_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_05_165858_create_blocs_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Equipement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#30#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="254" lean-forward="true" selection-start-line="254" selection-end-line="254" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/EquipementInstance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding>
+            <element signature="e#23#49#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Room.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+          <folding>
+            <element signature="e#30#57#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-214">
+          <caret line="70" column="46" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="70" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_27_145059_create_equipement_instance_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/room/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="58" column="27" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="27" />
         </state>
       </provider>
     </entry>

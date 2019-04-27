@@ -23,7 +23,7 @@ class CreateNotationsTable extends Migration
             $table->float('total_score')->nullable();
             $table->text('comments')->nullable();
             $table->integer('created_by')->unsigned()->integer();
-            $table->foreign('created_by')->references('id')->on('users');
+            //$table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

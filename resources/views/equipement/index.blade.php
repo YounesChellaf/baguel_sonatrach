@@ -25,9 +25,8 @@
                                         <table id="basic-btn" class="table table-striped table-bordered nowrap">
                                             <thead>
                                             <tr>
-                                                <th>Numero de reference</th>
-                                                <th>Status</th>
-                                                <th>Chambre</th>
+                                                <th>Type</th>
+                                                <th>Marque</th>
                                                 <th>Modifier</th>
                                                 <th>Supprimer</th>
                                             </tr>
@@ -35,9 +34,8 @@
                                             <tbody>
                                             @foreach(Equipement::all() as $equipement)
                                                 <tr>
-                                                    <td>{{$equipement->reference}}</td>
-                                                    <td>{{$equipement->status}}</td>
-                                                    <td>{{$equipement->room->number}}</td>
+                                                    <td>{{$equipement->type}}</td>
+                                                    <td>{{$equipement->marque}}</td>
                                                     <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$equipement->id}}">modifier</button></td>
                                                     <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$equipement->id}}">Supprimer</button></td>
                                                 </tr>
@@ -68,24 +66,13 @@
                         <form method="post" action="/admin/equipement">
                             @csrf
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Reference d'équipement</label>
-                                <input type="text" class="form-control" id="recipient-name" name="reference">
+                                <label for="recipient-name" class="control-label">Type d'équipement</label>
+                                <input type="text" class="form-control" id="recipient-name" name="type">
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Status</label>
-                                <input type="text" class="form-control" id="recipient-name" name="status">
+                                <label for="recipient-name" class="control-label">La marque d'équipement</label>
+                                <input type="text" class="form-control" id="recipient-name" name="marque">
                             </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <select name="room_id" class="form-control">
-                                        <option value="">Choisir une chambre á affecter</option>
-                                        @foreach(Room::all() as $room)
-                                        <option value="{{$room->id}}">{{$room->number}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
                                 <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
@@ -111,22 +98,12 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Reference d'équipement</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="reference" value="{{$equipement->reference}}">
+                                    <label for="recipient-name" class="control-label">Type d'équipement</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="type" value="{{$equipement->type}}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="recipient-name" class="control-label">Status</label>
-                                    <input type="text" class="form-control" id="recipient-name" name="status" value="{{$equipement->status}}">
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-sm-12">
-                                        <select name="room_id" class="form-control">
-                                            <option value="{{$equipement->room->id}}">{{$equipement->room->number}}</option>
-                                            @foreach(Room::all() as $room)
-                                                <option value="{{$room->id}}">{{$room->number}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    <label for="recipient-name" class="control-label">Marque d'équipement</label>
+                                    <input type="text" class="form-control" id="recipient-name" name="marque" value="{{$equipement->marque}}">
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
@@ -149,7 +126,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Voulez vous supprimer cet equipement !
+                        Voulez vous supprimer ce type d'equipement !
                     </div>
                     <div class="modal-footer">
                         <form method="POST" action="/admin/equipement/{{$equipement->id}}">
