@@ -862,7 +862,23 @@ $(document).ready(function () {
         actionId: actionId
       },
       success: function success(response) {
-        alert('shit');
+        var response = $.parseJSON(response);
+        $("#activityOpType").html('');
+        $("#activityOpDetails").html('');
+        $("#activityOpDate").html('');
+        $("#activityOpDocument").html('');
+        $("#activityOpLink").attr('href', '');
+        var msg = response.msg;
+        var type = response.type;
+        var date = response.date;
+        var concernedDocument = response.concernedDocument;
+        $("#activityOpType").html(type);
+        $("#activityOpDetails").html(msg);
+        $("#activityOpDate").html(date);
+        $("#activityOpDocument").html(concernedDocument);
+        $("#activityOpLink").attr('href', response.route);
+        Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+        $("#userActivityEntryDetails").modal('show');
       }
     }); //perform ajax to get all changs
   }); ///////////////////////////////////////////////////
@@ -1145,7 +1161,24 @@ $(document).ready(function () {
         return false;
       }
     });
-  }); /////////// System settings section //////////
+  }); /////////// products secton ////////////
+
+  $(".importproductsAction").on('click', function () {
+    $("#ImportProductsModal").modal('show');
+  });
+  $(".newProductAction").on('click', function () {
+    $("#NewProductsModal").modal('show');
+  });
+  $(".newProjectAction").on('click', function () {
+    $("#NewProjectModal").modal('show');
+  }); /////////////////////////////////////////
+  /////////// Notations section //////////
+
+  $(".singleNotationCategory").on('click', function () {
+    var url = $(this).data('url');
+    window.location.href = url;
+  }); //////////////////////////////////////////////
+  /////////// System settings section //////////
 
   $(".exitPermissionRefHelperModalAction").on('click', function () {
     $("#exitPermissionRefHelperModal").modal('show');
@@ -1172,11 +1205,45 @@ $(document).ready(function () {
       $(".lifebasesList").hide('fade');
     }
   });
-  $(".newLifeBaseAction").on('click', function () {
+  $(".newLifeBaseAction").on('click', function (e) {
+    e.preventDefault();
     $("#NewLifeBaseModal").modal('show');
   });
-  $(".NewAdministratioAction").on('click', function () {
+  $(".NewAdministratioAction").on('click', function (e) {
+    e.preventDefault();
     $("#NewAdministrationModal").modal('show');
+  });
+  $(".newSupplierNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewSupplierCriteriaModal").modal('show');
+  });
+  $(".newDeliveryNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewDeliveryCriteriaModal").modal('show');
+  });
+  $(".newKitchenNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewKitchenCriteriaModal").modal('show');
+  });
+  $(".newRestaurantNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewRestaurantCriteriaModal").modal('show');
+  });
+  $(".newStorageNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewStorageCriteriaModal").modal('show');
+  });
+  $(".newRoomsNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewRoomCriteriaModal").modal('show');
+  });
+  $(".newLaundryNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewlaundryCriteriaModal").modal('show');
+  });
+  $(".newOfficeNotationCriteriaAction").on('click', function (e) {
+    e.preventDefault();
+    $("#NewOfficeCriteriaModal").modal('show');
   });
 });
 
@@ -1186,10 +1253,10 @@ $(document).ready(function () {
 /*!**********************************!*\
   !*** ./resources/js/routes.json ***!
   \**********************************/
-/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.system.switchDataSource, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, office.index, office.create, office.store, office.show, office.edit, office.update, office.destroy, room.index, room.create, room.store, room.show, room.edit, room.update, room.destroy, equipement.index, equipement.create, equipement.store, equipement.show, equipement.edit, equipement.update, equipement.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.delete, admin.users.create.getSecuredPassword, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.suppliers.subSuppliers, admin.suppliers.subSuppliers.create, admin.suppliers.subSuppliers.create.post, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermission.reject, admin.SystemConfig.index, admin.SystemConfig.subPage, admin.lifebase.updateMultiLifeBaseParam, admin.SystemConfig.save, admin.lifebase.save, admin.administration.save, admin.employees.index, admin.employees.create, admin.employees.create.post, admin.employees.delete, admin.employees.import, default */
+/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.system.switchDataSource, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, office.index, office.create, office.store, office.show, office.edit, office.update, office.destroy, room.index, room.create, room.store, room.show, room.edit, room.update, room.destroy, equipement.index, equipement.create, equipement.store, equipement.show, equipement.edit, equipement.update, equipement.destroy, visiteur.index, visiteur.create, visiteur.store, visiteur.show, visiteur.edit, visiteur.update, visiteur.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.single, admin.users.delete, admin.users.create.getSecuredPassword, admin.users.getSingleActivityChanges, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.suppliers.subSuppliers, admin.suppliers.subSuppliers.create, admin.suppliers.subSuppliers.create.post, admin.suppliers.import, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermissions.single, admin.ExitPermission.reject, admin.SystemConfig.index, admin.SystemConfig.subPage, admin.lifebase.updateMultiLifeBaseParam, admin.SystemConfig.save, admin.lifebase.save, admin.administration.save, admin.employees.index, admin.employees.create, admin.employees.create.post, admin.employees.delete, admin.employees.import, admin.notifications.handleClick, default */
 /***/ (function(module) {
 
-module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.system.switchDataSource":"system/switchDataSource","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","office.index":"admin/office","office.create":"admin/office/create","office.store":"admin/office","office.show":"admin/office/{office}","office.edit":"admin/office/{office}/edit","office.update":"admin/office/{office}","office.destroy":"admin/office/{office}","room.index":"admin/room","room.create":"admin/room/create","room.store":"admin/room","room.show":"admin/room/{room}","room.edit":"admin/room/{room}/edit","room.update":"admin/room/{room}","room.destroy":"admin/room/{room}","equipement.index":"admin/equipement","equipement.create":"admin/equipement/create","equipement.store":"admin/equipement","equipement.show":"admin/equipement/{equipement}","equipement.edit":"admin/equipement/{equipement}/edit","equipement.update":"admin/equipement/{equipement}","equipement.destroy":"admin/equipement/{equipement}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.suppliers.subSuppliers":"admin/suppliers/{id?}/subSuppliers","admin.suppliers.subSuppliers.create":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.subSuppliers.create.post":"admin/suppliers/{id?}/subSuppliers/create","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}","admin.SystemConfig.index":"admin/system_config","admin.SystemConfig.subPage":"admin/system_config/{page?}","admin.lifebase.updateMultiLifeBaseParam":"admin/system_config/updateMultiLifeBaseParam","admin.SystemConfig.save":"admin/system_config/save","admin.lifebase.save":"admin/lifebases/save","admin.administration.save":"admin/administrations/save","admin.employees.index":"admin/employees","admin.employees.create":"admin/employees/create","admin.employees.create.post":"admin/employees/create","admin.employees.delete":"admin/employees/delete","admin.employees.import":"admin/employees/import"};
+module.exports = {"":"admin/visit/reject/{id}","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.system.switchDataSource":"system/switchDataSource","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","office.index":"admin/office","office.create":"admin/office/create","office.store":"admin/office","office.show":"admin/office/{office}","office.edit":"admin/office/{office}/edit","office.update":"admin/office/{office}","office.destroy":"admin/office/{office}","room.index":"admin/room","room.create":"admin/room/create","room.store":"admin/room","room.show":"admin/room/{room}","room.edit":"admin/room/{room}/edit","room.update":"admin/room/{room}","room.destroy":"admin/room/{room}","equipement.index":"admin/equipement","equipement.create":"admin/equipement/create","equipement.store":"admin/equipement","equipement.show":"admin/equipement/{equipement}","equipement.edit":"admin/equipement/{equipement}/edit","equipement.update":"admin/equipement/{equipement}","equipement.destroy":"admin/equipement/{equipement}","visiteur.index":"admin/visiteur","visiteur.create":"admin/visiteur/create","visiteur.store":"admin/visiteur","visiteur.show":"admin/visiteur/{visiteur}","visiteur.edit":"admin/visiteur/{visiteur}/edit","visiteur.update":"admin/visiteur/{visiteur}","visiteur.destroy":"admin/visiteur/{visiteur}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.single":"admin/users/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.users.getSingleActivityChanges":"admin/activities/getSingleActivityChanges","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.suppliers.subSuppliers":"admin/suppliers/{id?}/subSuppliers","admin.suppliers.subSuppliers.create":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.subSuppliers.create.post":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.import":"admin/suppliers/import","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermissions.single":"admin/exit_permissions/single/{id?}","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}","admin.SystemConfig.index":"admin/system_config","admin.SystemConfig.subPage":"admin/system_config/{page?}","admin.lifebase.updateMultiLifeBaseParam":"admin/system_config/updateMultiLifeBaseParam","admin.SystemConfig.save":"admin/system_config/save","admin.lifebase.save":"admin/lifebases/save","admin.administration.save":"admin/administrations/save","admin.employees.index":"admin/employees","admin.employees.create":"admin/employees/create","admin.employees.create.post":"admin/employees/create","admin.employees.delete":"admin/employees/delete","admin.employees.import":"admin/employees/import","admin.notifications.handleClick":"admin/notification/{id?}"};
 
 /***/ }),
 
@@ -1200,7 +1267,7 @@ module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/logi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/issam/dev/baguel_project/resources/js/main.compile.js */"./resources/js/main.compile.js");
+module.exports = __webpack_require__(/*! C:\wamp64\www\baguel_project\resources\js\main.compile.js */"./resources/js/main.compile.js");
 
 
 /***/ })

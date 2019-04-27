@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Direction;
+use App\Models\Division;
 use Illuminate\Http\Request;
 
 class DirectionController extends Controller
@@ -38,10 +38,9 @@ class DirectionController extends Controller
         $name = $request->input('name');
         $address = $request->input('address');
 
-        Direction::create([
+        Division::create([
             'name' =>$name,
             'address' =>$address,
-
         ]);
 
         return redirect()->back();
@@ -82,7 +81,7 @@ class DirectionController extends Controller
         $address= $request->input('address');
         $active= $request->input('active');
 
-        $direction = Direction::find($id);
+        $direction = Divisionfind($id);
 
         $direction->name = $name;
         $direction->address = $address;
@@ -101,7 +100,7 @@ class DirectionController extends Controller
      */
     public function destroy($id)
     {
-        Direction::destroy($id);
+        Divisiondestroy($id);
         return redirect()->back();
     }
 }

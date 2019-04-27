@@ -11,4 +11,8 @@
     <a class="nav-link {{ $active == 'lifebase' ? 'active' : '' }}" href="{{ route('admin.SystemConfig.subPage', 'lifebase') }}" role="tab"><i class="fas fa-bed"></i> Bases de vie</a>
     <div class="slide"></div>
   </li>
+  <li class="nav-item">
+    <a class="nav-link {{ $active == 'notations' ? 'active' : '' }}" href="{{ route('admin.SystemConfig.subPage', 'notations') }}" role="tab"><i class="fas fa-star"></i> Notations</a>
+    <div class="slide"></div>
+  </li>
 </ul>

@@ -12,12 +12,8 @@
 <script src="{{ asset('frontend/assets/pages/widget/amchart/amcharts.js') }}"></script>
 <script src="{{ asset('frontend/assets/pages/widget/amchart/serial.js') }}"></script>
 <script src="{{ asset('frontend/assets/pages/widget/amchart/light.js') }}"></script>
-<script src="../../../../developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="{{ asset('frontend/assets/pages/google-maps/gmaps.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/pcoded.min.js') }}"></script>
 <script src="{{ asset('frontend/assets/js/vertical/vertical-layout.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('frontend/assets/pages/dashboard/crm-dashboard.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/js/script.min.js') }}"></script>
 <!-- DataTable JS -->
 <script>
@@ -27,12 +23,14 @@ let config = {
   }
 };
 </script>
+<script type="text/javascript" src="{{ asset('frontend/bower_components/jquery-bar-rating/js/jquery.barrating.js') }}"></script>
+
 <script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontend/assets/js/ebs_rating.js') }}"></script>
 <script type="text/javascript" src="{{asset('frontend/assets/pages/swithces.js')}}"></script>
 <script type="text/javascript" src="{{asset('frontend/assets/pages/switchery.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('frontend/assets/js/modal.js') }}"></script>
+<script type="text/javascript" src="{{ asset('frontend/assets/js/modal.js') }}"></script> -->
 <script src="{{ asset('frontend/assets/js/classie.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/assets/js/modalEffects.js') }}"></script>
 <script type="text/javascript" src="{{ asset('frontend/mdb/js/mdb.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/validation.js') }}"></script>
-

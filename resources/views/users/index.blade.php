@@ -20,7 +20,6 @@
         <div class="card">
           <div class="card-header">
             <h5>Comptes utilisateurs</h5>
-            <a href="#" class="importUsersAction">Importer</a>
             <a href="{{ route('admin.users.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau Compte</button></a>
 
           </div>

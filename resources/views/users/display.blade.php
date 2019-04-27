@@ -77,4 +77,32 @@
 </div>
 </div>
 </div>
+
+
+<div class="modal fade" id="userActivityEntryDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">Détails</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <span>Type d'opération: <strong><p id="activityOpType"></p></strong></span>
+        <span>Date de l'opération: <strong><p id="activityOpDate"></p></strong></span>
+        <span>Document concerné: <strong><p id="activityOpDocument"></p></strong></span>
+        <span>Détails: <p id="activityOpDetails"></p></span>
+        <span><a href="#" target="_blank" id="activityOpLink">Consulter</a></span>
+      </span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+  </div>
+</div>
+</div>
+</div>
 @endsection

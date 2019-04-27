@@ -9,8 +9,7 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 class EmployeesImport implements ToModel, WithHeadingRow
 {
 
-  public function model(array $row)
-  {
+  public function model(array $row){
 
     //check employee unicity with employee_number
     if(Employee::IsUnique($row['employee_number'])){

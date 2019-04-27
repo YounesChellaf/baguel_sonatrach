@@ -19,8 +19,8 @@
       <div class="page-body">
         <div class="card">
           <div class="card-header">
-            <h5>Fournisseurs</h5>
-            <a href="/admin/visit/create"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouveau Fournisseur</button></a>
+            <h5>Visites</h5>
+            <a href="{{ route('admin.visit.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle visite</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
@@ -50,8 +50,8 @@
                       <div class="dropdown-info dropdown open">
                         <button class="btn abtn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="/admin/visit/validate/{{$visit->id}}">Valider</a>
-                          <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="/admin/visit/reject/{{$visit->id}}">Rejeter</a>
+                          <a class="dropdown-item" href="{{ route('admin.visit.approve', $visit->id) }}">Valider</a>
+                          <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="{{ route('admin.visit.reject', $visit->id) }}">Rejeter</a>
                         </div>
                       </div>
                     </td>

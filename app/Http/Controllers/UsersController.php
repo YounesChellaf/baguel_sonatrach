@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\NewUserRequest;
@@ -87,7 +88,6 @@ class UsersController extends Controller
     if(!$userId){
       abort(404);
     }
-
     $user = User::find($userId);
     if(!$user){
       abort(404);
@@ -101,7 +101,20 @@ class UsersController extends Controller
 
   public function getSingleActivityChanges(Request $request){
     if($request->get('actionId')){
+      $response = array();
       $activity = Activity::find($request->get('actionId'));
+      $changes = $activity->changes();
+      $diff = array_diff($changes['attributes'], $changes['old']);
+      $field = array_keys($diff);
+      foreach($diff as $index => $diffValue){
+        $msg = "Modification de l'attribut: <b>".$index."</b> De: <b>".$changes['old'][$index]."</b> Vers: <b>".$diffValue." </b>";
+      }
+      $response['msg'] = $msg;
+      $response['type'] = "Modification";
+      $response['concernedDocument']  = "Compte utilisateur";
+      $response['date'] = Carbon::parse($activity->created_at)->diffForHumans();
+      $response['route'] = route('admin.users.single', $activity->subject->id);
+      echo json_encode($response);
     }
   }
 }

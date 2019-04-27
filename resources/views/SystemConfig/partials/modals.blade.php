@@ -111,4 +111,236 @@ aria-hidden="true">
 </div>
 </div>
 
+<div class="modal fade right" id="NewSupplierCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation fournisseur</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'supplier_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewDeliveryCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de livraison</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'delivery_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="modal fade right" id="NewKitchenCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de Cuisine</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'kitchen_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewRestaurantCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de Restaurant & Foyer</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'restaurant_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewStorageCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de Stockage & Magasin</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'storage_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewRoomCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de Chambres</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'rooms_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewlaundryCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de Blanchisserie</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'laundry_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="modal fade right" id="NewOfficeCriteriaModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-full-height modal-right" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title w-100" id="myModalLabel">Crée un nouveau critère de notation de bureaux et locaux</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <form class="" action="{{ route('admin.SystemConfig.notationCriterias.save', 'office_notation') }}" method="post">
+          @csrf
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Nom</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" required value="" name="criteria_name">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-success waves-effect">Enregistrer</button>
+          <button type="button" class="btn btn-warning waves-effect" data-dismiss="modal">Fermer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <div class="md-overlay"></div>

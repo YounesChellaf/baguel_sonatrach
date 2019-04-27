@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class DepartementController extends Controller
@@ -38,9 +38,9 @@ class DepartementController extends Controller
         $name = $request->input('name');
         $direction_id = $request->input('select');
 
-        Department::create([
+        Service::create([
             'name' =>$name,
-            'direction_id' =>$direction_id,
+            'division_id' =>$direction_id,
         ]);
 
         return redirect()->back();
@@ -100,7 +100,7 @@ class DepartementController extends Controller
      */
     public function destroy($id)
     {
-        Departement::destroy($id);
+        Service::destroy($id);
         return redirect()->back();
     }
 }

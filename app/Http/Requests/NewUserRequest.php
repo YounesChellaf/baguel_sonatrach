@@ -27,7 +27,6 @@ class NewUserRequest extends FormRequest
       'firstName' => 'required|alpha|min:3',
       'lastName' => 'required|alpha|min:3',
       'username' => 'required|unique:users',
-      'password' => 'required|min:8|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/',
     ];
   }
 

@@ -82,7 +82,6 @@ class User extends Authenticatable
         'lastName' => $request->lastName,
         'email' => $request->email,
         'username' => strtolower($request->username),
-        'password' => Hash::make($request->password),
         'department_id' => $request->department,
         'account_type' => $request->account_type,
         'lifebase_id' => $request->lifebase_id,
@@ -107,9 +106,22 @@ class User extends Authenticatable
     }
   }
 
+  public function lockAccount(){
+    $this->locked = true;
+    $this->save();
+  }
+
+  public function setNewPassword($request){
+    if($request->password){
+      $user = $request->user();
+      $user->password = Hash::make($request->password);
+      $user->save();
+    }
+  }
+
 
   public function Department(){
-    return $this->belongsTo('App\Models\Service');
+    return $this->belongsTo('App\Models\Service', 'department_id', 'id');
   }
 
   public function LifeBase(){

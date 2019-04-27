@@ -14,6 +14,15 @@
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/switchery.min.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/assets/css/bootstrap-tagsinput.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('frontend/mdb/css/mdb.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-1to10.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-horizontal.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-movie.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-pill.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-reversed.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/bars-square.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/css-stars.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/jquery-bar-rating/css/fontawesome-stars-o.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <style>
   .switchDataSource{
     cursor: pointer;
