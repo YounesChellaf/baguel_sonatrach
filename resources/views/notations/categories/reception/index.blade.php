@@ -50,6 +50,7 @@
                             <a class="dropdown-item" href="{{ route('admin.notations.view', $control->ref) }}">Consulter</a>
                             <a class="dropdown-item" href="#">Modifier</a>
                             <a class="dropdown-item" href="#!">Supprimer</a>
+                            <a class="dropdown-item" href="{{ route('admin.notations.export', [$control->ref, 'pdf']) }}">Exporter PDF</a>
                           </div>
                         </div>
                       </td>

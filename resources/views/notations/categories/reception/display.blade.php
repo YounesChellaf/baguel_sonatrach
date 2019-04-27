@@ -63,8 +63,16 @@
                       </table>
                     </div>
                   </div>
-                  <h5 style="float: right;">Note totale: {{ $notation->total_score }} /10</h5> <br>
-                  <img src="{{ $notation->reaction() }}" width="40" style="float: right">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h6>Commentaires:</h6>
+                      <p>{{ $notation->comments }}</p>
+                    </div>
+                    <div class="col-md-6">
+                      <h5 style="float: right;">Note totale: {{ $notation->total_score }} /10</h5> <br>
+                      <img src="{{ $notation->reaction() }}" width="40" style="float: right">
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -482,6 +482,7 @@ class Notation extends Model
         'scores' => $scoresDetails,
         'total_score' => $totalScore,
         'created_by' => Auth::user()->id,
+        'comments' => $request->comments,
       ]);
       $notation->computeRef();
 

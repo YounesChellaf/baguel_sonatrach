@@ -59,6 +59,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('/', 'NotationController@index')->name('admin.notations.index');
     Route::get('/{type?}', 'NotationController@indexPerType')->name('admin.notations.index.type');
     Route::get('/{type?}/view/{ref?}', 'NotationController@viewControl')->name('admin.notations.view');
+    Route::get('/{ref?}/export/{type?}', 'NotationController@exportNotation')->name('admin.notations.export');
     Route::get('/{type?}/create', 'NotationController@createPerType')->name('admin.notations.type.create');
     Route::post('/{type?}/create', 'NotationController@save')->name('admin.notations.type.save');
   });

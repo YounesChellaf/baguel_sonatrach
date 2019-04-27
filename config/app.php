@@ -177,6 +177,7 @@ return [
     App\Providers\RouteServiceProvider::class,
     Maatwebsite\Excel\ExcelServiceProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
+    Barryvdh\DomPDF\ServiceProvider::class,
 
   ],
 
@@ -248,6 +249,7 @@ return [
     'Product' => App\Models\Product::class,
     'Project' => App\Models\Project::class,
     'Notation' => App\Models\Notation::class,
+    'PDF' => Barryvdh\DomPDF\Facade::class,
   ],
 
 ];

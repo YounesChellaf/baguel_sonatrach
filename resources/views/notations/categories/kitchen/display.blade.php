@@ -62,6 +62,7 @@
                       </table>
                     </div>
                   </div>
+                  
                   <h5 style="float: right;">Note totale: {{ $notation->total_score }} /10</h5> <br>
                   <img src="{{ $notation->reaction() }}" width="40" style="float: right">
                 </div>

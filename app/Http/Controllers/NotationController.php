@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Notation;
 use Illuminate\Http\Request;
 
@@ -69,4 +70,18 @@ class NotationController extends Controller
       'notation' => $notation,
     ]);
   }
-}
+
+  public function exportNotation($ref, $docType){
+    if(!$ref || !$docType){
+      abort(404);
+    }
+    $control = Notation::where('ref', $ref)->first();
+    if(!$control){
+      abort(404);
+    }
+    return  PDF::loadView('exports.notations.'.$control->type, [
+      'doc' => $control,
+      ])->setPaper('a4', 'portrait')->setWarnings(false)->download($ref.'.pdf');
+
+    }
+  }
