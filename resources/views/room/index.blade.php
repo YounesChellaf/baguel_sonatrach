@@ -88,15 +88,23 @@
                   <tbody>
                   <tr id='addr0'>
                     <td>1</td>
-                    <td><input type="text" name='réference'  placeholder='Réference' class="form-control"/></td>
+                    <td><input type="text" name='reference'  placeholder='Réference' class="form-control"/></td>
                     <td><input type="number" name='number'  placeholder='Nombre' class="form-control"/></td>
                     <td>
-                      <select name="status" class="form-control">
-                        <option value="">Choisir un bloc</option>
-                          <option value="">sdfsfsd</option>
+                      <select name="equipement_id" class="form-control">
+                        <option value="">Choisir un type d'equipement</option>
+                        @foreach(Equipement::all() as $equipement)
+                          <option value="{{$equipement->id}}">{{$equipement->type}} : {{$equipement->marque}}</option>
+                        @endforeach
                       </select>
                     </td>
-                    <td><input type="text" name='function' placeholder='Fonction' class="form-control"/></td>
+                    <td>
+                      <select name="status" class="form-control">
+                        <option value="new">Nouveau</option>
+                        <option value="used">Utilisé</option>
+                      </select>
+                    </td>
+                    <input type="hidden" name="nb" value="">
                   </tr>
                   <tr id='addr1'></tr>
                   </tbody>

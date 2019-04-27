@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEquipementInstanceTable extends Migration
+class CreateEquipementInstancesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEquipementInstanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('equipement_instance', function (Blueprint $table) {
+        Schema::create('equipement_instances', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reference');
             $table->integer('number');
@@ -31,6 +31,6 @@ class CreateEquipementInstanceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipement_instance');
+        Schema::dropIfExists('equipement_instances');
     }
 }

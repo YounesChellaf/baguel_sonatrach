@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\EquipementInstance;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -35,13 +36,23 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $number = $request->input('number');
-        $bloc_id = $request->input('bloc_id');
+        if ($request->post()){
+            $room =Room::create([
+                'number' =>$request->number,
+                'bloc_id' =>$request->bloc_id,
+            ]);
+            $nb = $request->nb;
+            for ($i=0;$i<$nb;$i++){
+                EquipementInstance::create([
+                   'reference' => $request->reference,
+                   'number' => $request->number,
+                   'equipement_id' => $request->equipement_id,
+                   'status' => $request->status,
+                    'room_id' => $room->id,
+                ]);
+            }
+        }
 
-        Room::create([
-            'number' =>$number,
-            'bloc_id' =>$bloc_id,
-        ]);
 
         return redirect()->back();
     }
