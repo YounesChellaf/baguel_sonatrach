@@ -15,7 +15,7 @@
                             <h5>Nouvelle visite</h5>
                         </div>
                         <div class="card-block">
-                            <form method="Post" action="/admin/visit/create" >
+                            <form method="POST" action="/admin/visit/create" >
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nom sociéte</label>
@@ -46,17 +46,29 @@
                                         </select>
                                     </div>
                                 </div>
-                                    <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Visiteur</label>
-                                    <div class="col-sm-10">
-                                        <select name="visitor_id" class="form-control">
-                                            <option value=""></option>
-                                            @foreach(Visitor::all() as $visitor)
-                                                <option value="{{$visitor->id}}">{{$visitor->last_name}} {{$visitor->first_name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                                <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Liste des employées</label>
+                                            <div class="col-md-10">
+                                                <table class="table table-bordered table-hover" id="tab_logic">
+                                                    <tbody>
+                                                    <tr id='addr0'>
+                                                        <td>1</td>
+                                                        <td><input type="text" name='last_name'  placeholder='Nom' class="form-control"/></td>
+                                                        <td><input type="text" name='first_name'  placeholder='Prenom' class="form-control"/></td>
+                                                        <td><input type="text" name='identity_card_number'  placeholder='Numero carte identité' class="form-control"/></td>
+                                                        <td><input type="text" name='function' placeholder='Fonction' class="form-control"/></td>
+                                                    </tr>
+                                                    <tr id='addr1'></tr>
+                                                    </tbody>
+                                                </table>
+                                                <div class="row clearfix">
+                                                    <div class="col-md-12">
+                                                        <a id="add_row" class="btn btn-primary pull-left">Ajouter autre employée</a>
+                                                        <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer ligne</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Reason de visite</label>
                                     <div class="col-sm-10">
@@ -74,16 +86,33 @@
                                         <textarea class="form-control" name="remark"></textarea>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                <input name="nb" type="hidden" value="">
+                                <button id="submit-btn" type="submit" class="btn btn-primary">Enregistrer</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 @endsection
+@section('extraJs')
+<script>
+    $(document).ready(function(){
+    var i=1;
+    $("#add_row").click(function(){b=i-1;
+    $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+    $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+    i++;
+    $("input[name=nb]:hidden").val(i);
+    });
+    $("#delete_row").click(function(){
+    if(i>1){
+    $("#addr"+(i-1)).html('');
+    i--;
+    $("input[name=nb]:hidden").val(i);
+    }
+    });
+    });
+</script>
+@endsection
+

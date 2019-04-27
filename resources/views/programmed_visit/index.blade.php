@@ -48,7 +48,7 @@
                     <td>{{$visit->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
-                        <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                        <button class="btn abtn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                           <a class="dropdown-item" href="/admin/visit/validate/{{$visit->id}}">Valider</a>
                           <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="/admin/visit/reject/{{$visit->id}}">Rejeter</a>
@@ -76,7 +76,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="container" style="margin: 5%">
+      <div class="container col-md-10 model-info-visit" style="margin: 5%">
         <div class=" row">
         <h6>Réference du visite :</h6>
         <p>{{$visit->company_name}}</p>
@@ -90,20 +90,28 @@
           <p>{{$visit->employee->first()->last_name}} {{$visit->employee->first()->first_name}}</p>
         </div>
         <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+          <h6>Crée par  :</h6>
+          <p>{{User::find($visit->created_by)->firstName}} {{User::find($visit->created_by)->lastName}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date entrée :</h6>
+          <p>{{$visit->in_date}}</p>
         </div>
         <div class=" row">
           <h6>Date sortie :</h6>
           <p>{{$visit->out_date}}</p>
         </div>
         <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+          <h6>L'état :</h6>
+          <p>{{$visit->status()}}</p>
         </div>
         <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+          <h6>Reason de visite:</h6>
+          <p>{{$visit->reason}}</p>
+        </div>
+        <div class=" row">
+          <h6>Remarques :</h6>
+          <p>{{$visit->remark}}</p>
         </div>
       </div>
     </div>

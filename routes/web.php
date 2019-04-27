@@ -68,6 +68,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
       Route::get('','VisitController@index');
       Route::get('create','VisitController@createView');
       Route::post('create','VisitController@store');
+      Route::post('create/test','VisitController@getNb');
       Route::get('validate/{id}','VisitController@aprouve');
       Route::get('reject/{id}','VisitController@reject');
   });

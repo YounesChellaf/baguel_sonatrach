@@ -27,13 +27,21 @@ class Visit extends Model
             'in_date' => $request->in_date,
             'out_date' => $request->out_date,
             'concerned_id' => $request->concerned_id,
-            'visitor_id' => $request->visitor_id,
             'reason' => $request->reason,
             'remark' => $request->remark,
             'created_by' => Auth::user()->id,
         ]);
         $visit->employee()->attach($request->concerned_id);
-        $visit->visitor()->attach($request->visitor_id);
+        $nb_visitor = $request->nb;
+        for ($i=0;$i<$nb_visitor;$i++){
+            $visitor = Visitor::create([
+                'last_name' => $request->last_name,
+                'first_name' => $request->first_name,
+                'identity_card_number' => $request->identity_card_number,
+                'function' => $request->function,
+            ]);
+            $visit->visitor()->attach($visitor->id);
+        }
         return $visit;
     }
     public function status(){
