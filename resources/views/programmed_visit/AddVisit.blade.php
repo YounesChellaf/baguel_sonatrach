@@ -52,13 +52,11 @@
                                                 <table class="table table-bordered table-hover" id="tab_logic">
                                                     <tbody>
                                                     <tr id='addr0'>
-                                                        <td>1</td>
-                                                        <td><input type="text" name='last_name0'  placeholder='Nom' class="form-control"/></td>
-                                                        <td><input type="text" name='first_name0'  placeholder='Prenom' class="form-control"/></td>
-                                                        <td><input type="text" name='identity_card_number0'  placeholder='Numero carte identité' class="form-control"/></td>
-                                                        <td><input type="text" name='function0' placeholder='Fonction' class="form-control"/></td>
+                                                        <td id="td1"><input type="text" name='last_name0'  placeholder='Nom' class="form-control"/></td>
+                                                        <td id="td2"><input type="text" name='first_name0'  placeholder='Prenom' class="form-control"/></td>
+                                                        <td id="td3"><input type="text" name='identity_card_number0'  placeholder='Numero carte identité' class="form-control"/></td>
+                                                        <td id="td4"><input type="text" name='function0' placeholder='Fonction' class="form-control"/></td>
                                                     </tr>
-                                                    <tr id='addr1'></tr>
                                                     </tbody>
                                                 </table>
                                                 <div class="row clearfix">
@@ -100,12 +98,15 @@
     $(document).ready(function(){
     var i=1;
     $("#add_row").click(function(){b=i-1;
-    $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+    //$('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+
     $('#tab_logic').append('<tr id="addr'+(i+1)+'">' +
-        '<td><input name="last_name'+(i+1)+'"/></td>\n' +
-        '                                                        <td><input name="first_name'+(i+1)+'" /></td>\n' +
-        '                                                        <td><input name="identity_card_number'+(i+1)+'"/></td>\n' +
-        '                                                        <td><input name="function'+(i+1)+'" /></td></tr>');
+        '<td><input name="last_name'+(i)+'" placeholder="Nom" class="form-control"></td>' +
+        '<td><input name="first_name'+(i)+'" placeholder="Prenom" class="form-control"></td>' +
+        '<td><input name="identity_card_number'+(i)+'" placeholder="Numero carte identité" class="form-control"></td>' +
+        '<td><input name="function'+(i)+'" placeholder="Fonction" class="form-control"></td>' +
+        '</tr>');
+
     i++;
     $("input[name=nb]:hidden").val(i);
     });
