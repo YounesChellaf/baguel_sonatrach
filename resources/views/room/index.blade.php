@@ -27,7 +27,7 @@
                       <tr>
                         <th>Numero</th>
                         <th>Bloc</th>
-                        <th>Status</th>
+                        <th>Nombre d'équipements</th>
                         <th>Modifier</th>
                         <th>Supprimer</th>
                       </tr>
@@ -37,7 +37,7 @@
                       <tr>
                         <td>{{$room->number}}</td>
                         <td>{{$room->bloc->name}}</td>
-                        <td>{{$room->active}}</td>
+                        <td>{{$room->instance->count()}}</td>
                         <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
                         <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>
                       </tr>
@@ -154,6 +154,45 @@
                   <option value="{{$bloc->id}}">{{$bloc->name}}</option>
                   @endforeach
                 </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label">Liste des equipements</label>
+              <div class="col-md-12">
+                <table class="table table-bordered table-hover" id="tab_logic">
+                  <tbody>
+                  @foreach($room->instance as $instance)
+                  <tr id='addr0'>
+                    <td>{{$instance->id}}</td>
+                    <td><input type="text" name='reference'  value="{{$instance->reference}}" class="form-control"/></td>
+                    <td><input type="number" name='number'  value="{{$instance->number}}" class="form-control"/></td>
+                    <td>
+                      <select name="equipement_id" class="form-control">
+                        <option value="{{$instance->equipement_id}}">Choisir un type d'equipement</option>
+                        @foreach(Equipement::all() as $equipement)
+                          <option value="{{$equipement->id}}">{{$equipement->type}} : {{$equipement->marque}}</option>
+                        @endforeach
+                      </select>
+                    </td>
+                    <td>
+                      <select name="status" class="form-control">
+                        <option value="{{$instance->status}}">{{$instance->status}}</option>
+                        <option value="new">Nouveau</option>
+                        <option value="used">Utilisé</option>
+                      </select>
+                    </td>
+                    <input type="hidden" name="nb" value="">
+                  </tr>
+                  <tr id='addr1'></tr>
+                  @endforeach
+                  </tbody>
+                </table>
+                <div class="row clearfix">
+                  <div class="col-md-12">
+                    <a id="add_row" class="btn btn-primary pull-left">Ajouter equipement</a>
+                    <a id='delete_row' class="btn btn-danger pull-right">Supprimer ligne</a>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="modal-footer">

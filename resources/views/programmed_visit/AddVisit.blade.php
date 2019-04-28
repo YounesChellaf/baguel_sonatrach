@@ -53,10 +53,10 @@
                                                     <tbody>
                                                     <tr id='addr0'>
                                                         <td>1</td>
-                                                        <td><input type="text" name='last_name'  placeholder='Nom' class="form-control"/></td>
-                                                        <td><input type="text" name='first_name'  placeholder='Prenom' class="form-control"/></td>
-                                                        <td><input type="text" name='identity_card_number'  placeholder='Numero carte identité' class="form-control"/></td>
-                                                        <td><input type="text" name='function' placeholder='Fonction' class="form-control"/></td>
+                                                        <td><input type="text" name='last_name0'  placeholder='Nom' class="form-control"/></td>
+                                                        <td><input type="text" name='first_name0'  placeholder='Prenom' class="form-control"/></td>
+                                                        <td><input type="text" name='identity_card_number0'  placeholder='Numero carte identité' class="form-control"/></td>
+                                                        <td><input type="text" name='function0' placeholder='Fonction' class="form-control"/></td>
                                                     </tr>
                                                     <tr id='addr1'></tr>
                                                     </tbody>
@@ -101,7 +101,11 @@
     var i=1;
     $("#add_row").click(function(){b=i-1;
     $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
-    $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+    $('#tab_logic').append('<tr id="addr'+(i+1)+'">' +
+        '<td><input name="last_name'+(i+1)+'"/></td>\n' +
+        '                                                        <td><input name="first_name'+(i+1)+'" /></td>\n' +
+        '                                                        <td><input name="identity_card_number'+(i+1)+'"/></td>\n' +
+        '                                                        <td><input name="function'+(i+1)+'" /></td></tr>');
     i++;
     $("input[name=nb]:hidden").val(i);
     });

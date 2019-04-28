@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\EquipementInstance;
+use App\Models\EquipementInstance;
 use Illuminate\Database\Eloquent\Model;
 
 class Room extends Model
