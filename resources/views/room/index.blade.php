@@ -87,7 +87,6 @@
                 <table class="table table-bordered table-hover" id="tab_logic">
                   <tbody>
                   <tr id='addr0'>
-                    <td>1</td>
                     <td><input type="text" name='reference'  placeholder='Réference' class="form-control"/></td>
                     <td><input type="number" name='number'  placeholder='Nombre' class="form-control"/></td>
                     <td>
@@ -163,11 +162,10 @@
                   <tbody>
                   @foreach($room->instance as $instance)
                   <tr id='addr0'>
-                    <td>{{$instance->id}}</td>
-                    <td><input type="text" name='reference'  value="{{$instance->reference}}" class="form-control"/></td>
-                    <td><input type="number" name='number'  value="{{$instance->number}}" class="form-control"/></td>
+                    <td><input type="text" name='reference0'  value="{{$instance->reference}}" class="form-control"/></td>
+                    <td><input type="number" name='number0'  value="{{$instance->number}}" class="form-control"/></td>
                     <td>
-                      <select name="equipement_id" class="form-control">
+                      <select name="equipement_id0" class="form-control">
                         <option value="{{$instance->equipement_id}}">Choisir un type d'equipement</option>
                         @foreach(Equipement::all() as $equipement)
                           <option value="{{$equipement->id}}">{{$equipement->type}} : {{$equipement->marque}}</option>
@@ -183,7 +181,6 @@
                     </td>
                     <input type="hidden" name="nb" value="">
                   </tr>
-                  <tr id='addr1'></tr>
                   @endforeach
                   </tbody>
                 </table>
@@ -236,15 +233,25 @@
   <script>
       $(document).ready(function(){
           var i=1;
+
           $("#add_row").click(function(){b=i-1;
-              $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
-              $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+              //$('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+              $('#tab_logic').append('<tr id="addr'+(b)+'">' +
+                  '<td><input name="reference'+(i)+'" placeholder="Réference" class="form-control"></td>' +
+                  '<td><input name="number'+(i)+'" placeholder="Nombre " class="form-control"></td>' +
+                  '<td><select name="equipement_id'+(i)+'" id="" class="form-control">' +
+                  '<option value="">Choisir un type d equipement</option>'+
+                  '</select></td>' +
+                  '<td><select name="status'+(i)+'" class="form-control">' +
+                  '<option value="new">Nouveau</option>' +
+                  '<option value="used">Utilisé</option></select></td>' +
+                  '</tr>');
               i++;
               $("input[name=nb]:hidden").val(i);
           });
           $("#delete_row").click(function(){
-              if(i>1){
-                  $("#addr"+(i-1)).html('');
+              if(i>0){
+                  $("#addr"+(i)).html('');
                   i--;
                   $("input[name=nb]:hidden").val(i);
               }

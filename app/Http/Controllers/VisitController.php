@@ -20,7 +20,7 @@ class VisitController extends Controller
         if ($request->post()){
             //$validated = $request->validated();
             $visit = Visit::new($request);
-            return redirect()->back();
+            return redirect()->route('admin.visit.index');
         }
     }
 

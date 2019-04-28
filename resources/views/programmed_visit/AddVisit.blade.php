@@ -100,19 +100,18 @@
     $("#add_row").click(function(){b=i-1;
     //$('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
 
-    $('#tab_logic').append('<tr id="addr'+(i+1)+'">' +
+    $('#tab_logic').append('<tr id="addr'+(b)+'">' +
         '<td><input name="last_name'+(i)+'" placeholder="Nom" class="form-control"></td>' +
         '<td><input name="first_name'+(i)+'" placeholder="Prenom" class="form-control"></td>' +
         '<td><input name="identity_card_number'+(i)+'" placeholder="Numero carte identité" class="form-control"></td>' +
         '<td><input name="function'+(i)+'" placeholder="Fonction" class="form-control"></td>' +
         '</tr>');
-
     i++;
     $("input[name=nb]:hidden").val(i);
     });
     $("#delete_row").click(function(){
-    if(i>1){
-    $("#addr"+(i-1)).html('');
+    if(i>0){
+    $("#addr"+(i)).html('');
     i--;
     $("input[name=nb]:hidden").val(i);
     }
