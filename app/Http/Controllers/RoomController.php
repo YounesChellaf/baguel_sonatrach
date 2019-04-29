@@ -38,16 +38,16 @@ class RoomController extends Controller
     {
         if ($request->post()){
             $room =Room::create([
-                'number' =>$request->number,
+                'number' =>$request->nombre,
                 'bloc_id' =>$request->bloc_id,
             ]);
             $nb = $request->nb;
             for ($i=0;$i<$nb;$i++){
                 EquipementInstance::create([
-                   'reference' => $request->reference,
-                   'number' => $request->number,
-                   'equipement_id' => $request->equipement_id,
-                   'status' => $request->status,
+                   'reference' => $request->input('reference')[$i],
+                   'number' => $request->input('number')[$i],
+                   'equipement_id' => $request->input('equipement_id')[$i],
+                   'status' => $request->input('status')[$i],
                     'room_id' => $room->id,
                 ]);
             }
@@ -88,10 +88,12 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $number = $request->input('number');
-        $bloc_id = $request->input('bloc_id');
 
+        $number = $request->input('nombre');
+        $bloc_id = $request->input('bloc_id');
         $room = Room::find($id);
+        $nb = $room->instance->count();
+        if ($request->nb != null) { $nb=$request->nb;}
             $room->number =$number;
             $room->bloc_id =$bloc_id;
         $room->save();
