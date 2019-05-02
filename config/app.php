@@ -248,6 +248,7 @@ return [
     'Product' => App\Models\Product::class,
     'Project' => App\Models\Project::class,
     'Notation' => App\Models\Notation::class,
+    'Reservation' => App\Models\Reservation::class,
     'EquipementInstance' => App\Models\EquipementInstance::class,
   ],
 

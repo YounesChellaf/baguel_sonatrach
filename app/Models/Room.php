@@ -19,4 +19,8 @@ class Room extends Model
     function instance(){
         return $this->hasMany(EquipementInstance::class);
     }
+    function reservation(){
+        return $this->hasMany(Reservation::class);
+    }
+
 }

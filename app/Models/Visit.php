@@ -34,10 +34,10 @@ class Visit extends Model
         $nb_visitor = $request->nb;
         for ($i=0;$i<$nb_visitor;$i++){
             $visitor = Visitor::create([
-                'last_name' => $request->input('last_name'.$i),
-                'first_name' => $request->input('first_name'.$i),
-                'identity_card_number' => $request->input('identity_card_number'.$i),
-                'function' => $request->input('function'.$i),
+                'last_name' => $request->input('last_name')[$i],
+                'first_name' => $request->input('first_name')[$i],
+                'identity_card_number' => $request->input('identity_card_number')[$i],
+                'function' => $request->input('function')[$i],
             ]);
             $visit->visitor()->attach($visitor->id);
         }

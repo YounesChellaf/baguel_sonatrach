@@ -131,4 +131,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('/{id?}', 'NotificationController@handleNotificationClick')->name('admin.notifications.handleClick');
     });
 
+    Route::prefix('reservation')->group(function (){
+       Route::get('/','ReservationController@index')->name('admin.reservation.index');
+       Route::get('/create','ReservationController@create')->name('admin.reservation.create');
+       Route::post('/create','ReservationController@store')->name('admin.reservation.create.post');
+        Route::get('validate/{id}','ReservationController@aprouve')->name('admin.reservation.approve');
+        Route::get('reject/{id}','ReservationController@reject')->name('admin.reservation.reject');
+        Route::get('delete/{id}','ReservationController@destroy')->name('admin.reservation.delete');
+    });
+
 });
