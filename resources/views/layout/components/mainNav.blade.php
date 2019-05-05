@@ -73,7 +73,7 @@
               </a>
             </li>
             <li class="">
-              <a href="/admin/equipement" class="waves-effect waves-dark">
+              <a href="{{ route('equipement.index') }}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Equipement</span>
               </a>
             </li>
