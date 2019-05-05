@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
       $table->enum('account_type', ['employee', 'supplier_staff'])->default('employee');
       $table->timestamp('email_verified_at')->nullable();
       $table->integer('department_id')->unsigned()->index();
-      $table->string('password')->nullable();
+      $table->string('password');
       $table->integer('lifebase_id')->unsigned()->integer()->nullable();
       $table->integer('administration_id')->unsigned()->integer()->nullable();
       $table->rememberToken();

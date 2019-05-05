@@ -48,7 +48,7 @@
                     <td>{{$visit->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
-                        <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                        <button class="btn abtn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                           <a class="dropdown-item" href="{{ route('admin.visit.approve', $visit->id) }}">Valider</a>
                           <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="{{ route('admin.visit.reject', $visit->id) }}">Rejeter</a>
@@ -76,7 +76,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="container">
+      <div class="container col-md-10 model-info-visit" style="margin: 5%">
         <div class=" row">
         <h6>Réference du visite :</h6>
         <p>{{$visit->company_name}}</p>
@@ -86,24 +86,55 @@
           <p>{{$visit->company_name}}</p>
         </div>
         <div class=" row">
-          <h6>Date d'entrée :</h6>
+          <h6>Employée concernée:</h6>
+          <p>{{$visit->employee->first()->last_name}} {{$visit->employee->first()->first_name}}</p>
+        </div>
+        <div class=" row">
+          <h6>Crée par  :</h6>
+          <p>{{User::find($visit->created_by)->firstName}} {{User::find($visit->created_by)->lastName}}</p>
+        </div>
+        <div class=" row">
+          <h6>Date entrée :</h6>
           <p>{{$visit->in_date}}</p>
         </div>
         <div class=" row">
           <h6>Date sortie :</h6>
           <p>{{$visit->out_date}}</p>
         </div>
-        <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+        <div class="row">
+          <h6>Les visiteurs :</h6>
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Piece identité</th>
+                <th scope="col">Fonction</th>
+              </tr>
+              </thead>
+              <tbody>
+              @foreach($visit->visitor as $visitor)
+              <tr>
+                <td>{{$visitor->last_name}}</td>
+                <td>{{$visitor->first_name}}</td>
+                <td>{{$visitor->identity_card_number}}</td>
+                <td>{{$visitor->function}}</td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
         </div>
         <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+          <h6>L'état :</h6>
+          <p>{{$visit->status()}}</p>
         </div>
         <div class=" row">
-          <h6>Date sortie :</h6>
-          <p>{{$visit->out_date}}</p>
+          <h6>Reason de visite:</h6>
+          <p>{{$visit->reason}}</p>
+        </div>
+        <div class=" row">
+          <h6>Remarques :</h6>
+          <p>{{$visit->remark}}</p>
         </div>
       </div>
     </div>

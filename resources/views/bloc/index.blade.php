@@ -67,7 +67,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="bloc-add" action="{{ route('bloc.store') }}">
+          <form method="post" class="bloc-add" action="admin/bloc">
             @csrf
             <div class="form-group">
               <label for="recipient-name" class="control-label">designation du bloc</label>
@@ -106,7 +106,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="bloc-add" action=" {{ route('bloc.update', $bloc->id) }}">
+          <form method="post" class="bloc-add" action="admin/bloc/{{$bloc->id}}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -150,7 +150,7 @@
         Voulez vous supprimer ce bloc !
       </div>
       <div class="modal-footer">
-        <form method="POST" action="{{ route('bloc.destroy') }}">
+        <form method="POST" action="admin/bloc/{{$bloc->id}}">
           @csrf
           <input type="hidden">
           @method('delete')

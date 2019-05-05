@@ -58,7 +58,7 @@
               </a>
             </li>
             <li class="">
-              <a href="#!" class="waves-effect waves-dark">
+              <a href="{{route('admin.reservation.index')}}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Réservations</span>
               </a>
             </li>
@@ -70,6 +70,11 @@
             <li class="">
               <a href="#!" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Etat des chambres</span>
+              </a>
+            </li>
+            <li class="">
+              <a href="/admin/equipement" class="waves-effect waves-dark">
+                <span class="pcoded-mtext">Equipement</span>
               </a>
             </li>
           </ul>
@@ -133,11 +138,6 @@
           <span class="pcoded-mtext">Visites</span>
         </a>
         <ul class="pcoded-submenu">
-          <li class=" ">
-            <a href="{{ route('visiteur.index') }}" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Visiteur</span>
-            </a>
-          </li>
           <li class=" ">
             <a href="{{ route('admin.visits.index') }}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Visites programmés</span>

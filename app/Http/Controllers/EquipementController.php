@@ -36,9 +36,8 @@ class EquipementController extends Controller
     public function store(Request $request)
     {
         Equipement::create([
-            'reference' => $request->input('reference'),
-            'status' => $request->input('status'),
-            'room_id' => $request->input('room_id'),
+            'type' => $request->input('type'),
+            'marque' => $request->input('marque'),
         ]);
         return redirect()->back();
     }
@@ -75,11 +74,9 @@ class EquipementController extends Controller
     public function update(Request $request, $id)
     {
         $equipement = Equipement::find($id);
-        $equipement->reference = $request->input('reference');
-        $equipement->status = $request->input('status');
-        $equipement->room_id = $request->input('room_id');
+        $equipement->type = $request->input('type');
+        $equipement->marque = $request->input('marque');
         $equipement->save();
-
         return redirect()->back();
     }
 

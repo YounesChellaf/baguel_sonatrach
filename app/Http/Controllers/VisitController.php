@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\VisitRequest;
 use App\Models\Visit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 
 class VisitController extends Controller
 {
@@ -15,11 +16,11 @@ class VisitController extends Controller
       return view('programmed_visit.AddVisit');
     }
 
-    public  function store(Request $request){
+    public  function store(VisitRequest $request){
         if ($request->post()){
-            //$validated = $request->validated();
+            $validated = $request->validated();
             $visit = Visit::new($request);
-            return redirect()->back();
+            return redirect()->route('admin.visits.index');
         }
     }
 

@@ -21,4 +21,8 @@ textarea.error {
     border: 1px solid #99182c !important;
 }
 
+.model-info-visit p {
+    margin-left: 2%;
+}
+
 
