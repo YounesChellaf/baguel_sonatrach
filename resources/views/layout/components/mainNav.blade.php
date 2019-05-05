@@ -63,7 +63,7 @@
               </a>
             </li>
             <li class="">
-              <a href="#!" class="waves-effect waves-dark">
+              <a href="{{route('admin.planning.index')}}" class="waves-effect waves-dark">
                 <span class="pcoded-mtext">Planning</span>
               </a>
             </li>

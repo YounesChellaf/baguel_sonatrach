@@ -15,6 +15,9 @@ class Employee extends Model
   function reservation(){
       return $this->hasMany(Reservation::class);
   }
+    function planning(){
+        return $this->hasMany(Planning::class);
+    }
   public function name(){
     return $this->first_name . ' ' . $this->last_name;
   }

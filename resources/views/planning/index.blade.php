@@ -9,8 +9,8 @@
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
-    @include('reservation.partials.pageTitle')
-    @include('reservation.partials.beadcrumbs')
+    @include('planning.partials.pageTitle')
+    @include('planning.partials.beadcrumbs')
   </div>
 </div>
 <div class="pcoded-inner-content">
@@ -19,9 +19,9 @@
       <div class="page-body">
         <div class="card">
           <div class="card-header">
-            <h5>Réservation</h5>
+            <h5>Planning</h5>
             <a href="#" class="ImportEmployeesAction">Importer</a>
-            <a href="{{ route('admin.reservation.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation</button></a>
+            <a href="{{ route('admin.planning.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
@@ -30,9 +30,8 @@
                   <tr>
                     <th>Chambre</th>
                     <th>Bloc</th>
-                    <th>Employée</th>
-                    <th>Date d'entrée</th>
-                    <th>Date de sortie</th>
+                    <th>Employée 1</th>
+                    <th>Employée 2</th>
                     <th>Etat</th>
                     <th>Actions</th>
                   </tr>
@@ -43,8 +42,7 @@
                     <td>{{$reservation->room->number}}</td>
                     <td>{{$reservation->room->bloc->name}} {{$reservation->room->bloc->number}}</td>
                     <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
-                    <td>{{$reservation->date_in}}</td>
-                    <td>{{$reservation->date_out}}</td>
+                    <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
                     <td>{{$reservation->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">

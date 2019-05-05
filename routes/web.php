@@ -257,5 +257,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('reject/{id}','ReservationController@reject')->name('admin.reservation.reject');
     Route::get('delete/{id}','ReservationController@destroy')->name('admin.reservation.delete');
   });
+    Route::prefix('planning')->group(function (){
+        Route::get('/','PlanningController@index')->name('admin.planning.index');
+        Route::get('/create','PlanningController@create')->name('admin.planning.create');
+        Route::post('/create','ReservationController@store')->name('admin.reservation.create.post');
+        Route::get('validate/{id}','ReservationController@aprouve')->name('admin.reservation.approve');
+        Route::get('reject/{id}','ReservationController@reject')->name('admin.reservation.reject');
+        Route::get('delete/{id}','ReservationController@destroy')->name('admin.reservation.delete');
+    });
 
 });

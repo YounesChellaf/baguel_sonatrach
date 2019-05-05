@@ -2,8 +2,8 @@
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
-    @include('reservation.partials.pageTitle')
-    @include('reservation.partials.beadcrumbs')
+    @include('planning.partials.pageTitle')
+    @include('planning.partials.beadcrumbs')
   </div>
 </div>
 <div class="pcoded-inner-content">
