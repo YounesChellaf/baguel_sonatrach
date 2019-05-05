@@ -1177,6 +1177,107 @@ $(document).ready(function () {
   $(".singleNotationCategory").on('click', function () {
     var url = $(this).data('url');
     window.location.href = url;
+  });
+  $(".supplierSelect").on('change', function (e) {
+    e.preventDefault();
+    Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["showBodyLoader"])();
+    var supplierId = $(this).val();
+    var subSuppliersDropdown = $(".subSuppliers");
+    $.ajax({
+      url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.suppliers.getSubSuppliers'),
+      method: 'GET',
+      data: {
+        supplierId: supplierId
+      },
+      success: function success(result) {
+        var response = $.parseJSON(result); //populate sub suppliers select
+
+        $.each(response, function () {
+          subSuppliersDropdown.append($("<option />").val(this.id).text(this.name));
+        });
+        Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+      }
+    });
+  });
+  $(".validateControl").on('click', function (e) {
+    e.preventDefault();
+    var controlRef = $("input[name='docRef']").val();
+    var controlId = $("input[name='docId']").val();
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()(_defineProperty({
+      title: "Êtes vous sûr ?",
+      text: "Êtes vous sur que vous voulez valider le control: " + controlRef,
+      icon: "info",
+      buttons: true,
+      dangerMode: false
+    }, "buttons", ['Annuler', 'Oui, valider'])).then(function (willApprove) {
+      if (willApprove) {
+        $.ajax({
+          url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.notations.validate'),
+          method: 'GET',
+          data: {
+            controlRef: controlRef,
+            controlId: controlId
+          },
+          success: function success(response) {
+            var response = $.parseJSON(response);
+            Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+            switch (response.status) {
+              case 200:
+                sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Good job !", response.msg, "success");
+                setTimeout(function () {
+                  window.location.reload(1);
+                }, 2000);
+                break;
+
+              default:
+            }
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  });
+  $(".rejectControl").on('click', function (e) {
+    e.preventDefault();
+    var controlRef = $("input[name='docRef']").val();
+    var controlId = $("input[name='docId']").val();
+    sweetalert__WEBPACK_IMPORTED_MODULE_1___default()(_defineProperty({
+      title: "Êtes vous sûr ?",
+      text: "Êtes vous sur que vous voulez rejeter le control: " + controlRef,
+      icon: "error",
+      buttons: true,
+      dangerMode: true
+    }, "buttons", ['Annuler', 'Oui, rejeter'])).then(function (willApprove) {
+      if (willApprove) {
+        $.ajax({
+          url: Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["route"])('admin.notations.reject'),
+          method: 'GET',
+          data: {
+            controlRef: controlRef,
+            controlId: controlId
+          },
+          success: function success(response) {
+            var response = $.parseJSON(response);
+            Object(_helpers_js__WEBPACK_IMPORTED_MODULE_0__["hideBodyLoader"])();
+
+            switch (response.status) {
+              case 200:
+                sweetalert__WEBPACK_IMPORTED_MODULE_1___default()("Good job !", response.msg, "success");
+                setTimeout(function () {
+                  window.location.reload(1);
+                }, 2000);
+                break;
+
+              default:
+            }
+          }
+        });
+      } else {
+        return false;
+      }
+    });
   }); //////////////////////////////////////////////
   /////////// System settings section //////////
 
@@ -1253,10 +1354,10 @@ $(document).ready(function () {
 /*!**********************************!*\
   !*** ./resources/js/routes.json ***!
   \**********************************/
-/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, admin.system.switchDataSource, admin.index, direction.index, direction.create, direction.store, direction.show, direction.edit, direction.update, direction.destroy, departement.index, departement.create, departement.store, departement.show, departement.edit, departement.update, departement.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, office.index, office.create, office.store, office.show, office.edit, office.update, office.destroy, room.index, room.create, room.store, room.show, room.edit, room.update, room.destroy, equipement.index, equipement.create, equipement.store, equipement.show, equipement.edit, equipement.update, equipement.destroy, visiteur.index, visiteur.create, visiteur.store, visiteur.show, visiteur.edit, visiteur.update, visiteur.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.single, admin.users.delete, admin.users.create.getSecuredPassword, admin.users.getSingleActivityChanges, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.suppliers.subSuppliers, admin.suppliers.subSuppliers.create, admin.suppliers.subSuppliers.create.post, admin.suppliers.import, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermissions.single, admin.ExitPermission.reject, admin.SystemConfig.index, admin.SystemConfig.subPage, admin.lifebase.updateMultiLifeBaseParam, admin.SystemConfig.save, admin.lifebase.save, admin.administration.save, admin.employees.index, admin.employees.create, admin.employees.create.post, admin.employees.delete, admin.employees.import, admin.notifications.handleClick, default */
+/*! exports provided: , webroot.index, auth.login.view, auth.login.handle, auth.logout, auth.setPassword, auth.setPassword.post, admin.system.switchDataSource, admin.index, divisions.index, divisions.create, divisions.store, divisions.show, divisions.edit, divisions.update, divisions.destroy, services.index, services.create, services.store, services.show, services.edit, services.update, services.destroy, bloc.index, bloc.create, bloc.store, bloc.show, bloc.edit, bloc.update, bloc.destroy, office.index, office.create, office.store, office.show, office.edit, office.update, office.destroy, room.index, room.create, room.store, room.show, room.edit, room.update, room.destroy, equipement.index, equipement.create, equipement.store, equipement.show, equipement.edit, equipement.update, equipement.destroy, visiteur.index, visiteur.create, visiteur.store, visiteur.show, visiteur.edit, visiteur.update, visiteur.destroy, admin.users.index, admin.users.create, admin.users.create.post, admin.users.edit, admin.users.edit.post, admin.users.single, admin.users.delete, admin.users.create.getSecuredPassword, admin.users.getSingleActivityChanges, admin.suppliers.index, admin.suppliers.create, admin.suppliers.create.post, admin.suppliers.edit, admin.suppliers.edit.post, admin.suppliers.delete, admin.suppliers.subSuppliers, admin.suppliers.subSuppliers.create, admin.suppliers.subSuppliers.create.post, admin.suppliers.import, admin.suppliers.getSubSuppliers, admin.notations.index, admin.notations.index.type, admin.notations.view, admin.notations.export, admin.notations.type.create, admin.notations.type.save, admin.notations.validate, admin.notations.reject, admin.products.index, admin.products.create, admin.products.import, admin.projects.index, admin.projects.create, admin.budget.index, admin.visits.index, admin.visit.create, admin.visit.store, admin.visit.approve, admin.visit.reject, admin.ExitPermissions.index, admin.ExitPermissions.index.create, admin.ExitPermissions.index.create.post, admin.ExitPermissions.single, admin.ExitPermission.reject, admin.SystemConfig.index, admin.SystemConfig.subPage, admin.lifebase.updateMultiLifeBaseParam, admin.SystemConfig.save, admin.SystemConfig.notationCriterias.save, admin.roles.index, admin.lifebase.save, admin.administration.save, admin.employees.index, admin.employees.create, admin.employees.create.post, admin.employees.delete, admin.employees.import, admin.notifications.handleClick, default */
 /***/ (function(module) {
 
-module.exports = {"":"admin/visit/reject/{id}","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","admin.system.switchDataSource":"system/switchDataSource","admin.index":"admin","direction.index":"admin/direction","direction.create":"admin/direction/create","direction.store":"admin/direction","direction.show":"admin/direction/{direction}","direction.edit":"admin/direction/{direction}/edit","direction.update":"admin/direction/{direction}","direction.destroy":"admin/direction/{direction}","departement.index":"admin/departement","departement.create":"admin/departement/create","departement.store":"admin/departement","departement.show":"admin/departement/{departement}","departement.edit":"admin/departement/{departement}/edit","departement.update":"admin/departement/{departement}","departement.destroy":"admin/departement/{departement}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","office.index":"admin/office","office.create":"admin/office/create","office.store":"admin/office","office.show":"admin/office/{office}","office.edit":"admin/office/{office}/edit","office.update":"admin/office/{office}","office.destroy":"admin/office/{office}","room.index":"admin/room","room.create":"admin/room/create","room.store":"admin/room","room.show":"admin/room/{room}","room.edit":"admin/room/{room}/edit","room.update":"admin/room/{room}","room.destroy":"admin/room/{room}","equipement.index":"admin/equipement","equipement.create":"admin/equipement/create","equipement.store":"admin/equipement","equipement.show":"admin/equipement/{equipement}","equipement.edit":"admin/equipement/{equipement}/edit","equipement.update":"admin/equipement/{equipement}","equipement.destroy":"admin/equipement/{equipement}","visiteur.index":"admin/visiteur","visiteur.create":"admin/visiteur/create","visiteur.store":"admin/visiteur","visiteur.show":"admin/visiteur/{visiteur}","visiteur.edit":"admin/visiteur/{visiteur}/edit","visiteur.update":"admin/visiteur/{visiteur}","visiteur.destroy":"admin/visiteur/{visiteur}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.single":"admin/users/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.users.getSingleActivityChanges":"admin/activities/getSingleActivityChanges","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.suppliers.subSuppliers":"admin/suppliers/{id?}/subSuppliers","admin.suppliers.subSuppliers.create":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.subSuppliers.create.post":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.import":"admin/suppliers/import","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermissions.single":"admin/exit_permissions/single/{id?}","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}","admin.SystemConfig.index":"admin/system_config","admin.SystemConfig.subPage":"admin/system_config/{page?}","admin.lifebase.updateMultiLifeBaseParam":"admin/system_config/updateMultiLifeBaseParam","admin.SystemConfig.save":"admin/system_config/save","admin.lifebase.save":"admin/lifebases/save","admin.administration.save":"admin/administrations/save","admin.employees.index":"admin/employees","admin.employees.create":"admin/employees/create","admin.employees.create.post":"admin/employees/create","admin.employees.delete":"admin/employees/delete","admin.employees.import":"admin/employees/import","admin.notifications.handleClick":"admin/notification/{id?}"};
+module.exports = {"":"api/user","webroot.index":"/","auth.login.view":"auth/login","auth.login.handle":"auth/login","auth.logout":"auth/logout","auth.setPassword":"auth/setPassword","auth.setPassword.post":"auth/setPassword","admin.system.switchDataSource":"system/switchDataSource","admin.index":"admin","divisions.index":"admin/divisions","divisions.create":"admin/divisions/create","divisions.store":"admin/divisions","divisions.show":"admin/divisions/{division}","divisions.edit":"admin/divisions/{division}/edit","divisions.update":"admin/divisions/{division}","divisions.destroy":"admin/divisions/{division}","services.index":"admin/services","services.create":"admin/services/create","services.store":"admin/services","services.show":"admin/services/{service}","services.edit":"admin/services/{service}/edit","services.update":"admin/services/{service}","services.destroy":"admin/services/{service}","bloc.index":"admin/bloc","bloc.create":"admin/bloc/create","bloc.store":"admin/bloc","bloc.show":"admin/bloc/{bloc}","bloc.edit":"admin/bloc/{bloc}/edit","bloc.update":"admin/bloc/{bloc}","bloc.destroy":"admin/bloc/{bloc}","office.index":"admin/office","office.create":"admin/office/create","office.store":"admin/office","office.show":"admin/office/{office}","office.edit":"admin/office/{office}/edit","office.update":"admin/office/{office}","office.destroy":"admin/office/{office}","room.index":"admin/room","room.create":"admin/room/create","room.store":"admin/room","room.show":"admin/room/{room}","room.edit":"admin/room/{room}/edit","room.update":"admin/room/{room}","room.destroy":"admin/room/{room}","equipement.index":"admin/equipement","equipement.create":"admin/equipement/create","equipement.store":"admin/equipement","equipement.show":"admin/equipement/{equipement}","equipement.edit":"admin/equipement/{equipement}/edit","equipement.update":"admin/equipement/{equipement}","equipement.destroy":"admin/equipement/{equipement}","visiteur.index":"admin/visiteur","visiteur.create":"admin/visiteur/create","visiteur.store":"admin/visiteur","visiteur.show":"admin/visiteur/{visiteur}","visiteur.edit":"admin/visiteur/{visiteur}/edit","visiteur.update":"admin/visiteur/{visiteur}","visiteur.destroy":"admin/visiteur/{visiteur}","admin.users.index":"admin/users","admin.users.create":"admin/users/create","admin.users.create.post":"admin/users/create","admin.users.edit":"admin/users/edit/{id?}","admin.users.edit.post":"admin/users/edit/{id?}","admin.users.single":"admin/users/{id?}","admin.users.delete":"admin/users/delete","admin.users.create.getSecuredPassword":"admin/users/getSecuredPassword","admin.users.getSingleActivityChanges":"admin/activities/getSingleActivityChanges","admin.suppliers.index":"admin/suppliers","admin.suppliers.create":"admin/suppliers/create","admin.suppliers.create.post":"admin/suppliers/create","admin.suppliers.edit":"admin/suppliers/edit/{id?}","admin.suppliers.edit.post":"admin/suppliers/edit","admin.suppliers.delete":"admin/suppliers/detele","admin.suppliers.subSuppliers":"admin/suppliers/{id?}/subSuppliers","admin.suppliers.subSuppliers.create":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.subSuppliers.create.post":"admin/suppliers/{id?}/subSuppliers/create","admin.suppliers.import":"admin/suppliers/import","admin.suppliers.getSubSuppliers":"admin/suppliers/getSubSuppliers","admin.notations.index":"admin/notations","admin.notations.index.type":"admin/notations/{type?}","admin.notations.view":"admin/notations/{type?}/view/{ref?}","admin.notations.export":"admin/notations/{ref?}/export/{type?}","admin.notations.type.create":"admin/notations/{type?}/create","admin.notations.type.save":"admin/notations/{type?}/create","admin.notations.validate":"admin/notations/control/approve","admin.notations.reject":"admin/notations/control/reject","admin.products.index":"admin/products","admin.products.create":"admin/products/create","admin.products.import":"admin/products/import","admin.projects.index":"admin/projects","admin.projects.create":"admin/projects/create","admin.budget.index":"admin/budget","admin.visits.index":"admin/visit","admin.visit.create":"admin/visit/create","admin.visit.store":"admin/visit/create","admin.visit.approve":"admin/visit/validate/{id}","admin.visit.reject":"admin/visit/reject/{id}","admin.ExitPermissions.index":"admin/exit_permissions","admin.ExitPermissions.index.create":"admin/exit_permissions/create","admin.ExitPermissions.index.create.post":"admin/exit_permissions/create","admin.ExitPermissions.single":"admin/exit_permissions/single/{id?}","admin.ExitPermission.reject":"admin/exit_permissions/approve/{ref?}","admin.SystemConfig.index":"admin/system_config","admin.SystemConfig.subPage":"admin/system_config/{page?}","admin.lifebase.updateMultiLifeBaseParam":"admin/system_config/updateMultiLifeBaseParam","admin.SystemConfig.save":"admin/system_config/save","admin.SystemConfig.notationCriterias.save":"admin/system_config/notationCriterias/{type?}/save","admin.roles.index":"admin/roles","admin.lifebase.save":"admin/lifebases/save","admin.administration.save":"admin/administrations/save","admin.employees.index":"admin/employees","admin.employees.create":"admin/employees/create","admin.employees.create.post":"admin/employees/create","admin.employees.delete":"admin/employees/delete","admin.employees.import":"admin/employees/import","admin.notifications.handleClick":"admin/notification/{id?}"};
 
 /***/ }),
 

@@ -11,3 +11,5 @@ npm-debug.log
 yarn-error.log
 todayCommit.txt
 tasks.txt
+notes.txt
+*.dll

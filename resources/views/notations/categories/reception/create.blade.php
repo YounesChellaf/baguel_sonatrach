@@ -40,6 +40,23 @@
               </div>
               <div class="row">
                 <div class="col-sm-12 col-xl-6 m-b-30">
+                  <p>Prestataire</p>
+                  <select class="form-control supplierSelect" name="supplier">
+                    <option value="">Prestataire</option>
+                    @foreach($suppliers as $index => $supplier)
+                      <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col-sm-12 col-xl-6">
+                  <p>Fournisseur</p>
+                  <select class="form-control subSuppliers" name="Subsupplier">
+                    <option value="">Fournisseur</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12 col-xl-6 m-b-30">
                   <p>Nature du produit</p>
                   <input class="form-control" name="productNature" type="text"/>
                 </div>
@@ -48,12 +65,32 @@
                   <input class="form-control" name="originDocument" type="text" required/>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p>Critère</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Décision</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Score</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Commentaire</p>
+                </div>
+              </div>
               @foreach(NotationCriteria::deliveryNoationCriterias() as $index => $criteria)
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                   {{ $criteria->display_name }}
                 </div>
-                <div class="col-md-4 rating">
+                <div class="col-md-3">
+                  <select class="form-control" name="decision-{{ $criteria->id }}">
+                    <option value="yes">Oui</option>
+                    <option value="no">Non</option>
+                  </select>
+                </div>
+                <div class="col-md-3 rating">
                   <div class="stars stars-example-fontawesome-o">
                     <select class="singleControlRating" name="rating-{{ $criteria->id }}" data-current-rating="5" autocomplete="off">
                       <option value="" label="0"></option>
@@ -70,7 +107,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <select class="form-control" name="rating-comment-option-{{ $criteria->id }}">
                     <option value="0" selected>Commentaire</option>
                     <option value="option-1">Option 1</option>

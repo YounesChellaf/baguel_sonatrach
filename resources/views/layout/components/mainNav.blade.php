@@ -326,7 +326,67 @@
           <span class="pcoded-micon">
             <i class="feather icon-map"></i>
           </span>
-          <span class="pcoded-mtext">Maps</span>
+          <span class="pcoded-mtext">Hébergement</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Google Maps</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Vector Maps</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Google Map Search API</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Location</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="feather icon-map"></i>
+          </span>
+          <span class="pcoded-mtext">Maintenance</span>
+        </a>
+        <ul class="pcoded-submenu">
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Google Maps</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Vector Maps</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Google Map Search API</span>
+            </a>
+          </li>
+          <li class="">
+            <a href="#!" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Location</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <li class="pcoded-hasmenu ">
+        <a href="javascript:void(0)" class="waves-effect waves-dark">
+          <span class="pcoded-micon">
+            <i class="feather icon-map"></i>
+          </span>
+          <span class="pcoded-mtext">Autres</span>
         </a>
         <ul class="pcoded-submenu">
           <li class="">

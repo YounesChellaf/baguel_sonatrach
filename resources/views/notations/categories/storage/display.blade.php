@@ -2,17 +2,19 @@
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
-    @include('notations.categories.kitchen.partials.pageTitle')
-    @include('notations.categories.kitchen.partials.beadcrumbs')
+    @include('notations.categories.storage.partials.pageTitle')
+    @include('notations.categories.storage.partials.beadcrumbs')
   </div>
 </div>
 <div class="pcoded-inner-content">
   <div class="main-body">
     <div class="page-wrapper">
       <div class="page-body">
+        @include('notations.partials.actions')
         <div class="card">
           <div class="card-header">
             <h5>{{ $notation->ref }}</h5>
+            <h6 style="float: right">{{ $notation->status() }}</h6>
           </div>
           <div class="card-block">
             <div class="row">

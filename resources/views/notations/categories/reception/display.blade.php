@@ -10,6 +10,7 @@
   <div class="main-body">
     <div class="page-wrapper">
       <div class="page-body">
+        @include('notations.partials.actions')
         <div class="card">
           <div class="card-header">
             <h5>{{ $notation->ref }}</h5>

@@ -25,7 +25,7 @@ class CreateSuppliersTable extends Migration
       $table->boolean('active')->default(true);
       $table->integer('created_by')->unsigned()->index();
       $table->integer('last_update_by')->unsigned()->index();
-      $table->integer('parent_id')->unsigned()->index();
+      $table->integer('parent_id')->unsigned()->index()->nullable();
       $table->timestamps();
       //$table->foreign('created_by')->references('id')->on('users');
       //$table->foreign('last_update_by')->references('id')->on('users');

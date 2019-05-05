@@ -32,6 +32,7 @@
                     <th>Effectué par</th>
                     <th>Note totale</th>
                     <th>Réaction</th>
+                    <th>Status</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -43,6 +44,7 @@
                       <td>{{ $control->CreatedBy->name() }}</td>
                       <td>{{ $control->total_score }}</td>
                       <td><img width="40" src="{{ $control->reaction() }}" alt=""> </td>
+                      <td>{{ $control->status() }}</td>
                       <td>
                         <div class="dropdown-info dropdown open">
                           <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>

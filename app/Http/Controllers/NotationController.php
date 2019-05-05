@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use PDF;
+use Supplier;
 use App\Models\Notation;
 use Illuminate\Http\Request;
 
@@ -44,7 +45,16 @@ class NotationController extends Controller
     if(!$notation_type){
       abort(404);
     }
-    return view('notations.categories.'.$notation_type.'.create');
+    $suppliers = null;
+    $subSuppliers = null;
+    if($notation_type == 'reception'){
+      $suppliers = Supplier::where('parent_id', null)->get();
+      $subSuppliers = Supplier::subSuppliersList();
+    }
+    return view('notations.categories.'.$notation_type.'.create', [
+      'suppliers' => $suppliers,
+      'SubSuppliers' => $subSuppliers,
+    ]);
   }
 
   public function save(Request $request, $type = null){
@@ -84,4 +94,26 @@ class NotationController extends Controller
       ])->setPaper('a4', 'portrait')->setWarnings(false)->download($ref.'.pdf');
 
     }
+    public function validateNotation(Request $request){
+      if($request->get('controlId')){
+        $response = array();
+        $control = Notation::find((int)$request->get('controlId'));
+        $control->validate();
+        $response['status'] = 200;
+        $response['msg'] = "Le control: ".$control->ref." a été bien validé";
+        echo json_encode($response);
+      }
+    }
+
+    public function rejectNotation(Request $request){
+      if($request->get('controlId')){
+        $response = array();
+        $control = Notation::find((int)$request->get('controlId'));
+        $control->reject();
+        $response['status'] = 200;
+        $response['msg'] = "Le control: ".$control->ref." a été bien rejeté";
+        echo json_encode($response);
+      }
+    }
+
   }

@@ -93,7 +93,7 @@ aria-hidden="true">
             <input type="text" name="ProductUnitPrice" required class="form-control">
           </div>
         </div>
-        <button type="submit" class="btn btn-info">Importer</button>
+        <button type="submit" class="btn btn-info">Enregistrer</button>
       </form>
     </ul>
   </div>

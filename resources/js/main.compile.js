@@ -539,6 +539,110 @@ $(document).ready(function(){
     window.location.href = url;
   });
 
+  $(".supplierSelect").on('change', function(e){
+    e.preventDefault();
+    showBodyLoader();
+    var supplierId = $(this).val();
+    var subSuppliersDropdown = $(".subSuppliers");
+    $.ajax({
+      url: route('admin.suppliers.getSubSuppliers'),
+      method: 'GET',
+      data: {
+        supplierId: supplierId,
+      },
+      success: function(result){
+        var response = $.parseJSON(result);
+        //populate sub suppliers select
+        $.each(response, function() {
+          subSuppliersDropdown.append($("<option />").val(this.id).text(this.name));
+        });
+        hideBodyLoader();
+      }
+    });
+  });
+
+  $(".validateControl").on('click', function(e){
+    e.preventDefault();
+    let controlRef = $("input[name='docRef']").val();
+    let controlId = $("input[name='docId']").val();
+    swal({
+      title: "Êtes vous sûr ?",
+      text: "Êtes vous sur que vous voulez valider le control: "+controlRef,
+      icon: "info",
+      buttons: true,
+      dangerMode: false,
+      buttons: ['Annuler', 'Oui, valider'],
+    })
+    .then((willApprove) => {
+      if (willApprove) {
+        $.ajax({
+          url: route('admin.notations.validate'),
+          method: 'GET',
+          data: {
+            controlRef: controlRef,
+            controlId: controlId,
+          },
+          success: function(response){
+            var response = $.parseJSON(response);
+            hideBodyLoader();
+            switch (response.status) {
+              case 200:
+              swal("Good job !", response.msg, "success");
+              setTimeout(function(){
+                window.location.reload(1);
+              }, 2000);
+              break;
+              default:
+            }
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  });
+
+  $(".rejectControl").on('click', function(e){
+    e.preventDefault();
+    let controlRef = $("input[name='docRef']").val();
+    let controlId = $("input[name='docId']").val();
+    swal({
+      title: "Êtes vous sûr ?",
+      text: "Êtes vous sur que vous voulez rejeter le control: "+controlRef,
+      icon: "error",
+      buttons: true,
+      dangerMode: true,
+      buttons: ['Annuler', 'Oui, rejeter'],
+    })
+    .then((willApprove) => {
+      if (willApprove) {
+        $.ajax({
+          url: route('admin.notations.reject'),
+          method: 'GET',
+          data: {
+            controlRef: controlRef,
+            controlId: controlId,
+          },
+          success: function(response){
+            var response = $.parseJSON(response);
+            hideBodyLoader();
+            switch (response.status) {
+              case 200:
+              swal("Good job !", response.msg, "success");
+              setTimeout(function(){
+                window.location.reload(1);
+              }, 2000);
+              break;
+              default:
+            }
+          }
+        });
+      } else {
+        return false;
+      }
+    });
+  });
+
   //////////////////////////////////////////////
 
   /////////// System settings section //////////

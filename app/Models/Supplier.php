@@ -51,6 +51,10 @@ class Supplier extends Model{
     }
   }
 
+  public static function subSuppliersList(){
+    return Supplier::where('parent_id', '!=' ,null)->get();
+  }
+
   public function CreatedBy(){
     return $this->belongsTo('App\Models\User', 'created_by', 'id');
   }

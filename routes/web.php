@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('/{id?}/subSuppliers/create', 'SupplierController@subSupplierCreate')->name('admin.suppliers.subSuppliers.create');
     Route::post('/{id?}/subSuppliers/create', 'SupplierController@subSupplierCreatePost')->name('admin.suppliers.subSuppliers.create.post');
     Route::post('/import', 'SupplierController@import')->name('admin.suppliers.import');
+    Route::get('/getSubSuppliers', 'SupplierController@getSubSuppliers')->name('admin.suppliers.getSubSuppliers');
   });
 
   Route::prefix('notations')->group(function(){
@@ -62,6 +63,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('/{ref?}/export/{type?}', 'NotationController@exportNotation')->name('admin.notations.export');
     Route::get('/{type?}/create', 'NotationController@createPerType')->name('admin.notations.type.create');
     Route::post('/{type?}/create', 'NotationController@save')->name('admin.notations.type.save');
+    Route::get('/control/approve', 'NotationController@validateNotation')->name('admin.notations.validate');
+    Route::get('/control/reject', 'NotationController@rejectNotation')->name('admin.notations.reject');
   });
 
   Route::prefix('products')->group(function(){

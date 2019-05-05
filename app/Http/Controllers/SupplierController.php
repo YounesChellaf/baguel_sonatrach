@@ -110,6 +110,12 @@ class SupplierController extends Controller
     }
   }
 
+  public function getSubSuppliers(Request $request){
+    if($request->get('supplierId')){
+      echo json_encode(Supplier::where('parent_id', $request->get('supplierId'))->get());
+    }
+  }
+
   public function import(Request $request){
     if($request->post()){
       if($request->file('SuppliersFileInput')){

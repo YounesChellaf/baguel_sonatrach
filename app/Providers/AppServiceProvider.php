@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
   */
   public function boot(){
     date_default_timezone_set('Africa/Algiers');
-    Carbon::setLocale('fr_FR');
+    // Carbon::setLocale('fr_FR');
     Schema::defaultStringLength(191);
   }
 }

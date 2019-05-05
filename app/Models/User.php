@@ -86,6 +86,7 @@ class User extends Authenticatable
         'account_type' => $request->account_type,
         'lifebase_id' => $request->lifebase_id,
         'administration_id' => $request->administration_id,
+        'superior_id' => $request->superior,
       ]);
       return $user;
     }

@@ -7,7 +7,9 @@
 </head>
 <style>
 @page { size: a4 portrait; }
-
+table {
+  border-collapse: collapse;
+}
 body {
   padding: 2px;
   margin: 2px;
@@ -73,6 +75,16 @@ body {
   font-weight: bold;
 }
 
+.kitchenControl table,
+.kitchenControl th,
+.kitchenControl td {
+  border: 1px solid black !important;
+}
+
+.kitchenControl img {
+  margin-left: 30px;
+}
+
 .receptionBody td {
   height: 5%;
 }
@@ -84,6 +96,11 @@ body {
   border-radius: 10px;
 }
 
+.rectangle p {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+
 #commentTD {
   border-bottom: 1px solid black;
   vertical-align: top;
@@ -91,7 +108,7 @@ body {
 }
 
 .commentsTable {
-  width: 90%;
+  width: 100%;
   border: 1px solid black;
 }
 
@@ -112,6 +129,37 @@ body {
 }
 
 .docFooter .rightSigner {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+
+.rect {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 6px;
+  float: left;
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.rect img {
+  margin-left: 5px;
+  margin-top: 8px;
+}
+
+.yes {
+  width: 40%;
+  float: left;
+  display: inline-block;
+}
+
+.spanTxt {
+  float: left;
+  display: inline-block;
+}
+.no {
   width: 50%;
   float: left;
   display: inline-block;

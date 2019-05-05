@@ -38,12 +38,32 @@
                   <input class="form-control" name="controlTime" type="time" value="{{ date('h:m:s') }}"/>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-3">
+                  <p>Critère</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Décision</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Score</p>
+                </div>
+                <div class="col-md-3">
+                  <p>Commentaire</p>
+                </div>
+              </div>
               @foreach(NotationCriteria::roomsNotationCriterias() as $index => $criteria)
               <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                   {{ $criteria->display_name }}
                 </div>
-                <div class="col-md-4 rating">
+                <div class="col-md-3">
+                  <select class="form-control" name="decision-{{ $criteria->id }}">
+                    <option value="yes">Conforme</option>
+                    <option value="no">Non Conforme</option>
+                  </select>
+                </div>
+                <div class="col-md-3 rating">
                   <div class="stars stars-example-fontawesome-o">
                     <select class="singleControlRating" name="rating-{{ $criteria->id }}" data-current-rating="5" autocomplete="off">
                       <option value="" label="0"></option>
@@ -60,7 +80,7 @@
                     </select>
                   </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                   <select class="form-control" name="rating-comment-option-{{ $criteria->id }}">
                     <option value="0" selected>Commentaire</option>
                     <option value="option-1">Option 1</option>

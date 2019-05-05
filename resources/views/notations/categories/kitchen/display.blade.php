@@ -10,6 +10,7 @@
   <div class="main-body">
     <div class="page-wrapper">
       <div class="page-body">
+        @include('notations.partials.actions')
         <div class="card">
           <div class="card-header">
             <h5>{{ $notation->ref }}</h5>
@@ -62,7 +63,7 @@
                       </table>
                     </div>
                   </div>
-                  
+
                   <h5 style="float: right;">Note totale: {{ $notation->total_score }} /10</h5> <br>
                   <img src="{{ $notation->reaction() }}" width="40" style="float: right">
                 </div>

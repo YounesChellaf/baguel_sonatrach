@@ -10,251 +10,67 @@ class Notation extends Model
 {
   protected $guarded = [];
 
-  public static function _prepareStorageScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::storageNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepareKitchenScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::kitchenNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepareReceptionScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::deliveryNoationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepateRestaurantScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::restaurantNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepareRoomScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::roomsNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepareLaundryScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::laundryNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
-
-  public static function _prepareOfficeScores($request){
-    $scores = array();
-    $scoreTotal = 0;
-    $sumScores = 0;
-    $scoreDetails = array();
-    $criterias = NotationCriteria::officeNotationCriterias();
-    foreach ($criterias as $key => $criteria){
-      $tmpArray = array();
-      if(isset($request->post()['rating-'.$criteria->id])){
-        $tmpArray[$criteria->id] = [
-          'score' => $request->post()['rating-'.$criteria->id],
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }else{
-        $tmpArray[$criteria->id] = [
-          'score' => 0,
-          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
-        ];
-      }
-      $sumScores += $tmpArray[$criteria->id]['score'];
-      array_push($scoreDetails, $tmpArray);
-    }
-    //computeTotalScore
-    $countCriterias = $criterias->count();
-    $scoreTotal = $sumScores / $countCriterias;
-    $scores['details'] = $scoreDetails;
-    $scores['total'] = $scoreTotal;
-    return $scores;
-  }
 
   public static function prepareScores($request){
     $scores = array();
+    $scoreTotal = 0;
+    $sumScores = 0;
+    $scoreDetails = array();
     switch ($request->controlType) {
       case 'storage':
-      $scores = Notation::_prepareStorageScores($request);
+      $criterias = NotationCriteria::storageNotationCriterias();
       break;
 
       case 'kitchen':
-      $scores = Notation::_prepareKitchenScores($request);
-      break;
-
-      case 'reception':
-      $scores = Notation::_prepareReceptionScores($request);
-      break;
-
-      case 'restaurant':
-      $scores = Notation::_prepateRestaurantScores($request);
-      break;
-
-      case 'rooms':
-      $scores = Notation::_prepareRoomScores($request);
-      break;
-
-      case 'laundry':
-      $scores = Notation::_prepareLaundryScores($request);
+      $criterias = NotationCriteria::kitchenNotationCriterias();
       break;
 
       case 'office':
-      $scores = Notation::_prepareOfficeScores($request);
+      $criterias = NotationCriteria::officeNotationCriterias();
+      break;
+
+      case 'rooms':
+      $criterias = NotationCriteria::roomsNotationCriterias();
+      break;
+
+      case 'laundry':
+      $criterias = NotationCriteria::laundryNotationCriterias();
+      break;
+
+      case 'reception':
+      $criterias = NotationCriteria::deliveryNoationCriterias();
+      break;
+
+      case 'restaurant':
+      $criterias = NotationCriteria::restaurantNotationCriterias();
       break;
 
       default:
       return ;
       break;
     }
+    foreach ($criterias as $key => $criteria){
+      $tmpArray = array();
+      if(isset($request->post()['rating-'.$criteria->id])){
+        $tmpArray[$criteria->id] = [
+          'score' => $request->post()['rating-'.$criteria->id],
+          'decision' => $request->post()['decision-'.$criteria->id],
+          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
+        ];
+      }else{
+        $tmpArray[$criteria->id] = [
+          'score' => $request->post()['rating-'.$criteria->id],
+          'decision' => $request->post()['decision-'.$criteria->id],
+          'comment' => $request->post()['rating-comment-option-'.$criteria->id]
+        ];
+      }
+      $sumScores += $tmpArray[$criteria->id]['score'];
+      array_push($scoreDetails, $tmpArray);
+    }
+    $countCriterias = $criterias->count();
+    $scoreTotal = $sumScores / $countCriterias;
+    $scores['details'] = $scoreDetails;
+    $scores['total'] = $scoreTotal;
     return $scores;
   }
 
@@ -283,6 +99,8 @@ class Notation extends Model
       'time' => $request->controlTime,
       'productNature' => $request->productNature,
       'originDocument' => $request->originDocument,
+      'supplierId' => $request->supplier,
+      'SubsupplierId' => $request->Subsupplier,
     ];
     return $data;
   }
@@ -629,6 +447,7 @@ class Notation extends Model
         'criteria_name' => $criteriaName,
         'criteria_note' => $criteriaInfos['score'],
         'criteria_comment' => $criteriaInfos['comment'],
+        'criteria_decision' => $criteriaInfos['decision'],
       ]);
     }
     return $response;
@@ -638,7 +457,7 @@ class Notation extends Model
     if($comment){
       switch ($comment) {
         case 'option-1':
-          return "Option 1";
+        return "Option 1";
         break;
 
         case 'option-2':
@@ -678,10 +497,54 @@ class Notation extends Model
         break;
 
         default:
-          return "#";
+        return "#";
         break;
       }
     }
+  }
+
+  public function status(){
+    switch ($this->status) {
+      case 'draft':
+      echo '<label class="label label-default">Brouillon</label>';
+      break;
+
+      case 'approved':
+      echo '<label class="label label-success">Approuvé</label>';
+      break;
+
+      case 'rejected':
+      echo '<label class="label label-danger">Rejeté</label>';
+      break;
+
+      default:
+      return '';
+      break;
+    }
+  }
+
+  public function productNature(){
+    if($this->data){
+      $data = json_decode($this->data, true);
+      return $data['header']['productNature'];
+    }
+  }
+
+  public function originDocument(){
+    if($this->data){
+      $data = json_decode($this->data, true);
+      return $data['header']['originDocument'];
+    }
+  }
+
+  public function validate(){
+    $this->status = 'approved';
+    $this->save();
+  }
+
+  public function reject(){
+    $this->status = 'rejected';
+    $this->save();
   }
 
 
