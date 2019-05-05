@@ -18,6 +18,7 @@ class CreateRoomsTable extends Migration
             $table->string('number');
             $table->integer('bloc_id');
             $table->integer('lifebase_id')->unsigned()->index();
+            $table->boolean('reserved')->default(false);
            // $table->foreign('lifebase_id')->references('id')->on('life_bases');
             $table->tinyInteger('active')->nullable()->default(true);
             $table->timestamps();

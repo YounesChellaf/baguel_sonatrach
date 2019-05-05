@@ -27,6 +27,9 @@ class Reservation extends Model
             'date_out' => $request->date_out,
             'remark' => $request->remark
         ]);
+        $room = Room::find($request->room_id);
+        $room->reserved = true;
+        $room->save();
          return $reservation;
     }
     public function status(){
