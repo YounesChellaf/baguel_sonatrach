@@ -37,22 +37,22 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach(Reservation::all() as $reservation)
+                @foreach(Planning::all() as $planning)
                   <tr>
-                    <td>{{$reservation->room->number}}</td>
-                    <td>{{$reservation->room->bloc->name}} {{$reservation->room->bloc->number}}</td>
-                    <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
-                    <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
-                    <td>{{$reservation->status()}}</td>
+                    <td>{{$planning->room->number}}</td>
+                    <td>{{$planning->room->bloc->name}} {{$planning->room->bloc->number}}</td>
+                    <td>{{dd($planning->employee)}}</td>
+                    <td></td>
+                    <td>{{$planning->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                           <a class="dropdown-item" href="#!">Consulter</a>
-                          <a class="dropdown-item" href="{{ route('admin.reservation.approve', $reservation->id) }}">Valider</a>
-                          <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $reservation->id) }}">Rejeter</a>
+                          <a class="dropdown-item" href="{{ route('admin.reservation.approve', $planning->id) }}">Valider</a>
+                          <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $planning->id) }}">Rejeter</a>
                           <a class="dropdown-item" href="#">Modifier</a>
-                          <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.reservation.delete', $reservation->id)}}">Supprimer</a>
+                          <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.reservation.delete', $planning->id)}}">Supprimer</a>
                         </div>
                       </div>
                     </td>
@@ -74,14 +74,14 @@ aria-hidden="true">
 <div class="modal-dialog modal-full-height modal-right" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel">Importation des employées</h4>
+      <h4 class="modal-title w-100" id="myModalLabel">Importation du planning annuel</h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
       <p>
-        Cette option va vous permettre d'importer une liste des employées depuis un fichier Excel / CSV
+        Cette option va vous permettre d'importer le planning de reservation des chambres depuis un fichier Excel / CSV
       </p>
       <form action="{{ route('admin.employees.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
         @csrf

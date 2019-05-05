@@ -19,7 +19,7 @@ class CreateReservationsTable extends Migration
             $table->date('date_in');
             $table->date('date_out');
             $table->integer('employee_id');
-            $table->text('remark');
+            $table->text('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();
         });

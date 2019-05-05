@@ -16,10 +16,10 @@ class CreatePlanningsTable extends Migration
         Schema::create('plannings', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('room_id');
-            $table->date('date_in');
-            $table->date('date_out');
-            $table->json('employee_id');
-            $table->text('remark');
+            $table->integer('employee_id1');
+            $table->integer('employee_id2');
+            $table->text('remark')->nullable();
+            $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();
         });
     }

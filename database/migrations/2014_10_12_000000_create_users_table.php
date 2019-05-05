@@ -29,11 +29,11 @@ class CreateUsersTable extends Migration
       $table->timestamps();
       $table->timestamp('last_connexion_at')->nullable();
       $table->integer('is_logged_in')->default(false);
-      $table->foreign('lifebase_id')->references('id')->on('life_bases');
+      //$table->foreign('lifebase_id')->references('id')->on('life_bases');
       $table->boolean('locked')->default(false);
       $table->integer('superior_id')->unsigned()->index()->nullable();
-      $table->foreign('administration_id')->references('id')->on('administrations');
-      $table->foreign('superior_id')->references('id')->on('users');
+      //$table->foreign('administration_id')->references('id')->on('administrations');
+      //$table->foreign('superior_id')->references('id')->on('users');
     });
   }
 

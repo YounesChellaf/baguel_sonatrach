@@ -26,7 +26,7 @@
               </ul>
             </div>
             @endif
-            <form action="{{ route('admin.reservation.create.post') }}" method="post">
+            <form action="{{ route('admin.planning.create.post') }}" method="post">
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -39,21 +39,22 @@
                   </select>
                 </div>
                 <div class="form-group col-md-12">
-                  <label for="inputState">Employee</label>
-                  <select id="inputState" name="employee_id" class="form-control">
+                  <label for="inputState">Employee 1</label>
+                  <select id="inputState" name="employee_id1" class="form-control">
                     <option selected>Choose...</option>
                     @foreach(Employee::all() as $employee)
                       <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
                     @endforeach
                   </select>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="inputEmail4">Date d'entrée</label>
-                  <input type="date" name="date_in"  class="form-control" id="inputEmail4" placeholder="">
-                </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Date de sortie</label>
-                  <input type="date" name="date_out" class="form-control" id="inputPassword4" placeholder="">
+                <div class="form-group col-md-12">
+                  <label for="inputState">Employee 2</label>
+                  <select id="inputState" name="employee_id2" class="form-control">
+                    <option selected>Choose...</option>
+                    @foreach(Employee::all() as $employee)
+                      <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
               <div class="form-group">
