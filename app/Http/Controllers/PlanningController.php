@@ -19,4 +19,35 @@ class PlanningController extends Controller
         }
         return redirect()->route('admin.planning.index');
     }
+
+    public function aprouve($id){
+        $planning= Planning::find($id);
+        $planning->status = 'approved';
+        $planning->save();
+        return redirect()->back();
+
+    }
+    public  function  reject($id){
+        $planning=Planning::find($id);
+        $planning->status = 'rejected';
+        $planning->save();
+        return redirect()->back();
+    }
+    public function destroy($id){
+        Planning::destroy($id);
+        return redirect()->route('admin.reservation.index');
+    }
+    public function updateView($id){
+        $planning = Planning::find($id);
+        return view('planning.updateView')->with('planning',$planning);
+    }
+    public function update(Request $request,$id){
+        $planning = Planning::find($id);
+        $planning->room_id = $request->room_id;
+        $planning->employee_id1 = $request->employee_id1;
+        $planning->employee_id2 = $request->employee_id2;
+        $planning->remark = $request->remark;
+        $planning->save();
+        return redirect()->route('admin.planning.index');
+    }
 }

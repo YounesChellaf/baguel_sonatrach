@@ -41,17 +41,17 @@
                   <tr>
                     <td>{{$planning->room->number}}</td>
                     <td>{{$planning->room->bloc->name}} {{$planning->room->bloc->number}}</td>
-                    <td>{{dd($planning->employee)}}</td>
-                    <td></td>
+                    <td>{{$planning->employee($planning->employee_id1)->last_name}}  {{$planning->employee($planning->employee_id1)->first_name}}</td>
+                    <td>{{$planning->employee($planning->employee_id2)->last_name}}  {{$planning->employee($planning->employee_id2)->first_name}}</td>
                     <td>{{$planning->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                           <a class="dropdown-item" href="#!">Consulter</a>
-                          <a class="dropdown-item" href="{{ route('admin.reservation.approve', $planning->id) }}">Valider</a>
-                          <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $planning->id) }}">Rejeter</a>
-                          <a class="dropdown-item" href="#">Modifier</a>
+                          <a class="dropdown-item" href="{{ route('admin.planning.approve', $planning->id) }}">Valider</a>
+                          <a class="dropdown-item"  href="{{ route('admin.planning.reject', $planning->id) }}">Rejeter</a>
+                          <a class="dropdown-item" href="{{ route('admin.planning.update',$planning->id)}}">Modifier</a>
                           <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.reservation.delete', $planning->id)}}">Supprimer</a>
                         </div>
                       </div>

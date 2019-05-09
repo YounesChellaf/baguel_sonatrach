@@ -9,11 +9,15 @@ class Planning extends Model
 {
     protected $guarded=[];
 
+    protected $casts=[
+       'employee_id' => 'array'
+    ];
+
     function room(){
         return $this->belongsTo(Room::class);
     }
-    function employee(){
-        return $this->belongsTo(Employee::class);
+    public function employee($id){
+        return Employee::find($id);
     }
     public static function new(Request $request){
         $planning = Planning::create([
