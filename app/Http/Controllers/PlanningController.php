@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\PlanningImport;
 use App\Models\Planning;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PlanningController extends Controller
 {
@@ -49,5 +51,18 @@ class PlanningController extends Controller
         $planning->remark = $request->remark;
         $planning->save();
         return redirect()->route('admin.planning.index');
+    }
+
+    public function import(Request $request){
+        if($request->post()){
+            if($request->file('PlanningFileInput')){
+                Excel::import(new PlanningImport, $request->file('PlanningFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
     }
 }

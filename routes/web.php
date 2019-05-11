@@ -266,6 +266,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('validate/{id}','PlanningController@aprouve')->name('admin.planning.approve');
         Route::get('reject/{id}','PlanningController@reject')->name('admin.planning.reject');
         Route::get('delete/{id}','PlanningController@destroy')->name('admin.planning.delete');
+        Route::post('/import', 'PlanningController@import')->name('admin.planning.import');
     });
 
 });

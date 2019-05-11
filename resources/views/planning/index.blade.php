@@ -41,8 +41,8 @@
                   <tr>
                     <td>{{$planning->room->number}}</td>
                     <td>{{$planning->room->bloc->name}} {{$planning->room->bloc->number}}</td>
-                    <td>{{$planning->employee($planning->employee_id1)->last_name}}  {{$planning->employee($planning->employee_id1)->first_name}}</td>
-                    <td>{{$planning->employee($planning->employee_id2)->last_name}}  {{$planning->employee($planning->employee_id2)->first_name}}</td>
+                    <td></td>
+                    <td></td>
                     <td>{{$planning->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
@@ -83,12 +83,12 @@ aria-hidden="true">
       <p>
         Cette option va vous permettre d'importer le planning de reservation des chambres depuis un fichier Excel / CSV
       </p>
-      <form action="{{ route('admin.employees.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
+      <form action="{{ route('admin.planning.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group row">
           <label class="col-sm-2 col-form-label">Fichier: </label>
           <div class="col-sm-10">
-            <input type="file" name="EmployeesFileInput" required class="form-control">
+            <input type="file" name="PlanningFileInput" required class="form-control">
           </div>
         </div>
         <button type="submit" class="btn btn-info">Importer</button>

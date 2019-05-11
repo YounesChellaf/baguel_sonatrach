@@ -26,7 +26,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form action="{{ route('admin.planning.update.post') }}" method="post">
+                            <form action="{{ route('admin.planning.update.post',$planning->id) }}" method="post">
                                 @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-12">
