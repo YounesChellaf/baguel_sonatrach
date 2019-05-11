@@ -41,8 +41,8 @@
                   <tr>
                     <td>{{$planning->room->number}}</td>
                     <td>{{$planning->room->bloc->name}} {{$planning->room->bloc->number}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{$planning->employee($planning->employee_id1)->last_name}} {{$planning->employee($planning->employee_id1)->first_name}}</td>
+                    <td>{{$planning->employee($planning->employee_id2)->last_name}} {{$planning->employee($planning->employee_id2)->first_name}}</td>
                     <td>{{$planning->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
