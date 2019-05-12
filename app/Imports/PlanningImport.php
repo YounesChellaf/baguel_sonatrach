@@ -13,14 +13,19 @@ class PlanningImport implements ToModel, WithHeadingRow
 {
 
     public function model(array $row){
-        $employee1_id = Employee::where('employee_number',$row['matricule_1'])->first()->id;
-        $employee2_id = Employee::where('employee_number',$row['matricule_2'])->first()->id;
-        //check employee unicity with employee_number
-            return new Planning([
-                'employee_id1' => $employee1_id,
-                'employee_id2' => $employee2_id,
-                'room_id' =>$row['room_id'],
-                'remark' => $row['remark'],
-            ]);
+        $room =  Room::find($row['room_id']);
+        if (Employee::where('employee_number',$row['matricule_1'])->first() && Employee::where('employee_number',$row['matricule_2'])->first() && $room) {
+            if (!$room->reserved) {
+                $employee1_id = Employee::where('employee_number', $row['matricule_1'])->first()->id;
+                $employee2_id = Employee::where('employee_number', $row['matricule_2'])->first()->id;
+                $room->reserved = true;   
+                return new Planning([
+                    'employee_id1' => $employee1_id,
+                    'employee_id2' => $employee2_id,
+                    'room_id' => $row['room_id'],
+                    'remark' => $row['remark'],
+                ]);
+            }
+        }
     }
 }

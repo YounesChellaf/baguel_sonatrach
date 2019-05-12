@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c441016-60c4-454b-ba07-277ec6451eb9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/resources/views/planning/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/planning/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Imports/PlanningImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/PlanningImport.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/planning/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="44" column="149" selection-start-line="44" selection-start-column="149" selection-end-line="44" selection-end-column="149" />
+            <state relative-caret-position="257">
+              <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -93,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlanningImport.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PlanningImport.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Imports/PlanningImport.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
+            <state relative-caret-position="328">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
               <folding>
                 <element signature="e#31#55#0#PHP" expanded="true" />
               </folding>
@@ -105,11 +106,20 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="2019_04_07_094232_create_rooms_table.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094232_create_rooms_table.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="2019_05_05_135720_create_plannings_table.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_05_135720_create_plannings_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="359">
+              <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
               <folding>
                 <element signature="e#7#45#0#PHP" expanded="true" />
               </folding>
@@ -122,15 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="251">
               <caret line="19" column="35" lean-forward="true" selection-start-line="19" selection-start-column="35" selection-end-line="19" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Employee.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Employee.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -213,8 +214,8 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/Planning.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/PlanningController.php" />
-        <option value="$PROJECT_DIR$/app/Imports/PlanningImport.php" />
         <option value="$PROJECT_DIR$/resources/views/planning/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Imports/PlanningImport.php" />
       </list>
     </option>
   </component>
@@ -407,7 +408,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="pla&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;emp&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;PL&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/PlanningController.php&#10;Plan&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Imports/PlanningImport.php&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;Em&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Employee.php&#10;Pla&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Imports/PlanningImport.php&#10;empl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;Pl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;Empl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;up&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/planning/updateView.blade.php&#10;PLa&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/PlanningController.php&#10;reser&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;Plann&#9;null&#9;null&#10;Planning&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Planning.php&#10;Visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;Roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Room.php&#10;P&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Planning.php&#10;roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Room.php&#10;Rese&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Reservation.php&#10;plann&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;Res&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;em&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;notifi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/partials/notifications/notification.blade.php&#10;rese&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;blo&#9;null&#9;null&#10;res&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_30_232931_create_reservations_table.php&#10;inde&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/reservation/index.blade.php&#10;con&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;room&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_07_094232_create_rooms_table.php&#10;deleteE&#9;null&#9;null&#10;eb&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;visit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;bloc&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_05_165858_create_blocs_table.php&#10;visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;emplo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;Main&#9;null&#9;null&#10;Emp&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;Re&#9;null&#9;null&#10;Emplo&#9;null&#9;null&#10;employe&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;add&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/AddVisit.blade.php&#10;visitC&#9;null&#9;null&#10;index&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/room/index.blade.php&#10;Equi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/EquipementInstance.php&#10;Room&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_07_094232_create_rooms_table.php&#10;pl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;pla&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;emp&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;PL&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/PlanningController.php&#10;Plan&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Imports/PlanningImport.php&#10;web&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;Em&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Employee.php&#10;Pla&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Imports/PlanningImport.php&#10;empl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;Pl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;Empl&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;up&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/planning/updateView.blade.php&#10;PLa&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/PlanningController.php&#10;reser&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;Plann&#9;null&#9;null&#10;Planning&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Planning.php&#10;Visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;Roo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Room.php&#10;P&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Planning.php&#10;Rese&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Reservation.php&#10;plann&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_05_05_135720_create_plannings_table.php&#10;Res&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;main&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/components/mainNav.blade.php&#10;app&#9;FILE&#9;file:///Users/issam/dev/baguel_project/config/app.php&#10;em&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;notifi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/layout/partials/notifications/notification.blade.php&#10;rese&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/ReservationController.php&#10;blo&#9;null&#9;null&#10;res&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_30_232931_create_reservations_table.php&#10;inde&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/reservation/index.blade.php&#10;con&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;room&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_07_094232_create_rooms_table.php&#10;deleteE&#9;null&#9;null&#10;eb&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;visit&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/VisitController.php&#10;bloc&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_05_165858_create_blocs_table.php&#10;visi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;vis&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/Visit.php&#10;emplo&#9;FILE&#9;file:///Users/issam/dev/baguel_project/database/migrations/2019_04_16_081218_create_employees_table.php&#10;Main&#9;null&#9;null&#10;Emp&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Http/Controllers/EmployeeController.php&#10;Re&#9;null&#9;null&#10;Emplo&#9;null&#9;null&#10;employe&#9;null&#9;null&#10;we&#9;FILE&#9;file:///Users/issam/dev/baguel_project/routes/web.php&#10;add&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/programmed_visit/AddVisit.blade.php&#10;visitC&#9;null&#9;null&#10;index&#9;FILE&#9;file:///Users/issam/dev/baguel_project/resources/views/room/index.blade.php&#10;Equi&#9;FILE&#9;file:///Users/issam/dev/baguel_project/app/Models/EquipementInstance.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -470,27 +471,37 @@
       <workItem from="1556787861117" duration="278000" />
       <workItem from="1556881928894" duration="2814000" />
       <workItem from="1557038150740" duration="6823000" />
-      <workItem from="1557162136255" duration="8487000" />
+      <workItem from="1557162136255" duration="10621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140355000" />
+    <option name="totallyTimeSpent" value="142489000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.115879826" side_tool="true" weight="0.17799753" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32880098" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.88412017" visible="true" weight="0.17799753" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24606581" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.88412017" visible="true" weight="0.17799753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24606581" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
@@ -500,7 +511,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -665,13 +675,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094232_create_rooms_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
         </state>
       </provider>
     </entry>
@@ -887,30 +890,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Imports/PlanningImport.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/planning/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="19" column="53" lean-forward="true" selection-start-line="19" selection-start-column="53" selection-end-line="19" selection-end-column="53" />
-          <folding>
-            <element signature="e#31#55#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="257">
+          <caret line="41" column="54" lean-forward="true" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_05_135720_create_plannings_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="359">
+          <caret line="23" column="11" lean-forward="true" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
           <folding>
             <element signature="e#7#45#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/planning/index.blade.php">
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_07_094232_create_rooms_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="44" column="149" selection-start-line="44" selection-start-column="149" selection-end-line="44" selection-end-column="149" />
+        <state relative-caret-position="460">
+          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Imports/PlanningImport.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
+          <folding>
+            <element signature="e#31#55#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
