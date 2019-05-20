@@ -7,7 +7,7 @@ use App\Models\Supplier;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class SuppliersImport implements ToModel, WithHeadingRow{
+class pSuppliersImport implements ToModel, WithHeadingRow{
 
   public function model(array $row){
     return new Supplier([

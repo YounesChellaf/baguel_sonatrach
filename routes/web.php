@@ -204,6 +204,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('validate/{id}','VisitController@aprouve')->name('admin.visit.approve');
     Route::get('reject/{id}','VisitController@reject')->name('admin.visit.reject');
   });
+    Route::prefix('support/')->group(function (){
+        Route::get('','SupportedController@index')->name('admin.support.index');
+        Route::get('create/{type?}','SupportedController@createView')->name('admin.support.create');
+        Route::get('details/{id}','SupportedController@detailsView')->name('admin.support.details');
+        Route::post('create','SupportedController@store')->name('admin.support.store');
+        Route::get('validate/{id}','SupportedController@aprouve')->name('admin.support.approve');
+        Route::get('reject/{id}','SupportedController@reject')->name('admin.support.reject');
+        Route::get('affect/{id}','SupportedController@affect')->name('admin.support.affect');
+    });
 
   Route::prefix('exit_permissions')->group(function(){
     Route::get('/', 'ExitPermissionController@index')->name('admin.ExitPermissions.index');
@@ -268,5 +277,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('delete/{id}','PlanningController@destroy')->name('admin.planning.delete');
         Route::post('/import', 'PlanningController@import')->name('admin.planning.import');
     });
+
 
 });

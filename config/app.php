@@ -252,6 +252,8 @@ return [
     'PDF' => Barryvdh\DomPDF\Facade::class,
     'Reservation' => App\Models\Reservation::class,
     'Planning' => App\Models\Planning::class,
+    'Support' => App\Models\Support::class,
+    'Prestation' => App\Models\Prestation::class,
     'EquipementInstance' => App\Models\EquipementInstance::class,
   ],
 

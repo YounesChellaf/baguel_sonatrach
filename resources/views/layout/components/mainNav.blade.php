@@ -109,7 +109,7 @@
         </a>
         <ul class="pcoded-submenu">
           <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
+            <a href="{{route('admin.support.index')}}" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Prise en charge</span>
             </a>
           </li>

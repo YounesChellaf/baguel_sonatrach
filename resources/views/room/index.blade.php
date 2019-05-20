@@ -38,8 +38,8 @@
                         <td>{{$room->number}}</td>
                         <td>{{$room->bloc->name}}</td>
                         <td>{{$room->instance->count()}}</td>
-                        <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
-                        <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>
+                        <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
+                        <td><button class="btn btn-pink" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>
                       </tr>
                       @endforeach
                     </tbody>

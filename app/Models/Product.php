@@ -8,6 +8,13 @@ class Product extends Model
 {
   protected $guarded = [];
 
+  public function support(){
+      return $this->belongsToMany(Support::class,'product_support');
+  }
+  public function prestation(){
+      return $this->belongsTo(Prestation::class);
+  }
+
   public static function new($request){
     if($request->post()){
       Product::create([
