@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c441016-60c4-454b-ba07-277ec6451eb9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/AddSupport.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/affect.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/index2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/partials/beadcrumbs.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/partials/pageTitle.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/supported/support_details.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Imports/SuppliersImport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Imports/SuppliersImport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/direction/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/direction/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/equipement/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/equipement/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/components/mainNav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/AddVisit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/room/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -511,12 +495,12 @@
       <workItem from="1557162136255" duration="11207000" />
       <workItem from="1557809310361" duration="142000" />
       <workItem from="1557994758992" duration="263000" />
-      <workItem from="1558036440765" duration="14078000" />
+      <workItem from="1558036440765" duration="14861000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157558000" />
+    <option name="totallyTimeSpent" value="158341000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -529,7 +513,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.115879826" side_tool="true" weight="0.17799753" />
@@ -537,8 +520,8 @@
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32880098" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.88412017" visible="true" weight="0.17799753" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.88412017" visible="true" weight="0.17799753" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
