@@ -1,5 +1,10 @@
 @extends('layout.main_layout')
 @include('layout.assets.datatable._css')
+@section('extraCss')
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/pages/data-table/css/buttons.dataTables.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}">
+@endsection
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
@@ -22,7 +27,7 @@
               </div>
               <div class="card-block">
                 <div class="dt-responsive table-responsive">
-                  <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                  <table id="usersTable" class="table table-striped table-bordered nowrap">
                     <thead>
                       <tr>
                         <th>Designation</th>
@@ -161,3 +166,11 @@
 @endsection
 
 @include('layout.assets.datatable._js')
+@section('extraJs')
+  <script src="{{ asset('frontend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('frontend/assets/pages/data-table/js/data-table-custom.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
+@endsection
