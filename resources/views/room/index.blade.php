@@ -27,6 +27,7 @@
                       <tr>
                         <th>Numero</th>
                         <th>Bloc</th>
+                        <th>Etat</th>
                         <th>Nombre d'équipements</th>
                         <th>Modifier</th>
                         <th>Supprimer</th>
@@ -37,6 +38,7 @@
                       <tr>
                         <td>{{$room->number}}</td>
                         <td>{{$room->bloc->name}}</td>
+                        <td>{{$room->reserved()}}</td>
                         <td>{{$room->instance->count()}}</td>
                         <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
                         <td><button class="btn btn-pink" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>

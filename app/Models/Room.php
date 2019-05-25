@@ -26,4 +26,19 @@ class Room extends Model
         return $this->hasMany(Planning::class);
     }
 
+    public function reserved(){
+        switch ($this->reserved) {
+            case false:
+                echo '<label class="label label-success">Libre</label>';
+                break;
+
+            case true:
+                echo '<label class="label label-danger">Occupé</label>';
+                break;
+            default:
+                // code...
+                break;
+        }
+    }
+
 }
