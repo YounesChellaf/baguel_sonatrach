@@ -32,8 +32,7 @@
                                             <tr>
                                                 <th>Type</th>
                                                 <th>Marque</th>
-                                                <th>Modifier</th>
-                                                <th>Supprimer</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -41,8 +40,15 @@
                                                 <tr>
                                                     <td>{{$equipement->type}}</td>
                                                     <td>{{$equipement->marque}}</td>
-                                                    <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$equipement->id}}">modifier</button></td>
-                                                    <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$equipement->id}}">Supprimer</button></td>
+                                                    <td>
+                                                        <div class="dropdown-info dropdown open">
+                                                            <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                                                            <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$equipement->id}}">Modifier</a>
+                                                                <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$equipement->id}}">Supprimer</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>
@@ -79,8 +85,7 @@
                                 <input type="text" class="form-control" id="recipient-name" name="marque">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-                                <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
+                                <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
                             </div>
                         </form>
                     </div>
@@ -99,7 +104,7 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            <form method="post" action="/admin/equipement/{{$equipement->id}}">
+                            <form method="post" action="{{route('equipement.update',$equipement->id)}}">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group">
@@ -111,8 +116,7 @@
                                     <input type="text" class="form-control" id="recipient-name" name="marque" value="{{$equipement->marque}}">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-                                    <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Enregistrer</button>
+                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
                                 </div>
                             </form>
                         </div>
@@ -138,7 +142,7 @@
                             @csrf
                             <input type="hidden">
                             @method('delete')
-                            <button type="submit" class="btn btn-round btn-outline-danger">Confirmer</button>
+                            <button type="submit" class="btn btn-danger">Confirmer</button>
                         </form>
                     </div>
                 </div>

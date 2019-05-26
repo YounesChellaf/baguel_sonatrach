@@ -81,7 +81,7 @@ class DirectionController extends Controller
         $address= $request->input('address');
         $active= $request->input('active');
 
-        $direction = Divisionfind($id);
+        $direction = Division::find($id);
 
         $direction->name = $name;
         $direction->address = $address;
@@ -100,7 +100,7 @@ class DirectionController extends Controller
      */
     public function destroy($id)
     {
-        Divisiondestroy($id);
+        Division::destroy($id);
         return redirect()->back();
     }
 }

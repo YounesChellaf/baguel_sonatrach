@@ -81,7 +81,7 @@ class DepartementController extends Controller
         $active= $request->input('active');
         $direction_id = $request->input('select');
 
-        $departement = Departement::find($id);
+        $departement = Service::find($id);
 
         $departement->name = $name;
         $departement->direction_id = $direction_id;

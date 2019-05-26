@@ -34,9 +34,7 @@
                         <th>number</th>
                         <th>type</th>
                         <th>Status</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
-                      </tr>
+                        <th>Action</th>
                     </thead>
                     <tbody>
                       @foreach(Bloc::all() as $bloc)
@@ -45,8 +43,15 @@
                         <td>{{$bloc->number}}</td>
                         <td>{{$bloc->type}}</td>
                         <td>{{$bloc->active}}</td>
-                        <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$bloc->id}}">modifier</button></td>
-                        <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$bloc->id}}">Supprimer</button></td>
+                        <td>
+                          <div class="dropdown-info dropdown open">
+                            <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$bloc->id}}">Modifier</a>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$bloc->id}}">Supprimer</a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -72,7 +77,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="bloc-add" action="/admin/bloc">
+          <form method="post" class="bloc-add" action="{{route('bloc.store')}}">
             @csrf
             <div class="form-group">
               <label for="recipient-name" class="control-label">designation du bloc</label>
@@ -91,8 +96,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
             </div>
           </form>
         </div>
@@ -111,7 +115,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="bloc-add" action="/admin/bloc/{{$bloc->id}}">
+          <form method="post" class="bloc-add" action="{{route('bloc.update',$bloc->id)}}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -132,8 +136,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Enregistrer</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
             </div>
           </form>
         </div>
@@ -155,11 +158,11 @@
         Voulez vous supprimer ce bloc !
       </div>
       <div class="modal-footer">
-        <form method="POST" action="admin/bloc/{{$bloc->id}}">
+        <form method="POST" action="{{route('bloc.destroy',$bloc->id)}}">
           @csrf
           <input type="hidden">
           @method('delete')
-          <button type="submit" class="btn btn-round btn-outline-danger">Confirmer</button>
+          <button type="submit" class="btn btn-danger">Confirmer</button>
         </form>
       </div>
     </div>

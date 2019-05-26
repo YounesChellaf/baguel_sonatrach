@@ -33,8 +33,7 @@
                         <th>Designation</th>
                         <th>Status</th>
                         <th>Direction</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -43,8 +42,15 @@
                         <td>{{$departement->name}}</td>
                         <td>{{$departement->active}}</td>
                         <td>{{$departement->direction->name}}</td>
-                        <td><button class="btn btn-round btn-outline-info" data-toggle="modal" data-target="#modal-update-{{$departement->id}}">modifier</button></td>
-                        <td><button class="btn btn-round btn-outline-danger" data-toggle="modal" data-target="#modal-delete-{{$departement->id}}">Supprimer</button></td>
+                        <td>
+                          <div class="dropdown-info dropdown open">
+                            <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$departement->id}}">Modifier</a>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$departement->id}}">Supprimer</a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -87,8 +93,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
             </div>
           </form>
         </div>
@@ -129,8 +134,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Enregistrer</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
             </div>
           </form>
         </div>
@@ -156,7 +160,7 @@
           @csrf
           <input type="hidden">
           @method('delete')
-          <button type="submit" class="btn btn-round btn-outline-danger">Confirmer</button>
+          <button type="submit" class="btn btn-danger">Confirmer</button>
         </form>
       </div>
     </div>

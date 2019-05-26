@@ -1,5 +1,10 @@
 @extends('layout.main_layout')
 @include('layout.assets.datatable._css')
+@section('extraCss')
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/pages/data-table/css/buttons.dataTables.min.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css') }}">
+@endsection
 @section('content')
 <div class="page-header card">
   <div class="row align-items-end">
@@ -22,15 +27,14 @@
               </div>
               <div class="card-block">
                 <div class="dt-responsive table-responsive">
-                  <table id="basic-btn" class="table table-striped table-bordered nowrap">
+                  <table id="usersTable" class="table table-striped table-bordered nowrap">
                     <thead>
                       <tr>
                         <th>Numero</th>
                         <th>Bloc</th>
                         <th>Etat</th>
                         <th>Nombre d'équipements</th>
-                        <th>Modifier</th>
-                        <th>Supprimer</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -40,8 +44,15 @@
                         <td>{{$room->bloc->name}}</td>
                         <td>{{$room->reserved()}}</td>
                         <td>{{$room->instance->count()}}</td>
-                        <td><button class="btn btn-primary" data-toggle="modal" data-target="#modal-update-{{$room->id}}">modifier</button></td>
-                        <td><button class="btn btn-pink" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</button></td>
+                        <td>
+                          <div class="dropdown-info dropdown open">
+                            <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$room->id}}">Modifier</a>
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</a>
+                            </div>
+                          </div>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
@@ -67,7 +78,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="room-add" action="/admin/room">
+          <form method="post" class="room-add" action="{{route('room.store')}}">
             @csrf
             <div class="form-group">
               <label for="recipient-name" class="control-label">Numero de chmabre</label>
@@ -121,8 +132,7 @@
             </div>
 
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Ajouter</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
             </div>
           </form>
         </div>
@@ -141,7 +151,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="room-add" action="/admin/room/{{$room->id}}">
+          <form method="post" class="room-add" action="{{ route('room.update', $room->id) }}">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -221,8 +231,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-round btn-outline-danger waves-effect" data-dismiss="modal">Annuler</button>
-              <button type="submit" class="btn btn-round btn-outline-success waves-effect waves-light">Enregistrer</button>
+              <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
             </div>
           </form>
         </div>
@@ -244,11 +253,11 @@
         Voulez vous supprimer ce bureau !
       </div>
       <div class="modal-footer">
-        <form method="POST" action="/admin/room/{{$room->id}}">
+        <form method="POST" action="{{route('room.destroy',$room->id)}}">
           @csrf
           <input type="hidden">
           @method('delete')
-          <button type="submit" class="btn btn-round btn-outline-danger">Confirmer</button>
+          <button type="submit" class="btn btn-danger">Confirmer</button>
         </form>
       </div>
     </div>
@@ -291,4 +300,12 @@
           });
       });
   </script>
+@endsection
+@section('extraJs')
+  <script src="{{ asset('frontend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+  <script src="{{ asset('frontend/assets/pages/data-table/js/data-table-custom.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+  <script src="{{ asset('frontend/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
 @endsection
