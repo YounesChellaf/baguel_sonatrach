@@ -26,6 +26,16 @@ class Room extends Model
         return $this->hasMany(Planning::class);
     }
 
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($room) { // before delete() method call this
+            $room->reservation()->delete();
+            $room->planning()->delete();
+            // do the rest of the cleanup...
+        });
+    }
+
     public function reserved(){
         switch ($this->reserved) {
             case false:

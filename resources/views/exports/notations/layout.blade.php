@@ -130,7 +130,7 @@ body {
 
 .docFooter .rightSigner {
   width: 50%;
-  float: left;
+  float: right;
   display: inline-block;
 }
 

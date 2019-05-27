@@ -208,6 +208,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('','SupportedController@index')->name('admin.support.index');
         Route::get('create/{type?}','SupportedController@createView')->name('admin.support.create');
         Route::get('details/{id}','SupportedController@detailsView')->name('admin.support.details');
+        Route::get('export/{id}','SupportedController@exportPDF')->name('admin.support.export');
         Route::post('create','SupportedController@store')->name('admin.support.store');
         Route::get('validate/{id}','SupportedController@aprouve')->name('admin.support.approve');
         Route::get('reject/{id}','SupportedController@reject')->name('admin.support.reject');

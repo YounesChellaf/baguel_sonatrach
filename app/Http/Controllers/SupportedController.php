@@ -6,6 +6,7 @@ use App\Models\Prestation;
 use App\Models\Support;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class SupportedController extends Controller
 {
@@ -50,5 +51,11 @@ class SupportedController extends Controller
     public function affect($id){
         $prestation = Prestation::find($id);
         return view('supported.affect')->with('prestation',$prestation);
+    }
+
+    public function exportPDF($id){
+        $support = Support::find($id);
+        return  PDF::loadView('exports.support.support',['data' => $support]
+        )->setPaper('a4', 'portrait')->setWarnings(false)->download('support.pdf');
     }
 }

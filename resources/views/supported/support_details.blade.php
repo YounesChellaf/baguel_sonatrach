@@ -11,7 +11,7 @@
             <div class="page-wrapper">
                 <div class="page-body">
                     <div class="container row" style="padding-bottom: 0.5%">
-                        <a id="add_row" class="btn btn-primary pull-left">Imprimer en PDF</a>
+                        <a href="{{route('admin.support.export',$support->id)}}" id="add_row" class="btn btn-primary pull-left">Imprimer en PDF</a>
                         <a href="{{route('admin.support.approve',$support->id)}}" id="add_row" class="btn btn-success pull-left">Valider la requete</a>
                         <a href="{{route('admin.support.reject',$support->id)}}" id="add_row" class="btn btn-danger pull-left">Rejeter la requete</a>
                         <a href="{{route('admin.support.affect',$support->id)}}" id="add_row" class="btn btn-primary pull-left">Affecter la prise en charge</a>
