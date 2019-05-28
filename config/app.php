@@ -254,6 +254,7 @@ return [
     'Planning' => App\Models\Planning::class,
     'Support' => App\Models\Support::class,
     'Prestation' => App\Models\Prestation::class,
+    'MeetingRoom' => App\Models\Meeting_room::class,
     'EquipementInstance' => App\Models\EquipementInstance::class,
   ],
 

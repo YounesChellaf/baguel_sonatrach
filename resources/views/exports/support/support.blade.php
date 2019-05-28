@@ -24,19 +24,21 @@
         <h5>Nombre de personnes :</h5>
     </div>
     <div class="docBody">
-        <table class="receptionBody kitchenControl">
-            <thead>
-            <tr>
-                <th>Nom & prenom</th>
-                <th>Fonction</th>
-                <th>Observation</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-        </table>
-        <table class="commentsTable">
+        <div class="leftSide">
+            <h5>Prestation demandé</h5>
+        </div>
+        <div class="rightSide">
+            <h5>Nombre / Quantité</h5>
+        </div>
+        @foreach($data->prestation as $support)
+        <div class="leftSide">
+            <h6>{{$support->product->name}}</h6>
+        </div>
+        <div class="rightSide">
+            <h6>{{$support->quantity}}</h6>
+        </div>
+        @endforeach
+        <table class="commentsTable" style="margin-top: 5%">
             <tr>
                 <td id="commentTD">Commentaires</td>
             </tr>
