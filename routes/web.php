@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
+  Route::resource('meeting_room','MeetingRoomController');
 
   Route::resource('visiteur','VisitorController');
 
@@ -278,6 +279,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('delete/{id}','PlanningController@destroy')->name('admin.planning.delete');
         Route::post('/import', 'PlanningController@import')->name('admin.planning.import');
     });
-
-
 });

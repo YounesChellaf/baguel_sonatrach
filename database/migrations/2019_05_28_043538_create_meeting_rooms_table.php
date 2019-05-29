@@ -16,7 +16,9 @@ class CreateMeetingRoomsTable extends Migration
         Schema::create('meeting_rooms', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('designation');
-            $table->integer('total_capacity');
+            $table->string('location');
+            $table->integer('total_capacity')->nullable();
+            $table->boolean('reserved')->default(false);
             $table->timestamps();
         });
     }

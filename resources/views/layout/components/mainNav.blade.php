@@ -42,6 +42,11 @@
                 <span class="pcoded-mtext">Bureaux</span>
               </a>
             </li>
+            <li class="">
+              <a href="{{ route('meeting_room.index') }}" class="waves-effect waves-dark">
+                <span class="pcoded-mtext">Salle de reunion</span>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="pcoded-hasmenu">
