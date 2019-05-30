@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class MeetingReservation extends Model
@@ -16,9 +17,8 @@ class MeetingReservation extends Model
     }
 
     public static function new(Request $request){
-
         $reservation = MeetingReservation::create([
-            'reserver_id' => $request->reserver_id,
+            'reserver_id' => auth()->user()->id,
             'meeting_room_id' => $request->meeting_room_id,
             'date_reservation' => $request->date_reservation,
             'time_in' => $request->time_in,

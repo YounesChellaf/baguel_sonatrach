@@ -124,8 +124,8 @@
             </a>
           </li>
           <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Réservation</span>
+            <a href="{{route('admin.meeting_reservation.index')}}" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Réservation salle reunion</span>
             </a>
           </li>
           <li class=" ">

@@ -20,31 +20,30 @@
         <div class="card">
           <div class="card-header">
             <h5>Réservation</h5>
-            <a href="#" class="ImportEmployeesAction">Importer</a>
-            <a href="{{ route('admin.reservation.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation</button></a>
+            <a href="{{ route('admin.meeting_reservation.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
               <table id="usersTable" class="table table-striped table-bordered nowrap">
                 <thead>
                   <tr>
-                    <th>Chambre</th>
-                    <th>Bloc</th>
-                    <th>Employée</th>
-                    <th>Date d'entrée</th>
-                    <th>Date de sortie</th>
+                    <th>Salle</th>
+                    <th>Reserveur</th>
+                    <th>Date prévu </th>
+                    <th>debut d'occupation</th>
+                    <th>fin d'occupation</th>
                     <th>Etat</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
-                @foreach(Reservation::all() as $reservation)
+                @foreach(MeetingReservation::all() as $reservation)
                   <tr>
-                    <td>{{$reservation->room->number}}</td>
-                    <td>{{$reservation->room->bloc->name}} {{$reservation->room->bloc->number}}</td>
-                    <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
-                    <td>{{$reservation->date_in}}</td>
-                    <td>{{$reservation->date_out}}</td>
+                    <td>{{$reservation->meeting_room->designation}}</td>
+                    <td>{{auth()->user($reservation->reserver_id)->firstName}} {{auth()->user($reservation->reserver_id)->lastName}}</td>
+                    <td>{{$reservation->date_reservation}}</td>
+                    <td>{{$reservation->time_in}}</td>
+                    <td>{{$reservation->time_out}}</td>
                     <td>{{$reservation->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">

@@ -26,34 +26,29 @@
               </ul>
             </div>
             @endif
-            <form action="{{ route('admin.reservation.create.post') }}" method="post">
+            <form action="{{ route('admin.meeting_room.create.post') }}" method="post">
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <label for="inputState">Chambre</label>
-                  <select id="inputState" name="room_id" class="form-control">
+                  <label for="inputState">salle</label>
+                  <select id="inputState" name="meeting_room_id" class="form-control">
                     <option selected>Choose...</option>
-                    @foreach(Room::where('reserved',false)->get() as $room)
-                    <option value="{{$room->id}}">{{$room->number}}</option>
+                    @foreach(MeetingRoom::where('reserved',false)->get() as $meeting_room)
+                    <option value="{{$meeting_room->id}}">{{$meeting_room->designation}}</option>
                       @endforeach
                   </select>
                 </div>
-                <div class="form-group col-md-12">
-                  <label for="inputState">Employee</label>
-                  <select id="inputState" name="employee_id" class="form-control">
-                    <option selected>Choose...</option>
-                    @foreach(Employee::all() as $employee)
-                      <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
-                    @endforeach
-                  </select>
-                </div>
                 <div class="form-group col-md-6">
-                  <label for="inputEmail4">Date d'entrée</label>
-                  <input type="date" name="date_in"  class="form-control" id="inputEmail4" placeholder="">
+                  <label for="inputEmail4">Date de reservation</label>
+                  <input type="date" name="date_reservation"  class="form-control" id="inputEmail4" placeholder="">
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="inputPassword4">Date de sortie</label>
-                  <input type="date" name="date_out" class="form-control" id="inputPassword4" placeholder="">
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Du</label>
+                  <input type="time" name="time_in" class="form-control" id="inputPassword4" placeholder="">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Au</label>
+                  <input type="time" name="time_out" class="form-control" id="inputPassword4" placeholder="">
                 </div>
               </div>
               <div class="form-group">
