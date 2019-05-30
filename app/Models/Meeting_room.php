@@ -8,6 +8,19 @@ use Illuminate\Http\Request;
 class Meeting_room extends Model
 {
     protected $guarded=[];
+
+    function reservation(){
+        return $this->hasMany(MeetingReservation::class);
+    }
+
+    public static function boot() {
+        parent::boot();
+
+        static::deleting(function($meeting_room) { // before delete() method call this
+            $meeting_room->reservation()->delete();
+        });
+    }
+
     public static function new(Request $request){
         $meeting_room = Meeting_room::create([
             'designation' => $request->designation,

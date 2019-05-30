@@ -80,7 +80,6 @@ class MeetingRoomController extends Controller
         $meeting_room->save();
         return redirect()->route('meeting_room.index');
     }
-
     /**
      * Remove the specified resource from storage.
      *
