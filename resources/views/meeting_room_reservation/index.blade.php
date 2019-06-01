@@ -50,10 +50,10 @@
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                           <a class="dropdown-item" href="#!">Consulter</a>
-                          <a class="dropdown-item" href="{{ route('admin.reservation.approve', $reservation->id) }}">Valider</a>
-                          <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $reservation->id) }}">Rejeter</a>
+                          <a class="dropdown-item" href="{{ route('admin.meeting_reservation.approve', $reservation->id) }}">Valider</a>
+                          <a class="dropdown-item"  href="{{ route('admin.meeting_reservation.reject', $reservation->id) }}">Rejeter</a>
                           <a class="dropdown-item" href="#">Modifier</a>
-                          <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.reservation.delete', $reservation->id)}}">Supprimer</a>
+                          <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.meeting_reservation.delete', $reservation->id)}}">Supprimer</a>
                         </div>
                       </div>
                     </td>

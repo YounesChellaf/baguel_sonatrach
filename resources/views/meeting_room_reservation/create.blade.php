@@ -26,7 +26,7 @@
               </ul>
             </div>
             @endif
-            <form action="{{ route('admin.meeting_room.create.post') }}" method="post">
+            <form action="{{ route('admin.meeting_reservation.create.post') }}" method="post">
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-12">

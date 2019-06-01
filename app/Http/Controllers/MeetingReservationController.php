@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Meeting_room;
 use App\Models\MeetingReservation;
 use Illuminate\Http\Request;
 
@@ -20,5 +21,25 @@ class MeetingReservationController extends Controller
             $reservation = MeetingReservation::new($request);
             return redirect()->route('admin.meeting_reservation.index');
         }
+    }
+    public function aprouve($id){
+        $reservation = MeetingReservation::find($id);
+        $reservation->status = 'approved';
+        $reservation->save();
+        return redirect()->back();
+
+    }
+    public  function  reject($id){
+        $reservation =MeetingReservation::find($id);
+        $reservation->status = 'rejected';
+        $reservation->save();
+        return redirect()->back();
+    }
+    public function destroy($id){
+        $meeting_reservation = MeetingReservation::find($id);
+        $meeting_reservation->meeting_room->reserved = false;
+        $meeting_reservation->meeting_room->save();
+        MeetingReservation::destroy($id);
+        return redirect()->route('admin.meeting_reservation.index');
     }
 }

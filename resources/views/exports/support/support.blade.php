@@ -24,20 +24,25 @@
         <h5>Nombre de personnes :</h5>
     </div>
     <div class="docBody">
-        <div class="leftSide">
-            <h5>Prestation demandé</h5>
+        <div class="form-group row">
+            <h4 class="col-sm-3">Prestation demandé</h4>
+            <div class="col-md-8">
+                <table class="table table-bordered table-hover" id="tab_logic">
+                    <thead class="thead-light">
+                    <th>Produit</th>
+                    <th>Quantité</th>
+                    </thead>
+                    <tbody>
+                    @foreach($data->prestation as $prestation)
+                        <tr>
+                            <td>{{$prestation->product->name}}</td>
+                            <td>{{$prestation->quantity}}</td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="rightSide">
-            <h5>Nombre / Quantité</h5>
-        </div>
-        @foreach($data->prestation as $support)
-        <div class="leftSide">
-            <h6>{{$support->product->name}}</h6>
-        </div>
-        <div class="rightSide">
-            <h6>{{$support->quantity}}</h6>
-        </div>
-        @endforeach
         <table class="commentsTable" style="margin-top: 5%">
             <tr>
                 <td id="commentTD">Commentaires</td>
