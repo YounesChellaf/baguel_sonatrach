@@ -22,6 +22,17 @@ class MeetingReservationController extends Controller
             return redirect()->route('admin.meeting_reservation.index');
         }
     }
+
+    public function update($id,Request $request){
+        $reservation = MeetingReservation::find($id);
+        $reservation->meeting_room_id = $request->meeting_room_id;
+        $reservation->date_reservation = $request->date_reservation;
+        $reservation->time_in = $request->time_in;
+        $reservation->time_out = $request->time_out;
+        $reservation->remark = $request->remark;
+        $reservation->save();
+        return redirect()->route('admin.meeting_reservation.index');
+    }
     public function aprouve($id){
         $reservation = MeetingReservation::find($id);
         $reservation->status = 'approved';

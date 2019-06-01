@@ -52,7 +52,7 @@
                           <a class="dropdown-item" href="#!">Consulter</a>
                           <a class="dropdown-item" href="{{ route('admin.meeting_reservation.approve', $reservation->id) }}">Valider</a>
                           <a class="dropdown-item"  href="{{ route('admin.meeting_reservation.reject', $reservation->id) }}">Rejeter</a>
-                          <a class="dropdown-item" href="#">Modifier</a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$reservation->id}}">Modifier</a>
                           <a class="dropdown-item destroy" data-employee-id = "" data-employee-name = "" href="{{route('admin.meeting_reservation.delete', $reservation->id)}}">Supprimer</a>
                         </div>
                       </div>
@@ -68,38 +68,57 @@
     </div>
   </div>
 </div>
-
-
-<div class="modal fade right" id="ImportEmployeesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-aria-hidden="true">
-<div class="modal-dialog modal-full-height modal-right" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title w-100" id="myModalLabel">Importation des employées</h4>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <p>
-        Cette option va vous permettre d'importer une liste des employées depuis un fichier Excel / CSV
-      </p>
-      <form action="{{ route('admin.employees.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
-        @csrf
-        <div class="form-group row">
-          <label class="col-sm-2 col-form-label">Fichier: </label>
-          <div class="col-sm-10">
-            <input type="file" name="EmployeesFileInput" required class="form-control">
-          </div>
-        </div>
-        <button type="submit" class="btn btn-info">Importer</button>
-      </form>
-    </ul>
-  </div>
-</div>
-</div>
-</div>
 @endsection
+@foreach(MeetingReservation::all() as $meeting_reservation)
+  <div class="col-md-4">
+    <div id="modal-update-{{$meeting_reservation->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Modifier la reservation</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body">
+            <form method="post" class="room-add" action="{{route('admin.meeting_reservation.update',$meeting_reservation->id)}}">
+              @csrf
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputState">salle</label>
+                  <select id="inputState" name="meeting_room_id" class="form-control">
+                    <option selected value="{{$meeting_reservation->meeting_room_id}}">{{$meeting_reservation->meeting_room->designation}}</option>
+                    @foreach(MeetingRoom::where('reserved',false)->get() as $meeting_room)
+                      <option value="{{$meeting_room->id}}">{{$meeting_room->designation}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="inputEmail4">Date de reservation</label>
+                  <input type="date" name="date_reservation"  class="form-control" id="inputEmail4" value="{{$meeting_reservation->date_reservation}}">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Du</label>
+                  <input type="time" name="time_in" class="form-control" id="inputPassword4" value="{{$meeting_reservation->time_in}}">
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="inputPassword4">Au</label>
+                  <input type="time" name="time_out" class="form-control" id="inputPassword4" value="{{$meeting_reservation->time_out}}">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail4">Remarques</label>
+                <textarea type="text" name="remark" class="form-control" value="{{$meeting_reservation->remark}}" id="inputEmail4" placeholder=""></textarea>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+@endforeach
 
 @section('extraJs')
 <script src="{{ asset('frontend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>

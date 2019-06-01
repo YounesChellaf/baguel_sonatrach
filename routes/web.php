@@ -283,8 +283,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('/','MeetingReservationController@index')->name('admin.meeting_reservation.index');
         Route::get('/create','MeetingReservationController@create')->name('admin.meeting_reservation.create');
         Route::post('/create','MeetingReservationController@store')->name('admin.meeting_reservation.create.post');
-        Route::get('/update/{id}','PlanningController@updateView')->name('admin.planning.update');
-        Route::post('/update/{id}','PlanningController@update')->name('admin.planning.update.post');
+        Route::post('/update/{id}','MeetingReservationController@update')->name('admin.meeting_reservation.update');
         Route::get('validate/{id}','MeetingReservationController@aprouve')->name('admin.meeting_reservation.approve');
         Route::get('reject/{id}','MeetingReservationController@reject')->name('admin.meeting_reservation.reject');
         Route::get('delete/{id}','MeetingReservationController@destroy')->name('admin.meeting_reservation.delete');
