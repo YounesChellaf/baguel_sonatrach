@@ -8,6 +8,13 @@ class Bloc extends Model
 {
     protected $guarded = [];
 
+    public static function IsUnique($designation = null)
+    {
+        if ($designation) {
+            return Bloc::where('designation', $designation)->count() == 0;
+        }
+    }
+
 
     function office(){
         return $this->hasMany('App\Models\Office');

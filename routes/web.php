@@ -24,8 +24,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
   Route::resource('meeting_room','MeetingRoomController');
+  Route::post('/import', 'RoomController@import')->name('admin.room.import');
+  Route::post('/import', 'BlocController@import')->name('admin.bloc.import');
 
-  Route::resource('visiteur','VisitorController');
+
+    Route::resource('visiteur','VisitorController');
 
   Route::prefix('users')->group(function(){
     Route::get('/', 'UsersController@index')->name('admin.users.index');

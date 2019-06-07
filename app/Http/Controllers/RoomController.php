@@ -111,4 +111,17 @@ class RoomController extends Controller
         Room::destroy($id);
         return redirect()->back();
     }
+
+    public function import(Request $request){
+        if($request->post()){
+            if($request->file('RoomsFileInput')){
+                Excel::import(new RoomsImport, $request->file('RoomsFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\BlocsImport;
 use App\Models\Bloc;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class BlocController extends Controller
@@ -106,5 +108,18 @@ class BlocController extends Controller
     {
         Bloc::destroy($id);
         return redirect()->back();
+    }
+
+    public function import(Request $request){
+        if($request->post()){
+            if($request->file('BlocsFileInput')){
+                Excel::import(new BlocsImport, $request->file('BlocsFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
     }
 }
