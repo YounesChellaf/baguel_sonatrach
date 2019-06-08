@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\EquipementsImport;
 use App\Models\Equipement;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EquipementController extends Controller
 {
@@ -90,5 +92,18 @@ class EquipementController extends Controller
     {
         Equipement::destroy($id);
         return redirect()->back();
+    }
+
+    public function import(Request $request){
+        if($request->post()){
+            if($request->file('EquipementsFileInput')){
+                Excel::import(new EquipementsImport, $request->file('EquipementsFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
     }
 }

@@ -23,7 +23,8 @@
                             <div class="card">
                                 <div class="card-header table-card-header">
                                     <h5>HTML5 Export Buttons</h5>
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#modal-add-equipement">Ajouter un equipement</button>
+                                    <a href="#" class="ImportEmployeesAction">Importer</a>
+                                    <button type="button" style="float: right" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-equipement">Ajouter un equipement</button>
                                 </div>
                                 <div class="card-block">
                                     <div class="dt-responsive table-responsive">
@@ -149,6 +150,35 @@
             </div>
         </div>
     @endforeach
+    <div class="modal fade right" id="ImportEmployeesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-full-height modal-right" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title w-100" id="myModalLabel">Importation des equipements</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Cette option va vous permettre d'importer une liste des equipements depuis un fichier Excel / CSV
+                    </p>
+                    <form action="{{ route('admin.equipement.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Fichier: </label>
+                            <div class="col-sm-10">
+                                <input type="file" name="EquipementsFileInput" required class="form-control">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-info">Importer</button>
+                    </form>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     @include('layout.assets.datatable._js')
 @endsection
 @section('extraJs')

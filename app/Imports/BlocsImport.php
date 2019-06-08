@@ -11,8 +11,10 @@ class BlocsImport implements ToModel, WithHeadingRow
 
     public function model(array $row){
 
+
+        //dd($row['name'],$row['number'],$row['type']);
         //check employee unicity with employee_number
-            Bloc::create([
+            return new Bloc([
                 'name' =>$row['name'],
                 'number' =>$row['number'],
                 'type' =>$row['type'],

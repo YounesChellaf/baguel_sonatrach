@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Office;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\OfficesImport;
 
 class OfficeController extends Controller
 {
@@ -102,5 +104,17 @@ class OfficeController extends Controller
     {
         Office::destroy($id);
         return redirect()->back();
+    }
+    public function import(Request $request){
+        if($request->post()){
+            if($request->file('OfficesFileInput')){
+                Excel::import(new OfficesImport, $request->file('OfficesFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
     }
 }

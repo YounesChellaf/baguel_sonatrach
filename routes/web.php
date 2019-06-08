@@ -24,8 +24,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
   Route::resource('meeting_room','MeetingRoomController');
-  Route::post('/import', 'RoomController@import')->name('admin.room.import');
-  Route::post('/import', 'BlocController@import')->name('admin.bloc.import');
+  Route::post('/room/import', 'RoomController@import')->name('admin.room.import');
+  Route::post('/bloc/import', 'BlocController@import')->name('admin.bloc.import');
+  Route::post('/office/import', 'OfficeController@import')->name('admin.office.import');
+  Route::post('/equipement/import', 'EquipementController@import')->name('admin.equipement.import');
 
 
     Route::resource('visiteur','VisitorController');
