@@ -17,7 +17,7 @@
           <div class="card-block">
             @if ($errors->any())
             <div class="alert alert-danger">
-              <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouveau employée.
+              <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouvelle resarvation annuel.
               <br>
               <ul class="t7wissa-errors-list">
                 @foreach ($errors->all() as $error)

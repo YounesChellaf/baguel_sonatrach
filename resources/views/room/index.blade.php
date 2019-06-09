@@ -23,7 +23,7 @@
             <div class="card">
               <div class="card-header table-card-header">
                 <h5>HTML5 Export Buttons</h5>
-                <a href="#" class="ImportEmployeesAction">Importer</a>
+                <a href="{{route('admin.room.graphic')}}" class="ImportEmployeesAction">Vue graphique</a>
                 <button type="button" style="float: right" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-room">Nouvelle chambre</button>
               </div>
               <div class="card-block">
@@ -90,7 +90,7 @@
                 <select name="bloc_id" class="form-control">
                   <option value="">Choisir un bloc</option>
                   @foreach(Bloc::all() as $bloc)
-                  <option value="{{$bloc->id}}">{{$bloc->name}}</option>
+                  <option value="{{$bloc->id}}">{{$bloc->name}} {{$bloc->number}}</option>
                   @endforeach
                 </select>
               </div>
@@ -164,7 +164,7 @@
                 <select name="bloc_id" class="form-control">
                   <option value="{{$room->bloc->id}}">{{$room->bloc->name}}</option>
                   @foreach(Bloc::all() as $bloc)
-                  <option value="{{$bloc->id}}">{{$bloc->name}}</option>
+                  <option value="{{$bloc->id}}">{{$bloc->name}} {{$bloc->number}}</option>
                   @endforeach
                 </select>
               </div>
@@ -265,35 +265,6 @@
   </div>
 </div>
 @endforeach
-<div class="modal fade right" id="ImportEmployeesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-full-height modal-right" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title w-100" id="myModalLabel">Importation des employées</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>
-          Cette option va vous permettre d'importer une liste des chambres depuis un fichier Excel / CSV
-        </p>
-        <form action="{{ route('admin.room.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
-          @csrf
-          <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Fichier: </label>
-            <div class="col-sm-10">
-              <input type="file" name="RoomsFileInput" required class="form-control">
-            </div>
-          </div>
-          <button type="submit" class="btn btn-info">Importer</button>
-        </form>w
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 @include('layout.assets.datatable._js')
 @endsection
 @section('extraJs')

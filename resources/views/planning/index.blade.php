@@ -21,7 +21,7 @@
           <div class="card-header">
             <h5>Planning</h5>
             <a href="#" class="ImportEmployeesAction">Importer</a>
-            <a href="{{ route('admin.planning.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation</button></a>
+            <a href="{{ route('admin.planning.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle réservation annuel</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">

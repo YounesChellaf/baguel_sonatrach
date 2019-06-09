@@ -18,6 +18,10 @@ class RoomController extends Controller
         return view('room.index');
     }
 
+    public function graphicView(){
+        return view('room.graphic_view');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

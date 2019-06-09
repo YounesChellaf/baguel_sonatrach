@@ -4,7 +4,7 @@
       <li class="breadcrumb-item">
         <a href="{{ route('admin.index') }}"><i class="feather icon-home"></i></a>
       </li>
-      <li class="breadcrumb-item"><a href="/admin/office">Gestion des chambres</a> </li>
+      <li class="breadcrumb-item"><a href="{{route('room.index')}}">Gestion des chambres</a> </li>
     </ul>
   </div>
 </div>

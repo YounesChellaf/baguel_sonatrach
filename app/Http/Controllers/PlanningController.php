@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Imports\PlanningImport;
 use App\Models\Planning;
 use Illuminate\Http\Request;
+use App\Http\Requests\NewPlanningRequest;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PlanningController extends Controller
@@ -15,8 +16,9 @@ class PlanningController extends Controller
     public function create(){
         return view('planning.create');
     }
-    public function store(Request $request){
+    public function store(NewPlanningRequest $request){
         if ($request->post()){
+            $validated = $request->validated();
             $planning = Planning::new($request);
         }
         return redirect()->route('admin.planning.index');

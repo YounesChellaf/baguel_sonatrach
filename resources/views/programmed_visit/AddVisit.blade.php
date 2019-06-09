@@ -15,6 +15,17 @@
                             <h5>Nouvelle visite</h5>
                         </div>
                         <div class="card-block">
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouvelle visite.
+                                    <br>
+                                    <ul class="t7wissa-errors-list">
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <form method="POST" action="/admin/visit/create" >
                                 @csrf
                                 <div class="form-group row">
