@@ -31,6 +31,7 @@
                       <tr>
                         <th>Numero</th>
                         <th>Bloc</th>
+                        <th>status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -39,10 +40,12 @@
                       <tr>
                         <td>{{$office->number}}</td>
                         <td>{{$office->bloc->name}}</td>
+                        <td>{{$office->reserved()}}</td>
                         <td>
                           <div class="dropdown-info dropdown open">
                             <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                             <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                              <a class="dropdown-item" data-toggle="modal" data-target="#modal-affect-{{$office->id}}">Affecter employée</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$office->id}}">Modifier</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$office->id}}">Supprimer</a>
                             </div>
@@ -101,6 +104,37 @@
   </div>
 </div>
 @foreach(Office::all() as $office)
+  <div class="col-md-4">
+    <div id="modal-affect-{{$office->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Affecter un employée á ce bureau</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body">
+            <form method="post" class="office-add" action="{{ route('admin.office.affect',$office->id)}}">
+              @csrf
+              <div class="form-group row">
+                <div class="col-sm-12">
+                  <select name="employee_id" class="form-control">
+                    <option value="">Choisir un employée</option>
+                  @foreach(Employee::all() as $employee)
+                      <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-primary waves-effect waves-light">Enregistrer</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 <div class="col-md-4">
   <div id="modal-update-{{$office->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog">

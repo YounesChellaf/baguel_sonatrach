@@ -29,6 +29,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::post('/bloc/import', 'BlocController@import')->name('admin.bloc.import');
   Route::post('/office/import', 'OfficeController@import')->name('admin.office.import');
   Route::post('/equipement/import', 'EquipementController@import')->name('admin.equipement.import');
+  Route::post('/office/affect/{id}', 'OfficeController@affectEmployee')->name('admin.office.affect');
 
 
     Route::resource('visiteur','VisitorController');

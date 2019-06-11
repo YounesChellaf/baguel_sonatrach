@@ -19,7 +19,41 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="card">
+                            <div class="row">
+                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.notations.index.type', 'rooms') }}">
+                                <div class="card comp-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <h6 class="m-b-25">Chambres Libres</h6>
+                                                <h3 class="f-w-700 text-c-blue">{{ Room::occupation_rate()[0] }} / </h3>
+                                                <p class="m-b-0">{{ Room::all()->count() }}</p>
+                                            </div>
+                                            <div class="col-auto">
+                                                <img width="120" src="{{ asset('frontend/assets/images/notations/room.png') }}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.notations.index.type', 'rooms') }}">
+                                <div class="card comp-card">
+                                    <div class="card-body">
+                                        <div class="row align-items-center">
+                                            <div class="col">
+                                                <h6 class="m-b-25">Chambres occupées</h6>
+                                                <h3 class="f-w-700 text-c-blue">{{ Room::occupation_rate()[1] }} /</h3>
+                                                <p class="m-b-0">{{ Room::all()->count() }}</p>
+                                            </div>
+                                            <div class="col-auto">
+                                                <img width="120" src="{{ asset('frontend/assets/images/notations/room.png') }}" alt="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                                <div class="card">
                                 <div class="card-block">
                                     @foreach(Room::all() as $room)
 

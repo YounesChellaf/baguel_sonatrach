@@ -21,6 +21,9 @@ class Employee extends Model
   public function name(){
     return $this->first_name . ' ' . $this->last_name;
   }
+  public function office(){
+      return $this->hasMany(Office::class);
+  }
 
   public function type(){
     switch ($this->type) {

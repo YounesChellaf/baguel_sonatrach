@@ -51,4 +51,10 @@ class Room extends Model
         }
     }
 
+    public  static function occupation_rate(){
+          $rate[0] = Room::where('reserved',false)->count();
+          $rate[1] = Room::where('reserved',true)->count();
+          return $rate;
+    }
+
 }

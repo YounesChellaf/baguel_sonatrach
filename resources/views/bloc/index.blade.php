@@ -34,7 +34,6 @@
                         <th>Designation</th>
                         <th>number</th>
                         <th>type</th>
-                        <th>Status</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
@@ -43,7 +42,6 @@
                         <td>{{$bloc->name}}</td>
                         <td>{{$bloc->number}}</td>
                         <td>{{$bloc->type}}</td>
-                        <td>{{$bloc->active}}</td>
                         <td>
                           <div class="dropdown-info dropdown open">
                             <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>

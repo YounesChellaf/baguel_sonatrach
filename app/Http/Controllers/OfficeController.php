@@ -117,4 +117,12 @@ class OfficeController extends Controller
             abort(404);
         }
     }
+
+    public function affectEmployee(Request $request, $id){
+        $office = Office::find($id);
+        $office->employee_id = $request->employee_id;
+        $office->reserved = true;
+        $office->save();
+        return redirect()->route('office.index');
+    }
 }
