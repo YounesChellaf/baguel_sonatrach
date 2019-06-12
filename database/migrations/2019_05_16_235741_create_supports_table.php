@@ -20,7 +20,7 @@ class CreateSupportsTable extends Migration
             $table->date('date_to')->nullable();
             $table->integer('prestation_id');
             $table->integer('concerned_id');
-            $table->string('remark');
+            $table->string('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();
         });

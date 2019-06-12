@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SupportRequest;
 use App\Models\Prestation;
 use App\Models\Support;
 use Illuminate\Http\Request;
@@ -24,8 +25,9 @@ class SupportedController extends Controller
     public function createView($type){
         return view('supported.AddSupport')->with('type',$type);
     }
-    public function store(Request $request){
+    public function store(SupportRequest $request){
         if ($request->post()){
+            $validated = $request->validated();
             $support=Support::new($request);
             return redirect()->route('admin.support.index');
         }
