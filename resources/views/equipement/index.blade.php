@@ -75,15 +75,15 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" action="/admin/equipement">
+                        <form class="new-add" method="post" action="/admin/equipement">
                             @csrf
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Type d'équipement</label>
-                                <input type="text" class="form-control" id="recipient-name" name="type">
+                                <input type="text" class="form-control" id="recipient-type" name="type">
                             </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">La marque d'équipement</label>
-                                <input type="text" class="form-control" id="recipient-name" name="marque">
+                                <input type="text" class="form-control" id="recipient-marque" name="marque">
                             </div>
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>

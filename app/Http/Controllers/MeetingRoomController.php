@@ -37,9 +37,8 @@ class MeetingRoomController extends Controller
     {
         if ($request->post()){
             $meeting_room = Meeting_room::new($request);
-            return $meeting_room;
+            return redirect()->route('meeting_room.index');
         }
-        return redirect()->route('meeting_room.index');
     }
 
     /**

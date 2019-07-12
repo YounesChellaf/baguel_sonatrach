@@ -32,7 +32,7 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">salle</label>
                   <select id="inputState" name="meeting_room_id" class="form-control">
-                    <option selected>Choose...</option>
+                    <option value="" selected>Choose...</option>
                     @foreach(MeetingRoom::where('reserved',false)->get() as $meeting_room)
                     <option value="{{$meeting_room->id}}">{{$meeting_room->designation}}</option>
                       @endforeach
@@ -53,7 +53,7 @@
               </div>
               <div class="form-group">
                 <label for="inputEmail4">Remarques</label>
-                <textarea type="text" name="remark" class="form-control" value="{{ old('phone') }}" id="inputEmail4" placeholder=""></textarea>
+                <textarea type="text" name="remark" class="form-control"  id="inputEmail4" placeholder=""></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>

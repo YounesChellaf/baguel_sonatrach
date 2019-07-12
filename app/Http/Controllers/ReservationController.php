@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NewReservationRequest;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ReservationController extends Controller
     public function create(){
         return view('reservation.create');
     }
-    public function store(Request $request){
+    public function store(NewReservationRequest $request){
         if ($request->post()){
             $reservation = Reservation::new($request);
         }

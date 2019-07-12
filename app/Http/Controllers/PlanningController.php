@@ -18,7 +18,6 @@ class PlanningController extends Controller
     }
     public function store(NewPlanningRequest $request){
         if ($request->post()){
-            $validated = $request->validated();
             $planning = Planning::new($request);
         }
         return redirect()->route('admin.planning.index');

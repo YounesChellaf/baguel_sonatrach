@@ -17,7 +17,7 @@ class CreateMeetingRoomsTable extends Migration
             $table->bigIncrements('id');
             $table->string('designation');
             $table->string('location');
-            $table->integer('total_capacity')->nullable();
+            $table->integer('total_capacity');
             $table->boolean('reserved')->default(false);
             $table->timestamps();
         });

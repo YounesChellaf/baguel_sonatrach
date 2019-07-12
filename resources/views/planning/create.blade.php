@@ -32,7 +32,7 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">Chambre</label>
                   <select id="inputState" name="room_id" class="form-control">
-                    <option selected>Choose...</option>
+                    <option value="" selected>Choose...</option>
                     @foreach(Room::where('reserved',false)->get() as $room)
                     <option value="{{$room->id}}">{{$room->number}}</option>
                       @endforeach
@@ -41,7 +41,7 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">Employee 1</label>
                   <select id="inputState" name="employee_id1" class="form-control">
-                    <option selected>Choose...</option>
+                    <option value="" selected>Choose...</option>
                     @foreach(Employee::all() as $employee)
                       <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
                     @endforeach
@@ -50,7 +50,7 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">Employee 2</label>
                   <select id="inputState" name="employee_id2" class="form-control">
-                    <option selected>Choose...</option>
+                    <option value="" selected>Choose...</option>
                     @foreach(Employee::all() as $employee)
                       <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
                     @endforeach

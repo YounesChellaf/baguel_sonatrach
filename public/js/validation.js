@@ -120,6 +120,32 @@ $(document).ready(function () {
       }
     }
   });
+  $(".meeting-room-add").validate({
+    rules: {
+      designation: {
+        required: true
+      },
+      location: {
+        required: true
+      },
+      total_capacity: {
+        required: true,
+        type: number
+      }
+    },
+    messages: {
+      designation: {
+        required: "Veuillez introduire une designation"
+      },
+      location: {
+        required: "L'emplacement est obligatoire"
+      },
+      total_capacity: {
+        required: "La capacité de la salle est obligatoire",
+        type: "La capacité de la salle doit etre un entier"
+      }
+    }
+  });
   $(".service-add").validate({
     rules: {
       name: {
@@ -137,6 +163,24 @@ $(document).ready(function () {
       },
       select: {
         required: "La direction est obligatoire"
+      }
+    }
+  });
+  $(".new-add").validate({
+    rules: {
+      type: {
+        required: true
+      },
+      marque: {
+        required: true
+      }
+    },
+    messages: {
+      type: {
+        required: "Veuillez introduire le type d equipement"
+      },
+      marque: {
+        required: "Veuillez introduire une marque"
       }
     }
   });
@@ -209,7 +253,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\wamp64\www\baguel_project\resources\js\validation.compile.js */"./resources/js/validation.compile.js");
+module.exports = __webpack_require__(/*! /Users/issam/dev/baguel_project/resources/js/validation.compile.js */"./resources/js/validation.compile.js");
 
 
 /***/ })

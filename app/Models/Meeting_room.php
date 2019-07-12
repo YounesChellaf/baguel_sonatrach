@@ -29,6 +29,7 @@ class Meeting_room extends Model
         ]);
         return $meeting_room;
     }
+
     public function reserved(){
         switch ($this->reserved) {
             case false:

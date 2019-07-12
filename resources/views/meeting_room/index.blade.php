@@ -78,7 +78,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         </div>
         <div class="modal-body">
-          <form method="post" class="room-add" action="{{route('meeting_room.store')}}">
+          <form class="meeting-room-add" method="post" class="room-add" action="{{route('meeting_room.store')}}">
             @csrf
             <div class="form-group">
               <label for="recipient-name" class="control-label">Designation du salle</label>
@@ -86,11 +86,11 @@
             </div>
             <div class="form-group">
               <label for="recipient-name" class="control-label">Emplacement</label>
-              <input type="text" class="form-control" id="recipient-name" name="location">
+              <input type="text" class="form-control" id="recipient-location" name="location">
             </div>
             <div class="form-group">
               <label for="recipient-name" class="control-label">Capacité totale (personne)</label>
-              <input type="text" class="form-control" id="recipient-name" name="total_capacity">
+              <input type="text" class="form-control" id="recipient-capacity" name="total_capacity">
             </div>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary waves-effect waves-light">Ajouter</button>
