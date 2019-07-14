@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewReservationRequest;
 use App\Models\Reservation;
+use App\Models\Room;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
@@ -13,7 +14,12 @@ class ReservationController extends Controller
         return view('reservation.index');
     }
     public function create(){
-        return view('reservation.create');
+        return view('reservation.create')->with('room',null);
+    }
+
+    public function createRoomReservation($id){
+        $room = Room::find($id);
+        return view('reservation.create')->with('room',$room);
     }
     public function store(NewReservationRequest $request){
         if ($request->post()){

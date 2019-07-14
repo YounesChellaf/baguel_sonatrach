@@ -32,7 +32,11 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">Chambre</label>
                   <select id="inputState" name="room_id" class="form-control">
-                    <option value="" selected>Choose...</option>
+                    @if($room)
+                      <option value="{{$room->id}}" selected>{{$room->number}}</option>
+                      @else
+                      <option value="" selected>Choose...</option>
+                      @endif
                     @foreach(Room::where('reserved',false)->get() as $room)
                     <option value="{{$room->id}}">{{$room->number}}</option>
                       @endforeach

@@ -49,6 +49,7 @@
                           <div class="dropdown-info dropdown open">
                             <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                             <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
+                              <a class="dropdown-item" href="{{route('admin.room.reservation.create',$room->id)}}">Réserver</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#modal-update-{{$room->id}}">Modifier</a>
                               <a class="dropdown-item" data-toggle="modal" data-target="#modal-delete-{{$room->id}}">Supprimer</a>
                             </div>
