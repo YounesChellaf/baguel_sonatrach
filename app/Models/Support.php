@@ -28,7 +28,7 @@ class Support extends Model
           $nb_prestation = $request->nb;
           for ($i=0;$i<$nb_prestation;$i++){
               $prestation = Prestation::create([
-                 'product_id' => $request->input('prestation')[$i],
+                 'product_name' => $request->input('prestation')[$i],
                  'quantity' => $request->input('quantity')[$i],
               ]);
               $support->prestation()->attach($prestation->id);

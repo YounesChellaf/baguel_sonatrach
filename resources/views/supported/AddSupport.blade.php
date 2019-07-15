@@ -51,17 +51,8 @@
                                                     <tr id='addr0'>
                                                         <td>1</td>
                                                         <td>
-                                                            @if($type == "standard")
-                                                            <select name="prestation[]" class="form-control">
-                                                                <option value="">Demander votre produit</option>
-                                                                @foreach(Product::all() as $product)
-                                                                    <option value="{{$product->id}}">{{$product->name}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                                @else
                                                             <input type="text" name='prestation[]'  placeholder='Prestation demandé' class="form-control"/>
-                                                            </td>
-                                                        @endif
+                                                        </td>
                                                         <td id="td2"><input type="text" name='quantity[]'  placeholder='Quantity' class="form-control"/></td>
                                                     </tr>
                                                     <tr id="addr1"></tr>

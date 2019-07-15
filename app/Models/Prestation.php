@@ -12,6 +12,9 @@ class Prestation extends Model
     function support(){
         return $this->belongsToMany(Support::class,'prestation_support');
     }
+    function reservation(){
+        return $this->belongsToMany(MeetingReservation::class,'prestation_reservation','prestation_id');
+    }
     function product(){
         return $this->belongsTo(Product::class);
     }

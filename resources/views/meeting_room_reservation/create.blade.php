@@ -52,9 +52,33 @@
                 </div>
               </div>
               <div class="form-group">
+                <label class="col-form-label">Prestation demandé</label>
+                <div class="col-md-12">
+                  <table class="table table-bordered table-hover" id="tab_logic">
+                    <tbody>
+                    <tr id='addr0'>
+                      <td>1</td>
+                      <td>
+                          <input type="text" name='prestation[]'  placeholder='Prestation demandé' class="form-control"/>
+                      </td>
+                      <td id="td2"><input type="text" name='quantity[]'  placeholder='Quantity' class="form-control"/></td>
+                    </tr>
+                    <tr id="addr1"></tr>
+                    </tbody>
+                  </table>
+                  <div class="row clearfix">
+                    <div class="col-md-12">
+                      <a id="add_row" class="btn btn-primary pull-left">Ajouter autre produit</a>
+                      <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer ligne</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
                 <label for="inputEmail4">Remarques</label>
                 <textarea type="text" name="remark" class="form-control"  id="inputEmail4" placeholder=""></textarea>
               </div>
+              <input name="nb" type="hidden" value="">
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
           </div>
@@ -63,8 +87,24 @@
     </div>
   </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+@endsection
+@section('extraJs')
+  <script>
+      $(document).ready(function(){
+          var i=1;
+          $("#add_row").click(function(){b=i-1;
+              $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+              $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+              i++;
+              $("input[name=nb]:hidden").val(i);
+          });
+          $("#delete_row").click(function(){
+              if(i>1){
+                  $("#addr"+(i-1)).html('');
+                  i--;
+                  $("input[name=nb]:hidden").val(i);
+              }
+          });
+      });
+  </script>
 @endsection

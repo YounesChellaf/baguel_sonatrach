@@ -15,6 +15,9 @@ class MeetingReservation extends Model
     function reserver(){
         return $this->belongsTo(User::class);
     }
+    function prestation(){
+        return $this->belongsToMany(Prestation::class,'prestation_reservation','reservation_id');
+    }
 
     public static function new(Request $request){
         $reservation = MeetingReservation::create([
@@ -25,6 +28,14 @@ class MeetingReservation extends Model
             'time_out' => $request->time_out,
             'remark' => $request->remark
         ]);
+        $nb_prestation = $request->nb;
+        for ($i=0;$i<$nb_prestation;$i++){
+            $prestation = Prestation::create([
+                'product_name' => $request->input('prestation')[$i],
+                'quantity' => $request->input('quantity')[$i],
+            ]);
+            $reservation->prestation()->attach($prestation->id);
+        }
         $meeting_room = Meeting_room::find($request->meeting_room_id);
         $meeting_room->reserved = true;
         $meeting_room->save();

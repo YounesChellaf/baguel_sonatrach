@@ -17,10 +17,7 @@ class SupportedController extends Controller
             return view('supported.index2');
         }
         return view('supported.index');*/
-        if(Auth::user()->id !=1){
-            return view('supported.index2');
-        }
-        return view('supported.index');
+        return view('supported.index2');
     }
     public function createView($type){
         return view('supported.AddSupport')->with('type',$type);
