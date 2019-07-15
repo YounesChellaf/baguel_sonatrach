@@ -20,7 +20,17 @@ class SupportedController extends Controller
         return view('supported.index2');
     }
     public function createView($type){
-        return view('supported.AddSupport')->with('type',$type);
+        switch ($type){
+            case 'visitor':
+                return view('supported.SupportType.visitor_support');
+            case 'intern-without-imputation':
+                return view('supported.SupportType.support_without_imputation');
+            case 'intern-with-imputation':
+                return view('supported.SupportType.support_with_imputation');
+            case 'dotation':
+                return view('supported.SupportType.dotation_support');
+                break;
+        }
     }
     public function store(SupportRequest $request){
         if ($request->post()){

@@ -19,6 +19,7 @@ class CreateSupportsTable extends Migration
             $table->date('date_from');
             $table->date('date_to')->nullable();
             $table->integer('prestation_id');
+            $table->integer('imputation')->nullable();
             $table->integer('concerned_id');
             $table->string('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');

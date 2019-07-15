@@ -23,6 +23,7 @@ class Support extends Model
               'date_from' => $request->support_date_from,
               'date_to' => $request->support_date_to,
               'remark' => $request->remark,
+              'imputation' => $request->imputation,
               'concerned_id' => Auth::user()->id,
           ]);
           $nb_prestation = $request->nb;

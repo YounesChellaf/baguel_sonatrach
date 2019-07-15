@@ -26,31 +26,63 @@
                                 <div class="page-wrapper">
                                     <div class="page-body">
                                         <div class="row">
-                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'standard') }}">
+                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'visitor') }}">
                                                 <div class="card comp-card">
                                                     <div class="card-body">
                                                         <div class="row align-items-center">
                                                             <div class="col">
-                                                                <h5  class="m-b-25">Prise en charge de produits standard</h5>
+                                                                <h5  class="m-b-25">Prise en charge des visiteurs</h5>
                                                                 <h3 class="f-w-700 text-c-blue"></h3>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/warehouse.png') }}" alt="">
+                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/supplier.png') }}" alt="">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'customized') }}">
+                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'intern-without-imputation') }}">
                                                 <div class="card comp-card">
                                                     <div class="card-body">
                                                         <div class="row align-items-center">
                                                             <div class="col">
-                                                                <h5 class="m-b-25">Prise en charge personnalisé</h5>
+                                                                <h5 class="m-b-25">Prise en charge interne (sans imputation)</h5>
                                                                 <h3 class="f-w-700 text-c-blue"></h3>
                                                             </div>
                                                             <div class="col-auto">
-                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/food.png') }}" alt="">
+                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/distribution.png') }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'intern-with-imputation') }}">
+                                                <div class="card comp-card">
+                                                    <div class="card-body">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h5  class="m-b-25">Prise en charge interne (avec imputation)</h5>
+                                                                <h3 class="f-w-700 text-c-blue"></h3>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/distribution.png') }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.support.create', 'dotation') }}">
+                                                <div class="card comp-card">
+                                                    <div class="card-body">
+                                                        <div class="row align-items-center">
+                                                            <div class="col">
+                                                                <h5 class="m-b-25">Demande dotation en produit d'entretien</h5>
+                                                                <h3 class="f-w-700 text-c-blue"></h3>
+                                                            </div>
+                                                            <div class="col-auto">
+                                                                <img width="120" src="{{ asset('frontend/assets/images/notations/warehouse.png') }}" alt="">
                                                             </div>
                                                         </div>
                                                     </div>
