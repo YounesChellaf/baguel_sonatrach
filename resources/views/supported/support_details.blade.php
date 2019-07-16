@@ -66,7 +66,7 @@
                                             <tbody>
                                             @foreach($support->prestation as $prestation)
                                             <tr>
-                                                <td>{{$prestation->product->name}}</td>
+                                                <td>{{$prestation->product_name}}</td>
                                                 <td>{{$prestation->quantity}}</td>
                                             </tr>
                                             @endforeach

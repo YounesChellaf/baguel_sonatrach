@@ -28,6 +28,7 @@
                                     <thead>
                                     <tr>
                                         <th>Réference</th>
+                                        <th>Bon de commande</th>
                                         <th>Demandeur</th>
                                         <th>date de demande</th>
                                         <th>Nombre produits demande</th>
@@ -36,18 +37,19 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(Support::where('type','dotation')->get() as $support)
+                                    @foreach(DotationSupport::all() as $dotation)
                                         <tr>
-                                            <td>{{$support->id}}</td>
-                                            <td>{{ $support->demandeur($support->concerned_id)->lasttName}}{{ $support->demandeur($support->concerned_id)->firstName}}</td>
-                                            <td>{{ $support->created_at->format('d M Y')}}</td>
-                                            <td> {{$support->prestation->count()}}</td>
-                                            <td>{{$support->status()}}</td>
+                                            <td>{{$dotation->id}}</td>
+                                            <td>{{$dotation->purchase_order}}</td>
+                                            <td>{{ $dotation->demandeur($dotation->concerned_id)->lasttName}}{{ $dotation->demandeur($dotation->concerned_id)->firstName}}</td>
+                                            <td>{{ $dotation->created_at->format('d M Y')}}</td>
+                                            <td> {{$dotation->cleaning_product->count()}}</td>
+                                            <td>{{$dotation->status()}}</td>
                                             <td>
                                                 <div class="dropdown-info dropdown open">
                                                     <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                                                     <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                                                        <a class="dropdown-item" href="{{route('admin.support.details',$support->id)}}">Details</a>
+                                                        <a class="dropdown-item" href="{{route('admin.support.details',$dotation->id)}}">Details</a>
                                                     </div>
                                                 </div>
                                             </td>
