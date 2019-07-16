@@ -13,12 +13,22 @@ class SupportedController extends Controller
 {
 
     public function index(){
-        /*if(Auth::user()->id ==1){
-            return view('supported.index2');
-        }
-        return view('supported.index');*/
-        return view('supported.index2');
+        return view('supported.index');
     }
+    public function mainView($type){
+        switch ($type){
+            case 'visitor':
+                return view('supported.SupportIndex.Visitor');
+            case 'intern-without-imputation':
+                return view('supported.SupportIndex.SupportWithoutImputation');
+            case 'intern-with-imputation':
+                return view('supported.SupportIndex.SupportWithImputation');
+            case 'dotation':
+                return view('supported.SupportIndex.Dotation');
+                break;
+        }
+    }
+
     public function createView($type){
         switch ($type){
             case 'visitor':
@@ -32,6 +42,7 @@ class SupportedController extends Controller
                 break;
         }
     }
+
     public function store(SupportRequest $request){
         if ($request->post()){
             $validated = $request->validated();

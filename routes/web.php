@@ -24,6 +24,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');
   Route::resource('meeting_room','MeetingRoomController');
+  Route::resource('dotation','DotationSupportController');
   Route::post('/room/import', 'RoomController@import')->name('admin.room.import');
   Route::get('/graphic-vue', 'RoomController@graphicView')->name('admin.room.graphic');
   Route::post('/bloc/import', 'BlocController@import')->name('admin.bloc.import');
@@ -214,6 +215,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   });
     Route::prefix('support/')->group(function (){
         Route::get('','SupportedController@index')->name('admin.support.index');
+        Route::get('show/{type?}','SupportedController@mainView')->name('admin.support.show');
         Route::get('create/{type?}','SupportedController@createView')->name('admin.support.create');
         Route::get('details/{id}','SupportedController@detailsView')->name('admin.support.details');
         Route::get('export/{id}','SupportedController@exportPDF')->name('admin.support.export');

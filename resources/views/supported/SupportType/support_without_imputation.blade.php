@@ -46,6 +46,7 @@
                 <textarea class="form-control" name="remark"></textarea>
             </div>
         </div>
+        <input name="support_type" type="hidden" value="without_imputation">
         <input name="nb" type="hidden" value="">
         <button id="submit-btn" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>

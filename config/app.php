@@ -257,6 +257,7 @@ return [
     'MeetingRoom' => App\Models\Meeting_room::class,
     'MeetingReservation' => App\Models\MeetingReservation::class,
     'EquipementInstance' => App\Models\EquipementInstance::class,
+    'DotationSupport' => App\Models\DotationSupport::class,
   ],
 
 ];

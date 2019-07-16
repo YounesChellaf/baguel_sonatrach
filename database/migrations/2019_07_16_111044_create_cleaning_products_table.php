@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSupportTypesTable extends Migration
+class CreateCleaningProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateSupportTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('support_types', function (Blueprint $table) {
+        Schema::create('cleaning_products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('designation');
+            $table->string('product_name');
+            $table->string('observation');
+            $table->integer('quantity');
+            $table->integer('dotation_support_id');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateSupportTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('support_types');
+        Schema::dropIfExists('cleaning_products');
     }
 }

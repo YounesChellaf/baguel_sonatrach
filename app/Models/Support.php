@@ -25,6 +25,7 @@ class Support extends Model
               'remark' => $request->remark,
               'imputation' => $request->imputation,
               'concerned_id' => Auth::user()->id,
+              'type' => $request->support_type,
           ]);
           $nb_prestation = $request->nb;
           for ($i=0;$i<$nb_prestation;$i++){

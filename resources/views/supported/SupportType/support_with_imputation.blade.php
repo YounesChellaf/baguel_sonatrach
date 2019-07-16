@@ -56,6 +56,7 @@
             </div>
         </div>
         <input name="nb" type="hidden" value="">
+        <input name="support_type" type="hidden" value="with_imputation">
         <button id="submit-btn" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 @endsection

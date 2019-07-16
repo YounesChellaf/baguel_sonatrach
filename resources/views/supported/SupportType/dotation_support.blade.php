@@ -1,11 +1,11 @@
 @extends('supported.AddSupport')
 @section('content-form')
-    <form method="POST" action="{{route('admin.support.store')}}" >
+    <form method="POST" action="{{route('dotation.store')}}" >
         @csrf
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Bon de commande</label>
             <div class="col-sm-10">
-                <input type="text" id="supplierName" name="purchase-order" class="form-control">
+                <input type="text" id="supplierName" name="purchase_order" class="form-control">
             </div>
         </div>
         <div class="form-group row">
@@ -36,7 +36,7 @@
                     <tr id='addr0'>
                         <td>1</td>
                         <td>
-                            <input type="text" name='prestation[]'  placeholder='Désignation' class="form-control"/>
+                            <input type="text" name='product_name[]'  placeholder='Désignation' class="form-control"/>
                         </td>
                         <td id="td2"><input type="text" name='quantity[]'  placeholder='Quantité' class="form-control"/></td>
                         <td id="td3"><input type="text" name='observation[]'  placeholder='Observation' class="form-control"/></td>
@@ -53,6 +53,7 @@
             </div>
         </div>
         <input name="nb" type="hidden" value="">
+        <input name="support_type" type="hidden" value="dotation">
         <button id="submit-btn" type="submit" class="btn btn-primary">Enregistrer</button>
     </form>
 @endsection

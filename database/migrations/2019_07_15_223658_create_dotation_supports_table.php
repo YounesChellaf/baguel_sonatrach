@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSupportsTable extends Migration
+class CreateDotationSupportsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,13 @@ class CreateSupportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('supports', function (Blueprint $table) {
+        Schema::create('dotation_supports', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('motif');
+            $table->string('purchase_order');
             $table->date('date_from');
             $table->date('date_to')->nullable();
-            $table->integer('prestation_id');
             $table->integer('imputation')->nullable();
             $table->integer('concerned_id');
-            $table->string('type');
-            $table->string('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();
         });
@@ -35,6 +32,6 @@ class CreateSupportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supports');
+        Schema::dropIfExists('dotation_supports');
     }
 }
