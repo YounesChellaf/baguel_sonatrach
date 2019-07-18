@@ -31,7 +31,6 @@
                     <thead>
                       <tr>
                         <th>Designation</th>
-                        <th>Status</th>
                         <th>Direction</th>
                         <th>Action</th>
                       </tr>
@@ -40,7 +39,6 @@
                       @foreach(Service::all() as $departement)
                       <tr>
                         <td>{{$departement->name}}</td>
-                        <td>{{$departement->active}}</td>
                         <td>{{$departement->direction->name}}</td>
                         <td>
                           <div class="dropdown-info dropdown open">

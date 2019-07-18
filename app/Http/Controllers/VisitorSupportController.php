@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DotationSupport;
+use App\Models\VisitorSupport;
 use Illuminate\Http\Request;
 
-class DotationSupportController extends Controller
+class VisitorSupportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,6 +27,11 @@ class DotationSupportController extends Controller
         //
     }
 
+    public function detailsView($id){
+        $support = VisitorSupport::find($id);
+        return view('supported.visitor_support_details')->with('support',$support);
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,8 +41,8 @@ class DotationSupportController extends Controller
     public function store(Request $request)
     {
         if ($request->post()){
-            $dotation_support = DotationSupport::new($request);
-            return redirect()->route('admin.support.show', 'dotation');
+            $visitor_support = VisitorSupport::new($request);
+            return redirect()->route('admin.support.show', 'visitor');
         }
     }
 
@@ -86,15 +91,22 @@ class DotationSupportController extends Controller
         //
     }
 
+    public function affect(Request $request,$id){
+        $visitor_support =VisitorSupport::find($id);
+        $visitor_support->employee_id = $request->employee_id;
+        $visitor_support->save();
+        return redirect()->route('admin.visitor.support.details',$visitor_support->id);
+    }
+
     public function aprouve($id){
-        $support = DotationSupport::find($id);
+        $support = VisitorSupport::find($id);
         $support->status = 'approved';
         $support->save();
         return redirect()->back();
 
     }
     public  function  reject($id){
-        $support = DotationSupport::find($id);
+        $support = VisitorSupport::find($id);
         $support->status = 'rejected';
         $support->save();
         return redirect()->back();

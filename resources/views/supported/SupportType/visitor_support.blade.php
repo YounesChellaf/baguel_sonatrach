@@ -1,32 +1,37 @@
 @extends('supported.AddSupport')
 @section('content-form')
-    <form method="POST" action="{{route('admin.support.store')}}" >
+    <form method="POST" action="{{route('visitor-support.store')}}" >
         @csrf
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Organisme d'acceuil</label>
             <div class="col-sm-10">
-                <input type="text" id="supplierName" name="organism" class="form-control">
+                <select id="inputState" name="service_id" class="form-control">
+                    <option value="" selected>Choose...</option>
+                    @foreach(Service::all() as $service)
+                        <option value="{{$service->id}}">{{$service->name}}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Motif de la demande</label>
             <div class="col-sm-10">
-                <input type="text" id="supplierName" name="motif_support" class="form-control">
+                <input type="text" id="supplierName" name="motif" class="form-control">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Nombre de repas</label>
             <div class="col-sm-10">
-                <input type="text" id="supplierName" name="motif_support" class="form-control">
+                <input type="text" id="supplierName" name="nb_repas" class="form-control">
             </div>
         </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Période du préstation :</label>
             <div class="col-sm-5">
-                <input type="date" id="supplierDisplayName" class="form-control" name="support_date_from" placeholder="">
+                <input type="date" id="supplierDisplayName" class="form-control" name="date_from" placeholder="">
             </div>
             <div class="col-sm-5">
-                <input type="date" class="form-control" name="support_date_to" placeholder="">
+                <input type="date" class="form-control" name="date_to" placeholder="">
             </div>
         </div>
         <div class="form-group row">
@@ -48,10 +53,10 @@
                     <tr id='addr0'>
                         <td>1</td>
                         <td>
-                            <input type="text" name='name[]'  placeholder='Nom et Prénom ' class="form-control"/>
+                            <input type="text" name='last_name[]'  placeholder='Nom' class="form-control"/>
                         </td>
-                        <td id="td2"><input type="text" name='nombre[]'  placeholder='Nombre' class="form-control"/></td>
-                        <td id="td3"><input type="text" name='observation[]'  placeholder='Observation' class="form-control"/></td>
+                        <td id="td2"><input type="text" name='first_name[]'  placeholder='Prénom' class="form-control"/></td>
+                        <td id="td3"><input type="text" name='identity_card_number[]'  placeholder='Identifiant carte d identité' class="form-control"/></td>
                     </tr>
                     <tr id="addr1"></tr>
                     </tbody>

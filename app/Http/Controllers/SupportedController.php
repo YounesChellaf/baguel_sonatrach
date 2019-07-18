@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SupportRequest;
+use App\Models\DotationSupport;
 use App\Models\Prestation;
 use App\Models\Support;
 use Illuminate\Http\Request;
@@ -55,6 +56,24 @@ class SupportedController extends Controller
         $support =Support::find($id);
         return view('supported.support_details')->with('support',$support);
     }
+    public function dotationDetails($id){
+        $support =DotationSupport::find($id);
+        return view('supported.dotation_details')->with('support',$support);
+    }
+
+    public function dotation_affected_employee(Request $request,$id){
+        $dotation = DotationSupport::find($id);
+        $dotation->employee_id = $request->employee_id;
+        $dotation->save();
+        return redirect()->route('admin.support.dotation.details',$dotation->id);
+    }
+    public function support_affected_employee(Request $request,$id){
+        $support = Support::find($id);
+        $support->employee_id = $request->employee_id;
+        $support->save();
+        return redirect()->route('admin.support.details',$support->id);
+    }
+
     public function aprouve($id){
         $support = Support::find($id);
         $support->status = 'approved';
@@ -67,10 +86,6 @@ class SupportedController extends Controller
         $support->status = 'rejected';
         $support->save();
         return redirect()->back();
-    }
-    public function affect($id){
-        $prestation = Prestation::find($id);
-        return view('supported.affect')->with('prestation',$prestation);
     }
 
     public function exportPDF($id){

@@ -20,6 +20,7 @@ class CreateDotationSupportsTable extends Migration
             $table->date('date_to')->nullable();
             $table->integer('imputation')->nullable();
             $table->integer('concerned_id');
+            $table->integer('employee_id')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();
         });

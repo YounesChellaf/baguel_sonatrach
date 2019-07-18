@@ -16,6 +16,10 @@ class Support extends Model
         return User::find($id);
     }
 
+    function employee(){
+        return $this->belongsTo(Employee::class);
+    }
+
     public static function new(Request $request){
       if ($request->post()){
           $support = Support::create([
@@ -55,6 +59,14 @@ class Support extends Model
             default:
                 // code...
                 break;
+        }
+    }
+    public function affected_employee(){
+        if ($this->employee_id == null){
+            echo '<label class="label label-danger">En attente</label>';
+        }
+        else{
+            return Employee::find($this->employee_id)->last_name .' '. Employee::find($this->employee_id)->first_name;
         }
     }
 }

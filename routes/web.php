@@ -25,6 +25,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('equipement','EquipementController');
   Route::resource('meeting_room','MeetingRoomController');
   Route::resource('dotation','DotationSupportController');
+  Route::resource('visitor-support','VisitorSupportController');
+  Route::get('visitor-support-details/{id}','VisitorSupportController@detailsView')->name('admin.visitor.support.details');
+  Route::get('visitor-support-aprouve/{id}','VisitorSupportController@aprouve')->name('admin.visitor.support.approve');
+  Route::get('visitor-support-reject/{id}','VisitorSupportController@reject')->name('admin.visitor.support.reject');
+  Route::post('visitor-support-affect/{id}','VisitorSupportController@affect')->name('visitor.support.affect');
   Route::post('/room/import', 'RoomController@import')->name('admin.room.import');
   Route::get('/graphic-vue', 'RoomController@graphicView')->name('admin.room.graphic');
   Route::post('/bloc/import', 'BlocController@import')->name('admin.bloc.import');
@@ -218,11 +223,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
         Route::get('show/{type?}','SupportedController@mainView')->name('admin.support.show');
         Route::get('create/{type?}','SupportedController@createView')->name('admin.support.create');
         Route::get('details/{id}','SupportedController@detailsView')->name('admin.support.details');
+        Route::get('dotation-details/{id}','SupportedController@dotationDetails')->name('admin.support.dotation.details');
+        Route::post('dotation-details-affect/{id}','SupportedController@dotation_affected_employee')->name('dotation.support.affect');
+        Route::post('support-details-affect/{id}','SupportedController@support_affected_employee')->name('support.affect');
         Route::get('export/{id}','SupportedController@exportPDF')->name('admin.support.export');
         Route::post('create','SupportedController@store')->name('admin.support.store');
         Route::get('validate/{id}','SupportedController@aprouve')->name('admin.support.approve');
         Route::get('reject/{id}','SupportedController@reject')->name('admin.support.reject');
-        Route::get('affect/{id}','SupportedController@affect')->name('admin.support.affect');
+        Route::get('dotation-validate/{id}','DotationSupportController@aprouve')->name('admin.dotation.support.approve');
+        Route::get('dotation-reject/{id}','DotationSupportController@reject')->name('admin.dotation.support.reject');
     });
 
   Route::prefix('exit_permissions')->group(function(){

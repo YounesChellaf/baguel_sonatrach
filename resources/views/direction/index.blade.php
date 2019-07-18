@@ -31,7 +31,6 @@
                       <tr>
                         <th>Designation</th>
                         <th>Address</th>
-                        <th>Status</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -40,7 +39,6 @@
                       <tr>
                         <td>{{$direction->name}}</td>
                         <td>{{$direction->address}}</td>
-                        <td>{{$direction->active}}</td>
                         <td>
                           <div class="dropdown-info dropdown open">
                             <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>

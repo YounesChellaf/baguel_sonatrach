@@ -25,6 +25,18 @@ class Employee extends Model
       return $this->hasMany(Office::class);
   }
 
+  public function visitor_support(){
+      return $this->hasMany(VisitorSupport::class,'employee_id');
+  }
+
+  public function dotation_support(){
+      return $this->hasMany(DotationSupport::class,'employee_id');
+  }
+
+    public function support(){
+        return $this->hasMany(Support::class,'employee_id');
+    }
+
   public function type(){
     switch ($this->type) {
       case 'employee':

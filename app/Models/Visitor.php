@@ -11,7 +11,11 @@ class Visitor extends Model
     protected $guarded = [];
 
     function visit(){
-        return $this->belongsToMany('App\Models\Visit','visit_visitor');
+        return $this->belongsToMany(Visit::class,'visit_visitor');
+    }
+
+    function support(){
+        return $this->belongsTo(VisitorSupport::class,'support_id');
     }
 
     public static function new(Request $request){

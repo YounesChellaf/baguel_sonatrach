@@ -18,7 +18,8 @@ class CreateVisitorsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('identity_card_number');
-            $table->string('function'  );
+            $table->integer('support_id')->nullable();
+            $table->string('function')->nullable();
             $table->timestamps();
         });
     }

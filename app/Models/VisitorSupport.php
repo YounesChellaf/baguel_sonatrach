@@ -6,38 +6,42 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class DotationSupport extends Model
+class VisitorSupport extends Model
 {
     protected $guarded=[];
 
-    public function cleaning_product(){
-        return $this->hasMany(CleaningProduct::class);
-    }
-    function demandeur($id){
-        return User::find($id);
+    function visitor(){
+        return $this->hasMany(Visitor::class,'support_id');
     }
 
     function employee(){
         return $this->belongsTo(Employee::class);
     }
+
+    function demandeur($id){
+        return User::find($id);
+    }
     public static function new(Request $request){
-        $dotation_support = DotationSupport::create([
-            'purchase_order' => $request->purchase_order,
-            'date_from' => $request->support_date_from,
-            'date_to' => $request->support_date_to,
+        $visitor_support = VisitorSupport::create([
+            'service_id' => $request->service_id,
+            'motif' => $request->motif,
+            'nb_repas' => $request->nb_repas,
+            'date_from' => $request->date_from,
+            'date_to' => $request->date_to,
             'imputation' => $request->imputation,
+            'remark' => $request->remark,
             'concerned_id' => Auth::user()->id,
         ]);
         $nb_prestation = $request->nb;
-        for ($i=0;$i<$nb_prestation+1;$i++){
-            $cleaning_product= CleaningProduct::create([
-                'product_name' => $request->input('product_name')[$i],
-                'observation' => $request->input('observation')[$i],
-                'quantity' => $request->input('quantity')[$i],
-                'dotation_support_id' => $dotation_support->id,
+        for ($i=0;$i<$nb_prestation;$i++){
+            $visitor= Visitor::create([
+                'last_name' => $request->input('last_name')[$i],
+                'first_name' => $request->input('first_name')[$i],
+                'identity_card_number' => $request->input('identity_card_number')[$i],
+                'support_id' => $visitor_support->id,
             ]);
         }
-        return $dotation_support;
+        return $visitor_support;
     }
 
     public function status(){
