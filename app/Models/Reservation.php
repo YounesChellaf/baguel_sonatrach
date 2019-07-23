@@ -4,12 +4,15 @@ namespace App\Models;
 
 use App\Models\Employee;
 use App\Models\Room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 
 class Reservation extends Model
 {
     protected $guarded =[];
+
+    protected $dates=['date_in','date_out'];
 
     function room(){
          return $this->belongsTo(Room::class);
@@ -19,18 +22,21 @@ class Reservation extends Model
     }
 
     public static function new(Request $request){
+        if (Room::find($request->room_id)->isReserved(new Carbon($request->date_in),new Carbon($request->date_out))){
+            $reservation = Reservation::create([
+                'employee_id' => $request->employee_id,
+                'room_id' => $request->room_id,
+                'date_in' => $request->date_in,
+                'date_out' => $request->date_out,
+                'remark' => $request->remark
+            ]);
+            $room = Room::find($request->room_id);
+            $room->reserved = true;
+            $room->save();
+            return $reservation;
+        }
+        return dd('Reservation non permise a cause du chevauchement de dates');
 
-         $reservation = Reservation::create([
-            'employee_id' => $request->employee_id,
-            'room_id' => $request->room_id,
-            'date_in' => $request->date_in,
-            'date_out' => $request->date_out,
-            'remark' => $request->remark
-        ]);
-        $room = Room::find($request->room_id);
-        $room->reserved = true;
-        $room->save();
-         return $reservation;
     }
     public function status(){
         switch ($this->status) {

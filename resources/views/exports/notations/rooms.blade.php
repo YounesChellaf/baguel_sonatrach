@@ -44,7 +44,7 @@ Bloc/Pavillon/Villa
   </table>
   <table class="commentsTable">
     <tr>
-      <td id="commentTD">Commentaires</td>
+      <td id="commentTD">Commentaires </td>
     </tr>
     <tr>
       <td class="comments"> {{ $doc->comments }}</td>

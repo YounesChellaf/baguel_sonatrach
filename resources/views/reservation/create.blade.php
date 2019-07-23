@@ -37,7 +37,7 @@
                       @else
                       <option value="" selected>Choose...</option>
                       @endif
-                    @foreach(Room::where('reserved',false)->get() as $room)
+                    @foreach(Room::all() as $room)
                     <option value="{{$room->id}}">{{$room->number}}</option>
                       @endforeach
                   </select>
@@ -61,7 +61,7 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail4">Remarques</label>
+                <label for="inputEmail4"> {{Room::occupation_rate('2019-07-01','2019-07-29')}} Remarques</label>
                 <textarea type="text" name="remark" class="form-control" value="{{ old('phone') }}" id="inputEmail4" placeholder=""></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Enregistrer</button>

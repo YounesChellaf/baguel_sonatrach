@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\EquipementInstance;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Room extends Model
 {
@@ -51,10 +52,27 @@ class Room extends Model
         }
     }
 
-    public  static function occupation_rate(){
-          $rate[0] = Room::where('reserved',false)->count();
-          $rate[1] = Room::where('reserved',true)->count();
-          return $rate;
+    public function isReserved($date_from,$date_to){
+        $date_in = new Carbon($date_from);
+        $date_out = new Carbon($date_to);
+        $reserved_room = Reservation::where('room_id',$this->id)->get();
+        foreach ($reserved_room as $reservation){
+            if ($date_in->between($reservation->date_in, $reservation->date_out) or  $date_out->between($reservation->date_in, $reservation->date_out)){
+                return false;
+                break;
+            }
+            else return true;
+        }
+    }
+
+
+    public static function occupation_rate($date_from,$date_to){
+        $date_in = new Carbon($date_from);
+        $date_out = new Carbon($date_to);
+        if ($date_from and $date_to){
+         return   Reservation::where('date_in','>=',$date_from)->orWhere('date_out','=<',$date_to)->groupBy('room_id')->get()->count();
+        }
+        return Reservation::all()->groupBy('room_id')->count();
     }
 
 }
