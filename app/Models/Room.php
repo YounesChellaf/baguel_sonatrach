@@ -61,14 +61,12 @@ class Room extends Model
                 return false;
                 break;
             }
-            else return true;
         }
+        return true;
     }
 
 
     public static function occupation_rate($date_from,$date_to){
-        $date_in = new Carbon($date_from);
-        $date_out = new Carbon($date_to);
         if ($date_from and $date_to){
          return   Reservation::where('date_in','>=',$date_from)->orWhere('date_out','=<',$date_to)->groupBy('room_id')->get()->count();
         }

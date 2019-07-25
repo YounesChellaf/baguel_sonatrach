@@ -19,40 +19,77 @@
                 <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="row">
-                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.notations.index.type', 'rooms') }}">
-                                <div class="card comp-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="m-b-25">Chambres Libres</h6>
-                                                <h3 class="f-w-700 text-c-blue">{{ Room::occupation_rate()[0] }} / </h3>
-                                                <p class="m-b-0">{{ Room::all()->count() }}</p>
+                                <div class="card product-progress-card">
+                                    <div class="card-block">
+                                        <div class="row pp-main">
+
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="pp-cont">
+                                                    <form action="{{route('admin.room.statistic')}}" method="POST">
+                                                        @csrf
+                                                    <div class="row align-items-center m-b-20">
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputEmail4">A partir</label>
+                                                            <input type="date" name="date_from"  class="form-control" id="inputEmail4" placeholder="">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <label for="inputPassword4">Jusqu'á</label>
+                                                            <input type="date" name="date_to" class="form-control" id="inputPassword4" placeholder="">
+                                                        </div>
+                                                        <button type="submit" class="btn btn-outline-primary" style="width: 100%">Recherche</button>
+                                                    </div>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="col-auto">
-                                                <img width="120" src="{{ asset('frontend/assets/images/notations/room.png') }}" alt="">
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="pp-cont">
+                                                    <div class="row align-items-center m-b-20">
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-bed f-24 text-mute"></i>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <h2 class="m-b-0 text-c-red">{{$occuped_room}}</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-items-center m-b-15">
+                                                        <div class="col-auto">
+                                                            <p class="m-b-0">Chambres occupées</p>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <p class="m-b-0 text-c-red">{{$occuped_room/Room::all()->count()*100}}%</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-c-red" style="width:{{$occuped_room/Room::all()->count()*100}}%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-md-6">
+                                                <div class="pp-cont">
+                                                    <div class="row align-items-center m-b-20">
+                                                        <div class="col-auto">
+                                                            <i class="fas fa-bed f-24 text-mute"></i>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <h2 class="m-b-0 text-c-green">{{Room::all()->count() - $occuped_room}}</h2>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row align-items-center m-b-15">
+                                                        <div class="col-auto">
+                                                            <p class="m-b-0">Chambres libre</p>
+                                                        </div>
+                                                        <div class="col text-right">
+                                                            <p class="m-b-0 text-c-green">{{(Room::all()->count() - $occuped_room)/Room::all()->count()*100}}%</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-c-green" style="width:{{(Room::all()->count() - $occuped_room)/Room::all()->count()*100}}%"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-md-6 singleNotationCategory" data-url = "{{ route('admin.notations.index.type', 'rooms') }}">
-                                <div class="card comp-card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col">
-                                                <h6 class="m-b-25">Chambres occupées</h6>
-                                                <h3 class="f-w-700 text-c-blue">{{ Room::occupation_rate()[1] }} /</h3>
-                                                <p class="m-b-0">{{ Room::all()->count() }}</p>
-                                            </div>
-                                            <div class="col-auto">
-                                                <img width="120" src="{{ asset('frontend/assets/images/notations/room.png') }}" alt="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            </div>
                                 <div class="card">
                                 <div class="card-block">
                                     @foreach(Room::all() as $room)

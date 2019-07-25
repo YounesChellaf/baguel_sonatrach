@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EquipementInstance;
 use App\Models\Room;
 use Illuminate\Http\Request;
+use function PHPSTORM_META\override;
 
 class RoomController extends Controller
 {
@@ -19,7 +20,14 @@ class RoomController extends Controller
     }
 
     public function graphicView(){
-        return view('room.graphic_view');
+        $occuped_room = Room::occupation_rate(null,null);
+        return view('room.graphic_view')->with('occuped_room',$occuped_room);
+    }
+
+
+    public function RoomOccupation(Request $request){
+        $occuped_room = Room::occupation_rate($request->date_from,$request->date_to);
+        return view('room.graphic_view')->with('occuped_room',$occuped_room);
     }
 
     /**
@@ -31,6 +39,8 @@ class RoomController extends Controller
     {
         //
     }
+
+
 
     /**
      * Store a newly created resource in storage.

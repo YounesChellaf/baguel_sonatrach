@@ -32,6 +32,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::post('visitor-support-affect/{id}','VisitorSupportController@affect')->name('visitor.support.affect');
   Route::post('/room/import', 'RoomController@import')->name('admin.room.import');
   Route::get('/graphic-vue', 'RoomController@graphicView')->name('admin.room.graphic');
+  Route::post('/graphic-vue', 'RoomController@RoomOccupation')->name('admin.room.statistic');
   Route::post('/bloc/import', 'BlocController@import')->name('admin.bloc.import');
   Route::post('/office/import', 'OfficeController@import')->name('admin.office.import');
   Route::post('/equipement/import', 'EquipementController@import')->name('admin.equipement.import');
@@ -154,6 +155,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('bloc','BlocController');
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
+
   Route::resource('equipement','EquipementController');
 
   Route::resource('visiteur','VisitorController');
