@@ -95,7 +95,7 @@
                                     @foreach(Room::all() as $room)
 
                                         <div style="display: inline-block" class="col-md-2">
-                                        @if($room->reserved)
+                                        @if($room->state())
                                             <img style="height: 10% ; width: 90% " src="{{asset('frontend/assets/images/occuped-room.jpg')}}" alt="">
                                         @else
                                             <img style="height: 10% ; "  src="{{asset('frontend/assets/images/free-room.jpg')}}" alt="">

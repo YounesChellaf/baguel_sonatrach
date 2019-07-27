@@ -17,6 +17,7 @@ class CreateBlocsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('number');
+            $table->boolean('is_vip')->default(false);
             $table->enum('type',['travail','hebergement']);
             $table->integer('floors_number');
             $table->integer('administration_id')->unsigned()->index();

@@ -58,7 +58,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Liste des employées</label>
+                                            <label class="col-sm-2 col-form-label">Liste des visiteurs</label>
                                             <div class="col-md-10">
                                                 <table class="table table-bordered table-hover" id="tab_logic">
                                                     <tbody>

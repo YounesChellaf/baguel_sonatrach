@@ -29,7 +29,6 @@ class Room extends Model
 
     public static function boot() {
         parent::boot();
-
         static::deleting(function($room) { // before delete() method call this
             $room->reservation()->delete();
             $room->planning()->delete();
@@ -37,8 +36,19 @@ class Room extends Model
         });
     }
 
+    public function state(){
+        $current_date = Carbon::now();
+        foreach (Reservation::where('room_id',$this->id)->get() as $reservation){
+            if ($current_date->between($reservation->date_in,$reservation->date_out)){
+                return true;
+                break;
+            }
+        }
+        return false;
+    }
+
     public function reserved(){
-        switch ($this->reserved) {
+        switch ($this->state()) {
             case false:
                 echo '<label class="label label-success">Libre</label>';
                 break;
