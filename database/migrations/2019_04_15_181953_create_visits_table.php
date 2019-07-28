@@ -22,7 +22,7 @@ class CreateVisitsTable extends Migration
             $table->integer('last_update_by')->nullable();
             $table->integer('concerned_id');
             $table->string('company_name')->nullable();
-            $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
+            $table->enum('status', ['pending', 'enter_validation','exit_validation', 'rejected'])->default('pending');
             $table->longText('reason');
             //$table->integer('person_count');
             $table->text('remark');

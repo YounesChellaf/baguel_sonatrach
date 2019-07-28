@@ -26,7 +26,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form method="POST" action="/admin/visit/create" >
+                            <form method="POST" action="{{route('admin.visit.store')}}" >
                                 @csrf
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Nom sociéte</label>
@@ -50,9 +50,9 @@
                                     <label class="col-sm-2 col-form-label">Employée concernée</label>
                                     <div class="col-sm-10">
                                         <select name="concerned_id" class="form-control">
-                                            @foreach(Employee::all() as $employee)
-                                            <option value=""></option>
-                                            <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
+                                            <option value="">Choose...</option>
+                                            @foreach(User::all() as $employee)
+                                            <option value="{{$employee->id}}">{{$employee->firstName}} {{$employee->first_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -83,12 +83,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Reason de visite</label>
                                     <div class="col-sm-10">
-                                        <select name="reason" class="form-control">
-                                            <option value=""></option>
-                                            <option value="reason 1">reason 1</option>
-                                            <option value="reason 2">reason 2</option>
-                                            <option value="reason 3">reason 3</option>
-                                        </select>
+                                        <textarea class="form-control" name="reason"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -110,6 +105,7 @@
 <script>
     $(document).ready(function(){
         var i=1;
+        $("input[name=nb]:hidden").val(i);
         $("#add_row").click(function(){b=i-1;
             $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
             $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');

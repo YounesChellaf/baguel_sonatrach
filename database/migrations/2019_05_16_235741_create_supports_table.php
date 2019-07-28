@@ -23,7 +23,7 @@ class CreateSupportsTable extends Migration
             $table->integer('concerned_id');
             $table->integer('employee_id');
             $table->string('type');
-            $table->enum('support_type', ['hebergement', 'restauration']);
+            $table->enum('support_type', ['hebergement', 'restauration'])->nullable();
             $table->enum('support_duration_type', ['vip', 'ordinaire'])->default('ordinaire');
             $table->string('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');

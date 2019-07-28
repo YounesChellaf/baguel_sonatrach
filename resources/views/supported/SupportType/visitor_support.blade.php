@@ -69,6 +69,24 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+        <div class="form-group col-md-4">
+            <label for="inputState">Type</label>
+            <select id="inputState" name="support_type" class="form-control">
+                <option selected>Choose...</option>
+                <option value="hebergement">hebergement</option>
+                <option value="restauration">restauration</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="inputState">Service</label>
+            <select id="inputState" name="support_duration_type" class="form-control">
+                <option selected>Choose...</option>
+                <option value="ordinaire">Ordinaire</option>
+                <option value="vip">VIP</option>
+            </select>
+        </div>
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Remarques</label>
             <div class="col-sm-10">

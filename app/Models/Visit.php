@@ -20,6 +20,10 @@ class Visit extends Model
     function CreatedBy(){
         return $this->belongsTo('App\Models\User','created_by','id');
     }
+
+    function ConcernedEmployee(){
+        return $this->belongsTo('App\Models\User','concerned_id','id');
+    }
     public static function new($request){
         $visit = Visit::create([
             'company_name' => $request->company_name,
@@ -45,12 +49,16 @@ class Visit extends Model
     }
     public function status(){
         switch ($this->status) {
-            case 'draft':
-                echo '<label class="label label-default">Brouillon</label>';
+            case 'pending':
+                echo '<label class="label label-default">En attente</label>';
                 break;
 
-            case 'approved':
-                echo '<label class="label label-success">Approuvé</label>';
+            case 'enter_validation':
+                echo '<label class="label label-success">Entrée Approuvé</label>';
+                break;
+
+            case 'exit_validation':
+                echo '<label class="label label-success">Sortie Approuvé</label>';
                 break;
 
             case 'rejected':

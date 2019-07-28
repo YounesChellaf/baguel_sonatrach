@@ -1,5 +1,5 @@
 @extends('layout.main_layout')
-
+@include('layout.assets.datatable._css')
 @section('extraCss')
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/bower_components/datatables.net-bs4/css/dataTables.bootstrap4.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('frontend/assets/pages/data-table/css/buttons.dataTables.min.css') }}">
@@ -17,6 +17,104 @@
   <div class="main-body">
     <div class="page-wrapper">
       <div class="page-body">
+        <div class="card product-progress-card">
+          <div class="card-block">
+            <div class="row pp-main">
+              <div class="col-xl-3 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-user-cog f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 ">{{Visit::where('status','pending')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Visites en attente</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 ">{{Visit::where('status','pending')->count()/Visit::all()->count()*100}}%</p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar " ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-user-check f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 text-c-green">{{Visit::where('status','enter_validation')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Visites á entrée validée</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 text-c-green">{{Visit::where('status','enter_validation')->count()/Visit::all()->count()*100}}%</p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar bg-c-green" ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-user-check f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 text-c-green">{{Visit::where('status','exit_validation')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Visites á sortie validée</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 text-c-green">{{Visit::where('status','exit_validation')->count()/Visit::all()->count()*100}}%</p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar bg-c-green" ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-user-alt-slash f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 text-c-red">{{Visit::where('status','rejected')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Visites rejetées</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 text-c-red">{{Visit::where('status','rejected')->count()/Visit::all()->count()*100}}%</p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar bg-c-red" ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="card">
           <div class="card-header">
             <h5>Visites</h5>
@@ -50,7 +148,11 @@
                       <div class="dropdown-info dropdown open">
                         <button class="btn abtn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="{{ route('admin.visit.approve', $visit->id) }}">Valider</a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-visit-{{$visit->id}}">details</a>
+                          @if(User::find($visit->ConcernedEmployee->id) == Auth::user())
+                          <a class="dropdown-item" href="{{ route('admin.visit.enter-approve', $visit->id) }}">Valider l'entrée</a>
+                          <a class="dropdown-item" href="{{ route('admin.visit.exit-approve', $visit->id) }}">Valider la sortie</a>
+                          @endif
                           <a class="dropdown-item removeSupplier" data-supplier-id="" data-supplier-name="" href="{{ route('admin.visit.reject', $visit->id) }}">Rejeter</a>
                         </div>
                       </div>
@@ -141,8 +243,8 @@
   </div>
 </div>
 @endforeach
+@include('layout.assets.datatable._js')
 @endsection
-
 @section('extraJs')
 <script src="{{ asset('frontend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('frontend/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>

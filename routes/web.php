@@ -217,7 +217,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('','VisitController@index')->name('admin.visits.index');
     Route::get('create','VisitController@createView')->name('admin.visit.create');
     Route::post('create','VisitController@store')->name('admin.visit.store');
-    Route::get('validate/{id}','VisitController@aprouve')->name('admin.visit.approve');
+    Route::get('validate-entry/{id}','VisitController@enterAprouve')->name('admin.visit.enter-approve');
+    Route::get('validate-exit/{id}','VisitController@exitAprouve')->name('admin.visit.exit-approve');
     Route::get('reject/{id}','VisitController@reject')->name('admin.visit.reject');
   });
     Route::prefix('support/')->group(function (){

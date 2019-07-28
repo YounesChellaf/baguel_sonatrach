@@ -24,17 +24,30 @@ class VisitController extends Controller
         }
     }
 
-    public function aprouve($id){
+    public function enterAprouve($id){
         $visit = Visit::find($id);
-        $visit->status = 'approved';
-        $visit->save();
+        if ($visit->status == 'pending' ){
+            $visit->status = 'enter_validation';
+            $visit->save();
+        }
+        return redirect()->back();
+
+    }
+    public function exitAprouve($id){
+        $visit = Visit::find($id);
+        if ($visit->status == 'enter_validation' ){
+            $visit->status = 'exit_validation';
+            $visit->save();
+        }
         return redirect()->back();
 
     }
     public  function  reject($id){
         $visit = Visit::find($id);
-        $visit->status = 'rejected';
-        $visit->save();
+        if ($visit->status == 'pending'){
+            $visit->status = 'rejected';
+            $visit->save();
+        }
         return redirect()->back();
     }
 }

@@ -77,10 +77,11 @@ class Room extends Model
 
 
     public static function occupation_rate($date_from,$date_to){
+        $current_date = Carbon::now();
         if ($date_from and $date_to){
          return   Reservation::where('date_in','>=',$date_from)->orWhere('date_out','=<',$date_to)->groupBy('room_id')->get()->count();
         }
-        return Reservation::all()->groupBy('room_id')->count();
+        return Reservation::where('date_in','=<',$current_date)->where('date_out','>',$current_date)->groupBy('room_id')->count();
     }
 
 }
