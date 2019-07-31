@@ -33,6 +33,7 @@
                       <tr>
                         <th>Designation</th>
                         <th>number</th>
+                        <th>Classe</th>
                         <th>type</th>
                         <th>Action</th>
                     </thead>
@@ -41,6 +42,7 @@
                       <tr>
                         <td>{{$bloc->name}}</td>
                         <td>{{$bloc->number}}</td>
+                        <td>{{$bloc->classe}}</td>
                         <td>{{$bloc->type}}</td>
                         <td>
                           <div class="dropdown-info dropdown open">
@@ -85,6 +87,14 @@
             <div class="form-group">
               <label for="recipient-name" class="control-label">number</label>
               <input type="text" class="form-control" id="recipient-number" name="number">
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
+                <select name="classe" class="form-control">
+                  <option value="ordinaire">Ordinaire</option>
+                  <option value="vip">VIP</option>
+                </select>
+              </div>
             </div>
             <div class="form-group row">
               <div class="col-sm-12">

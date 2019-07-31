@@ -11,7 +11,9 @@ class Employee extends Model
   function visit(){
       return $this->belongsToMany('App\Models\Visit','employee_visit');
   }
-
+  function cleaning_order(){
+      return $this->belongsToMany(CleaningOrder::class,'employee_cleaning_order');
+  }
   function reservation(){
       return $this->hasMany(Reservation::class);
   }

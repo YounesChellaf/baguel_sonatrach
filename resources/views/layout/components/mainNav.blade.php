@@ -119,6 +119,11 @@
             </a>
           </li>
           <li class=" ">
+            <a href="{{route('cleaning_order.index')}}" class="waves-effect waves-dark">
+              <span class="pcoded-mtext">Ordre de néttoyage</span>
+            </a>
+          </li>
+          <li class=" ">
             <a href="#!" class="waves-effect waves-dark">
               <span class="pcoded-mtext">Maintenance</span>
             </a>

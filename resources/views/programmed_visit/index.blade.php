@@ -132,7 +132,6 @@
                     <th>Crée par</th>
                     <th>Etat</th>
                     <th>Action</th>
-                    <th></th>
                   </tr>
                 </thead>
                 <tbody>

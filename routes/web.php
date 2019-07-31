@@ -20,6 +20,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
   Route::resource('divisions','DirectionController');
   Route::resource('services','DepartementController');
   Route::resource('bloc','BlocController');
+  Route::resource('cleaning_order','CleaningOrderController');
+  Route::get('cleaning_order/details/{id}','CleaningOrderController@Details')->name('admin.cleaning_order.details');
+  Route::get('cleaning_order/{id}/approuve','CleaningOrderController@aprouve')->name('admin.cleaning_order.approuve');
+  Route::get('cleaning_order/{id}/reject','CleaningOrderController@reject')->name('admin.cleaning_order.reject');
+  Route::get('cleaning_order/{id}/done','CleaningOrderController@done')->name('admin.cleaning_order.done');
+  Route::post('cleaning_order/{id}/affect','CleaningOrderController@affectEmployee')->name('admin.cleaning_order.affect');
   Route::resource('office','OfficeController');
   Route::resource('room','RoomController');
   Route::resource('equipement','EquipementController');

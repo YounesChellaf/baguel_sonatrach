@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\BlocsImport;
-use App\Models\Bloc;
-use Maatwebsite\Excel\Facades\Excel;
+use App\Models\CleaningOrder;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class BlocController extends Controller
+class CleaningOrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +15,22 @@ class BlocController extends Controller
      */
     public function index()
     {
-        return view('bloc.index');
+        return view('cleaning_order.index');
+    }
+
+    public function Details($id){
+        $order = CleaningOrder::find($id);
+        return view('cleaning_order.details_view')->with('order',$order);
+    }
+
+
+    public  function  affectEmployee(Request $request,$id){
+        $order = CleaningOrder::find($id);
+        $nb = $request->nb;
+        for ($i=0;$i<$nb;$i++){
+            $order->employee()->attach($request->input('employee_id')[$i]);
+        }
+        return redirect()->route('cleaning_order.index');
     }
 
     /**
@@ -38,8 +52,8 @@ class BlocController extends Controller
     public function store(Request $request)
     {
         if ($request->post()){
-            $bloc = Bloc::new($request);
-            return redirect()->back();
+            CleaningOrder::new($request);
+            return redirect()->route('cleaning_order.index');
         }
     }
 
@@ -74,21 +88,7 @@ class BlocController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->input('name');
-        $number = $request->input('number');
-        $type = $request->input('type');
-        $active = $request->input('active');
-
-        $bloc = Bloc::find($id);
-
-        $bloc->name = $name;
-        $bloc->number = $number;
-        $bloc->type = $type;
-        $bloc->active = $active;
-
-        $bloc->save();
-
-        return redirect()->back();
+        //
     }
 
     /**
@@ -99,20 +99,29 @@ class BlocController extends Controller
      */
     public function destroy($id)
     {
-        Bloc::destroy($id);
+        CleaningOrder::destroy($id);
+        return redirect()->route('cleaning_order.index');
+    }
+
+    public function aprouve($id){
+        $order = CleaningOrder::find($id);
+        $order->status = 'approved';
+        $order->save();
+        return redirect()->back();
+
+    }
+    public  function  reject($id){
+        $order = CleaningOrder::find($id);
+        $order->status = 'rejected';
+        $order->save();
         return redirect()->back();
     }
 
-    public function import(Request $request){
-        if($request->post()){
-            if($request->file('BlocsFileInput')){
-                Excel::import(new BlocsImport, $request->file('BlocsFileInput'));
-                return back();
-            }else{
-                abort(404);
-            }
-        }else{
-            abort(404);
-        }
+    public function done($id){
+        $order = CleaningOrder::find($id);
+        $order->done_date = Carbon::now();
+        $order->status = 'done';
+        $order->save();
+        return redirect()->route('cleaning_order.index');
     }
 }
