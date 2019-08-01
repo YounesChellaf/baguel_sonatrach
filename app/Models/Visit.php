@@ -47,6 +47,13 @@ class Visit extends Model
         }
         return $visit;
     }
+
+    public static function percent($status){
+        if (Visit::all()->count() != 0){
+            return Visit::where('status',$status)->count()/Visit::all()->count()*100;
+        }
+        else return 0;
+    }
     public function status(){
         switch ($this->status) {
             case 'pending':

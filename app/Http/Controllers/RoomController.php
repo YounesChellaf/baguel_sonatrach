@@ -16,18 +16,18 @@ class RoomController extends Controller
      */
     public function index()
     {
-        return view('room.index');
+        $occuped_room = Room::occupation_rate(null,null);
+        return view('room.index')->with('occuped_room',$occuped_room);
     }
 
     public function graphicView(){
-        $occuped_room = Room::occupation_rate(null,null);
-        return view('room.graphic_view')->with('occuped_room',$occuped_room);
+        return view('room.graphic_view');
     }
 
 
     public function RoomOccupation(Request $request){
         $occuped_room = Room::occupation_rate($request->date_from,$request->date_to);
-        return view('room.graphic_view')->with('occuped_room',$occuped_room);
+        return view('room.index')->with('occuped_room',$occuped_room);
     }
 
     /**

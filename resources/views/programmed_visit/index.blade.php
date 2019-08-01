@@ -35,7 +35,7 @@
                       <p class="m-b-0">Visites en attente</p>
                     </div>
                     <div class="col text-right">
-                      <p class="m-b-0 ">{{Visit::where('status','pending')->count()/Visit::all()->count()*100}}%</p>
+                      <p class="m-b-0 ">{{Visit::percent('pending')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
@@ -58,7 +58,7 @@
                       <p class="m-b-0">Visites á entrée validée</p>
                     </div>
                     <div class="col text-right">
-                      <p class="m-b-0 text-c-green">{{Visit::where('status','enter_validation')->count()/Visit::all()->count()*100}}%</p>
+                      <p class="m-b-0 text-c-green">{{Visit::percent('enter_validation')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
@@ -81,7 +81,7 @@
                       <p class="m-b-0">Visites á sortie validée</p>
                     </div>
                     <div class="col text-right">
-                      <p class="m-b-0 text-c-green">{{Visit::where('status','exit_validation')->count()/Visit::all()->count()*100}}%</p>
+                      <p class="m-b-0 text-c-green">{{Visit::percent('exit_validation')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
@@ -104,7 +104,7 @@
                       <p class="m-b-0">Visites rejetées</p>
                     </div>
                     <div class="col text-right">
-                      <p class="m-b-0 text-c-red">{{Visit::where('status','rejected')->count()/Visit::all()->count()*100}}%</p>
+                      <p class="m-b-0 text-c-red">{{Visit::percent('rejected')}}%</p>
                     </div>
                   </div>
                   <div class="progress">

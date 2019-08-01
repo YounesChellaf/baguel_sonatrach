@@ -43,15 +43,14 @@
                     <td>{{$reservation->room->number}}</td>
                     <td>{{$reservation->room->bloc->name}} {{$reservation->room->bloc->number}}</td>
                     <td>{{$reservation->employee->last_name}} {{$reservation->employee->first_name}}</td>
-                    <td>{{$reservation->date_in}}</td>
-                    <td>{{$reservation->date_out}}</td>
+                    <td>{{$reservation->date_in->format('Y-m-d')}}</td>
+                    <td>{{$reservation->date_out->format('Y-m-d')}}</td>
                     <td>{{$reservation->status()}}</td>
                     <td>
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="#!">Consulter</a>
-                          <a class="dropdown-item" href="#!">Room checklist</a>
+                          <a class="dropdown-item" href="{{route('admin.reservation.checklist',$reservation->id)}}">Room checklist</a>
                           <a class="dropdown-item" href="{{ route('admin.reservation.approve', $reservation->id) }}">Valider</a>
                           <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $reservation->id) }}">Rejeter</a>
                           <a class="dropdown-item" href="#">Modifier</a>

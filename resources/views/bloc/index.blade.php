@@ -137,6 +137,15 @@
             </div>
             <div class="form-group row">
               <div class="col-sm-12">
+                <select name="classe" class="form-control">
+                  <option value="{{$bloc->classe}}">{{$bloc->classe}}</option>
+                  <option value="ordinaire">Ordinaire</option>
+                  <option value="vip">VIP</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-12">
                 <select name="type" class="form-control">
                   <option value="{{$bloc->type}}">{{$bloc->type}}</option>
                   <option value="travail">travail</option>

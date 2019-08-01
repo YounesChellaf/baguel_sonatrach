@@ -292,6 +292,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
     Route::get('/create','ReservationController@create')->name('admin.reservation.create');
     Route::get('/create/{id}','ReservationController@createRoomReservation')->name('admin.room.reservation.create');
     Route::post('/create','ReservationController@store')->name('admin.reservation.create.post');
+    Route::get('checklist/{id}','ReservationController@checkView')->name('admin.reservation.checklist');
     Route::get('validate/{id}','ReservationController@aprouve')->name('admin.reservation.approve');
     Route::get('reject/{id}','ReservationController@reject')->name('admin.reservation.reject');
     Route::get('delete/{id}','ReservationController@destroy')->name('admin.reservation.delete');

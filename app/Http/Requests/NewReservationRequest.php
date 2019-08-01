@@ -26,7 +26,7 @@ class NewReservationRequest extends FormRequest
         return [
             'room_id' => 'required',
             'employee_id' => 'required',
-            'date_in' => 'required',
+            'date_in' => 'required|before:date_out',
             'date_out' => 'required',
         ];
     }

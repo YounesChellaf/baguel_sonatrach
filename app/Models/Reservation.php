@@ -7,6 +7,7 @@ use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Requests\NewReservationRequest;
 
 class Reservation extends Model
 {
@@ -23,6 +24,7 @@ class Reservation extends Model
 
     public static function new(Request $request){
         if (Room::find($request->room_id)->isReserved(new Carbon($request->date_in),new Carbon($request->date_out))){
+
             $reservation = Reservation::create([
                 'employee_id' => $request->employee_id,
                 'room_id' => $request->room_id,
@@ -33,9 +35,9 @@ class Reservation extends Model
             $room = Room::find($request->room_id);
             $room->reserved = true;
             $room->save();
-            return $reservation;
+            return 'no-error';
         }
-        return dd('Reservation non permise a cause du chevauchement de dates');
+        return  'Reservation non permise á cause du chevauchement des dates avec une autre reservation précédente';
 
     }
     public function status(){

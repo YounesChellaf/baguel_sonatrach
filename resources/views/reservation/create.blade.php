@@ -15,13 +15,23 @@
             <h5>Nouvelle réservation</h5>
           </div>
           <div class="card-block">
+            @if ($reserved_error)
+              <div class="alert alert-danger">
+                <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouvelle reservation.
+                <br>
+                <ul class="t7wissa-errors-list">
+                    <li>{{ $reserved_error }}</li>
+                </ul>
+              </div>
+            @endif
             @if ($errors->any())
             <div class="alert alert-danger">
-              <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouveau employée.
+              <strong>Whoops!</strong> Il y avait quelques problèmes lors la création du nouvelle reservation.
               <br>
               <ul class="t7wissa-errors-list">
                 @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
+                <li>{{ $reserved_error }}</li>
                 @endforeach
               </ul>
             </div>
@@ -35,7 +45,7 @@
                     @if($room)
                       <option value="{{$room->id}}" selected>{{$room->number}}</option>
                       @else
-                      <option value="" selected>Choose...</option>
+                      <option value="{{ old('room_id') }}" selected>Choose...</option>
                       @endif
                     @foreach(Room::all() as $room)
                     <option value="{{$room->id}}">{{$room->number}}</option>
@@ -45,7 +55,7 @@
                 <div class="form-group col-md-12">
                   <label for="inputState">Employee</label>
                   <select id="inputState" name="employee_id" class="form-control">
-                    <option value="" selected>Choose...</option>
+                    <option value="{{ old('employee_id') }}" selected>Choose...</option>
                     @foreach(Employee::all() as $employee)
                       <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
                     @endforeach
@@ -53,16 +63,16 @@
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputEmail4">Date d'entrée</label>
-                  <input type="date" name="date_in"  class="form-control" id="inputEmail4" placeholder="">
+                  <input type="date" name="date_in"  class="form-control" id="inputEmail4" value="{{ old('date_in') }}" placeholder="">
                 </div>
                 <div class="form-group col-md-6">
                   <label for="inputPassword4">Date de sortie</label>
-                  <input type="date" name="date_out" class="form-control" id="inputPassword4" placeholder="">
+                  <input type="date" name="date_out" class="form-control" id="inputPassword4" value="{{ old('date_out') }}" placeholder="">
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail4"> {{Room::occupation_rate('2019-07-01','2019-07-29')}} Remarques</label>
-                <textarea type="text" name="remark" class="form-control" value="{{ old('phone') }}" id="inputEmail4" placeholder=""></textarea>
+                <label for="inputEmail4">Remarques</label>
+                <textarea type="text" name="remark" class="form-control" value="{{ old('remark') }}" id="inputEmail4" placeholder=""></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>

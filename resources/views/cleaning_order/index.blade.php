@@ -26,22 +26,22 @@
                     <div class="pp-cont">
                       <div class="row align-items-center m-b-20">
                         <div class="col-auto">
-                          <i class="fas fa-bed f-24 text-mute"></i>
+                          <i class="fas fa-battery-empty f-24 text-mute"></i>
                         </div>
                         <div class="col text-right">
-                          <h2 class="m-b-0 text-c-green">435</h2>
+                          <h2 class="m-b-0 text-c-green">{{CleaningOrder::statistic('draft')}}</h2>
                         </div>
                       </div>
                       <div class="row align-items-center m-b-15">
                         <div class="col-auto">
-                          <p class="m-b-0">Chambres libre</p>
+                          <p class="m-b-0">Ordre en attente</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-green">45%</p>
+                          <p class="m-b-0 text-c-green">{{CleaningOrder::percent('draft')}}%</p>
                         </div>
                       </div>
                       <div class="progress">
-                        <div class="progress-bar bg-c-green" style="width:45%"></div>
+                        <div class="progress-bar bg-c-green" style="width:{{CleaningOrder::percent('draft')}}%"></div>
                       </div>
                     </div>
                   </div>
@@ -49,22 +49,22 @@
                     <div class="pp-cont">
                       <div class="row align-items-center m-b-20">
                         <div class="col-auto">
-                          <i class="fas fa-bed f-24 text-mute"></i>
+                          <i class="fas fa-battery-quarter f-24 text-mute"></i>
                         </div>
                         <div class="col text-right">
-                          <h2 class="m-b-0 text-c-green">435</h2>
+                          <h2 class="m-b-0 text-c-green">{{CleaningOrder::statistic('in progress')}}</h2>
                         </div>
                       </div>
                       <div class="row align-items-center m-b-15">
                         <div class="col-auto">
-                          <p class="m-b-0">Chambres libre</p>
+                          <p class="m-b-0">Ordre en progression</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-green">45%</p>
+                          <p class="m-b-0 text-c-green">{{CleaningOrder::percent('in progress')}}%</p>
                         </div>
                       </div>
                       <div class="progress">
-                        <div class="progress-bar bg-c-green" style="width:45%"></div>
+                        <div class="progress-bar bg-c-green" style="width:{{CleaningOrder::percent('in progress')}}%"></div>
                       </div>
                     </div>
                   </div>
@@ -72,22 +72,22 @@
                     <div class="pp-cont">
                       <div class="row align-items-center m-b-20">
                         <div class="col-auto">
-                          <i class="fas fa-bed f-24 text-mute"></i>
+                          <i class="fas fa-battery-full f-24 text-mute"></i>
                         </div>
                         <div class="col text-right">
-                          <h2 class="m-b-0 text-c-green">435</h2>
+                          <h2 class="m-b-0 text-c-green">{{CleaningOrder::statistic('in progress')}}</h2>
                         </div>
                       </div>
                       <div class="row align-items-center m-b-15">
                         <div class="col-auto">
-                          <p class="m-b-0">Chambres libre</p>
+                          <p class="m-b-0">Ordre fait</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-green">45%</p>
+                          <p class="m-b-0 text-c-green">{{CleaningOrder::percent('in progress')}}%</p>
                         </div>
                       </div>
                       <div class="progress">
-                        <div class="progress-bar bg-c-green" style="width:45%"></div>
+                        <div class="progress-bar bg-c-green" style="width:{{CleaningOrder::percent('in progress')}}%"></div>
                       </div>
                     </div>
                   </div>
@@ -95,18 +95,24 @@
                     <div class="pp-cont">
                       <div class="row align-items-center m-b-20">
                         <div class="col-auto">
-                          <i class="fas fa-bed f-24 text-mute"></i>
+                          <i class="fas fa-bell-slash f-24 text-mute"></i>
                         </div>
                         <div class="col text-right">
-                          <h2 class="m-b-0 text-c-green">435</h2>
+                          <h2 class="m-b-0 text-c-green">{{CleaningOrder::lateDone()}}</h2>
                         </div>
                       </div>
                       <div class="row align-items-center m-b-15">
                         <div class="col-auto">
-                          <p class="m-b-0">Chambres libre</p>
+                          <p class="m-b-0">Ordre fait en retard</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-green">45%</p>
+                          <p class="m-b-0 text-c-green">
+                            @if(CleaningOrder::all()->count()==0)
+                              0%
+                              @else
+                              {{CleaningOrder::lateDone()/CleaningOrder::all()->count()*100}}%
+                            @endif
+                          </p>
                         </div>
                       </div>
                       <div class="progress">

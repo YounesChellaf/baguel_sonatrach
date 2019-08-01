@@ -26,10 +26,13 @@ class CleaningOrderController extends Controller
 
     public  function  affectEmployee(Request $request,$id){
         $order = CleaningOrder::find($id);
+
         $nb = $request->nb;
         for ($i=0;$i<$nb;$i++){
             $order->employee()->attach($request->input('employee_id')[$i]);
         }
+        $order->status = 'in progress';
+        $order->save();
         return redirect()->route('cleaning_order.index');
     }
 

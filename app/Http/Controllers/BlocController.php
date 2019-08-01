@@ -74,10 +74,11 @@ class BlocController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->input('name');
-        $number = $request->input('number');
-        $type = $request->input('type');
-        $active = $request->input('active');
+        $name = $request->name;
+        $number = $request->number;
+        $type = $request->type;
+        $active = $request->active;
+        $classe = $request->classe;
 
         $bloc = Bloc::find($id);
 
@@ -85,6 +86,7 @@ class BlocController extends Controller
         $bloc->number = $number;
         $bloc->type = $type;
         $bloc->active = $active;
+        $bloc->classe = $classe;
 
         $bloc->save();
 

@@ -38,7 +38,27 @@ class CleaningOrder extends Model
 
         if ($this->done_date and $this->done_date->greaterThan($this->limit_date)){
             echo '<label class="label label-danger">En retard</label>';
+            return true;
         }
+        return false;
+    }
+
+    public static function  lateDone(){
+        $i=0;
+        foreach (CleaningOrder::all() as $order){
+            if ($order->done_date and $order->done_date->greaterThan($order->limit_date)) $i++;
+        }
+        return $i;
+    }
+
+    public static function statistic($status){
+        return CleaningOrder::where('status',$status)->count();
+    }
+    public static function percent($status){
+        if (CleaningOrder::all()->count() != 0){
+            return CleaningOrder::statistic($status)/CleaningOrder::all()->count()*100;
+        }
+        else return 0;
     }
 
      public function degree(){

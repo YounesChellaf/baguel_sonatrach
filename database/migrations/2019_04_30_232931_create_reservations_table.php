@@ -15,6 +15,7 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->enum('room_type', ['vip', 'ordinaire']);
             $table->integer('room_id');
             $table->date('date_in');
             $table->date('date_out');

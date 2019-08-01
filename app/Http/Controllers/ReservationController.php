@@ -14,18 +14,29 @@ class ReservationController extends Controller
         return view('reservation.index');
     }
     public function create(){
-        return view('reservation.create')->with('room',null);
+        return view('reservation.create')->with('room',null)->with('reserved_error',null);
     }
 
+    public function checkView($id){
+        $room = Reservation::find($id)->room;
+//        dd($room->instance[0]);
+        return view('reservation.room_checklist')->with('instances',$room->instance);
+    }
     public function createRoomReservation($id){
         $room = Room::find($id);
-        return view('reservation.create')->with('room',$room);
+        return view('reservation.create')->with('room',$room)->with('reserved_error',null);
     }
     public function store(NewReservationRequest $request){
         if ($request->post()){
             $reservation = Reservation::new($request);
+            if ($reservation == 'no-error'){
+                return redirect()->route('admin.reservation.index');
+            }
+            else{
+                return view('reservation.create')->with('room',null)->with('reserved_error',$reservation);
+            }
         }
-        return redirect()->route('admin.reservation.index');
+
     }
     public function aprouve($id){
         $reservation = Reservation::find($id);

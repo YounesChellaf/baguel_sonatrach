@@ -81,7 +81,10 @@ class Room extends Model
         if ($date_from and $date_to){
          return   Reservation::where('date_in','>=',$date_from)->orWhere('date_out','=<',$date_to)->groupBy('room_id')->get()->count();
         }
-        return Reservation::where('date_in','=<',$current_date)->where('date_out','>',$current_date)->groupBy('room_id')->count();
+        if ($date_from){
+            return Reservation::where('date_in','<',$date_from)->where('date_out','>',$date_from)->groupBy('room_id')->count();
+        }
+        return Reservation::where('date_in','<',$current_date)->where('date_out','>',$current_date)->groupBy('room_id')->count();
     }
 
 }
