@@ -17,6 +17,7 @@ class CreateVisitsTable extends Migration
             $table->bigIncrements('id');
             $table->date('in_date');
             $table->date('out_date');
+            $table->enum('type', ['planned_visit', 'unplanned_visit']);
             $table->integer('visitor_id');
             $table->integer('created_by');
             $table->integer('last_update_by')->nullable();

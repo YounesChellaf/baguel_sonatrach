@@ -15,11 +15,12 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('room_type', ['vip', 'ordinaire']);
+            $table->enum('cible', ['employee', 'visitor']);
+            $table->enum('room_type', ['vip', 'ordinaire'])->default('ordinaire');
             $table->integer('room_id');
             $table->date('date_in');
             $table->date('date_out');
-            $table->integer('employee_id');
+            $table->integer('reserver_id');
             $table->text('remark')->nullable();
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->timestamps();

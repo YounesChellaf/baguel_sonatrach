@@ -75,6 +75,27 @@ class Room extends Model
         return true;
     }
 
+    public static function OccupedRoom($Date){
+        $date = new Carbon($Date);
+        $room[] = new Room();
+        foreach (Reservation::all() as $reservation){
+            if ($date->between($reservation->date_in,$reservation->date_out))
+            {
+                $room[]= Room::find($reservation->room_id);
+            }
+        }
+        return $room;
+    }
+
+    public static function FreeRoom($Date){
+        $room[] = new Room();
+        foreach (Room::all() as $r){
+            $room[] = $r;
+        }
+        return array_diff($room,Room::OccupedRoom($Date));
+    }
+
+
 
     public static function occupation_rate($date_from,$date_to){
         $current_date = Carbon::now();

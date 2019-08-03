@@ -20,7 +20,53 @@
         <div class="card product-progress-card">
           <div class="card-block">
             <div class="row pp-main">
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-2 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-bell f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 text-c-green">{{Visit::where('type','planned_visit')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Programée</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 "></p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar " ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-6">
+                <div class="pp-cont">
+                  <div class="row align-items-center m-b-20">
+                    <div class="col-auto">
+                      <i class="fas fa-bell-slash f-24 text-mute"></i>
+                    </div>
+                    <div class="col text-right">
+                      <h2 class="m-b-0 text-c-black ">{{Visit::where('type','unplanned_visit')->count()}}</h2>
+                    </div>
+                  </div>
+                  <div class="row align-items-center m-b-15">
+                    <div class="col-auto">
+                      <p class="m-b-0">Inopiné</p>
+                    </div>
+                    <div class="col text-right">
+                      <p class="m-b-0 "></p>
+                    </div>
+                  </div>
+                  <div class="progress">
+                    <div class="progress-bar " ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-6">
                 <div class="pp-cont">
                   <div class="row align-items-center m-b-20">
                     <div class="col-auto">
@@ -32,18 +78,18 @@
                   </div>
                   <div class="row align-items-center m-b-15">
                     <div class="col-auto">
-                      <p class="m-b-0">Visites en attente</p>
+                      <p class="m-b-0">En attente</p>
                     </div>
                     <div class="col text-right">
                       <p class="m-b-0 ">{{Visit::percent('pending')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar " ></div>
+                    <div class="progress-bar bg-c-black" style="width:{{Visit::percent('pending')}}%"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-2 col-md-6">
                 <div class="pp-cont">
                   <div class="row align-items-center m-b-20">
                     <div class="col-auto">
@@ -55,18 +101,18 @@
                   </div>
                   <div class="row align-items-center m-b-15">
                     <div class="col-auto">
-                      <p class="m-b-0">Visites á entrée validée</p>
+                      <p class="m-b-0">Á entrée validée</p>
                     </div>
                     <div class="col text-right">
                       <p class="m-b-0 text-c-green">{{Visit::percent('enter_validation')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar bg-c-green" ></div>
+                    <div class="progress-bar bg-c-green" style="width:{{Visit::percent('enter_validation')}}%"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-2 col-md-6">
                 <div class="pp-cont">
                   <div class="row align-items-center m-b-20">
                     <div class="col-auto">
@@ -78,18 +124,18 @@
                   </div>
                   <div class="row align-items-center m-b-15">
                     <div class="col-auto">
-                      <p class="m-b-0">Visites á sortie validée</p>
+                      <p class="m-b-0">Á sortie validée</p>
                     </div>
                     <div class="col text-right">
                       <p class="m-b-0 text-c-green">{{Visit::percent('exit_validation')}}%</p>
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar bg-c-green" ></div>
+                    <div class="progress-bar bg-c-green" style="width:{{Visit::percent('exit_validation')}}%"></div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6">
+              <div class="col-xl-2 col-md-6">
                 <div class="pp-cont">
                   <div class="row align-items-center m-b-20">
                     <div class="col-auto">
@@ -108,7 +154,7 @@
                     </div>
                   </div>
                   <div class="progress">
-                    <div class="progress-bar bg-c-red" ></div>
+                    <div class="progress-bar bg-c-red" style="width:{{Visit::percent('rejected')}}%"></div>
                   </div>
                 </div>
               </div>
@@ -119,6 +165,7 @@
           <div class="card-header">
             <h5>Visites</h5>
             <a href="{{ route('admin.visit.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle visite</button></a>
+            <a href="{{ route('admin.visit.inopine.create') }}"><button type="button" style="float: right" class="btn btn-primary" name="button">Nouvelle Visite inopiné</button></a>
           </div>
           <div class="card-block">
             <div class="dt-responsive table-responsive">
@@ -126,9 +173,10 @@
                 <thead>
                   <tr>
                     <th>Réference</th>
+                    <th>Type visite</th>
                     <th>nom de societe</th>
                     <th>date entrée</th>
-                    <th>Nombre de visiteurs</th>
+                    <th>Nb visiteurs</th>
                     <th>Crée par</th>
                     <th>Etat</th>
                     <th>Action</th>
@@ -137,7 +185,8 @@
                 <tbody>
                   @foreach(Visit::all() as $visit)
                   <tr>
-                    <td><span data-toggle="modal" data-target="#modal-visit-{{$visit->id}}">{{ $visit->company_name }}</span></td>
+                    <td><span data-toggle="modal" data-target="#modal-visit-{{$visit->id}}">{{ $visit->id }}</span></td>
+                    <td>{{ $visit->type() }}</td>
                     <td>{{ $visit->company_name }}</td>
                     <td>{{ $visit->in_date }}</td>
                     <td> {{$visit->visitor->count()}}</td>

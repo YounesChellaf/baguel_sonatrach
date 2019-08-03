@@ -38,8 +38,21 @@ class VisitorSupport extends Model
                 'last_name' => $request->input('last_name')[$i],
                 'first_name' => $request->input('first_name')[$i],
                 'identity_card_number' => $request->input('identity_card_number')[$i],
+                'function' => $request->input('function')[$i],
                 'support_id' => $visitor_support->id,
             ]);
+            if (Room::find($request->room_id)->isReserved(new Carbon($request->date_in),new Carbon($request->date_out))){
+                $reservation = Reservation::create([
+                    'reserver_id' => $visitor->id,
+                    'cible' => 'visitor',
+                    'room_id' => $request->room_id,
+                    'date_in' => $visitor_support->date_from,
+                    'date_out' => $visitor_support->date_to,
+                    'remark' => $visitor_support->remark,
+                    'room_type' => $request->room_type
+                ]);
+                return 'no-error';
+            }
         }
         return $visitor_support;
     }

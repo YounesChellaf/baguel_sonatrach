@@ -22,6 +22,7 @@
             <div class="card product-progress-card">
               <div class="card-block">
                 <div class="row pp-main">
+                  {{Room::FreeRoom('2019-08-14')}}
 
                   <div class="col-xl-4 col-md-6">
                     <div class="pp-cont">

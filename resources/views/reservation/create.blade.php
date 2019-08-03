@@ -40,6 +40,14 @@
               @csrf
               <div class="form-row">
                 <div class="form-group col-md-12">
+                  <label for="inputState">Type de chambre á reserver</label>
+                  <select id="inputState" name="room_type" class="form-control">
+                      <option value="" selected>Choose...</option>
+                      <option value="ordinaire">Ordinaire</option>
+                      <option value="vip">VIP</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-12">
                   <label for="inputState">Chambre</label>
                   <select id="inputState" name="room_id" class="form-control">
                     @if($room)
@@ -54,8 +62,8 @@
                 </div>
                 <div class="form-group col-md-12">
                   <label for="inputState">Employee</label>
-                  <select id="inputState" name="employee_id" class="form-control">
-                    <option value="{{ old('employee_id') }}" selected>Choose...</option>
+                  <select id="inputState" name="reserver_id" class="form-control">
+                    <option value="" selected>Choose...</option>
                     @foreach(Employee::all() as $employee)
                       <option value="{{$employee->id}}">{{$employee->last_name}} {{$employee->first_name}}</option>
                     @endforeach
@@ -74,6 +82,7 @@
                 <label for="inputEmail4">Remarques</label>
                 <textarea type="text" name="remark" class="form-control" value="{{ old('remark') }}" id="inputEmail4" placeholder=""></textarea>
               </div>
+              <input type="hidden" name="cible" value="employee">
               <button type="submit" class="btn btn-primary">Enregistrer</button>
             </form>
           </div>

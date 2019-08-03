@@ -16,6 +16,10 @@ class VisitController extends Controller
       return view('programmed_visit.AddVisit');
     }
 
+    public function createInopineView(){
+        return view('programmed_visit.AddInopineVisit');
+    }
+
     public  function store(VisitRequest $request){
         if ($request->post()){
             $validated = $request->validated();

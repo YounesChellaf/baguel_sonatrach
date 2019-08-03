@@ -150,12 +150,7 @@
         <ul class="pcoded-submenu">
           <li class=" ">
             <a href="{{ route('admin.visits.index') }}" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Visites programmés</span>
-            </a>
-          </li>
-          <li class=" ">
-            <a href="#!" class="waves-effect waves-dark">
-              <span class="pcoded-mtext">Visites inopinées</span>
+              <span class="pcoded-mtext">Gestion de visites</span>
             </a>
           </li>
         </ul>

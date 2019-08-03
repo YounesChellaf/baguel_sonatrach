@@ -33,7 +33,7 @@
                   <label for="inputState">Chambre</label>
                   <select id="inputState" name="room_id" class="form-control">
                     <option value="" selected>Choose...</option>
-                    @foreach(Room::where('reserved',false)->get() as $room)
+                    @foreach(Room::all() as $room)
                     <option value="{{$room->id}}">{{$room->number}}</option>
                       @endforeach
                   </select>

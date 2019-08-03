@@ -105,7 +105,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth' ], function(){
 
   Route::prefix('visit/')->group(function (){
     Route::get('','VisitController@index')->name('admin.visits.index');
-    Route::get('create','VisitController@createView')->name('admin.visit.create');
+    Route::get('create/programmed_visit','VisitController@createView')->name('admin.visit.create');
+    Route::get('create/inopined_visit','VisitController@createInopineView')->name('admin.visit.inopine.create');
     Route::post('create','VisitController@store')->name('admin.visit.store');
     Route::get('validate/{id}','VisitController@aprouve')->name('admin.visit.approve');
     Route::get('reject/{id}','VisitController@reject')->name('admin.visit.reject');

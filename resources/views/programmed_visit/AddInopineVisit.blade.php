@@ -12,7 +12,7 @@
                 <div class="page-body">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Nouvelle visite</h5>
+                            <h5>Nouvelle visite inopiné</h5>
                         </div>
                         <div class="card-block">
                             @if ($errors->any())
@@ -52,34 +52,34 @@
                                         <select name="concerned_id" class="form-control">
                                             <option value="">Choose...</option>
                                             @foreach(User::all() as $employee)
-                                            <option value="{{$employee->id}}">{{$employee->firstName}} {{$employee->first_name}}</option>
+                                                <option value="{{$employee->id}}">{{$employee->firstName}} {{$employee->first_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                            <label class="col-sm-2 col-form-label">Liste des visiteurs</label>
-                                            <div class="col-md-10">
-                                                <table class="table table-bordered table-hover" id="tab_logic">
-                                                    <tbody>
-                                                    <tr id='addr0'>
-                                                        <td>1</td>
-                                                        <td id="td1"><input type="text" name='last_name[]'  placeholder='Nom' class="form-control"/></td>
-                                                        <td id="td2"><input type="text" name='first_name[]'  placeholder='Prenom' class="form-control"/></td>
-                                                        <td id="td3"><input type="text" name='identity_card_number[]'  placeholder='Numero carte identité' class="form-control"/></td>
-                                                        <td id="td4"><input type="text" name='function[]' placeholder='Fonction' class="form-control"/></td>
-                                                    </tr>
-                                                    <tr id="addr1"></tr>
-                                                    </tbody>
-                                                </table>
-                                                <div class="row clearfix">
-                                                    <div class="col-md-12">
-                                                        <a id="add_row" class="btn btn-primary pull-left">Ajouter autre employée</a>
-                                                        <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer ligne</a>
-                                                    </div>
-                                                </div>
+                                    <label class="col-sm-2 col-form-label">Liste des visiteurs</label>
+                                    <div class="col-md-10">
+                                        <table class="table table-bordered table-hover" id="tab_logic">
+                                            <tbody>
+                                            <tr id='addr0'>
+                                                <td>1</td>
+                                                <td id="td1"><input type="text" name='last_name[]'  placeholder='Nom' class="form-control"/></td>
+                                                <td id="td2"><input type="text" name='first_name[]'  placeholder='Prenom' class="form-control"/></td>
+                                                <td id="td3"><input type="text" name='identity_card_number[]'  placeholder='Numero carte identité' class="form-control"/></td>
+                                                <td id="td4"><input type="text" name='function[]' placeholder='Fonction' class="form-control"/></td>
+                                            </tr>
+                                            <tr id="addr1"></tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row clearfix">
+                                            <div class="col-md-12">
+                                                <a id="add_row" class="btn btn-primary pull-left">Ajouter autre employée</a>
+                                                <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer ligne</a>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Reason de visite</label>
                                     <div class="col-sm-10">
@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                                 <input name="nb" type="hidden" value="">
-                                <input name="type" type="hidden" value="planned_visit">
+                                <input name="type" type="hidden" value="unplanned_visit">
                                 <button id="submit-btn" type="submit" class="btn btn-primary">Enregistrer</button>
                             </form>
                         </div>
@@ -101,26 +101,26 @@
                 </div>
             </div>
         </div>
-@endsection
-@section('extraJs')
-<script>
-    $(document).ready(function(){
-        var i=1;
-        $("input[name=nb]:hidden").val(i);
-        $("#add_row").click(function(){b=i-1;
-            $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
-            $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
-            i++;
-            $("input[name=nb]:hidden").val(i);
-        });
-        $("#delete_row").click(function(){
-            if(i>1){
-                $("#addr"+(i-1)).html('');
-                i--;
-                $("input[name=nb]:hidden").val(i);
-            }
-        });
-    });
-</script>
+        @endsection
+        @section('extraJs')
+            <script>
+                $(document).ready(function(){
+                    var i=1;
+                    $("input[name=nb]:hidden").val(i);
+                    $("#add_row").click(function(){b=i-1;
+                        $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
+                        $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+                        i++;
+                        $("input[name=nb]:hidden").val(i);
+                    });
+                    $("#delete_row").click(function(){
+                        if(i>1){
+                            $("#addr"+(i-1)).html('');
+                            i--;
+                            $("input[name=nb]:hidden").val(i);
+                        }
+                    });
+                });
+            </script>
 @endsection
 

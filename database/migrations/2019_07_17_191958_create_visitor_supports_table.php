@@ -25,6 +25,8 @@ class CreateVisitorSupportsTable extends Migration
             $table->integer('imputation');
             $table->string('remark');
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
+            $table->enum('support_duration_type', ['hebergement', 'restauration']);
+            $table->enum('support_type', ['vip', 'ordinaire'])->default('ordinaire');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateVisitorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->boolean('active')->default(true);
             $table->string('identity_card_number');
             $table->integer('support_id')->nullable();
             $table->string('function')->nullable();

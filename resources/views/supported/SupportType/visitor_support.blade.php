@@ -13,6 +13,14 @@
                 </select>
             </div>
         </div>
+        <div class="form-group col-md-12">
+            <label for="inputState">Type de prise en charge</label>
+            <select id="inputState" name="room_type" class="form-control">
+                <option value="" selected>Choose...</option>
+                <option value="ordinaire">Ordinaire</option>
+                <option value="vip">VIP</option>
+            </select>
+        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Motif de la demande</label>
             <div class="col-sm-10">
@@ -46,7 +54,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Prestation demandé</label>
+            <label class="col-sm-2 col-form-label">Visiteur</label>
             <div class="col-md-10">
                 <table class="table table-bordered table-hover" id="tab_logic">
                     <tbody>
@@ -57,30 +65,33 @@
                         </td>
                         <td id="td2"><input type="text" name='first_name[]'  placeholder='Prénom' class="form-control"/></td>
                         <td id="td3"><input type="text" name='identity_card_number[]'  placeholder='Identifiant carte d identité' class="form-control"/></td>
+                        <td id="td4"><input type="text" name='function[]'  placeholder='Fonction' class="form-control"/></td>
                     </tr>
                     <tr id="addr1"></tr>
                     </tbody>
                 </table>
                 <div class="row clearfix">
                     <div class="col-md-12">
-                        <a id="add_row" class="btn btn-primary pull-left">Ajouter autre produit</a>
-                        <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer ligne</a>
+                        <a id="add_row" class="btn btn-primary pull-left">Ajouter visiteur</a>
+                        <a id='delete_row' class="btn btn-danger pull-right" style="margin-left: 50%">Supprimer visiteur</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-        <div class="form-group col-md-4">
+            <div class="form-group col-md-2">
+            </div>
+        <div class="form-group col-md-5">
             <label for="inputState">Type</label>
-            <select id="inputState" name="support_type" class="form-control">
+            <select id="inputState" name="support_duration_type" class="form-control">
                 <option selected>Choose...</option>
                 <option value="hebergement">hebergement</option>
                 <option value="restauration">restauration</option>
             </select>
         </div>
-        <div class="form-group col-md-4">
-            <label for="inputState">Service</label>
-            <select id="inputState" name="support_duration_type" class="form-control">
+        <div class="form-group col-md-5">
+            <label for="inputState">Type prise en charge</label>
+            <select id="inputState" name="support_type" class="form-control">
                 <option selected>Choose...</option>
                 <option value="ordinaire">Ordinaire</option>
                 <option value="vip">VIP</option>

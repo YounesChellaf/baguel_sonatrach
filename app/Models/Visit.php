@@ -29,6 +29,7 @@ class Visit extends Model
             'company_name' => $request->company_name,
             'in_date' => $request->in_date,
             'out_date' => $request->out_date,
+            'type' => $request->type,
             'concerned_id' => $request->concerned_id,
             'reason' => $request->reason,
             'remark' => $request->remark,
@@ -70,6 +71,21 @@ class Visit extends Model
 
             case 'rejected':
                 echo '<label class="label label-danger">Rejeté</label>';
+                break;
+
+            default:
+                // code...
+                break;
+        }
+    }
+    public function type(){
+        switch ($this->type) {
+            case 'planned_visit':
+                echo '<label class="label label-info">Visite Programmé</label>';
+                break;
+
+            case 'unplanned_visit':
+                echo '<label class="label label-warning">Visite Inopiné</label>';
                 break;
 
             default:

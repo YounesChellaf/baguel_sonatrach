@@ -24,17 +24,15 @@ class Reservation extends Model
 
     public static function new(Request $request){
         if (Room::find($request->room_id)->isReserved(new Carbon($request->date_in),new Carbon($request->date_out))){
-
             $reservation = Reservation::create([
-                'employee_id' => $request->employee_id,
+                'reserver_id' => $request->reserver_id,
+                'cible' => $request->cible,
                 'room_id' => $request->room_id,
                 'date_in' => $request->date_in,
                 'date_out' => $request->date_out,
-                'remark' => $request->remark
+                'remark' => $request->remark,
+                'room_type' => $request->room_type
             ]);
-            $room = Room::find($request->room_id);
-            $room->reserved = true;
-            $room->save();
             return 'no-error';
         }
         return  'Reservation non permise á cause du chevauchement des dates avec une autre reservation précédente';

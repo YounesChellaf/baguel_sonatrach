@@ -4,7 +4,7 @@
       <li class="breadcrumb-item">
         <a href="{{ route('admin.index') }}"><i class="feather icon-home"></i></a>
       </li>
-      <li class="breadcrumb-item"><a href="/admin/office">Gestion des visites programmés</a> </li>
+      <li class="breadcrumb-item"><a href="/admin/office">Gestion des visites</a> </li>
     </ul>
   </div>
 </div>
