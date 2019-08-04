@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class Visit extends Model
 {
     protected $guarded = [];
+    protected $dates=['in_date','out_date'];
     function visitor(){
         return $this->belongsToMany('App\Models\Visitor','visit_visitor');
     }
@@ -47,16 +48,18 @@ class Visit extends Model
             ]);
             $visit->visitor()->attach($visitor->id);
             $room = Room::FreeRoom($visit->date_in);
-            if ($room->isReserved(new Carbon($visit->in_date),new Carbon($visit->out_date))){
-                $reservation = Reservation::create([
-                    'reserver_id' => $visitor->id,
-                    'cible' => 'visitor',
-                    'room_id' => $room->id,
-                    'date_in' => $visit->in_date,
-                    'date_out' => $visit->out_date,
-                    'remark' => 'reservation automatique depuis la prise en charge des visiteurs',
-                    'room_type' => 'ordinaire'
-                ]);
+            if ($visit->in_date->lessThan($visit->out_date)) {
+                if ($room->isReserved(new Carbon($visit->in_date), new Carbon($visit->out_date))) {
+                    $reservation = Reservation::create([
+                        'reserver_id' => $visitor->id,
+                        'cible' => 'visitor',
+                        'room_id' => $room->id,
+                        'date_in' => $visit->in_date,
+                        'date_out' => $visit->out_date,
+                        'remark' => 'reservation automatique depuis la prise en charge des visiteurs',
+                        'room_type' => 'ordinaire'
+                    ]);
+                }
             }
         }
         return $visit;

@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c441016-60c4-454b-ba07-277ec6451eb9" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoomController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/NewReservationRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/NewReservationRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Reservation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Reservation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Room.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Room.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Visit.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Visit.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/VisitorSupport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/VisitorSupport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_17_191958_create_visitor_supports_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_17_191958_create_visitor_supports_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/reservation/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reservation/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/room/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/room/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supported/SupportIndex/Visitor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supported/SupportIndex/Visitor.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supported/SupportType/visitor_support.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supported/SupportType/visitor_support.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -56,8 +45,8 @@
       <file leaf-file-name="Visit.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+            <state relative-caret-position="152">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -232,8 +221,8 @@
         <option value="$PROJECT_DIR$/app/Models/Reservation.php" />
         <option value="$PROJECT_DIR$/resources/views/reservation/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/VisitorSupport.php" />
-        <option value="$PROJECT_DIR$/app/Models/Visit.php" />
         <option value="$PROJECT_DIR$/resources/views/programmed_visit/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Models/Visit.php" />
       </list>
     </option>
   </component>
@@ -526,12 +515,12 @@
       <workItem from="1564417967002" duration="1899000" />
       <workItem from="1564491196053" duration="20992000" />
       <workItem from="1564665609713" duration="13056000" />
-      <workItem from="1564835710188" duration="7717000" />
+      <workItem from="1564835710188" duration="8207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="318056000" />
+    <option name="totallyTimeSpent" value="318546000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -544,6 +533,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32880098" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.115879826" side_tool="true" weight="0.17799753" />
@@ -964,8 +954,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Visit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+        <state relative-caret-position="152">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
         </state>
       </provider>
     </entry>
