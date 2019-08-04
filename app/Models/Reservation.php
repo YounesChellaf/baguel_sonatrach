@@ -19,7 +19,7 @@ class Reservation extends Model
          return $this->belongsTo(Room::class);
     }
     function employee(){
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class,'reserver_id');
     }
 
     public static function new(Request $request){

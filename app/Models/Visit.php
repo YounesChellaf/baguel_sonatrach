@@ -4,6 +4,7 @@ namespace App\Models;
 
 
 use App\Models\Request;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -45,6 +46,18 @@ class Visit extends Model
                 'function' => $request->input('function')[$i],
             ]);
             $visit->visitor()->attach($visitor->id);
+            $room = Room::FreeRoom($visit->date_in);
+            if ($room->isReserved(new Carbon($visit->in_date),new Carbon($visit->out_date))){
+                $reservation = Reservation::create([
+                    'reserver_id' => $visitor->id,
+                    'cible' => 'visitor',
+                    'room_id' => $room->id,
+                    'date_in' => $visit->in_date,
+                    'date_out' => $visit->out_date,
+                    'remark' => 'reservation automatique depuis la prise en charge des visiteurs',
+                    'room_type' => 'ordinaire'
+                ]);
+            }
         }
         return $visit;
     }

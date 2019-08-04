@@ -17,16 +17,16 @@ class CreateVisitorSupportsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('service_id');
             $table->string('motif');
-            $table->integer('nb_repas');
+            $table->integer('nb_repas')->nullable();
             $table->date('date_from');
-            $table->date('date_to');
+            $table->date('date_to')->nullable();
             $table->integer('concerned_id');
             $table->integer('employee_id')->nullable();
             $table->integer('imputation');
             $table->string('remark');
             $table->enum('status', ['draft', 'approved', 'rejected'])->default('draft');
             $table->enum('support_duration_type', ['hebergement', 'restauration']);
-            $table->enum('support_type', ['vip', 'ordinaire'])->default('ordinaire');
+            $table->enum('service_type', ['vip', 'ordinaire']);
             $table->timestamps();
         });
     }

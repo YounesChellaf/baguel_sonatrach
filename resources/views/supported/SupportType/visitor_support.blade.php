@@ -13,33 +13,51 @@
                 </select>
             </div>
         </div>
-        <div class="form-group col-md-12">
-            <label for="inputState">Type de prise en charge</label>
-            <select id="inputState" name="room_type" class="form-control">
-                <option value="" selected>Choose...</option>
-                <option value="ordinaire">Ordinaire</option>
-                <option value="vip">VIP</option>
-            </select>
-        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Motif de la demande</label>
             <div class="col-sm-10">
                 <input type="text" id="supplierName" name="motif" class="form-control">
             </div>
         </div>
-        <div class="form-group row">
-            <label class="col-sm-2 col-form-label">Nombre de repas</label>
-            <div class="col-sm-10">
-                <input type="text" id="supplierName" name="nb_repas" class="form-control">
+        <div class="row">
+            <div class="form-group col-md-2">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputState">Type</label>
+                <select id="duration" name="support_duration_type" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="hebergement">hebergement</option>
+                    <option value="restauration">restauration</option>
+                </select>
+            </div>
+            <div class="form-group col-md-5">
+                <label for="inputState">Type prise en charge</label>
+                <select id="inputState" name="service_type" class="form-control">
+                    <option selected>Choose...</option>
+                    <option value="ordinaire">Ordinaire</option>
+                    <option value="vip">VIP</option>
+                </select>
             </div>
         </div>
-        <div class="form-group row">
+        <div class="form-group row" id="hebergement">
             <label class="col-sm-2 col-form-label">Période du préstation :</label>
             <div class="col-sm-5">
                 <input type="date" id="supplierDisplayName" class="form-control" name="date_from" placeholder="">
             </div>
             <div class="col-sm-5">
                 <input type="date" class="form-control" name="date_to" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row" id="restauration">
+            <label class="col-sm-2 col-form-label">Date d'arrivé :</label>
+            <div class="col-sm-5">
+                <input type="date" id="supplierDisplayName" class="form-control" name="date_arriving" placeholder="">
+            </div>
+            <div class="col-sm-5 row">
+                <label style="padding-left: 5%">Nombre de repas :</label>
+                <div class="col-sm-7">
+                    <input type="text" id="supplierName" name="nb_repas" class="form-control">
+                </div>
             </div>
         </div>
         <div class="form-group row">
@@ -78,26 +96,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="form-group col-md-2">
-            </div>
-        <div class="form-group col-md-5">
-            <label for="inputState">Type</label>
-            <select id="inputState" name="support_duration_type" class="form-control">
-                <option selected>Choose...</option>
-                <option value="hebergement">hebergement</option>
-                <option value="restauration">restauration</option>
-            </select>
-        </div>
-        <div class="form-group col-md-5">
-            <label for="inputState">Type prise en charge</label>
-            <select id="inputState" name="support_type" class="form-control">
-                <option selected>Choose...</option>
-                <option value="ordinaire">Ordinaire</option>
-                <option value="vip">VIP</option>
-            </select>
-        </div>
-        </div>
         <div class="form-group row">
             <label class="col-sm-2 col-form-label">Remarques</label>
             <div class="col-sm-10">
@@ -112,7 +110,25 @@
 @section('js-form')
     <script>
         $(document).ready(function(){
+            $('#restauration').hide();
+            $('#hebergement').hide();
+            $('#duration').change(function () {
+                var selectedVal = $(this).find(':selected').text();
+                if (selectedVal == 'hebergement'){
+                    $('#restauration').hide();
+                    $('#hebergement').show();
+                }
+                if (selectedVal == 'restauration') {
+                    $('#hebergement').hide();
+                    $('#restauration').show();
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
             var i=1;
+            $("input[name=nb]:hidden").val(i);
             $("#add_row").click(function(){b=i-1;
                 $('#addr'+i).html($('#addr'+b).html()).find('td:first-child').html(i+1);
                 $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');

@@ -32,7 +32,7 @@
                                         <th>Organisme d'acceuil</th>
                                         <th>date de demande</th>
                                         <th>Visiteurs</th>
-                                        <th>Nombre repas</th>
+                                        <th>Type prise en charge</th>
                                         <th>Etat</th>
                                         <th>Action</th>
                                     </tr>
@@ -45,7 +45,7 @@
                                             <td>{{ Service::find($support->service_id)->name}}</td>
                                             <td>{{ $support->created_at->format('d M Y')}}</td>
                                             <td> {{$support->visitor->count()}}</td>
-                                            <td> {{$support->nb_repas}}</td>
+                                            <td> {{$support->support_duration_type}}</td>
                                             <td>{{$support->status()}}</td>
                                             <td>
                                                 <div class="dropdown-info dropdown open">

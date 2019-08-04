@@ -25,7 +25,7 @@ class NewReservationRequest extends FormRequest
     {
         return [
             'room_id' => 'required',
-            'employee_id' => 'required',
+            'reserver_id' => 'required',
             'date_in' => 'required|before:date_out',
             'date_out' => 'required',
         ];
@@ -35,7 +35,7 @@ class NewReservationRequest extends FormRequest
     {
        return [
          'room_id.required' => 'La sélection du chambre est obligatoire',
-         'employee_id.required' => 'La sélection de l employée est obligatoire',
+         'reserver_id.required' => 'La sélection de l employée est obligatoire',
          'date_in.required' => 'La date d entrée est obligatoire',
          'date_out.required' => 'La date de sortie est obligatoire',
        ];

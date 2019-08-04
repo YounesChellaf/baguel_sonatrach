@@ -22,8 +22,6 @@
             <div class="card product-progress-card">
               <div class="card-block">
                 <div class="row pp-main">
-                  {{Room::FreeRoom('2019-08-14')}}
-
                   <div class="col-xl-4 col-md-6">
                     <div class="pp-cont">
                       <form action="{{route('admin.room.statistic')}}" method="POST">
@@ -57,11 +55,13 @@
                           <p class="m-b-0">Chambres occupées</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-red">{{$occuped_room/Room::all()->count()*100}}%</p>
+                          <p class="m-b-0 text-c-red">
+                            {{$percent}}%
+                          </p>
                         </div>
                       </div>
                       <div class="progress">
-                        <div class="progress-bar bg-c-red" style="width:{{$occuped_room/Room::all()->count()*100}}%"></div>
+                        <div class="progress-bar bg-c-red" style="width:{{$percent}}%"></div>
                       </div>
                     </div>
                   </div>
@@ -80,11 +80,13 @@
                           <p class="m-b-0">Chambres libre</p>
                         </div>
                         <div class="col text-right">
-                          <p class="m-b-0 text-c-green">{{(Room::all()->count() - $occuped_room)/Room::all()->count()*100}}%</p>
+                          <p class="m-b-0 text-c-green">
+                            {{100-$percent}}%
+                            </p>
                         </div>
                       </div>
                       <div class="progress">
-                        <div class="progress-bar bg-c-green" style="width:{{(Room::all()->count() - $occuped_room)/Room::all()->count()*100}}%"></div>
+                        <div class="progress-bar bg-c-green" style="width:{{100-$percent}}%"></div>
                       </div>
                     </div>
                   </div>

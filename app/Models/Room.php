@@ -75,25 +75,24 @@ class Room extends Model
         return true;
     }
 
-    public static function OccupedRoom($Date){
+    public static function FreeRoom($Date){
         $date = new Carbon($Date);
-        $room[] = new Room();
         foreach (Reservation::all() as $reservation){
-            if ($date->between($reservation->date_in,$reservation->date_out))
+            if (!$date->between($reservation->date_in,$reservation->date_out))
             {
-                $room[]= Room::find($reservation->room_id);
+                return Room::find($reservation->room_id);
+                break;
             }
         }
-        return $room;
     }
 
-    public static function FreeRoom($Date){
-        $room[] = new Room();
-        foreach (Room::all() as $r){
-            $room[] = $r;
-        }
-        return array_diff($room,Room::OccupedRoom($Date));
-    }
+//    public static function FreeRoom($Date){
+//        $room[] = new Room();
+//        foreach (Room::all() as $r){
+//            $room[] = $r;
+//        }
+//        return array_diff($room,Room::OccupedRoom($Date));
+//    }
 
 
 
@@ -106,6 +105,14 @@ class Room extends Model
             return Reservation::where('date_in','<',$date_from)->where('date_out','>',$date_from)->groupBy('room_id')->count();
         }
         return Reservation::where('date_in','<',$current_date)->where('date_out','>',$current_date)->groupBy('room_id')->count();
+    }
+
+    public static function percent($date_from,$date_to){
+        if (Room::all()->count() > 0){
+            return Room::occupation_rate($date_from,$date_to)/Room::all()->count()*100;
+        }
+        else
+            return 0;
     }
 
 }

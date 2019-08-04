@@ -17,7 +17,8 @@ class RoomController extends Controller
     public function index()
     {
         $occuped_room = Room::occupation_rate(null,null);
-        return view('room.index')->with('occuped_room',$occuped_room);
+        $percent = Room::percent(null,null);
+        return view('room.index')->with('occuped_room',$occuped_room)->with('percent',$percent);
     }
 
     public function graphicView(){
@@ -27,7 +28,8 @@ class RoomController extends Controller
 
     public function RoomOccupation(Request $request){
         $occuped_room = Room::occupation_rate($request->date_from,$request->date_to);
-        return view('room.index')->with('occuped_room',$occuped_room);
+        $percent = Room::percent($request->date_from,$request->date_to);
+        return view('room.index')->with('occuped_room',$occuped_room)->with('percent',$percent);
     }
 
     /**

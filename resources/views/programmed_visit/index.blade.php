@@ -237,7 +237,7 @@
         </div>
         <div class=" row">
           <h6>Employée concernée:</h6>
-          <p>{{$visit->employee->first()->last_name}} {{$visit->employee->first()->first_name}}</p>
+          <p>{{ $visit->CreatedBy->firstName }} {{$visit->CreatedBy->lastName}}</p>
         </div>
         <div class=" row">
           <h6>Crée par  :</h6>

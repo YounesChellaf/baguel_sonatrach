@@ -38,7 +38,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                @foreach(Reservation::all() as $reservation)
+                @foreach(Reservation::where('cible','employee')->get() as $reservation)
                   <tr>
                     <td>{{$reservation->room->number}}</td>
                     <td>{{$reservation->room->bloc->name}} {{$reservation->room->bloc->number}}</td>
