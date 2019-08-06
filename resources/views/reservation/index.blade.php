@@ -50,7 +50,7 @@
                       <div class="dropdown-info dropdown open">
                         <button class="btn btn-info dropdown-toggle waves-effect waves-light " type="button" id="dropdown-4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Actions</button>
                         <div class="dropdown-menu" aria-labelledby="dropdown-4" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
-                          <a class="dropdown-item" href="{{route('admin.reservation.checklist',$reservation->id)}}">Room checklist</a>
+                          <a class="dropdown-item" data-toggle="modal" data-target="#modal-check-{{$reservation->id}}">Room checklist</a>
                           <a class="dropdown-item" href="{{ route('admin.reservation.approve', $reservation->id) }}">Valider</a>
                           <a class="dropdown-item"  href="{{ route('admin.reservation.reject', $reservation->id) }}">Rejeter</a>
                           <a class="dropdown-item" href="#">Modifier</a>
@@ -101,6 +101,51 @@ aria-hidden="true">
 </div>
 </div>
 @endsection
+@foreach(Reservation::all() as $reservation)
+  <div class="col-md-4">
+    <div id="modal-check-{{$reservation->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Décocher les equipements qui manque dans la chambre</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ route('admin.reservation.create.checklist') }}" method="post">
+              @csrf
+              @foreach($reservation->room->instance as $instance)
+                {{$i=0}}
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <div class="container row" style="margin-left: 10%;margin-top: 1%">
+                    <h5 for="inputState">{{$instance->equipement->type}}  </h5> <h4>  [  {{$instance->equipement->marque}}]</h4>
+                    </div>
+                    <input type="hidden" name="census[{{$instance->id}}][key]" id="" >
+                    <input type="hidden" name="reservation_id" id="" value="{{$reservation->id}}">
+                  </div>
+                  {{--<div class="form-group col-md-4">--}}
+                    {{--<input type="checkbox" name="census[value]" id="">--}}
+                  {{--</div>--}}
+                  <div class="form-group col-md-2">
+                    <div class="checkbox">
+                      <label style="font-size: 1.5em">
+                        <input type="checkbox" name="census[{{$i}}][value]" >
+                        <span class="cr"><i class="cr-icon fa fa-check"></i></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                {{$i++}}
+              @endforeach
+              <button type="submit" class="btn btn-primary">Enregistrer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+@endforeach
+
 
 @section('extraJs')
 <script src="{{ asset('frontend/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>

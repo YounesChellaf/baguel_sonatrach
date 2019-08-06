@@ -15,15 +15,18 @@
                             <h5>Cocher les equipements présents dans la chambre</h5>
                         </div>
                         <div class="card-block">
-                            <form action="{{ route('admin.reservation.create.post') }}" method="post">
+                            <form action="{{ route('admin.reservation.create.checklist') }}" method="post">
                                 @csrf
                                 @foreach($instances as $instance)
                                 <div class="form-row">
                                     <div class="form-group col-md-8">
                                         <label for="inputState">{{$instance->equipement->type}} ==>  {{$instance->equipement->marque}} ({{$instance->status}})</label>
+                                        <input type="hidden" name="census[key]" id="" value="{{$instance->id}}">
+                                        <input type="hidden" name="reservation_id" id="" value="{{$reservation->id}}">
+
                                     </div>
                                     <div class="form-group col-md-4">
-                                        <input type="checkbox" name="presence[]" id="">
+                                        <input type="checkbox" name="census[value]" id="">
                                     </div>
                                 </div>
                                 @endforeach

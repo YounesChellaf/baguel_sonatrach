@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NewReservationRequest;
+use App\Models\Checklist;
 use App\Models\Reservation;
 use App\Models\Room;
 use Illuminate\Http\Request;
@@ -18,9 +19,10 @@ class ReservationController extends Controller
     }
 
     public function checkView($id){
-        $room = Reservation::find($id)->room;
+        $reservation= Reservation::find($id);
+        $room =$reservation->room;
 //        dd($room->instance[0]);
-        return view('reservation.room_checklist')->with('instances',$room->instance);
+        return view('reservation.room_checklist')->with('instances',$room->instance)->with('reservation',$reservation);
     }
     public function createRoomReservation($id){
         $room = Room::find($id);
@@ -36,7 +38,13 @@ class ReservationController extends Controller
                 return view('reservation.create')->with('room',null)->with('reserved_error',$reservation);
             }
         }
+    }
 
+    public function ChecklistStore(Request $request){
+        if ($request->post()){
+            Checklist::create($request->all());
+            return view('reservation.index');
+        }
     }
     public function aprouve($id){
         $reservation = Reservation::find($id);
