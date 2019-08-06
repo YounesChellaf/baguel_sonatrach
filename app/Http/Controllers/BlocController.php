@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Imports\BlocsImport;
+use App\Imports\OracleImporte;
 use App\Models\Bloc;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -109,6 +110,19 @@ class BlocController extends Controller
         if($request->post()){
             if($request->file('BlocsFileInput')){
                 Excel::import(new BlocsImport, $request->file('BlocsFileInput'));
+                return back();
+            }else{
+                abort(404);
+            }
+        }else{
+            abort(404);
+        }
+    }
+
+    public function importOracle(Request $request){
+        if($request->post()){
+            if($request->file('OracleFileInput')){
+                Excel::import(new OracleImporte, $request->file('OracleFileInput'));
                 return back();
             }else{
                 abort(404);

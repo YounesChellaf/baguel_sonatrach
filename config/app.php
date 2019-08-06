@@ -260,6 +260,7 @@ return [
     'DotationSupport' => App\Models\DotationSupport::class,
     'VisitorSupport' => App\Models\VisitorSupport::class,
     'CleaningOrder' => App\Models\CleaningOrder::class,
+    'OraclePlanning' => App\Models\OraclePlanning::class,
   ],
 
 ];

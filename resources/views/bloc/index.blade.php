@@ -19,7 +19,7 @@
       <div class="page-body">
         <div class="row">
           <div class="col-sm-12">
-
+            {{dd(App\Interfaces\Oracle::getPlanning())}}
             <div class="card">
               <div class="card-header table-card-header">
                 <h5>HTML5 Export Buttons</h5>
@@ -201,12 +201,12 @@
         <p>
           Cette option va vous permettre d'importer une liste des blocs depuis un fichier Excel / CSV
         </p>
-        <form action="{{ route('admin.bloc.import') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
+        <form action="{{ route('admin.bloc.Oracleimport') }}" class="employeesImportForm" method="post" enctype="multipart/form-data">
           @csrf
           <div class="form-group row">
             <label class="col-sm-2 col-form-label">Fichier: </label>
             <div class="col-sm-10">
-              <input type="file" name="BlocsFileInput" required class="form-control">
+              <input type="file" name="OracleFileInput" required class="form-control">
             </div>
           </div>
           <button type="submit" class="btn btn-info">Importer</button>
